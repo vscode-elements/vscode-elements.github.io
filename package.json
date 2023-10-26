@@ -3,6 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "copy-assets": "node scripts/copy-assets.cjs",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
@@ -18,7 +19,7 @@
     "rehype-toc": "^3.0.2"
   },
   "devDependencies": {
-    "@vsc-elements/elements": "^1.0.0-pre.3",
+    "@vsc-elements/elements": "^1.0.0-pre.4",
     "@vscode/codicons": "^0.0.33"
   }
 }
