@@ -1,0 +1,82 @@
+---
+import packageJson from '../../package.json';
+import Logo from "./Logo.astro";
+import ContentWrapper from './ContentWrapper.astro';
+---
+<header class="PageHeader">
+  <ContentWrapper>
+    <div class="content">
+      <div class="logo">
+        <Logo />
+      </div>
+      <a href="/" class="title">VSCode Webview Elements</a> <span class="version">{packageJson.version}</span>
+      <!-- {% if toc %}
+        <ul class="in-page-nav">
+          <li>
+            <h2><span>In-page Navigation</span></h2>
+            <ul class="in-page-nav-dropdown">
+              <li><a href="#top">Go to top</a></li>
+              {%- for item in toc -%}
+                <li><a href="#{{item.path}}">{{item.label}}</a></li>
+              {%- endfor -%}
+            </ul>
+          </li>
+        </ul>
+      {% endif %} -->
+    </div>
+  </ContentWrapper>
+</header>
+<style>
+  .PageHeader {
+    align-items: center;
+    background-color: var(--color-light-gray);
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+    display: flex;
+    height: 50px;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+  }
+
+  .content {
+    align-items: center;
+    display: flex;
+    padding: 0 40px;
+  }
+
+  .logo {
+    height: 20px;
+    margin-right: 10px;
+    width: 46px;
+  }
+
+  .logo :global(svg) {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+
+  .logo {
+    height: 20px;
+    margin-right: 10px;
+    width: 46px;
+  }
+
+  .title {
+    color: var(--color-vscode-blue);
+    font-size: 20px;
+    font-family: 'Source Sans Pro';
+    font-weight: 900;
+    margin: 0;
+    text-decoration: none;
+  }
+
+  .version {
+    display: inline-block;
+    font-size: 14px;
+    margin-left: 20px;
+  }
+</style>

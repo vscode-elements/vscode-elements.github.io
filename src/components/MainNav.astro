@@ -1,0 +1,75 @@
+---
+import { getCollection } from 'astro:content';
+
+const componentPageEntries = await getCollection('components');
+const { pathname } = Astro.url;
+---
+<nav class="MainNav">
+  <ul>
+    <li>
+      <a href="components">Components</a>
+      <ul>
+        {componentPageEntries.map((entry) => {
+          const current = `/components/${entry.slug}/` === pathname;
+
+          return (
+            <li>
+              <a
+                href={`/components/${entry.slug}/`}
+                aria-current={current ? 'page' : null}
+                class={current ? 'current' : null}
+              >{entry.data.title}</a>
+            </li>
+          )
+        })}
+      </ul>
+    </li>
+  </ul>
+</nav>
+<style>
+  .MainNav {
+    box-sizing: border-box;
+    padding: 12px 20px 20px 20px;
+  }
+
+  .MainNav a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .MainNav ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  .MainNav li {
+    font-size: 16px;
+    font-weight: bold;
+    list-style: none;
+    margin: 8px 0;
+    padding: 0;
+    position: relative;
+  }
+
+  .MainNav a {
+    border-left: 3px solid transparent;
+    display: inline-block;
+    padding-left: 8px;
+  }
+
+  .MainNav .warning {
+    display: inline-block;
+    margin-left: 5px;
+  }
+
+  .MainNav .current {
+    border-left: 3px solid var(--color-vscode-blue);
+    display: block;
+  }
+
+  .MainNav ul li li {
+    font-size: 14px;
+    font-weight: normal;
+    margin: 8px 0 8px 20px;
+  }
+</style>

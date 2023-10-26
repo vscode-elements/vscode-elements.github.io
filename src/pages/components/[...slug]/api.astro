@@ -1,0 +1,24 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import Page from '../../../layouts/Page.astro';
+
+const { slug } = Astro.params;
+const { entry } = Astro.props;
+const { title } = entry.data;
+const { Content } = await entry.render();
+
+export async function getStaticPaths() {
+  const apiPageEntries = await getCollection('api');
+
+  return apiPageEntries.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+---
+
+api page: {slug}
+
+<Page title="aa">
+  <h1>aa</h1>
+  <Content />
+</Page>

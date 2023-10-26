@@ -1,0 +1,131 @@
+---
+import { uniqueId } from '../scripts/helpers'
+
+const uid = uniqueId('Demo_');
+---
+<div class="Demo" id={uid}>
+  <component-preview><slot /></component-preview>
+  <div class="source">
+    <ul class="tabs">
+      <li class="active" id={`${uid}_html_tab`}>
+        <button
+          data-demo-tab-button
+          data-uid={uid}
+          data-target="html"
+          type="button"
+        >HTML</button>
+      </li>
+      {Astro.slots.css && (
+        <li id={`${uid}_css_tab`}>
+          <button
+            data-demo-tab-button
+            data-uid={uid}
+            data-target="css"
+            type="button"
+          >CSS</button>
+        </li>
+      )}
+      {Astro.slots.js && (
+        <li id={`${uid}_js_tab`}>
+          <button
+            data-demo-tab-button
+            data-uid={uid}
+            data-target="js"
+            type="button"
+          >JavaScript</button>
+        </li>
+      )}
+    </ul>
+    <div class="tab-content active" id={`${uid}_html`}><slot name="html" /></div>
+    <div class="tab-content" id={`${uid}_css`}><slot name="css" /></div>
+    <div class="tab-content" id={`${uid}_js`}><slot name="js" /></div>
+  </div>
+</div>
+<style>
+  .Demo {
+    background-color: #fff;
+    box-sizing: border-box;
+    border: 1px solid rgba(36, 41, 46, 0.2);
+  }
+
+  .tab-content {
+    display: none;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .Demo :global(pre) {
+    border: 0;
+    border-radius: 0;
+    font-size: 16px;
+    margin: 0;
+    padding: 25px;
+  }
+
+  .tabs {
+    background-color: #eee;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 20px;
+  }
+
+  .tabs button {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    padding: 10px 15px;
+  }
+
+  .tabs .active {
+    background-color: #fafafa;
+  }
+</style>
+<script>
+function hideAllTabs(uid: string) {
+  const cmp = document.getElementById(uid);
+  const tabs = cmp?.querySelectorAll<HTMLLIElement>('.tabs > li') ?? [];
+  const tabContents = cmp?.querySelectorAll<HTMLDivElement>('.tab-content') ?? [];
+
+  tabs.forEach((tb) => {
+    tb.classList.toggle('active', false);
+  });
+
+  tabContents.forEach((tp) => {
+    tp.classList.toggle('active', false);
+  });
+}
+
+function showTab(uid: string, lang: 'html' | 'js' | 'css' = 'html') {
+  const tab = document.getElementById(`${uid}_${lang}_tab`) as HTMLLIElement;
+  const tabContent = document.getElementById(`${uid}_${lang}`) as HTMLDivElement;
+
+  hideAllTabs(uid);
+  tab.classList.toggle('active', true);
+  tabContent.classList.toggle('active', true);
+}
+
+const buttons = document.querySelectorAll<HTMLButtonElement>('[data-demo-tab-button]');
+const demoDetails = document.querySelectorAll<HTMLDetailsElement>('.Demo__details');
+
+buttons.forEach((bt) => {
+  bt.addEventListener('click', () => {
+    const uid = bt.dataset.uid ?? '';
+    const target = bt.dataset.target ?? 'html';
+
+    showTab(uid, target as 'html' |'css' | 'js');
+  });
+});
+
+demoDetails.forEach((dt) => {
+  const uid = dt.dataset.uid ?? '';
+
+  dt.addEventListener('toggle', () => {
+    if (dt.open) {
+      showTab(uid, 'html');
+    }
+  });
+});
+</script>
