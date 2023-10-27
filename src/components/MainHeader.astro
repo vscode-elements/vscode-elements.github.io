@@ -3,31 +3,18 @@ import packageJson from '../../package.json';
 import Logo from "./Logo.astro";
 import ContentWrapper from './ContentWrapper.astro';
 ---
-<header class="PageHeader">
+<header class="MainHeader">
   <ContentWrapper>
     <div class="content">
       <div class="logo">
         <Logo />
       </div>
       <a href="/" class="title">VSCode Webview Elements</a> <span class="version">{packageJson.version}</span>
-      <!-- {% if toc %}
-        <ul class="in-page-nav">
-          <li>
-            <h2><span>In-page Navigation</span></h2>
-            <ul class="in-page-nav-dropdown">
-              <li><a href="#top">Go to top</a></li>
-              {%- for item in toc -%}
-                <li><a href="#{{item.path}}">{{item.label}}</a></li>
-              {%- endfor -%}
-            </ul>
-          </li>
-        </ul>
-      {% endif %} -->
     </div>
   </ContentWrapper>
 </header>
 <style>
-  .PageHeader {
+  .MainHeader {
     align-items: center;
     background-color: var(--color-light-gray);
     border-bottom: 1px solid #ddd;
