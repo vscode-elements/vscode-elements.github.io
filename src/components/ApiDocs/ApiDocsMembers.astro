@@ -1,0 +1,121 @@
+---
+import type {
+  ClassMember,
+  ClassMethod,
+  CustomElementField,
+} from 'custom-elements-manifest/schema';
+import marked from 'marked';
+
+interface Props {
+  members: ClassMember[];
+}
+
+const { members } = Astro.props;
+
+const memberCompare = (a: ClassMember, b: ClassMember) => {
+  if (a.name > b.name) {
+    return 1;
+  } else if (a.name < b.name) {
+    return -1;
+  } else {
+    return 0;
+  }
+};
+
+const publicMembers = members.filter((m) =>
+  m.privacy ? m.privacy !== 'private' && m.privacy !== 'protected' : true
+);
+const fields = publicMembers
+  .filter((m) => m.kind === 'field')
+  .sort(memberCompare) as CustomElementField[];
+const methods = publicMembers
+  .filter((m) => m.kind === 'method')
+  .sort(memberCompare) as ClassMethod[];
+---
+
+{
+  fields ? (
+    <>
+      <h2>Properties</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Attribute</th>
+            <th>Type</th>
+            <th>Default</th>
+          </tr>
+        </thead>
+        <>
+          {fields.map((field) => {
+            return (
+              <>
+                <tr class="bordered">
+                  <td>{field.name}</td>
+                  <td>{field.attribute ? field.attribute : ' '}</td>
+                  <td>{field.type?.text ? field.type.text : ' '}</td>
+                  <td>{field.default ? field.default : ' '}</td>
+                </tr>
+                {field.description ? (
+                  <tr>
+                    <td colspan="4" set:html={marked.parse(field.description)}></td>
+                  </tr>
+                ) : null}
+              </>
+            );
+          })}
+        </>
+      </table>
+    </>
+  ) : null
+}
+
+{
+  methods.length > 0 ? (
+    <>
+      <h2>Methods</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Parameters</th>
+            <th>Return Type</th>
+          </tr>
+        </thead>
+        <>
+          {methods.map((field) => {
+            return (
+              <>
+                <tr class="bordered">
+                  <td>{field.name}</td>
+                  <td></td>
+                  <td>{field?.return?.type ? field.return.type : 'void'}</td>
+                </tr>
+                {field.description ? (
+                  <tr>
+                    <td colspan="3" set:html={marked.parse(field.description)}></td>
+                  </tr>
+                ) : null}
+              </t>
+            );
+          })}
+        </>
+      </table>
+    </>
+  ) : null
+}
+
+<style>
+  table {
+    position: relative;
+  }
+
+  tr.bordered td {
+    border-top: 1px solid #ccc;
+  }
+
+  th {
+    position: sticky;
+    top: 50px;
+  }
+</style>

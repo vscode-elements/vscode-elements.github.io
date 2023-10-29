@@ -1,0 +1,19 @@
+---
+import type {
+  ClassMember,
+  CustomElement,
+  CustomElementField,
+  Declaration,
+} from 'custom-elements-manifest/schema';
+import ApiDocsMembers from './ApiDocsMembers.astro';
+
+interface Props {
+  declaration: CustomElement;
+}
+
+const { declaration } = Astro.props;
+---
+
+<h1>{declaration.name}</h1>
+
+{declaration.members ? <ApiDocsMembers members={declaration.members} /> : null}

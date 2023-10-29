@@ -1,7 +1,17 @@
 ---
-import type { Package } from 'custom-elements-manifest/schema';
+import type {
+  ClassDeclaration,
+  CustomElement,
+  CustomElementDeclaration,
+  CustomElementField,
+  Declaration,
+  JavaScriptModule,
+  Package,
+} from 'custom-elements-manifest/schema';
 import cemData from '@data/custom-elements.json';
 import { Debug } from 'astro:components';
+import ApiDocsMembers from './ApiDocsMembers.astro';
+import ApiDocsDeclaration from './ApiDocsDeclaration.astro';
 
 interface Props {
   element: string;
@@ -24,4 +34,10 @@ const getElementGroup = (name: string, pack: Package) => {
 const elementGroup = getElementGroup(element, cemData as Package);
 ---
 
-<Debug {elementGroup} />
+{
+  elementGroup?.declarations
+    ? elementGroup.declarations
+        .filter((d) => (d as CustomElementDeclaration).customElement)
+        .map((d) => <ApiDocsDeclaration declaration={d as CustomElement} />)
+    : null
+}
