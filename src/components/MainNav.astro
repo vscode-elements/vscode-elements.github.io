@@ -7,10 +7,10 @@ const { pathname } = Astro.url;
 <nav class="MainNav">
   <ul>
     <li>
-      <a href="components">Components</a>
+      <a href="/components">Components</a>
       <ul>
         {componentPageEntries.map((entry) => {
-          const current = `/components/${entry.slug}/` === pathname;
+          const current = pathname.indexOf(`/components/${entry.slug}`) === 0;
 
           return (
             <li>

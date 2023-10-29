@@ -1,0 +1,27 @@
+---
+import type { Package } from 'custom-elements-manifest/schema';
+import cemData from '@data/custom-elements.json';
+import { Debug } from 'astro:components';
+
+interface Props {
+  element: string;
+}
+
+const { element } = Astro.props;
+
+const getElementGroup = (name: string, pack: Package) => {
+  const foundModule = pack.modules.find((m) => {
+    const foundCustomElementDef = m.exports?.find(
+      (e) => e.kind === 'custom-element-definition' && e.name === name
+    );
+
+    return foundCustomElementDef;
+  });
+
+  return foundModule;
+};
+
+const elementGroup = getElementGroup(element, cemData as Package);
+---
+
+<Debug {elementGroup} />

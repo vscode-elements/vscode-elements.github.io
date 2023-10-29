@@ -1,7 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import Page from '../../layouts/Page.astro';
-import { Debug } from 'astro:components';
+import ComponentPage from 'src/layouts/ComponentPage.astro';
 
 export async function getStaticPaths() {
   const componentPageEntries = await getCollection('components');
@@ -14,9 +13,7 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { title } = entry.data;
 const { Content } = await entry.render();
-const headings = Astro.props;
 ---
-<Page title={title}>
-  <h1>{title}</h1>
+<ComponentPage title={title}>
   <Content />
-</Page>
+</ComponentPage>

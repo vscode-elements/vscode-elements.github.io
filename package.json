@@ -21,6 +21,7 @@
   "devDependencies": {
     "@vsc-elements/elements": "^1.0.0-pre.4",
     "@vscode/codicons": "^0.0.33",
+    "custom-elements-manifest": "^2.0.0",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.1"
   }

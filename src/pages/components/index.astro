@@ -1,1 +1,20 @@
-index list page
+---
+import { getCollection } from 'astro:content';
+import Page from 'src/layouts/Page.astro';
+
+const componentPageEntries = await getCollection('components');
+---
+
+<Page title="Components">
+  <ul>
+    {
+      componentPageEntries.map((entry) => {
+        return (
+          <li>
+            <a href={`/components/${entry.slug}/`}>{entry.data.title}</a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</Page>
