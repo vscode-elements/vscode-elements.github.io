@@ -1,5 +1,5 @@
 ---
-import Layout from './Layout.astro';
+import Layout from "./Layout.astro";
 
 interface Props {
   title: string;
@@ -16,13 +16,14 @@ const path = Astro.url.pathname;
       <li>
         <a
           href={`/components/${slug}`}
-          class={path === `/components/${slug}` ? 'current' : null}>Examples</a
+          class={path === `/components/${slug}` ? "current" : null}>Examples</a
         >
       </li>
       <li>
         <a
           href={`/components/${slug}/api`}
-          class={path === `/components/${slug}/api` ? 'current' : null}>API</a>
+          class={path === `/components/${slug}/api` ? "current" : null}>API</a
+        >
       </li>
     </ul>
   </div>
