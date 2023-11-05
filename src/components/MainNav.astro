@@ -1,27 +1,37 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 
-const componentPageEntries = await getCollection('components');
+const componentPageEntries = await getCollection("components");
 const { pathname } = Astro.url;
 ---
+
 <nav class="MainNav">
   <ul>
     <li>
       <a href="/components">Components</a>
       <ul>
-        {componentPageEntries.map((entry) => {
-          const current = pathname.indexOf(`/components/${entry.slug}`) === 0;
+        {
+          componentPageEntries.map((entry) => {
+            const current = pathname.indexOf(`/components/${entry.slug}`) === 0;
+            const api = pathname.search(/\/api$/) > -1;
 
-          return (
-            <li>
-              <a
-                href={`/components/${entry.slug}`}
-                aria-current={current ? 'page' : null}
-                class={current ? 'current' : null}
-              >{entry.data.title}</a>
-            </li>
-          )
-        })}
+            return (
+              <li>
+                <a
+                  href={
+                    api
+                      ? `/components/${entry.slug}/api`
+                      : `/components/${entry.slug}`
+                  }
+                  aria-current={current ? "page" : null}
+                  class={current ? "current" : null}
+                >
+                  {entry.data.title}
+                </a>
+              </li>
+            );
+          })
+        }
       </ul>
     </li>
   </ul>
