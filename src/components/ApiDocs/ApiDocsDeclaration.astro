@@ -50,11 +50,11 @@ const cssProps = declaration.cssProperties
   : [];
 ---
 
-<h1 class:list={[{deprecated: deprecatedDeclaration}]}>
-  {declaration.name}{
+<div class:list={["declaration-header", {deprecated: deprecatedDeclaration}]}>
+  <code>&lt;{declaration.tagName}&gt;</code>{
     deprecatedDeclaration ? <ApiDocsBadge flag="deprecated" /> : null
   }
-</h1>
+</div>
 {
   typeof deprecatedDeclaration === "string" &&
   deprecatedDeclaration !== "true" ? (
@@ -75,14 +75,14 @@ const cssProps = declaration.cssProperties
 <ApiDocsSection title="Custom CSS Properties" members={cssProps} />
 
 <style>
-  h1 {
-    font-size: 48px;
+  .declaration-header code {
+    font-size: 18px;
     font-weight: normal;
-    margin: 20px 0 0;
+    margin: 0;
     line-height: 1.2;
   }
 
-  h1.deprecated {
+  .declaration-header.deprecated {
     text-decoration: line-through;
   }
 </style>

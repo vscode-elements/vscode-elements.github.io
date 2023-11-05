@@ -35,6 +35,8 @@ const urlHash = title.replaceAll(" ", "_");
       <dl>
         {members.map((member) => {
           const { name, description, deprecated } = member;
+          const readonly = "readonly" in member;
+          const reflected = "reflects" in member;
           const hasAttribute = "attribute" in member;
           const hasType = "type" in member && member.type && member.type.text;
           const hasDefaultValue = "default" in member;
@@ -58,7 +60,9 @@ const urlHash = title.replaceAll(" ", "_");
               <DescriptionTermWrapper
                 class:list={["description-term", { deprecated }]}
               >
-                {name} {deprecated ? <ApiDocsBadge flag="deprecated" /> : null}
+                {name} {deprecated ? <ApiDocsBadge flag="deprecated" /> : null}{" "}
+                {readonly ? <ApiDocsBadge flag="readonly" /> : null}{" "}
+                {reflected ? <ApiDocsBadge flag="reflected" /> : null}{" "}
               </DescriptionTermWrapper>
               {hasDetails ? (
                 <dd>
@@ -161,7 +165,7 @@ const urlHash = title.replaceAll(" ", "_");
     padding: 10px 20px;
   }
 
-  .definition-item:nth-child(odd) {
+  .definition-item:nth-child(even) {
     background-color: #f7f7f7;
   }
 
@@ -179,7 +183,10 @@ const urlHash = title.replaceAll(" ", "_");
     padding: 2px 10px 2px 0;
     text-align: left;
     vertical-align: top;
-    width: 100px;
+  }
+
+  th:after {
+    content: ":";
   }
 
   td {
