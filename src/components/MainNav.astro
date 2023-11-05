@@ -11,26 +11,41 @@ const { pathname } = Astro.url;
       <a href="/components">Components</a>
       <ul>
         {
-          componentPageEntries.map((entry) => {
-            const current = pathname.indexOf(`/components/${entry.slug}`) === 0;
-            const api = pathname.search(/\/api$/) > -1;
+          componentPageEntries
+            .sort((a, b) => {
+              if (a.data.title > b.data.title) {
+                return 1;
+              } else if (a.data.title < b.data.title) {
+                return -1;
+              } else {
+                return 0;
+              }
+            })
+            .map((entry) => {
+              const current =
+                pathname.search(new RegExp(`\/components\/${entry.slug}$`)) >
+                  -1 ||
+                pathname.search(
+                  new RegExp(`\/components\/${entry.slug}/api$`)
+                ) > -1;
+              const api = pathname.search(/\/api$/) > -1;
 
-            return (
-              <li>
-                <a
-                  href={
-                    api
-                      ? `/components/${entry.slug}/api`
-                      : `/components/${entry.slug}`
-                  }
-                  aria-current={current ? "page" : null}
-                  class={current ? "current" : null}
-                >
-                  {entry.data.title}
-                </a>
-              </li>
-            );
-          })
+              return (
+                <li>
+                  <a
+                    href={
+                      api
+                        ? `/components/${entry.slug}/api`
+                        : `/components/${entry.slug}`
+                    }
+                    aria-current={current ? "page" : null}
+                    class={current ? "current" : null}
+                  >
+                    {entry.data.title}
+                  </a>
+                </li>
+              );
+            })
         }
       </ul>
     </li>

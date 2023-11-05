@@ -37,6 +37,7 @@ const urlHash = title.replaceAll(" ", "_");
           const { name, description, deprecated } = member;
           const readonly = "readonly" in member;
           const reflected = "reflects" in member;
+          const staticMember = "static" in member && member.static === true;
           const hasAttribute = "attribute" in member;
           const hasType = "type" in member && member.type && member.type.text;
           const hasDefaultValue = "default" in member;
@@ -60,9 +61,11 @@ const urlHash = title.replaceAll(" ", "_");
               <DescriptionTermWrapper
                 class:list={["description-term", { deprecated }]}
               >
-                {name} {deprecated ? <ApiDocsBadge flag="deprecated" /> : null}{" "}
+                <span class="name">{name ? name : <i>Unnamed</i>}</span>{" "}
+                {deprecated ? <ApiDocsBadge flag="deprecated" /> : null}{" "}
                 {readonly ? <ApiDocsBadge flag="readonly" /> : null}{" "}
                 {reflected ? <ApiDocsBadge flag="reflected" /> : null}{" "}
+                {staticMember ? <ApiDocsBadge flag="static" /> : null}{" "}
               </DescriptionTermWrapper>
               {hasDetails ? (
                 <dd>
@@ -144,17 +147,27 @@ const urlHash = title.replaceAll(" ", "_");
     text-decoration: inherit;
   }
 
-  dt {
+  .description-term {
+    align-items: center;
+    display: flex;
     font-size: 18px;
+    margin: 0;
+  }
+
+  .description-term :global(.ApiDocsBadge) {
+    margin-left: auto;
+  }
+
+  dt.description-term {
     margin-bottom: 20px;
   }
 
-  .description-term.deprecated {
+  .description-term.deprecated .name {
     text-decoration: line-through;
   }
 
-  p.description-term {
-    margin: 0;
+  .description-term .name i {
+    opacity: 0.7;
   }
 
   dd {
@@ -199,5 +212,11 @@ const urlHash = title.replaceAll(" ", "_");
     overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: break-word;
+  }
+</style>
+<style is:global>
+  .ApiDocsSection .description code {
+    background-color: #e7e7e7;
+    padding: 0 4px;
   }
 </style>
