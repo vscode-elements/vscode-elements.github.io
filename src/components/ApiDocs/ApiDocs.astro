@@ -4,14 +4,13 @@ import type {
   CustomElement,
   CustomElementDeclaration,
   CustomElementField,
-  Declaration,
   JavaScriptModule,
   Package,
-} from 'custom-elements-manifest/schema';
-import cemData from '@data/custom-elements.json';
-import { Debug } from 'astro:components';
-import ApiDocsMembers from './ApiDocsMembers.astro';
-import ApiDocsDeclaration from './ApiDocsDeclaration.astro';
+} from "custom-elements-manifest/schema";
+import cemData from "@data/custom-elements.json";
+import { Debug } from "astro:components";
+import ApiDocsMembers from "./ApiDocsMembers.astro";
+import ApiDocsDeclaration from "./ApiDocsDeclaration.astro";
 
 interface Props {
   element: string;
@@ -22,7 +21,7 @@ const { element } = Astro.props;
 const getElementGroup = (name: string, pack: Package) => {
   const foundModule = pack.modules.find((m) => {
     const foundCustomElementDef = m.exports?.find(
-      (e) => e.kind === 'custom-element-definition' && e.name === name
+      (e) => e.kind === "custom-element-definition" && e.name === name
     );
 
     return foundCustomElementDef;
@@ -32,12 +31,41 @@ const getElementGroup = (name: string, pack: Package) => {
 };
 
 const elementGroup = getElementGroup(element, cemData as Package);
+const declarations = elementGroup?.declarations
+  ? elementGroup.declarations.filter(
+      (d) => (d as CustomElementDeclaration).customElement
+    )
+  : [];
 ---
 
-{
-  elementGroup?.declarations
-    ? elementGroup.declarations
-        .filter((d) => (d as CustomElementDeclaration).customElement)
-        .map((d) => <ApiDocsDeclaration declaration={d as CustomElement} />)
-    : null
-}
+<div class="ApiDocs">
+  {
+    declarations.map((d) => (
+      <ApiDocsDeclaration declaration={d as CustomElementDeclaration} />
+    ))
+  }
+</div>
+
+<style is:global>
+  .ApiDocs .row:not(:last-child) {
+    border-bottom: 1px solid #000;
+  }
+
+  .ApiDocs .groups {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+  }
+
+  .ApiDocs .DocsGroup {
+    flex-basis: 25%;
+    width: 100%;
+  }
+
+  .ApiDocs .description p:first-child {
+    margin-top: 0;
+  }
+
+  .ApiDocs .description p:last-child {
+    margin-bottom: 0;
+  }
+</style>

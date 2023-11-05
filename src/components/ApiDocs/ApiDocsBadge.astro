@@ -1,0 +1,36 @@
+---
+type Props = {
+  flag: "static" | "reflects" | "read-only" | "deprecated";
+};
+
+const { flag } = Astro.props;
+---
+
+<div class:list={["ApiDocsBadge", flag]}>
+  {flag}
+</div>
+
+<style>
+  .ApiDocsBadge {
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: normal;
+    margin: 0 4px;
+    padding: 1px 6px;
+  }
+
+  .deprecated {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+  }
+
+  .static {
+    background-color: #cce5ff;
+    border-color: #b8daff;
+    color: #004085;
+  }
+</style>

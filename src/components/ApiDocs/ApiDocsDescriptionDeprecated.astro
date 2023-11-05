@@ -1,0 +1,33 @@
+---
+import { marked } from "marked";
+
+type Props = {
+  markdown: string;
+};
+
+const { markdown } = Astro.props;
+---
+
+<div set:html={marked.parse(markdown)} class="ApiDocsDescriptionDeprecated" />
+
+<style>
+  .ApiDocsDescriptionDeprecated {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+  }
+</style>
+
+<style is:global>
+  .ApiDocsDescriptionDeprecated p:first-child,
+  .ApiDocsDescriptionDeprecated ul:first-child,
+  .ApiDocsDescriptionDeprecated ol:first-child {
+    margin-top: 0;
+  }
+
+  .ApiDocsDescriptionDeprecated p:last-child,
+  .ApiDocsDescriptionDeprecated ul:last-child,
+  .ApiDocsDescriptionDeprecated ol:last-child {
+    margin-bottom: 0;
+  }
+</style>

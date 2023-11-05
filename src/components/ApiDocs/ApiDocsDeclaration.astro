@@ -1,19 +1,88 @@
 ---
 import type {
   ClassMember,
+  ClassMethod,
+  CssCustomProperty,
   CustomElement,
   CustomElementField,
-  Declaration,
-} from 'custom-elements-manifest/schema';
-import ApiDocsMembers from './ApiDocsMembers.astro';
+} from "custom-elements-manifest/schema";
+import { marked } from "marked";
+import ApiDocsBadge from "./ApiDocsBadge.astro";
+import ApiDocsDescriptionDeprecated from "./ApiDocsDescriptionDeprecated.astro";
+import ApiDocsSection from "./ApiDocsSection.astro";
 
 interface Props {
   declaration: CustomElement;
 }
 
 const { declaration } = Astro.props;
+
+type Comparable = ClassMember | CssCustomProperty;
+
+const memberCompare = (a: Comparable, b: Comparable) => {
+  if (a.name > b.name) {
+    return 1;
+  } else if (a.name < b.name) {
+    return -1;
+  } else {
+    return 0;
+  }
+};
+
+const deprecatedDeclaration = declaration.deprecated ?? false;
+const members = declaration.members ?? [];
+const publicMembers = members.filter((m) =>
+  m.privacy ? m.privacy !== "private" && m.privacy !== "protected" : true
+);
+const fields = publicMembers
+  .filter((m) => m.kind === "field")
+  .sort(memberCompare) as CustomElementField[];
+const methods = publicMembers
+  .filter((m) => m.kind === "method")
+  .sort(memberCompare) as ClassMethod[];
+const attributes = declaration.attributes
+  ? declaration.attributes.filter((a) => !a.fieldName).sort(memberCompare)
+  : [];
+const events = declaration.events ? declaration.events.sort(memberCompare) : [];
+const slots = declaration.slots ? declaration.slots.sort(memberCompare) : [];
+const cssProps = declaration.cssProperties
+  ? declaration.cssProperties.sort(memberCompare)
+  : [];
 ---
 
-<h1>{declaration.name}</h1>
+<h1 class:list={[{deprecated: deprecatedDeclaration}]}>
+  {declaration.name}{
+    deprecatedDeclaration ? <ApiDocsBadge flag="deprecated" /> : null
+  }
+</h1>
+{
+  typeof deprecatedDeclaration === "string" &&
+  deprecatedDeclaration !== "true" ? (
+    <ApiDocsDescriptionDeprecated markdown={deprecatedDeclaration} />
+  ) : null
+}
+{
+  declaration.description ? (
+    <div set:html={marked.parse(declaration.description)} />
+  ) : null
+}
 
-{declaration.members ? <ApiDocsMembers members={declaration.members} /> : null}
+<ApiDocsSection title="Properties" members={fields} />
+<ApiDocsSection title="Attributes" members={attributes} />
+<ApiDocsSection title="Methods" members={methods} />
+<ApiDocsSection title="Events" members={events} />
+<ApiDocsSection title="Slots" members={slots} />
+<ApiDocsSection title="Custom CSS Properties" members={cssProps} />
+
+<style>
+  h1 {
+    font-size: 48px;
+    font-weight: normal;
+    margin: 20px 0 0;
+    line-height: 1.2;
+  }
+
+  h1.deprecated {
+    text-decoration: line-through;
+  }
+</style>

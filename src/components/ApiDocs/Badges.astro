@@ -1,0 +1,31 @@
+---
+type Props = {
+  static?: boolean;
+  reflects?: boolean;
+  readonly?: boolean;
+};
+
+const { static: isStatic, reflects, readonly } = Astro.props;
+---
+
+<div class="badges">
+  {isStatic ? <div class="static">static</div> : null}
+  {reflects ? <div class="reflects">reflects</div> : null}
+  {readonly ? <div class="readonly">read-only</div> : null}
+</div>
+
+<style>
+  .static,
+  .reflects,
+  .readonly {
+    border-radius: 3px;
+    display: inline-block;
+    padding: 1px 3px;
+  }
+
+  .static {
+    background-color: #cce5ff;
+    border-color: #b8daff;
+    color: #004085;
+  }
+</style>

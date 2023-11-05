@@ -3333,7 +3333,7 @@
             "name": "VscElement",
             "module": "/src/includes/VscElement.js"
           },
-          "deprecated": "true",
+          "deprecated": "Use `textfield` or `textarea` instead",
           "tagName": "vscode-inputbox",
           "customElement": true
         }
