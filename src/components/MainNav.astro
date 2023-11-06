@@ -23,12 +23,12 @@ const { pathname } = Astro.url;
             })
             .map((entry) => {
               const current =
-                pathname.search(new RegExp(`\/components\/${entry.slug}$`)) >
+                pathname.search(new RegExp(`/components/${entry.slug}/?$`, "g")) >
                   -1 ||
                 pathname.search(
-                  new RegExp(`\/components\/${entry.slug}/api$`)
+                  new RegExp(`/components/${entry.slug}/api/?$`, "g")
                 ) > -1;
-              const api = pathname.search(/\/api$/) > -1;
+              const api = pathname.search(/\/api\/?$/g) > -1;
 
               return (
                 <li>

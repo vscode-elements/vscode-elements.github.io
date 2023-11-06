@@ -8,21 +8,21 @@ interface Props {
 const { slug } = Astro.params;
 const { title } = Astro.props;
 const path = Astro.url.pathname;
+const isExamplePage = path.search(new RegExp(`/components/${slug}/?$`)) > -1;
+const isApiPage = path.search(new RegExp(`/components/${slug}/api/?$`)) > -1;
 ---
 
 <Layout title={title}>
   <div class="sub-nav">
     <ul>
       <li>
-        <a
-          href={`/components/${slug}`}
-          class={path === `/components/${slug}` ? "current" : null}>Examples</a
+        <a href={`/components/${slug}`} class={isExamplePage ? "current" : null}
+          >Examples</a
         >
       </li>
       <li>
-        <a
-          href={`/components/${slug}/api`}
-          class={path === `/components/${slug}/api` ? "current" : null}>API</a
+        <a href={`/components/${slug}/api`} class={isApiPage ? "current" : null}
+          >API</a
         >
       </li>
     </ul>

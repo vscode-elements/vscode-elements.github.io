@@ -1,9 +1,7 @@
 ---
-import { getCollection, getEntry } from 'astro:content';
-import Page from '../../../layouts/Page.astro';
+import { getCollection } from 'astro:content';
 import ComponentPage from 'src/layouts/ComponentPage.astro';
 
-const { slug } = Astro.params;
 const { entry } = Astro.props;
 const { title } = entry.data;
 const { Content } = await entry.render();
