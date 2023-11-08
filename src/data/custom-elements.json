@@ -245,7 +245,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[\n  defaultStyles,\n  declareThemeVariables([\n    {\n      componentProp: '--background',\n      vscodeProp: '--vscode-button-background',\n    },\n    {\n      componentProp: '--border',\n      vscodeProp: '--vscode-button-border',\n    },\n    {\n      componentProp: '--foreground',\n      vscodeProp: '--vscode-button-foreground',\n    },\n    {\n      componentProp: '--focus-border',\n      vscodeProp: '--vscode-focusBorder',\n    },\n    {\n      componentProp: '--icon-foreground',\n      vscodeProp: '--vscode-button-foreground',\n    },\n    {\n      componentProp: '--hover-background',\n      vscodeProp: '--vscode-button-hoverBackground',\n    },\n    {\n      componentProp: '--font-family',\n      vscodeProp: '--vscode-font-family',\n    },\n    {\n      componentProp: '--font-size',\n      vscodeProp: '--vscode-font-size',\n    },\n    {\n      componentProp: '--font-weight',\n      vscodeProp: '--vscode-font-weight',\n    },\n    {\n      componentProp: '--secondary-background',\n      vscodeProp: '--vscode-button-secondaryBackground',\n    },\n    {\n      componentProp: '--secondary-foreground',\n      vscodeProp: '--vscode-button-secondaryForeground',\n    },\n    {\n      componentProp: '--secondary-hover-background',\n      vscodeProp: '--vscode-button-secondaryHoverBackground',\n    },\n  ]),\n  css`\n    :host {\n      align-items: center;\n      background-color: var(--background);\n      border-color: var(--border);\n      border-style: solid;\n      border-radius: 2px;\n      border-width: 1px;\n      color: var(--foreground);\n      cursor: pointer;\n      display: inline-block;\n      font-family: var(--font-family);\n      font-size: var(--font-size);\n      font-weight: var(--font-weight);\n      line-height: 22px;\n      overflow: hidden;\n      padding: 1px 13px;\n      user-select: none;\n    }\n\n    :host([secondary]) {\n      color: var(--secondary-foreground);\n      background-color: var(--secondary-background);\n    }\n\n    :host([disabled]) {\n      cursor: default;\n      opacity: 0.4;\n      pointer-events: none;\n    }\n\n    :host(:hover) {\n      background-color: var(--hover-background);\n    }\n\n    :host([disabled]:hover) {\n      background-color: var(--background);\n    }\n\n    :host([secondary]:hover) {\n      background-color: var(--secondary-hover-background);\n    }\n\n    :host([secondary][disabled]:hover) {\n      background-color: var(--secondary-background);\n    }\n\n    :host(:focus),\n    :host(:active) {\n      outline: none;\n    }\n\n    :host(:focus) {\n      background-color: var(--hover-background);\n      outline: 1px solid var(--focus-border);\n      outline-offset: 2px;\n    }\n\n    :host([disabled]:focus) {\n      background-color: var(--background);\n      outline: 0;\n    }\n\n    :host([secondary]:focus) {\n      background-color: var(--secondary-hover-background);\n    }\n\n    :host([secondary][disabled]:focus) {\n      background-color: var(--secondary-background);\n    }\n\n    .wrapper {\n      align-items: center;\n      box-sizing: border-box;\n      display: flex;\n      justify-content: center;\n      position: relative;\n      width: 100%;\n    }\n\n    slot {\n      display: block;\n    }\n\n    .icon {\n      --foreground: var(--icon-foreground);\n      display: block;\n      margin-right: 3px;\n    }\n\n    .icon-after {\n      --foreground: var(--icon-foreground);\n      display: block;\n      margin-left: 3px;\n    }\n  `,\n]"
+          "default": "[\n  defaultStyles,\n  declareThemeVariables([\n    {\n      componentProp: '--background',\n      vscodeProp: '--vscode-button-background',\n    },\n    {\n      componentProp: '--border',\n      vscodeProp: '--vscode-button-border',\n    },\n    {\n      componentProp: '--foreground',\n      vscodeProp: '--vscode-button-foreground',\n    },\n    {\n      componentProp: '--focus-border',\n      vscodeProp: '--vscode-focusBorder',\n    },\n    {\n      componentProp: '--icon-foreground',\n      vscodeProp: '--vscode-button-foreground',\n    },\n    {\n      componentProp: '--hover-background',\n      vscodeProp: '--vscode-button-hoverBackground',\n    },\n    {\n      componentProp: '--font-family',\n      vscodeProp: '--vscode-font-family',\n    },\n    {\n      componentProp: '--font-size',\n      vscodeProp: '--vscode-font-size',\n    },\n    {\n      componentProp: '--font-weight',\n      vscodeProp: '--vscode-font-weight',\n    },\n    {\n      componentProp: '--secondary-background',\n      vscodeProp: '--vscode-button-secondaryBackground',\n    },\n    {\n      componentProp: '--secondary-foreground',\n      vscodeProp: '--vscode-button-secondaryForeground',\n    },\n    {\n      componentProp: '--secondary-hover-background',\n      vscodeProp: '--vscode-button-secondaryHoverBackground',\n    },\n  ]),\n  css`\n    :host {\n      align-items: center;\n      background-color: var(--background);\n      border-color: var(--border);\n      border-style: solid;\n      border-radius: 2px;\n      border-width: 1px;\n      color: var(--foreground);\n      cursor: pointer;\n      display: inline-block;\n      font-family: var(--font-family);\n      font-size: var(--font-size);\n      font-weight: var(--font-weight);\n      line-height: 22px;\n      overflow: hidden;\n      padding: 1px 13px;\n      user-select: none;\n      white-space: nowrap;\n    }\n\n    :host([secondary]) {\n      color: var(--secondary-foreground);\n      background-color: var(--secondary-background);\n    }\n\n    :host([disabled]) {\n      cursor: default;\n      opacity: 0.4;\n      pointer-events: none;\n    }\n\n    :host(:hover) {\n      background-color: var(--hover-background);\n    }\n\n    :host([disabled]:hover) {\n      background-color: var(--background);\n    }\n\n    :host([secondary]:hover) {\n      background-color: var(--secondary-hover-background);\n    }\n\n    :host([secondary][disabled]:hover) {\n      background-color: var(--secondary-background);\n    }\n\n    :host(:focus),\n    :host(:active) {\n      outline: none;\n    }\n\n    :host(:focus) {\n      background-color: var(--hover-background);\n      outline: 1px solid var(--focus-border);\n      outline-offset: 2px;\n    }\n\n    :host([disabled]:focus) {\n      background-color: var(--background);\n      outline: 0;\n    }\n\n    :host([secondary]:focus) {\n      background-color: var(--secondary-hover-background);\n    }\n\n    :host([secondary][disabled]:focus) {\n      background-color: var(--secondary-background);\n    }\n\n    .wrapper {\n      align-items: center;\n      box-sizing: border-box;\n      display: flex;\n      justify-content: center;\n      position: relative;\n      width: 100%;\n    }\n\n    slot {\n      display: block;\n    }\n\n    .icon {\n      --foreground: var(--icon-foreground);\n      display: block;\n      margin-right: 3px;\n    }\n\n    .icon-after {\n      --foreground: var(--icon-foreground);\n      display: block;\n      margin-left: 3px;\n    }\n  `,\n]"
         }
       ],
       "exports": [
@@ -316,25 +316,6 @@
           "members": [
             {
               "kind": "field",
-              "name": "formAssociated",
-              "type": {
-                "text": "boolean"
-              },
-              "static": true,
-              "default": "true"
-            },
-            {
-              "kind": "field",
-              "name": "tabindex",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "attribute": "tabindex",
-              "reflects": true
-            },
-            {
-              "kind": "field",
               "name": "secondary",
               "type": {
                 "text": "boolean"
@@ -342,16 +323,6 @@
               "default": "false",
               "description": "Button has a less prominent style.",
               "attribute": "secondary",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'button'",
-              "attribute": "role",
               "reflects": true
             },
             {
@@ -396,6 +367,16 @@
             },
             {
               "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string | undefined"
+              },
+              "default": "undefined",
+              "attribute": "name",
+              "reflects": true
+            },
+            {
+              "kind": "field",
               "name": "type",
               "type": {
                 "text": "'submit' | 'reset' | 'button'"
@@ -436,11 +417,6 @@
               "type": {
                 "text": "HTMLFormElement | null"
               },
-              "readonly": true
-            },
-            {
-              "kind": "field",
-              "name": "name",
               "readonly": true
             },
             {
@@ -506,14 +482,6 @@
           ],
           "attributes": [
             {
-              "name": "tabindex",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "fieldName": "tabindex"
-            },
-            {
               "name": "secondary",
               "type": {
                 "text": "boolean"
@@ -521,14 +489,6 @@
               "default": "false",
               "description": "Button has a less prominent style.",
               "fieldName": "secondary"
-            },
-            {
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'button'",
-              "fieldName": "role"
             },
             {
               "name": "disabled",
@@ -563,6 +523,17 @@
               },
               "default": "false",
               "fieldName": "focused"
+            },
+            {
+              "name": "name",
+              "type": {
+                "text": "string | undefined"
+              },
+              "default": "undefined",
+              "resolveInitializer": {
+                "module": "src/vscode-button/vscode-button.ts"
+              },
+              "fieldName": "name"
             },
             {
               "name": "type",
@@ -604,6 +575,211 @@
           "declaration": {
             "name": "VscodeButton",
             "module": "src/vscode-button/vscode-button.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-badge/vscode-badge.styles.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "styles",
+          "type": {
+            "text": "CSSResultGroup"
+          },
+          "default": "[\n  defaultStyles,\n  declareThemeVariables([\n    {\n      componentProp: '--foreground',\n      vscodeProp: '--vscode-badge-foreground',\n    },\n    {\n      componentProp: '--font-family',\n      vscodeProp: '--vscode-font-family',\n    },\n    {\n      componentProp: '--background',\n      vscodeProp: '--vscode-badge-background',\n    },\n    {\n      componentProp: '--activity-bar-badge-background',\n      vscodeProp: '--vscode-activityBarBadge-background',\n    },\n    {\n      componentProp: '--activity-bar-badge-foreground',\n      vscodeProp: '--vscode-activityBarBadge-foreground',\n    },\n  ]),\n  css`\n    :host {\n      background-color: var(--background);\n      border-radius: 2px;\n      color: var(--foreground);\n      display: inline-block;\n      font-family: var(--font-family);\n      font-size: 11px;\n      font-weight: 400;\n      line-height: 14px;\n      min-width: 18px;\n      padding: 2px 3px;\n      text-align: center;\n      white-space: nowrap;\n    }\n\n    :host([variant='counter']) {\n      border-radius: 11px;\n      box-sizing: border-box;\n      height: 18px;\n      line-height: 1;\n      padding: 3px 5px;\n    }\n\n    :host([variant='activity-bar-counter']) {\n      background-color: var(--activity-bar-badge-background);\n      border-radius: 20px;\n      color: var(--activity-bar-badge-foreground);\n      font-size: 9px;\n      font-weight: 600;\n      line-height: 16px;\n      min-width: 8px;\n      padding: 0 4px;\n    }\n  `,\n]"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "styles",
+            "module": "src/vscode-badge/vscode-badge.styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-badge/vscode-badge.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "VscodeBadge",
+          "cssProperties": [
+            {
+              "name": "--font-family",
+              "default": "var(--vscode-font-family)"
+            },
+            {
+              "description": "default and counter variant background color",
+              "name": "--background",
+              "default": "var(--vscode-badge-background)"
+            },
+            {
+              "description": "default and counter variant foreground color",
+              "name": "--foreground",
+              "default": "var(--vscode-badge-foreground)"
+            },
+            {
+              "description": "activity bar variant background color",
+              "name": "--activity-bar-badge-background",
+              "default": "var(--vscode-activityBarBadge-background)"
+            },
+            {
+              "description": "activity bar variant foreground color",
+              "name": "--activity-bar-badge-foreground",
+              "default": "var(--vscode-activityBarBadge-foreground)"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "'default' | 'counter' | 'activity-bar-counter'"
+              },
+              "default": "'default'",
+              "attribute": "variant"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant",
+              "type": {
+                "text": "'default' | 'counter' | 'activity-bar-counter'"
+              },
+              "default": "'default'",
+              "fieldName": "variant"
+            }
+          ],
+          "superclass": {
+            "name": "VscElement",
+            "module": "/src/includes/VscElement.js"
+          },
+          "tagName": "vscode-badge",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "VscodeBadge",
+          "declaration": {
+            "name": "VscodeBadge",
+            "module": "src/vscode-badge/vscode-badge.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "vscode-badge",
+          "declaration": {
+            "name": "VscodeBadge",
+            "module": "src/vscode-badge/vscode-badge.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-checkbox-group/vscode-checkbox-group.styles.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "styles",
+          "type": {
+            "text": "CSSResultGroup"
+          },
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      display: block;\n    }\n\n    .wrapper {\n      display: flex;\n      flex-wrap: wrap;\n    }\n\n    :host([variant='vertical']) .wrapper {\n      display: block;\n    }\n\n    ::slotted(vscode-checkbox) {\n      margin-right: 20px;\n    }\n\n    ::slotted(vscode-checkbox:last-child) {\n      margin-right: 0;\n    }\n\n    :host([variant='vertical']) ::slotted(vscode-checkbox) {\n      display: block;\n      margin-bottom: 15px;\n    }\n\n    :host([variant='vertical']) ::slotted(vscode-checkbox:last-child) {\n      margin-bottom: 0;\n    }\n  `,\n  formHelperTextStyles,\n]"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "styles",
+            "module": "src/vscode-checkbox-group/vscode-checkbox-group.styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-checkbox-group/vscode-checkbox-group.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "VscodeCheckboxGroup",
+          "members": [
+            {
+              "kind": "field",
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "default": "'group'",
+              "attribute": "role",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "'horizontal' | 'vertical'"
+              },
+              "default": "'horizontal'",
+              "attribute": "variant",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "default": "'group'",
+              "fieldName": "role"
+            },
+            {
+              "name": "variant",
+              "type": {
+                "text": "'horizontal' | 'vertical'"
+              },
+              "default": "'horizontal'",
+              "fieldName": "variant"
+            }
+          ],
+          "superclass": {
+            "name": "VscElement",
+            "module": "/src/includes/VscElement.js"
+          },
+          "tagName": "vscode-checkbox-group",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "VscodeCheckboxGroup",
+          "declaration": {
+            "name": "VscodeCheckboxGroup",
+            "module": "src/vscode-checkbox-group/vscode-checkbox-group.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "vscode-checkbox-group",
+          "declaration": {
+            "name": "VscodeCheckboxGroup",
+            "module": "src/vscode-checkbox-group/vscode-checkbox-group.ts"
           }
         }
       ]
@@ -1099,211 +1275,6 @@
           "declaration": {
             "name": "VscodeCheckbox",
             "module": "src/vscode-checkbox/vscode-checkbox.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-badge/vscode-badge.styles.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "styles",
-          "type": {
-            "text": "CSSResultGroup"
-          },
-          "default": "[\n  defaultStyles,\n  declareThemeVariables([\n    {\n      componentProp: '--foreground',\n      vscodeProp: '--vscode-badge-foreground',\n    },\n    {\n      componentProp: '--font-family',\n      vscodeProp: '--vscode-font-family',\n    },\n    {\n      componentProp: '--background',\n      vscodeProp: '--vscode-badge-background',\n    },\n    {\n      componentProp: '--activity-bar-badge-background',\n      vscodeProp: '--vscode-activityBarBadge-background',\n    },\n    {\n      componentProp: '--activity-bar-badge-foreground',\n      vscodeProp: '--vscode-activityBarBadge-foreground',\n    },\n  ]),\n  css`\n    :host {\n      background-color: var(--background);\n      border-radius: 2px;\n      color: var(--foreground);\n      display: inline-block;\n      font-family: var(--font-family);\n      font-size: 11px;\n      font-weight: 400;\n      line-height: 14px;\n      min-width: 18px;\n      padding: 2px 3px;\n      text-align: center;\n      white-space: nowrap;\n    }\n\n    :host([variant='counter']) {\n      border-radius: 11px;\n      box-sizing: border-box;\n      height: 18px;\n      line-height: 1;\n      padding: 3px 5px;\n    }\n\n    :host([variant='activity-bar-counter']) {\n      background-color: var(--activity-bar-badge-background);\n      border-radius: 20px;\n      color: var(--activity-bar-badge-foreground);\n      font-size: 9px;\n      font-weight: 600;\n      line-height: 16px;\n      min-width: 8px;\n      padding: 0 4px;\n    }\n  `,\n]"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "styles",
-            "module": "src/vscode-badge/vscode-badge.styles.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-badge/vscode-badge.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "VscodeBadge",
-          "cssProperties": [
-            {
-              "name": "--font-family",
-              "default": "var(--vscode-font-family)"
-            },
-            {
-              "description": "default and counter variant background color",
-              "name": "--background",
-              "default": "var(--vscode-badge-background)"
-            },
-            {
-              "description": "default and counter variant foreground color",
-              "name": "--foreground",
-              "default": "var(--vscode-badge-foreground)"
-            },
-            {
-              "description": "activity bar variant background color",
-              "name": "--activity-bar-badge-background",
-              "default": "var(--vscode-activityBarBadge-background)"
-            },
-            {
-              "description": "activity bar variant foreground color",
-              "name": "--activity-bar-badge-foreground",
-              "default": "var(--vscode-activityBarBadge-foreground)"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "'default' | 'counter' | 'activity-bar-counter'"
-              },
-              "default": "'default'",
-              "attribute": "variant"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "variant",
-              "type": {
-                "text": "'default' | 'counter' | 'activity-bar-counter'"
-              },
-              "default": "'default'",
-              "fieldName": "variant"
-            }
-          ],
-          "superclass": {
-            "name": "VscElement",
-            "module": "/src/includes/VscElement.js"
-          },
-          "tagName": "vscode-badge",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "VscodeBadge",
-          "declaration": {
-            "name": "VscodeBadge",
-            "module": "src/vscode-badge/vscode-badge.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "vscode-badge",
-          "declaration": {
-            "name": "VscodeBadge",
-            "module": "src/vscode-badge/vscode-badge.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-checkbox-group/vscode-checkbox-group.styles.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "styles",
-          "type": {
-            "text": "CSSResultGroup"
-          },
-          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      display: block;\n    }\n\n    .wrapper {\n      display: flex;\n      flex-wrap: wrap;\n    }\n\n    :host([variant='vertical']) .wrapper {\n      display: block;\n    }\n\n    ::slotted(vscode-checkbox) {\n      margin-right: 20px;\n    }\n\n    ::slotted(vscode-checkbox:last-child) {\n      margin-right: 0;\n    }\n\n    :host([variant='vertical']) ::slotted(vscode-checkbox) {\n      display: block;\n      margin-bottom: 15px;\n    }\n\n    :host([variant='vertical']) ::slotted(vscode-checkbox:last-child) {\n      margin-bottom: 0;\n    }\n  `,\n  formHelperTextStyles,\n]"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "styles",
-            "module": "src/vscode-checkbox-group/vscode-checkbox-group.styles.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-checkbox-group/vscode-checkbox-group.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "VscodeCheckboxGroup",
-          "members": [
-            {
-              "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'group'",
-              "attribute": "role",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "'horizontal' | 'vertical'"
-              },
-              "default": "'horizontal'",
-              "attribute": "variant",
-              "reflects": true
-            }
-          ],
-          "attributes": [
-            {
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'group'",
-              "fieldName": "role"
-            },
-            {
-              "name": "variant",
-              "type": {
-                "text": "'horizontal' | 'vertical'"
-              },
-              "default": "'horizontal'",
-              "fieldName": "variant"
-            }
-          ],
-          "superclass": {
-            "name": "VscElement",
-            "module": "/src/includes/VscElement.js"
-          },
-          "tagName": "vscode-checkbox-group",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "VscodeCheckboxGroup",
-          "declaration": {
-            "name": "VscodeCheckboxGroup",
-            "module": "src/vscode-checkbox-group/vscode-checkbox-group.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "vscode-checkbox-group",
-          "declaration": {
-            "name": "VscodeCheckboxGroup",
-            "module": "src/vscode-checkbox-group/vscode-checkbox-group.ts"
           }
         }
       ]
@@ -2164,67 +2135,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/vscode-form-description/vscode-form-description.styles.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "styles",
-          "type": {
-            "text": "CSSResultGroup"
-          },
-          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      color: var(--vscode-foreground);\n      cursor: default;\n      display: block;\n      font-family: var(--vscode-font-family);\n      font-size: var(--vscode-font-size);\n      line-height: 1.4;\n      margin: 3px 0;\n      opacity: 0.9;\n      overflow: hidden;\n      user-select: text;\n    }\n\n    ::slotted(a),\n    ::slotted(a:visited) {\n      color: var(--vscode-textLink-foreground);\n      text-decoration: none;\n    }\n\n    ::slotted(a:hover),\n    ::slotted(a:active) {\n      color: var(--vscode-textLink-activeForeground);\n      text-decoration: underline;\n    }\n\n    ::slotted(code) {\n      color: var(--vscode-textPreformat-foreground);\n    }\n\n    ::slotted(p) {\n      line-height: 1.4;\n      margin-bottom: 9px;\n      margin-top: 9px;\n    }\n\n    ::slotted(p:first-child) {\n      margin-top: 0;\n    }\n\n    ::slotted(p:last-child) {\n      margin-bottom: 0;\n    }\n  `,\n]"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "styles",
-            "module": "src/vscode-form-description/vscode-form-description.styles.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-form-description/vscode-form-description.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "VscodeFormDescription",
-          "members": [],
-          "superclass": {
-            "name": "VscElement",
-            "module": "/src/includes/VscElement.js"
-          },
-          "deprecated": "true",
-          "tagName": "vscode-form-description",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "VscodeFormDescription",
-          "declaration": {
-            "name": "VscodeFormDescription",
-            "module": "src/vscode-form-description/vscode-form-description.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "vscode-form-description",
-          "declaration": {
-            "name": "VscodeFormDescription",
-            "module": "src/vscode-form-description/vscode-form-description.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/vscode-form-control/vscode-form-control.styles.ts",
       "declarations": [
         {
@@ -2280,6 +2190,67 @@
           "declaration": {
             "name": "VscodeFormControl",
             "module": "src/vscode-form-control/vscode-form-control.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-form-description/vscode-form-description.styles.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "styles",
+          "type": {
+            "text": "CSSResultGroup"
+          },
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      color: var(--vscode-foreground);\n      cursor: default;\n      display: block;\n      font-family: var(--vscode-font-family);\n      font-size: var(--vscode-font-size);\n      line-height: 1.4;\n      margin: 3px 0;\n      opacity: 0.9;\n      overflow: hidden;\n      user-select: text;\n    }\n\n    ::slotted(a),\n    ::slotted(a:visited) {\n      color: var(--vscode-textLink-foreground);\n      text-decoration: none;\n    }\n\n    ::slotted(a:hover),\n    ::slotted(a:active) {\n      color: var(--vscode-textLink-activeForeground);\n      text-decoration: underline;\n    }\n\n    ::slotted(code) {\n      color: var(--vscode-textPreformat-foreground);\n    }\n\n    ::slotted(p) {\n      line-height: 1.4;\n      margin-bottom: 9px;\n      margin-top: 9px;\n    }\n\n    ::slotted(p:first-child) {\n      margin-top: 0;\n    }\n\n    ::slotted(p:last-child) {\n      margin-bottom: 0;\n    }\n  `,\n]"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "styles",
+            "module": "src/vscode-form-description/vscode-form-description.styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-form-description/vscode-form-description.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "VscodeFormDescription",
+          "members": [],
+          "superclass": {
+            "name": "VscElement",
+            "module": "/src/includes/VscElement.js"
+          },
+          "deprecated": "true",
+          "tagName": "vscode-form-description",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "VscodeFormDescription",
+          "declaration": {
+            "name": "VscodeFormDescription",
+            "module": "src/vscode-form-description/vscode-form-description.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "vscode-form-description",
+          "declaration": {
+            "name": "VscodeFormDescription",
+            "module": "src/vscode-form-description/vscode-form-description.ts"
           }
         }
       ]
@@ -2562,241 +2533,6 @@
           "declaration": {
             "name": "VscodeFormLabel",
             "module": "src/vscode-form-label/vscode-form-label.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-icon/vscode-icon.styles.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "styles",
-          "type": {
-            "text": "CSSResultGroup"
-          },
-          "default": "[\n  defaultStyles,\n  declareThemeVariables([\n    {\n      componentProp: '--foreground',\n      vscodeProp: '--vscode-icon-foreground',\n    },\n    {\n      componentProp: '--hover-background',\n      vscodeProp: '--vscode-toolbar-hoverBackground',\n    },\n    {\n      componentProp: '--active-background',\n      vscodeProp: '--vscode-toolbar-activeBackground',\n    },\n    {\n      componentProp: '--focus-border',\n      vscodeProp: '--vscode-focusBorder',\n    },\n  ]),\n  css`\n    :host {\n      color: var(--foreground);\n      display: inline-block;\n    }\n\n    .codicon[class*='codicon-'] {\n      display: block;\n    }\n\n    .icon,\n    .button {\n      background-color: transparent;\n      display: block;\n      padding: 0;\n    }\n\n    .button {\n      border-color: transparent;\n      border-style: solid;\n      border-width: 1px;\n      border-radius: 5px;\n      color: currentColor;\n      cursor: pointer;\n      padding: 2px;\n    }\n\n    .button:hover {\n      background-color: var(--vscode-toolbar-hoverBackground);\n    }\n\n    .button:active {\n      background-color: var(--vscode-toolbar-activeBackground);\n    }\n\n    .button:focus {\n      outline: none;\n    }\n\n    .button:focus-visible {\n      border-color: var(--vscode-focusBorder);\n    }\n\n    @keyframes icon-spin {\n      100% {\n        transform: rotate(360deg);\n      }\n    }\n\n    .spin {\n      animation-name: icon-spin;\n      animation-timing-function: linear;\n      animation-iteration-count: infinite;\n    }\n  `,\n]"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "styles",
-            "module": "src/vscode-icon/vscode-icon.styles.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-icon/vscode-icon.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Display a [Codicon](https://microsoft.github.io/vscode-codicons/dist/codicon.html).\nIn \"action-icon\" mode it behaves like a button. In this case, it is\nrecommended that a meaningful label is specified with the `label` property.",
-          "name": "VscodeIcon",
-          "cssProperties": [
-            {
-              "name": "--foreground",
-              "default": "var(--vscode-icon-foreground)"
-            },
-            {
-              "description": "Hover state background color in `active-icon` mode",
-              "name": "--hover-background",
-              "default": "var(--vscode-toolbar-hoverBackground)"
-            },
-            {
-              "description": "Active state background color in `active-icon` mode",
-              "name": "--active-background",
-              "default": "var(--vscode-toolbar-activeBackground)"
-            },
-            {
-              "name": "--focus-border",
-              "default": "var(--vscode-focusBorder)"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "Set a meaningful label in `action-icon` mode for the screen readers",
-              "attribute": "label"
-            },
-            {
-              "kind": "field",
-              "name": "name",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "[Codicon](https://microsoft.github.io/vscode-codicons/dist/codicon.html) icon name.",
-              "attribute": "name"
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "number"
-              },
-              "default": "16",
-              "description": "Icon size in pixels",
-              "attribute": "size"
-            },
-            {
-              "kind": "field",
-              "name": "spin",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Enable rotation animation",
-              "attribute": "spin",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "spinDuration",
-              "type": {
-                "text": "number"
-              },
-              "default": "1.5",
-              "description": "Animation duration in seconds",
-              "attribute": "spin-duration"
-            },
-            {
-              "kind": "field",
-              "name": "actionIcon",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Behaves like a button",
-              "attribute": "action-icon",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "stylesheetHref",
-              "type": {
-                "text": "string | undefined"
-              },
-              "privacy": "private",
-              "static": true,
-              "default": "''"
-            },
-            {
-              "kind": "field",
-              "name": "nonce",
-              "type": {
-                "text": "string | undefined"
-              },
-              "privacy": "private",
-              "static": true,
-              "default": "''"
-            },
-            {
-              "kind": "method",
-              "name": "_getStylesheetConfig",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "{\n    href: string | undefined;\n    nonce: string | undefined;\n  }"
-                }
-              },
-              "description": "For using web fonts in web components, the font stylesheet must be included\ntwice: on the page and in the web component. This function looks for the\nfont stylesheet on the page and returns the stylesheet URL and the nonce\nid."
-            },
-            {
-              "kind": "field",
-              "name": "_onButtonClick",
-              "privacy": "private"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "Set a meaningful label in `action-icon` mode for the screen readers",
-              "fieldName": "label"
-            },
-            {
-              "name": "name",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "[Codicon](https://microsoft.github.io/vscode-codicons/dist/codicon.html) icon name.",
-              "fieldName": "name"
-            },
-            {
-              "name": "size",
-              "type": {
-                "text": "number"
-              },
-              "default": "16",
-              "description": "Icon size in pixels",
-              "fieldName": "size"
-            },
-            {
-              "name": "spin",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Enable rotation animation",
-              "fieldName": "spin"
-            },
-            {
-              "name": "spin-duration",
-              "type": {
-                "text": "number"
-              },
-              "default": "1.5",
-              "description": "Animation duration in seconds",
-              "fieldName": "spinDuration"
-            },
-            {
-              "name": "action-icon",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Behaves like a button",
-              "fieldName": "actionIcon"
-            }
-          ],
-          "superclass": {
-            "name": "VscElement",
-            "module": "/src/includes/VscElement.js"
-          },
-          "tagName": "vscode-icon",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "VscodeIcon",
-          "declaration": {
-            "name": "VscodeIcon",
-            "module": "src/vscode-icon/vscode-icon.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "vscode-icon",
-          "declaration": {
-            "name": "VscodeIcon",
-            "module": "src/vscode-icon/vscode-icon.ts"
           }
         }
       ]
@@ -3333,7 +3069,7 @@
             "name": "VscElement",
             "module": "/src/includes/VscElement.js"
           },
-          "deprecated": "Use `textfield` or `textarea` instead",
+          "deprecated": "true",
           "tagName": "vscode-inputbox",
           "customElement": true
         }
@@ -3353,6 +3089,241 @@
           "declaration": {
             "name": "VscodeInputbox",
             "module": "src/vscode-inputbox/vscode-inputbox.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-icon/vscode-icon.styles.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "styles",
+          "type": {
+            "text": "CSSResultGroup"
+          },
+          "default": "[\n  defaultStyles,\n  declareThemeVariables([\n    {\n      componentProp: '--foreground',\n      vscodeProp: '--vscode-icon-foreground',\n    },\n    {\n      componentProp: '--hover-background',\n      vscodeProp: '--vscode-toolbar-hoverBackground',\n    },\n    {\n      componentProp: '--active-background',\n      vscodeProp: '--vscode-toolbar-activeBackground',\n    },\n    {\n      componentProp: '--focus-border',\n      vscodeProp: '--vscode-focusBorder',\n    },\n  ]),\n  css`\n    :host {\n      color: var(--foreground);\n      display: inline-block;\n    }\n\n    .codicon[class*='codicon-'] {\n      display: block;\n    }\n\n    .icon,\n    .button {\n      background-color: transparent;\n      display: block;\n      padding: 0;\n    }\n\n    .button {\n      border-color: transparent;\n      border-style: solid;\n      border-width: 1px;\n      border-radius: 5px;\n      color: currentColor;\n      cursor: pointer;\n      padding: 2px;\n    }\n\n    .button:hover {\n      background-color: var(--vscode-toolbar-hoverBackground);\n    }\n\n    .button:active {\n      background-color: var(--vscode-toolbar-activeBackground);\n    }\n\n    .button:focus {\n      outline: none;\n    }\n\n    .button:focus-visible {\n      border-color: var(--vscode-focusBorder);\n    }\n\n    @keyframes icon-spin {\n      100% {\n        transform: rotate(360deg);\n      }\n    }\n\n    .spin {\n      animation-name: icon-spin;\n      animation-timing-function: linear;\n      animation-iteration-count: infinite;\n    }\n  `,\n]"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "styles",
+            "module": "src/vscode-icon/vscode-icon.styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-icon/vscode-icon.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Display a [Codicon](https://microsoft.github.io/vscode-codicons/dist/codicon.html).\nIn \"action-icon\" mode it behaves like a button. In this case, it is\nrecommended that a meaningful label is specified with the `label` property.",
+          "name": "VscodeIcon",
+          "cssProperties": [
+            {
+              "name": "--foreground",
+              "default": "var(--vscode-icon-foreground)"
+            },
+            {
+              "description": "Hover state background color in `active-icon` mode",
+              "name": "--hover-background",
+              "default": "var(--vscode-toolbar-hoverBackground)"
+            },
+            {
+              "description": "Active state background color in `active-icon` mode",
+              "name": "--active-background",
+              "default": "var(--vscode-toolbar-activeBackground)"
+            },
+            {
+              "name": "--focus-border",
+              "default": "var(--vscode-focusBorder)"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Set a meaningful label in `action-icon` mode for the screen readers",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "[Codicon](https://microsoft.github.io/vscode-codicons/dist/codicon.html) icon name.",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
+              "description": "Icon size in pixels",
+              "attribute": "size"
+            },
+            {
+              "kind": "field",
+              "name": "spin",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Enable rotation animation",
+              "attribute": "spin",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "spinDuration",
+              "type": {
+                "text": "number"
+              },
+              "default": "1.5",
+              "description": "Animation duration in seconds",
+              "attribute": "spin-duration"
+            },
+            {
+              "kind": "field",
+              "name": "actionIcon",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Behaves like a button",
+              "attribute": "action-icon",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "stylesheetHref",
+              "type": {
+                "text": "string | undefined"
+              },
+              "privacy": "private",
+              "static": true,
+              "default": "''"
+            },
+            {
+              "kind": "field",
+              "name": "nonce",
+              "type": {
+                "text": "string | undefined"
+              },
+              "privacy": "private",
+              "static": true,
+              "default": "''"
+            },
+            {
+              "kind": "method",
+              "name": "_getStylesheetConfig",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "{\n    href: string | undefined;\n    nonce: string | undefined;\n  }"
+                }
+              },
+              "description": "For using web fonts in web components, the font stylesheet must be included\ntwice: on the page and in the web component. This function looks for the\nfont stylesheet on the page and returns the stylesheet URL and the nonce\nid."
+            },
+            {
+              "kind": "field",
+              "name": "_onButtonClick",
+              "privacy": "private"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Set a meaningful label in `action-icon` mode for the screen readers",
+              "fieldName": "label"
+            },
+            {
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "[Codicon](https://microsoft.github.io/vscode-codicons/dist/codicon.html) icon name.",
+              "fieldName": "name"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
+              "description": "Icon size in pixels",
+              "fieldName": "size"
+            },
+            {
+              "name": "spin",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Enable rotation animation",
+              "fieldName": "spin"
+            },
+            {
+              "name": "spin-duration",
+              "type": {
+                "text": "number"
+              },
+              "default": "1.5",
+              "description": "Animation duration in seconds",
+              "fieldName": "spinDuration"
+            },
+            {
+              "name": "action-icon",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Behaves like a button",
+              "fieldName": "actionIcon"
+            }
+          ],
+          "superclass": {
+            "name": "VscElement",
+            "module": "/src/includes/VscElement.js"
+          },
+          "tagName": "vscode-icon",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "VscodeIcon",
+          "declaration": {
+            "name": "VscodeIcon",
+            "module": "src/vscode-icon/vscode-icon.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "vscode-icon",
+          "declaration": {
+            "name": "VscodeIcon",
+            "module": "src/vscode-icon/vscode-icon.ts"
           }
         }
       ]
@@ -3921,20 +3892,6 @@
             },
             {
               "kind": "field",
-              "name": "ariaExpanded",
-              "type": {
-                "text": "string"
-              },
-              "default": "'false'",
-              "attribute": "aria-expanded",
-              "reflects": true,
-              "inheritedFrom": {
-                "name": "VscodeSelectBase",
-                "module": "src/includes/vscode-select/vscode-select-base.ts"
-              }
-            },
-            {
-              "kind": "field",
               "name": "combobox",
               "type": {
                 "text": "boolean"
@@ -3981,20 +3938,6 @@
                 "text": "Option[]"
               },
               "attribute": "options",
-              "inheritedFrom": {
-                "name": "VscodeSelectBase",
-                "module": "src/includes/vscode-select/vscode-select-base.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "tabindex",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "attribute": "tabindex",
-              "reflects": true,
               "inheritedFrom": {
                 "name": "VscodeSelectBase",
                 "module": "src/includes/vscode-select/vscode-select-base.ts"
@@ -4657,18 +4600,6 @@
               }
             },
             {
-              "name": "aria-expanded",
-              "type": {
-                "text": "string"
-              },
-              "default": "'false'",
-              "fieldName": "ariaExpanded",
-              "inheritedFrom": {
-                "name": "VscodeSelectBase",
-                "module": "src/includes/vscode-select/vscode-select-base.ts"
-              }
-            },
-            {
               "name": "combobox",
               "type": {
                 "text": "boolean"
@@ -4687,18 +4618,6 @@
               },
               "default": "false",
               "fieldName": "focused",
-              "inheritedFrom": {
-                "name": "VscodeSelectBase",
-                "module": "src/includes/vscode-select/vscode-select-base.ts"
-              }
-            },
-            {
-              "name": "tabindex",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "fieldName": "tabindex",
               "inheritedFrom": {
                 "name": "VscodeSelectBase",
                 "module": "src/includes/vscode-select/vscode-select-base.ts"
@@ -4751,6 +4670,130 @@
           "declaration": {
             "name": "VscodeMultiSelect",
             "module": "src/vscode-multi-select/vscode-multi-select.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-option/vscode-option.styles.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "styles",
+            "module": "src/vscode-option/vscode-option.styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-option/vscode-option.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "VscodeOption",
+          "members": [
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "description",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "description"
+            },
+            {
+              "kind": "field",
+              "name": "selected",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "selected",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "value"
+            },
+            {
+              "name": "description",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "description"
+            },
+            {
+              "name": "selected",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "selected"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled"
+            }
+          ],
+          "superclass": {
+            "name": "VscElement",
+            "module": "/src/includes/VscElement.js"
+          },
+          "tagName": "vscode-option",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "VscodeOption",
+          "declaration": {
+            "name": "VscodeOption",
+            "module": "src/vscode-option/vscode-option.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "vscode-option",
+          "declaration": {
+            "name": "VscodeOption",
+            "module": "src/vscode-option/vscode-option.ts"
           }
         }
       ]
@@ -5297,130 +5340,6 @@
           "declaration": {
             "name": "VscodeRadio",
             "module": "src/vscode-radio/vscode-radio.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-option/vscode-option.styles.ts",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "styles",
-            "module": "src/vscode-option/vscode-option.styles.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-option/vscode-option.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "VscodeOption",
-          "members": [
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "value"
-            },
-            {
-              "kind": "field",
-              "name": "description",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "description"
-            },
-            {
-              "kind": "field",
-              "name": "selected",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "selected",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "disabled",
-              "reflects": true
-            }
-          ],
-          "attributes": [
-            {
-              "name": "value",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "value"
-            },
-            {
-              "name": "description",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "description"
-            },
-            {
-              "name": "selected",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "selected"
-            },
-            {
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "disabled"
-            }
-          ],
-          "superclass": {
-            "name": "VscElement",
-            "module": "/src/includes/VscElement.js"
-          },
-          "tagName": "vscode-option",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "VscodeOption",
-          "declaration": {
-            "name": "VscodeOption",
-            "module": "src/vscode-option/vscode-option.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "vscode-option",
-          "declaration": {
-            "name": "VscodeOption",
-            "module": "src/vscode-option/vscode-option.ts"
           }
         }
       ]
@@ -6031,295 +5950,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/vscode-split-layout/vscode-split-layout.styles.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "styles",
-          "type": {
-            "text": "CSSResultGroup"
-          },
-          "default": "[\n  defaultStyles,\n  declareThemeVariables([\n    {\n      componentProp: '--hover-border',\n      vscodeProp: '--vscode-sash-hoverBorder',\n    },\n  ]),\n  css`\n    :host {\n      display: block;\n      overflow: hidden;\n      position: relative;\n    }\n\n    .start {\n      left: 0;\n      top: 0;\n      overflow: hidden;\n      position: absolute;\n    }\n\n    .end {\n      bottom: 0;\n      overflow: hidden;\n      position: absolute;\n      right: 0;\n    }\n\n    .handle-overlay {\n      display: none;\n      height: 100%;\n      left: 0;\n      position: absolute;\n      top: 0;\n      width: 100%;\n      z-index: 1;\n    }\n\n    .handle-overlay.active {\n      display: block;\n    }\n\n    .handle-overlay.split-vertical {\n      cursor: ew-resize;\n    }\n\n    .handle-overlay.split-horizontal {\n      cursor: ns-resize;\n    }\n\n    .handle {\n      position: absolute;\n      z-index: 2;\n    }\n\n    .handle.hover {\n      background-color: var(--hover-border);\n      transition: background-color 100ms linear 300ms;\n    }\n\n    .handle.hide {\n      background-color: transparent;\n      transition: background-color 100ms linear;\n    }\n\n    .handle.split-vertical {\n      cursor: ew-resize;\n      height: 100%;\n    }\n\n    .handle.split-horizontal {\n      cursor: ns-resize;\n      width: 100%;\n    }\n  `,\n]"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "styles",
-            "module": "src/vscode-split-layout/vscode-split-layout.styles.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-split-layout/vscode-split-layout.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "VscodeSplitLayout",
-          "cssProperties": [
-            {
-              "name": "--hover-border",
-              "default": "var(--vscode-sash-hoverBorder)"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "split",
-              "type": {
-                "text": "'horizontal' | 'vertical'"
-              },
-              "default": "'vertical'",
-              "attribute": "split"
-            },
-            {
-              "kind": "field",
-              "name": "resetOnDblClick",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "reset-on-dbl-click",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "initialPos",
-              "type": {
-                "text": "string"
-              },
-              "default": "'50%'",
-              "attribute": "initial-pos"
-            },
-            {
-              "kind": "field",
-              "name": "_startPaneRight",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "field",
-              "name": "_startPaneBottom",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "field",
-              "name": "_endPaneTop",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "field",
-              "name": "_endPaneLeft",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "field",
-              "name": "_handleLeft",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "field",
-              "name": "_handleTop",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "field",
-              "name": "_isDragActive",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "_hover",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "_hide",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "_boundRect",
-              "type": {
-                "text": "DOMRect"
-              },
-              "privacy": "private",
-              "default": "new DOMRect()"
-            },
-            {
-              "kind": "field",
-              "name": "_handleOffset",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "method",
-              "name": "_initPosition",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_handleMouseOver",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_handleMouseOut",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "_handleMouseDown",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "_handleMouseUp",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "_handleMouseUpBound",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_handleMouseMove",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "field",
-              "name": "_handleMouseMoveBound",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_handleDblClick",
-              "privacy": "private"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "split",
-              "type": {
-                "text": "'horizontal' | 'vertical'"
-              },
-              "default": "'vertical'",
-              "fieldName": "split"
-            },
-            {
-              "name": "reset-on-dbl-click",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "resetOnDblClick"
-            },
-            {
-              "name": "initial-pos",
-              "type": {
-                "text": "string"
-              },
-              "default": "'50%'",
-              "fieldName": "initialPos"
-            }
-          ],
-          "superclass": {
-            "name": "VscElement",
-            "module": "/src/includes/VscElement.js"
-          },
-          "tagName": "vscode-split-layout",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "VscodeSplitLayout",
-          "declaration": {
-            "name": "VscodeSplitLayout",
-            "module": "src/vscode-split-layout/vscode-split-layout.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "vscode-split-layout",
-          "declaration": {
-            "name": "VscodeSplitLayout",
-            "module": "src/vscode-split-layout/vscode-split-layout.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/vscode-single-select/vscode-single-select.styles.ts",
       "declarations": [],
       "exports": [
@@ -6454,16 +6084,6 @@
             },
             {
               "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'listbox'",
-              "attribute": "role",
-              "reflects": true
-            },
-            {
-              "kind": "field",
               "name": "name",
               "type": {
                 "text": "string | undefined"
@@ -6558,38 +6178,6 @@
               "kind": "method",
               "name": "updateInputValue",
               "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "formResetCallback",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "formStateRestoreCallback",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "state",
-                  "type": {
-                    "text": "string"
-                  }
-                },
-                {
-                  "name": "_mode",
-                  "type": {
-                    "text": "'restore' | 'autocomplete'"
-                  }
-                }
-              ]
             },
             {
               "kind": "field",
@@ -6722,34 +6310,12 @@
             },
             {
               "kind": "field",
-              "name": "_multiple",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "field",
               "name": "invalid",
               "type": {
                 "text": "boolean"
               },
               "default": "false",
               "attribute": "invalid",
-              "reflects": true,
-              "inheritedFrom": {
-                "name": "VscodeSelectBase",
-                "module": "src/includes/vscode-select/vscode-select-base.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "ariaExpanded",
-              "type": {
-                "text": "string"
-              },
-              "default": "'false'",
-              "attribute": "aria-expanded",
               "reflects": true,
               "inheritedFrom": {
                 "name": "VscodeSelectBase",
@@ -6804,20 +6370,6 @@
                 "text": "Option[]"
               },
               "attribute": "options",
-              "inheritedFrom": {
-                "name": "VscodeSelectBase",
-                "module": "src/includes/vscode-select/vscode-select-base.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "tabindex",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "attribute": "tabindex",
-              "reflects": true,
               "inheritedFrom": {
                 "name": "VscodeSelectBase",
                 "module": "src/includes/vscode-select/vscode-select-base.ts"
@@ -7398,14 +6950,6 @@
               "fieldName": "disabled"
             },
             {
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'listbox'",
-              "fieldName": "role"
-            },
-            {
               "name": "selected-index",
               "type": {
                 "text": "number"
@@ -7453,18 +6997,6 @@
               }
             },
             {
-              "name": "aria-expanded",
-              "type": {
-                "text": "string"
-              },
-              "default": "'false'",
-              "fieldName": "ariaExpanded",
-              "inheritedFrom": {
-                "name": "VscodeSelectBase",
-                "module": "src/includes/vscode-select/vscode-select-base.ts"
-              }
-            },
-            {
               "name": "combobox",
               "type": {
                 "text": "boolean"
@@ -7483,18 +7015,6 @@
               },
               "default": "false",
               "fieldName": "focused",
-              "inheritedFrom": {
-                "name": "VscodeSelectBase",
-                "module": "src/includes/vscode-select/vscode-select-base.ts"
-              }
-            },
-            {
-              "name": "tabindex",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "fieldName": "tabindex",
               "inheritedFrom": {
                 "name": "VscodeSelectBase",
                 "module": "src/includes/vscode-select/vscode-select-base.ts"
@@ -7547,6 +7067,295 @@
           "declaration": {
             "name": "VscodeSingleSelect",
             "module": "src/vscode-single-select/vscode-single-select.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-split-layout/vscode-split-layout.styles.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "styles",
+          "type": {
+            "text": "CSSResultGroup"
+          },
+          "default": "[\n  defaultStyles,\n  declareThemeVariables([\n    {\n      componentProp: '--hover-border',\n      vscodeProp: '--vscode-sash-hoverBorder',\n    },\n  ]),\n  css`\n    :host {\n      display: block;\n      overflow: hidden;\n      position: relative;\n    }\n\n    .start {\n      left: 0;\n      top: 0;\n      overflow: hidden;\n      position: absolute;\n    }\n\n    .end {\n      bottom: 0;\n      overflow: hidden;\n      position: absolute;\n      right: 0;\n    }\n\n    .handle-overlay {\n      display: none;\n      height: 100%;\n      left: 0;\n      position: absolute;\n      top: 0;\n      width: 100%;\n      z-index: 1;\n    }\n\n    .handle-overlay.active {\n      display: block;\n    }\n\n    .handle-overlay.split-vertical {\n      cursor: ew-resize;\n    }\n\n    .handle-overlay.split-horizontal {\n      cursor: ns-resize;\n    }\n\n    .handle {\n      position: absolute;\n      z-index: 2;\n    }\n\n    .handle.hover {\n      background-color: var(--hover-border);\n      transition: background-color 100ms linear 300ms;\n    }\n\n    .handle.hide {\n      background-color: transparent;\n      transition: background-color 100ms linear;\n    }\n\n    .handle.split-vertical {\n      cursor: ew-resize;\n      height: 100%;\n    }\n\n    .handle.split-horizontal {\n      cursor: ns-resize;\n      width: 100%;\n    }\n  `,\n]"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "styles",
+            "module": "src/vscode-split-layout/vscode-split-layout.styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-split-layout/vscode-split-layout.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "VscodeSplitLayout",
+          "cssProperties": [
+            {
+              "name": "--hover-border",
+              "default": "var(--vscode-sash-hoverBorder)"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "split",
+              "type": {
+                "text": "'horizontal' | 'vertical'"
+              },
+              "default": "'vertical'",
+              "attribute": "split"
+            },
+            {
+              "kind": "field",
+              "name": "resetOnDblClick",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "reset-on-dbl-click",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "initialPos",
+              "type": {
+                "text": "string"
+              },
+              "default": "'50%'",
+              "attribute": "initial-pos"
+            },
+            {
+              "kind": "field",
+              "name": "_startPaneRight",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "_startPaneBottom",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "_endPaneTop",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "_endPaneLeft",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "_handleLeft",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "_handleTop",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "_isDragActive",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "_hover",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "_hide",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "_boundRect",
+              "type": {
+                "text": "DOMRect"
+              },
+              "privacy": "private",
+              "default": "new DOMRect()"
+            },
+            {
+              "kind": "field",
+              "name": "_handleOffset",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0"
+            },
+            {
+              "kind": "method",
+              "name": "_initPosition",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_handleMouseOver",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_handleMouseOut",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_handleMouseDown",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_handleMouseUp",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_handleMouseUpBound",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_handleMouseMove",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "_handleMouseMoveBound",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_handleDblClick",
+              "privacy": "private"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "split",
+              "type": {
+                "text": "'horizontal' | 'vertical'"
+              },
+              "default": "'vertical'",
+              "fieldName": "split"
+            },
+            {
+              "name": "reset-on-dbl-click",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "resetOnDblClick"
+            },
+            {
+              "name": "initial-pos",
+              "type": {
+                "text": "string"
+              },
+              "default": "'50%'",
+              "fieldName": "initialPos"
+            }
+          ],
+          "superclass": {
+            "name": "VscElement",
+            "module": "/src/includes/VscElement.js"
+          },
+          "tagName": "vscode-split-layout",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "VscodeSplitLayout",
+          "declaration": {
+            "name": "VscodeSplitLayout",
+            "module": "src/vscode-split-layout/vscode-split-layout.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "vscode-split-layout",
+          "declaration": {
+            "name": "VscodeSplitLayout",
+            "module": "src/vscode-split-layout/vscode-split-layout.ts"
           }
         }
       ]
@@ -8898,6 +8707,94 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/vscode-table-header/vscode-table-header.styles.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "styles",
+          "type": {
+            "text": "CSSResultGroup"
+          },
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      background-color: var(--header-background);\n      display: table;\n      table-layout: fixed;\n      width: 100%;\n    }\n  `,\n]"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "styles",
+            "module": "src/vscode-table-header/vscode-table-header.styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-table-header/vscode-table-header.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "VscodeTableHeader",
+          "cssProperties": [
+            {
+              "description": "Inherited from [Table](/components/vscode-table/api/)",
+              "name": "--header-background",
+              "default": "var(--vscode-keybindingTable-headerBackground)"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "default": "'rowgroup'",
+              "attribute": "role",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "default": "'rowgroup'",
+              "fieldName": "role"
+            }
+          ],
+          "superclass": {
+            "name": "VscElement",
+            "module": "/src/includes/VscElement.js"
+          },
+          "tagName": "vscode-table-header",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "VscodeTableHeader",
+          "declaration": {
+            "name": "VscodeTableHeader",
+            "module": "src/vscode-table-header/vscode-table-header.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "vscode-table-header",
+          "declaration": {
+            "name": "VscodeTableHeader",
+            "module": "src/vscode-table-header/vscode-table-header.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/vscode-table-header-cell/vscode-table-header-cell.styles.ts",
       "declarations": [
         {
@@ -8996,94 +8893,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/vscode-table-header/vscode-table-header.styles.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "styles",
-          "type": {
-            "text": "CSSResultGroup"
-          },
-          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      background-color: var(--header-background);\n      display: table;\n      table-layout: fixed;\n      width: 100%;\n    }\n  `,\n]"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "styles",
-            "module": "src/vscode-table-header/vscode-table-header.styles.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-table-header/vscode-table-header.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "VscodeTableHeader",
-          "cssProperties": [
-            {
-              "description": "Inherited from [Table](/components/vscode-table/api/)",
-              "name": "--header-background",
-              "default": "var(--vscode-keybindingTable-headerBackground)"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'rowgroup'",
-              "attribute": "role",
-              "reflects": true
-            }
-          ],
-          "attributes": [
-            {
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'rowgroup'",
-              "fieldName": "role"
-            }
-          ],
-          "superclass": {
-            "name": "VscElement",
-            "module": "/src/includes/VscElement.js"
-          },
-          "tagName": "vscode-table-header",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "VscodeTableHeader",
-          "declaration": {
-            "name": "VscodeTableHeader",
-            "module": "src/vscode-table-header/vscode-table-header.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "vscode-table-header",
-          "declaration": {
-            "name": "VscodeTableHeader",
-            "module": "src/vscode-table-header/vscode-table-header.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/vscode-table-row/vscode-table-row.styles.ts",
       "declarations": [
         {
@@ -9166,6 +8975,282 @@
           "declaration": {
             "name": "VscodeTableRow",
             "module": "src/vscode-table-row/vscode-table-row.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-tabs/vscode-tabs.styles.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "styles",
+          "type": {
+            "text": "CSSResultGroup"
+          },
+          "default": "[\n  defaultStyles,\n  declareThemeVariables([\n    {\n      componentProp: '--font-family',\n      vscodeProp: '--vscode-font-family',\n    },\n    {\n      componentProp: '--font-size',\n      vscodeProp: '--vscode-font-size',\n    },\n    {\n      componentProp: '--font-weight',\n      vscodeProp: '--vscode-font-weight',\n    },\n    {\n      componentProp: '--header-border',\n      vscodeProp: '--vscode-settings-headerBorder',\n    },\n    {\n      componentProp: '--panel-background',\n      vscodeProp: '--vscode-panel-background',\n    },\n  ]),\n  css`\n    :host {\n      display: block;\n    }\n\n    .header {\n      align-items: center;\n      display: flex;\n      font-family: var(--font-family);\n      font-size: var(--font-size);\n      font-weight: var(--font-weight);\n      width: 100%;\n    }\n\n    .header {\n      border-bottom-color: var(--header-border);\n      border-bottom-style: solid;\n      border-bottom-width: 1px;\n    }\n\n    .header.panel {\n      background-color: var(--panel-background);\n      border-bottom-width: 0;\n      box-sizing: border-box;\n      padding-left: 8px;\n      padding-right: 8px;\n    }\n\n    slot[name='addons'] {\n      display: block;\n      margin-left: auto;\n    }\n  `,\n]"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "styles",
+            "module": "src/vscode-tabs/vscode-tabs.styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-tabs/vscode-tabs.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "VscodeTabs",
+          "cssProperties": [
+            {
+              "name": "--font-family",
+              "default": "var(--vscode-font-family)"
+            },
+            {
+              "name": "--font-size",
+              "default": "var(--vscode-font-size)"
+            },
+            {
+              "name": "--font-weight",
+              "default": "var(--vscode-font-weight)"
+            },
+            {
+              "name": "--header-border",
+              "default": "var(--vscode-settings-headerBorder)"
+            },
+            {
+              "name": "--panel-background",
+              "default": "var(--vscode-panel-background)"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Default slot. It is used for tab panels.",
+              "name": ""
+            },
+            {
+              "description": "Slot for tab headers.",
+              "name": "header"
+            },
+            {
+              "description": "Right aligned area in the header.",
+              "name": "addons"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "panel",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Panel-like look",
+              "attribute": "panel",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "default": "'tablist'",
+              "attribute": "role",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "selectedIndex",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "attribute": "selected-index",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "_headerSlotElements",
+              "type": {
+                "text": "Element[]"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_mainSlotElements",
+              "type": {
+                "text": "Element[]"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_tabHeaders",
+              "type": {
+                "text": "VscodeTabHeader[]"
+              },
+              "privacy": "private",
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "_tabPanels",
+              "type": {
+                "text": "VscodeTabPanel[]"
+              },
+              "privacy": "private",
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "_componentId",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "''"
+            },
+            {
+              "kind": "field",
+              "name": "_tabFocus",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0"
+            },
+            {
+              "kind": "method",
+              "name": "_dispatchSelectEvent",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_setActiveTab",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_focusPrevTab",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_focusNextTab",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_onHeaderKeyDown",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "ev",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_moveHeadersToHeaderSlot",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_onMainSlotChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_onHeaderSlotChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_onHeaderClick",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            }
+          ],
+          "events": [
+            {
+              "name": "vsc-select",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "panel",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Panel-like look",
+              "fieldName": "panel"
+            },
+            {
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "default": "'tablist'",
+              "fieldName": "role"
+            },
+            {
+              "name": "selected-index",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "fieldName": "selectedIndex"
+            }
+          ],
+          "superclass": {
+            "name": "VscElement",
+            "module": "/src/includes/VscElement.js"
+          },
+          "tagName": "vscode-tabs",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "VscodeTabs",
+          "declaration": {
+            "name": "VscodeTabs",
+            "module": "src/vscode-tabs/vscode-tabs.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "vscode-tabs",
+          "declaration": {
+            "name": "VscodeTabs",
+            "module": "src/vscode-tabs/vscode-tabs.ts"
           }
         }
       ]
@@ -9853,282 +9938,6 @@
           "declaration": {
             "name": "VscodeTextarea",
             "module": "src/vscode-textarea/vscode-textarea.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-tabs/vscode-tabs.styles.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "styles",
-          "type": {
-            "text": "CSSResultGroup"
-          },
-          "default": "[\n  defaultStyles,\n  declareThemeVariables([\n    {\n      componentProp: '--font-family',\n      vscodeProp: '--vscode-font-family',\n    },\n    {\n      componentProp: '--font-size',\n      vscodeProp: '--vscode-font-size',\n    },\n    {\n      componentProp: '--font-weight',\n      vscodeProp: '--vscode-font-weight',\n    },\n    {\n      componentProp: '--header-border',\n      vscodeProp: '--vscode-settings-headerBorder',\n    },\n    {\n      componentProp: '--panel-background',\n      vscodeProp: '--vscode-panel-background',\n    },\n  ]),\n  css`\n    :host {\n      display: block;\n    }\n\n    .header {\n      align-items: center;\n      display: flex;\n      font-family: var(--font-family);\n      font-size: var(--font-size);\n      font-weight: var(--font-weight);\n      width: 100%;\n    }\n\n    .header {\n      border-bottom-color: var(--header-border);\n      border-bottom-style: solid;\n      border-bottom-width: 1px;\n    }\n\n    .header.panel {\n      background-color: var(--panel-background);\n      border-bottom-width: 0;\n      box-sizing: border-box;\n      padding-left: 8px;\n      padding-right: 8px;\n    }\n\n    slot[name='addons'] {\n      display: block;\n      margin-left: auto;\n    }\n  `,\n]"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "styles",
-            "module": "src/vscode-tabs/vscode-tabs.styles.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-tabs/vscode-tabs.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "VscodeTabs",
-          "cssProperties": [
-            {
-              "name": "--font-family",
-              "default": "var(--vscode-font-family)"
-            },
-            {
-              "name": "--font-size",
-              "default": "var(--vscode-font-size)"
-            },
-            {
-              "name": "--font-weight",
-              "default": "var(--vscode-font-weight)"
-            },
-            {
-              "name": "--header-border",
-              "default": "var(--vscode-settings-headerBorder)"
-            },
-            {
-              "name": "--panel-background",
-              "default": "var(--vscode-panel-background)"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Default slot. It is used for tab panels.",
-              "name": ""
-            },
-            {
-              "description": "Slot for tab headers.",
-              "name": "header"
-            },
-            {
-              "description": "Right aligned area in the header.",
-              "name": "addons"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "panel",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Panel-like look",
-              "attribute": "panel",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'tablist'",
-              "attribute": "role",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "selectedIndex",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "attribute": "selected-index",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "_headerSlotElements",
-              "type": {
-                "text": "Element[]"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "_mainSlotElements",
-              "type": {
-                "text": "Element[]"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "_tabHeaders",
-              "type": {
-                "text": "VscodeTabHeader[]"
-              },
-              "privacy": "private",
-              "default": "[]"
-            },
-            {
-              "kind": "field",
-              "name": "_tabPanels",
-              "type": {
-                "text": "VscodeTabPanel[]"
-              },
-              "privacy": "private",
-              "default": "[]"
-            },
-            {
-              "kind": "field",
-              "name": "_componentId",
-              "type": {
-                "text": "string"
-              },
-              "privacy": "private",
-              "default": "''"
-            },
-            {
-              "kind": "field",
-              "name": "_tabFocus",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "method",
-              "name": "_dispatchSelectEvent",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_setActiveTab",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_focusPrevTab",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_focusNextTab",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_onHeaderKeyDown",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "ev",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "_moveHeadersToHeaderSlot",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_onMainSlotChange",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_onHeaderSlotChange",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_onHeaderClick",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            }
-          ],
-          "events": [
-            {
-              "name": "vsc-select",
-              "type": {
-                "text": "CustomEvent"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "panel",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Panel-like look",
-              "fieldName": "panel"
-            },
-            {
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'tablist'",
-              "fieldName": "role"
-            },
-            {
-              "name": "selected-index",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "fieldName": "selectedIndex"
-            }
-          ],
-          "superclass": {
-            "name": "VscElement",
-            "module": "/src/includes/VscElement.js"
-          },
-          "tagName": "vscode-tabs",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "VscodeTabs",
-          "declaration": {
-            "name": "VscodeTabs",
-            "module": "src/vscode-tabs/vscode-tabs.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "vscode-tabs",
-          "declaration": {
-            "name": "VscodeTabs",
-            "module": "src/vscode-tabs/vscode-tabs.ts"
           }
         }
       ]
@@ -11748,16 +11557,6 @@
           "members": [
             {
               "kind": "field",
-              "name": "ariaExpanded",
-              "type": {
-                "text": "string"
-              },
-              "default": "'false'",
-              "attribute": "aria-expanded",
-              "reflects": true
-            },
-            {
-              "kind": "field",
               "name": "combobox",
               "type": {
                 "text": "boolean"
@@ -11802,16 +11601,6 @@
                 "text": "Option[]"
               },
               "attribute": "options"
-            },
-            {
-              "kind": "field",
-              "name": "tabindex",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "attribute": "tabindex",
-              "reflects": true
             },
             {
               "kind": "field",
@@ -12294,14 +12083,6 @@
               "attribute": "options"
             },
             {
-              "name": "aria-expanded",
-              "type": {
-                "text": "string"
-              },
-              "default": "'false'",
-              "fieldName": "ariaExpanded"
-            },
-            {
               "name": "combobox",
               "type": {
                 "text": "boolean"
@@ -12324,14 +12105,6 @@
               },
               "default": "false",
               "fieldName": "focused"
-            },
-            {
-              "name": "tabindex",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "fieldName": "tabindex"
             }
           ],
           "superclass": {
