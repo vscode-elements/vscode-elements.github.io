@@ -3,10 +3,20 @@ import { getCollection } from "astro:content";
 
 const componentPageEntries = await getCollection("components");
 const { pathname } = Astro.url;
+
+const staticPages = [
+  { title: "Building Forms", path: "/introduction/building-forms" },
+];
 ---
 
 <nav class="MainNav">
   <ul>
+    <li>
+      <a href="/introduction">Introduction</a>
+      <ul>
+        <li><a href="/introduction/building-forms">Building Forms</a></li>
+      </ul>
+    </li>
     <li>
       <a href="/components">Components</a>
       <ul>
@@ -23,8 +33,9 @@ const { pathname } = Astro.url;
             })
             .map((entry) => {
               const current =
-                pathname.search(new RegExp(`/components/${entry.slug}/?$`, "g")) >
-                  -1 ||
+                pathname.search(
+                  new RegExp(`/components/${entry.slug}/?$`, "g")
+                ) > -1 ||
                 pathname.search(
                   new RegExp(`/components/${entry.slug}/api/?$`, "g")
                 ) > -1;

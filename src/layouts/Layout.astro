@@ -1,12 +1,12 @@
 ---
-import GlobalStyles from '../components/GlobalStyles.astro';
-import LinkedScripts from '../components/LinkedScripts.astro';
-import Analytics from '../components/Analytics.astro';
-import MainHeader from '../components/MainHeader.astro';
-import PageContent from '../components/PageContent.astro';
-import Sidebar from '../components/Sidebar.astro';
-import MainNav from '../components/MainNav.astro';
-import MainContent from '../components/MainContent.astro';
+import GlobalStyles from "../components/GlobalStyles.astro";
+import LinkedScripts from "../components/LinkedScripts.astro";
+import Analytics from "../components/Analytics.astro";
+import MainHeader from "../components/MainHeader.astro";
+import PageContent from "../components/PageContent.astro";
+import Sidebar from "../components/Sidebar.astro";
+import MainNav from "../components/MainNav.astro";
+import MainContent from "../components/MainContent.astro";
 
 interface Props {
   title: string;
@@ -25,8 +25,11 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@900&amp;display=swap&amp;text=VSCodeWebviewElements" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@900&display=swap&text=VSCodeWebviewElements"
+      rel="stylesheet"
+    />
     <LinkedScripts />
     <meta name="generator" content={Astro.generator} />
     <title>{title} &ndash; VSCode Webview Elements</title>
@@ -43,8 +46,9 @@ const { title } = Astro.props;
     </PageContent>
   </body>
 </html>
+
 <GlobalStyles />
-<style>
+<style is:global>
   body {
     padding-top: 50px;
   }
@@ -83,7 +87,7 @@ const { title } = Astro.props;
     border-color: currentColor transparent transparent transparent;
     border-style: solid;
     border-width: 6px 4px;
-    content: '';
+    content: "";
     display: block;
     margin-top: -2px;
     position: absolute;
@@ -119,7 +123,7 @@ const { title } = Astro.props;
   }
 
   .in-page-nav-dropdown li:first-child a::before {
-    content: '↑';
+    content: "↑";
     display: inline-block;
     margin-right: 4px;
   }
@@ -166,7 +170,7 @@ const { title } = Astro.props;
     padding: 0 20px;
   }
 
-  .page pre[class*='language-'] {
+  .page pre[class*="language-"] {
     font-size: 0.875rem;
   }
 
@@ -318,5 +322,18 @@ const { title } = Astro.props;
   details summary {
     cursor: pointer;
     user-select: none;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .content {
+      margin-right: 250px;
+    }
+
+    .toc {
+      position: fixed;
+      right: 0;
+      top: 70px;
+      width: 250px;
+    }
   }
 </style>

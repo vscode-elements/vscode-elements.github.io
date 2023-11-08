@@ -1,0 +1,30 @@
+---
+layout: "@layouts/MarkdownPage.astro"
+title: Building forms
+---
+
+import Demo from "@components/Demo.astro";
+import BasicFormExample from "@components/examples/forms/BasicFormExample.astro";
+
+The form controls in VSC Elements work just like native form controls without needing any extra JavaScript.
+
+The components that can be used in a form are the following: Button, SingleSelect, MultiSelect, Textfield, Textarea, Radio, and Checkbox.
+
+## Basic Example
+
+<Demo>
+  <BasicFormExample />
+  <Fragment slot="html">
+    ```html
+    <form
+      action="/introduction/building-forms"
+      method="get"
+      enctype="application/x-www-form-urlencoded"
+    >
+      <vscode-label for="query">Search query:</vscode-label>
+      <vscode-textfield id="query" name="query" required></vscode-textfield>
+      <vscode-button type="submit">Search</vscode-button>
+    </form>
+    ```
+  </Fragment>
+</Demo>

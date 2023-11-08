@@ -581,211 +581,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/vscode-badge/vscode-badge.styles.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "styles",
-          "type": {
-            "text": "CSSResultGroup"
-          },
-          "default": "[\n  defaultStyles,\n  declareThemeVariables([\n    {\n      componentProp: '--foreground',\n      vscodeProp: '--vscode-badge-foreground',\n    },\n    {\n      componentProp: '--font-family',\n      vscodeProp: '--vscode-font-family',\n    },\n    {\n      componentProp: '--background',\n      vscodeProp: '--vscode-badge-background',\n    },\n    {\n      componentProp: '--activity-bar-badge-background',\n      vscodeProp: '--vscode-activityBarBadge-background',\n    },\n    {\n      componentProp: '--activity-bar-badge-foreground',\n      vscodeProp: '--vscode-activityBarBadge-foreground',\n    },\n  ]),\n  css`\n    :host {\n      background-color: var(--background);\n      border-radius: 2px;\n      color: var(--foreground);\n      display: inline-block;\n      font-family: var(--font-family);\n      font-size: 11px;\n      font-weight: 400;\n      line-height: 14px;\n      min-width: 18px;\n      padding: 2px 3px;\n      text-align: center;\n      white-space: nowrap;\n    }\n\n    :host([variant='counter']) {\n      border-radius: 11px;\n      box-sizing: border-box;\n      height: 18px;\n      line-height: 1;\n      padding: 3px 5px;\n    }\n\n    :host([variant='activity-bar-counter']) {\n      background-color: var(--activity-bar-badge-background);\n      border-radius: 20px;\n      color: var(--activity-bar-badge-foreground);\n      font-size: 9px;\n      font-weight: 600;\n      line-height: 16px;\n      min-width: 8px;\n      padding: 0 4px;\n    }\n  `,\n]"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "styles",
-            "module": "src/vscode-badge/vscode-badge.styles.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-badge/vscode-badge.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "VscodeBadge",
-          "cssProperties": [
-            {
-              "name": "--font-family",
-              "default": "var(--vscode-font-family)"
-            },
-            {
-              "description": "default and counter variant background color",
-              "name": "--background",
-              "default": "var(--vscode-badge-background)"
-            },
-            {
-              "description": "default and counter variant foreground color",
-              "name": "--foreground",
-              "default": "var(--vscode-badge-foreground)"
-            },
-            {
-              "description": "activity bar variant background color",
-              "name": "--activity-bar-badge-background",
-              "default": "var(--vscode-activityBarBadge-background)"
-            },
-            {
-              "description": "activity bar variant foreground color",
-              "name": "--activity-bar-badge-foreground",
-              "default": "var(--vscode-activityBarBadge-foreground)"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "'default' | 'counter' | 'activity-bar-counter'"
-              },
-              "default": "'default'",
-              "attribute": "variant"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "variant",
-              "type": {
-                "text": "'default' | 'counter' | 'activity-bar-counter'"
-              },
-              "default": "'default'",
-              "fieldName": "variant"
-            }
-          ],
-          "superclass": {
-            "name": "VscElement",
-            "module": "/src/includes/VscElement.js"
-          },
-          "tagName": "vscode-badge",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "VscodeBadge",
-          "declaration": {
-            "name": "VscodeBadge",
-            "module": "src/vscode-badge/vscode-badge.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "vscode-badge",
-          "declaration": {
-            "name": "VscodeBadge",
-            "module": "src/vscode-badge/vscode-badge.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-checkbox-group/vscode-checkbox-group.styles.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "styles",
-          "type": {
-            "text": "CSSResultGroup"
-          },
-          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      display: block;\n    }\n\n    .wrapper {\n      display: flex;\n      flex-wrap: wrap;\n    }\n\n    :host([variant='vertical']) .wrapper {\n      display: block;\n    }\n\n    ::slotted(vscode-checkbox) {\n      margin-right: 20px;\n    }\n\n    ::slotted(vscode-checkbox:last-child) {\n      margin-right: 0;\n    }\n\n    :host([variant='vertical']) ::slotted(vscode-checkbox) {\n      display: block;\n      margin-bottom: 15px;\n    }\n\n    :host([variant='vertical']) ::slotted(vscode-checkbox:last-child) {\n      margin-bottom: 0;\n    }\n  `,\n  formHelperTextStyles,\n]"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "styles",
-            "module": "src/vscode-checkbox-group/vscode-checkbox-group.styles.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-checkbox-group/vscode-checkbox-group.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "VscodeCheckboxGroup",
-          "members": [
-            {
-              "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'group'",
-              "attribute": "role",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "'horizontal' | 'vertical'"
-              },
-              "default": "'horizontal'",
-              "attribute": "variant",
-              "reflects": true
-            }
-          ],
-          "attributes": [
-            {
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'group'",
-              "fieldName": "role"
-            },
-            {
-              "name": "variant",
-              "type": {
-                "text": "'horizontal' | 'vertical'"
-              },
-              "default": "'horizontal'",
-              "fieldName": "variant"
-            }
-          ],
-          "superclass": {
-            "name": "VscElement",
-            "module": "/src/includes/VscElement.js"
-          },
-          "tagName": "vscode-checkbox-group",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "VscodeCheckboxGroup",
-          "declaration": {
-            "name": "VscodeCheckboxGroup",
-            "module": "src/vscode-checkbox-group/vscode-checkbox-group.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "vscode-checkbox-group",
-          "declaration": {
-            "name": "VscodeCheckboxGroup",
-            "module": "src/vscode-checkbox-group/vscode-checkbox-group.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/vscode-checkbox/vscode-checkbox.styles.ts",
       "declarations": [
         {
@@ -1275,6 +1070,211 @@
           "declaration": {
             "name": "VscodeCheckbox",
             "module": "src/vscode-checkbox/vscode-checkbox.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-badge/vscode-badge.styles.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "styles",
+          "type": {
+            "text": "CSSResultGroup"
+          },
+          "default": "[\n  defaultStyles,\n  declareThemeVariables([\n    {\n      componentProp: '--foreground',\n      vscodeProp: '--vscode-badge-foreground',\n    },\n    {\n      componentProp: '--font-family',\n      vscodeProp: '--vscode-font-family',\n    },\n    {\n      componentProp: '--background',\n      vscodeProp: '--vscode-badge-background',\n    },\n    {\n      componentProp: '--activity-bar-badge-background',\n      vscodeProp: '--vscode-activityBarBadge-background',\n    },\n    {\n      componentProp: '--activity-bar-badge-foreground',\n      vscodeProp: '--vscode-activityBarBadge-foreground',\n    },\n  ]),\n  css`\n    :host {\n      background-color: var(--background);\n      border-radius: 2px;\n      color: var(--foreground);\n      display: inline-block;\n      font-family: var(--font-family);\n      font-size: 11px;\n      font-weight: 400;\n      line-height: 14px;\n      min-width: 18px;\n      padding: 2px 3px;\n      text-align: center;\n      white-space: nowrap;\n    }\n\n    :host([variant='counter']) {\n      border-radius: 11px;\n      box-sizing: border-box;\n      height: 18px;\n      line-height: 1;\n      padding: 3px 5px;\n    }\n\n    :host([variant='activity-bar-counter']) {\n      background-color: var(--activity-bar-badge-background);\n      border-radius: 20px;\n      color: var(--activity-bar-badge-foreground);\n      font-size: 9px;\n      font-weight: 600;\n      line-height: 16px;\n      min-width: 8px;\n      padding: 0 4px;\n    }\n  `,\n]"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "styles",
+            "module": "src/vscode-badge/vscode-badge.styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-badge/vscode-badge.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "VscodeBadge",
+          "cssProperties": [
+            {
+              "name": "--font-family",
+              "default": "var(--vscode-font-family)"
+            },
+            {
+              "description": "default and counter variant background color",
+              "name": "--background",
+              "default": "var(--vscode-badge-background)"
+            },
+            {
+              "description": "default and counter variant foreground color",
+              "name": "--foreground",
+              "default": "var(--vscode-badge-foreground)"
+            },
+            {
+              "description": "activity bar variant background color",
+              "name": "--activity-bar-badge-background",
+              "default": "var(--vscode-activityBarBadge-background)"
+            },
+            {
+              "description": "activity bar variant foreground color",
+              "name": "--activity-bar-badge-foreground",
+              "default": "var(--vscode-activityBarBadge-foreground)"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "'default' | 'counter' | 'activity-bar-counter'"
+              },
+              "default": "'default'",
+              "attribute": "variant"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant",
+              "type": {
+                "text": "'default' | 'counter' | 'activity-bar-counter'"
+              },
+              "default": "'default'",
+              "fieldName": "variant"
+            }
+          ],
+          "superclass": {
+            "name": "VscElement",
+            "module": "/src/includes/VscElement.js"
+          },
+          "tagName": "vscode-badge",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "VscodeBadge",
+          "declaration": {
+            "name": "VscodeBadge",
+            "module": "src/vscode-badge/vscode-badge.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "vscode-badge",
+          "declaration": {
+            "name": "VscodeBadge",
+            "module": "src/vscode-badge/vscode-badge.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-checkbox-group/vscode-checkbox-group.styles.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "styles",
+          "type": {
+            "text": "CSSResultGroup"
+          },
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      display: block;\n    }\n\n    .wrapper {\n      display: flex;\n      flex-wrap: wrap;\n    }\n\n    :host([variant='vertical']) .wrapper {\n      display: block;\n    }\n\n    ::slotted(vscode-checkbox) {\n      margin-right: 20px;\n    }\n\n    ::slotted(vscode-checkbox:last-child) {\n      margin-right: 0;\n    }\n\n    :host([variant='vertical']) ::slotted(vscode-checkbox) {\n      display: block;\n      margin-bottom: 15px;\n    }\n\n    :host([variant='vertical']) ::slotted(vscode-checkbox:last-child) {\n      margin-bottom: 0;\n    }\n  `,\n  formHelperTextStyles,\n]"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "styles",
+            "module": "src/vscode-checkbox-group/vscode-checkbox-group.styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-checkbox-group/vscode-checkbox-group.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "VscodeCheckboxGroup",
+          "members": [
+            {
+              "kind": "field",
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "default": "'group'",
+              "attribute": "role",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "'horizontal' | 'vertical'"
+              },
+              "default": "'horizontal'",
+              "attribute": "variant",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "role",
+              "type": {
+                "text": "string"
+              },
+              "default": "'group'",
+              "fieldName": "role"
+            },
+            {
+              "name": "variant",
+              "type": {
+                "text": "'horizontal' | 'vertical'"
+              },
+              "default": "'horizontal'",
+              "fieldName": "variant"
+            }
+          ],
+          "superclass": {
+            "name": "VscElement",
+            "module": "/src/includes/VscElement.js"
+          },
+          "tagName": "vscode-checkbox-group",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "VscodeCheckboxGroup",
+          "declaration": {
+            "name": "VscodeCheckboxGroup",
+            "module": "src/vscode-checkbox-group/vscode-checkbox-group.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "vscode-checkbox-group",
+          "declaration": {
+            "name": "VscodeCheckboxGroup",
+            "module": "src/vscode-checkbox-group/vscode-checkbox-group.ts"
           }
         }
       ]
@@ -2539,6 +2539,241 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/vscode-icon/vscode-icon.styles.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "styles",
+          "type": {
+            "text": "CSSResultGroup"
+          },
+          "default": "[\n  defaultStyles,\n  declareThemeVariables([\n    {\n      componentProp: '--foreground',\n      vscodeProp: '--vscode-icon-foreground',\n    },\n    {\n      componentProp: '--hover-background',\n      vscodeProp: '--vscode-toolbar-hoverBackground',\n    },\n    {\n      componentProp: '--active-background',\n      vscodeProp: '--vscode-toolbar-activeBackground',\n    },\n    {\n      componentProp: '--focus-border',\n      vscodeProp: '--vscode-focusBorder',\n    },\n  ]),\n  css`\n    :host {\n      color: var(--foreground);\n      display: inline-block;\n    }\n\n    .codicon[class*='codicon-'] {\n      display: block;\n    }\n\n    .icon,\n    .button {\n      background-color: transparent;\n      display: block;\n      padding: 0;\n    }\n\n    .button {\n      border-color: transparent;\n      border-style: solid;\n      border-width: 1px;\n      border-radius: 5px;\n      color: currentColor;\n      cursor: pointer;\n      padding: 2px;\n    }\n\n    .button:hover {\n      background-color: var(--vscode-toolbar-hoverBackground);\n    }\n\n    .button:active {\n      background-color: var(--vscode-toolbar-activeBackground);\n    }\n\n    .button:focus {\n      outline: none;\n    }\n\n    .button:focus-visible {\n      border-color: var(--vscode-focusBorder);\n    }\n\n    @keyframes icon-spin {\n      100% {\n        transform: rotate(360deg);\n      }\n    }\n\n    .spin {\n      animation-name: icon-spin;\n      animation-timing-function: linear;\n      animation-iteration-count: infinite;\n    }\n  `,\n]"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "styles",
+            "module": "src/vscode-icon/vscode-icon.styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-icon/vscode-icon.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Display a [Codicon](https://microsoft.github.io/vscode-codicons/dist/codicon.html).\nIn \"action-icon\" mode it behaves like a button. In this case, it is\nrecommended that a meaningful label is specified with the `label` property.",
+          "name": "VscodeIcon",
+          "cssProperties": [
+            {
+              "name": "--foreground",
+              "default": "var(--vscode-icon-foreground)"
+            },
+            {
+              "description": "Hover state background color in `active-icon` mode",
+              "name": "--hover-background",
+              "default": "var(--vscode-toolbar-hoverBackground)"
+            },
+            {
+              "description": "Active state background color in `active-icon` mode",
+              "name": "--active-background",
+              "default": "var(--vscode-toolbar-activeBackground)"
+            },
+            {
+              "name": "--focus-border",
+              "default": "var(--vscode-focusBorder)"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Set a meaningful label in `action-icon` mode for the screen readers",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "[Codicon](https://microsoft.github.io/vscode-codicons/dist/codicon.html) icon name.",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
+              "description": "Icon size in pixels",
+              "attribute": "size"
+            },
+            {
+              "kind": "field",
+              "name": "spin",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Enable rotation animation",
+              "attribute": "spin",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "spinDuration",
+              "type": {
+                "text": "number"
+              },
+              "default": "1.5",
+              "description": "Animation duration in seconds",
+              "attribute": "spin-duration"
+            },
+            {
+              "kind": "field",
+              "name": "actionIcon",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Behaves like a button",
+              "attribute": "action-icon",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "stylesheetHref",
+              "type": {
+                "text": "string | undefined"
+              },
+              "privacy": "private",
+              "static": true,
+              "default": "''"
+            },
+            {
+              "kind": "field",
+              "name": "nonce",
+              "type": {
+                "text": "string | undefined"
+              },
+              "privacy": "private",
+              "static": true,
+              "default": "''"
+            },
+            {
+              "kind": "method",
+              "name": "_getStylesheetConfig",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "{\n    href: string | undefined;\n    nonce: string | undefined;\n  }"
+                }
+              },
+              "description": "For using web fonts in web components, the font stylesheet must be included\ntwice: on the page and in the web component. This function looks for the\nfont stylesheet on the page and returns the stylesheet URL and the nonce\nid."
+            },
+            {
+              "kind": "field",
+              "name": "_onButtonClick",
+              "privacy": "private"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "Set a meaningful label in `action-icon` mode for the screen readers",
+              "fieldName": "label"
+            },
+            {
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "[Codicon](https://microsoft.github.io/vscode-codicons/dist/codicon.html) icon name.",
+              "fieldName": "name"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "default": "16",
+              "description": "Icon size in pixels",
+              "fieldName": "size"
+            },
+            {
+              "name": "spin",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Enable rotation animation",
+              "fieldName": "spin"
+            },
+            {
+              "name": "spin-duration",
+              "type": {
+                "text": "number"
+              },
+              "default": "1.5",
+              "description": "Animation duration in seconds",
+              "fieldName": "spinDuration"
+            },
+            {
+              "name": "action-icon",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Behaves like a button",
+              "fieldName": "actionIcon"
+            }
+          ],
+          "superclass": {
+            "name": "VscElement",
+            "module": "/src/includes/VscElement.js"
+          },
+          "tagName": "vscode-icon",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "VscodeIcon",
+          "declaration": {
+            "name": "VscodeIcon",
+            "module": "src/vscode-icon/vscode-icon.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "vscode-icon",
+          "declaration": {
+            "name": "VscodeIcon",
+            "module": "src/vscode-icon/vscode-icon.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/vscode-inputbox/vscode-inputbox.styles.ts",
       "declarations": [
         {
@@ -3089,241 +3324,6 @@
           "declaration": {
             "name": "VscodeInputbox",
             "module": "src/vscode-inputbox/vscode-inputbox.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-icon/vscode-icon.styles.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "styles",
-          "type": {
-            "text": "CSSResultGroup"
-          },
-          "default": "[\n  defaultStyles,\n  declareThemeVariables([\n    {\n      componentProp: '--foreground',\n      vscodeProp: '--vscode-icon-foreground',\n    },\n    {\n      componentProp: '--hover-background',\n      vscodeProp: '--vscode-toolbar-hoverBackground',\n    },\n    {\n      componentProp: '--active-background',\n      vscodeProp: '--vscode-toolbar-activeBackground',\n    },\n    {\n      componentProp: '--focus-border',\n      vscodeProp: '--vscode-focusBorder',\n    },\n  ]),\n  css`\n    :host {\n      color: var(--foreground);\n      display: inline-block;\n    }\n\n    .codicon[class*='codicon-'] {\n      display: block;\n    }\n\n    .icon,\n    .button {\n      background-color: transparent;\n      display: block;\n      padding: 0;\n    }\n\n    .button {\n      border-color: transparent;\n      border-style: solid;\n      border-width: 1px;\n      border-radius: 5px;\n      color: currentColor;\n      cursor: pointer;\n      padding: 2px;\n    }\n\n    .button:hover {\n      background-color: var(--vscode-toolbar-hoverBackground);\n    }\n\n    .button:active {\n      background-color: var(--vscode-toolbar-activeBackground);\n    }\n\n    .button:focus {\n      outline: none;\n    }\n\n    .button:focus-visible {\n      border-color: var(--vscode-focusBorder);\n    }\n\n    @keyframes icon-spin {\n      100% {\n        transform: rotate(360deg);\n      }\n    }\n\n    .spin {\n      animation-name: icon-spin;\n      animation-timing-function: linear;\n      animation-iteration-count: infinite;\n    }\n  `,\n]"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "styles",
-            "module": "src/vscode-icon/vscode-icon.styles.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-icon/vscode-icon.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Display a [Codicon](https://microsoft.github.io/vscode-codicons/dist/codicon.html).\nIn \"action-icon\" mode it behaves like a button. In this case, it is\nrecommended that a meaningful label is specified with the `label` property.",
-          "name": "VscodeIcon",
-          "cssProperties": [
-            {
-              "name": "--foreground",
-              "default": "var(--vscode-icon-foreground)"
-            },
-            {
-              "description": "Hover state background color in `active-icon` mode",
-              "name": "--hover-background",
-              "default": "var(--vscode-toolbar-hoverBackground)"
-            },
-            {
-              "description": "Active state background color in `active-icon` mode",
-              "name": "--active-background",
-              "default": "var(--vscode-toolbar-activeBackground)"
-            },
-            {
-              "name": "--focus-border",
-              "default": "var(--vscode-focusBorder)"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "Set a meaningful label in `action-icon` mode for the screen readers",
-              "attribute": "label"
-            },
-            {
-              "kind": "field",
-              "name": "name",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "[Codicon](https://microsoft.github.io/vscode-codicons/dist/codicon.html) icon name.",
-              "attribute": "name"
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "number"
-              },
-              "default": "16",
-              "description": "Icon size in pixels",
-              "attribute": "size"
-            },
-            {
-              "kind": "field",
-              "name": "spin",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Enable rotation animation",
-              "attribute": "spin",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "spinDuration",
-              "type": {
-                "text": "number"
-              },
-              "default": "1.5",
-              "description": "Animation duration in seconds",
-              "attribute": "spin-duration"
-            },
-            {
-              "kind": "field",
-              "name": "actionIcon",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Behaves like a button",
-              "attribute": "action-icon",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "stylesheetHref",
-              "type": {
-                "text": "string | undefined"
-              },
-              "privacy": "private",
-              "static": true,
-              "default": "''"
-            },
-            {
-              "kind": "field",
-              "name": "nonce",
-              "type": {
-                "text": "string | undefined"
-              },
-              "privacy": "private",
-              "static": true,
-              "default": "''"
-            },
-            {
-              "kind": "method",
-              "name": "_getStylesheetConfig",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "{\n    href: string | undefined;\n    nonce: string | undefined;\n  }"
-                }
-              },
-              "description": "For using web fonts in web components, the font stylesheet must be included\ntwice: on the page and in the web component. This function looks for the\nfont stylesheet on the page and returns the stylesheet URL and the nonce\nid."
-            },
-            {
-              "kind": "field",
-              "name": "_onButtonClick",
-              "privacy": "private"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "Set a meaningful label in `action-icon` mode for the screen readers",
-              "fieldName": "label"
-            },
-            {
-              "name": "name",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "[Codicon](https://microsoft.github.io/vscode-codicons/dist/codicon.html) icon name.",
-              "fieldName": "name"
-            },
-            {
-              "name": "size",
-              "type": {
-                "text": "number"
-              },
-              "default": "16",
-              "description": "Icon size in pixels",
-              "fieldName": "size"
-            },
-            {
-              "name": "spin",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Enable rotation animation",
-              "fieldName": "spin"
-            },
-            {
-              "name": "spin-duration",
-              "type": {
-                "text": "number"
-              },
-              "default": "1.5",
-              "description": "Animation duration in seconds",
-              "fieldName": "spinDuration"
-            },
-            {
-              "name": "action-icon",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Behaves like a button",
-              "fieldName": "actionIcon"
-            }
-          ],
-          "superclass": {
-            "name": "VscElement",
-            "module": "/src/includes/VscElement.js"
-          },
-          "tagName": "vscode-icon",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "VscodeIcon",
-          "declaration": {
-            "name": "VscodeIcon",
-            "module": "src/vscode-icon/vscode-icon.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "vscode-icon",
-          "declaration": {
-            "name": "VscodeIcon",
-            "module": "src/vscode-icon/vscode-icon.ts"
           }
         }
       ]

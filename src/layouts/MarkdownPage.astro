@@ -1,0 +1,16 @@
+---
+import Page from "src/layouts/Page.astro";
+
+type Props = {
+  frontmatter: {
+    title: string;
+  };
+};
+
+const { frontmatter } = Astro.props;
+---
+
+<Page title={frontmatter.title}>
+  <h1>{frontmatter.title}</h1>
+  <slot />
+</Page>
