@@ -1,0 +1,77 @@
+---
+
+---
+
+<form
+  action="/introduction/working-with-forms"
+  method="get"
+  enctype="application/x-www-form-urlencoded"
+  id="form2"
+>
+  <vscode-form-group variant="vertical">
+    <vscode-label required>Do you have a driver's license?</vscode-label>
+    <vscode-radio-group>
+      <vscode-radio label="Yes" name="driver" value="yes" required
+      ></vscode-radio>
+      <vscode-radio label="No" name="driver" value="no" required></vscode-radio>
+    </vscode-radio-group>
+  </vscode-form-group>
+  <vscode-form-group variant="vertical">
+    <vscode-label for="form2-age">Age</vscode-label>
+    <vscode-textfield
+      type="number"
+      min="12"
+      max="120"
+      step="1"
+      id="form2-age"
+      name="age"
+      pattern="\d+"></vscode-textfield>
+  </vscode-form-group>
+  <vscode-form-group variant="vertical">
+    <vscode-label for="form2-fruit" required
+      >What's your favorite fruit?</vscode-label
+    >
+    <vscode-single-select name="fruit" id="form2-fruit" combobox required>
+      <vscode-option value="banana">Banana</vscode-option>
+      <vscode-option value="cherry">Cherry</vscode-option>
+      <vscode-option value="apple">Apple</vscode-option>
+      <vscode-option value="strawberry">Strawberry</vscode-option>
+      <vscode-option value="lemon">Lemon</vscode-option>
+      <vscode-option value="orange">Orange</vscode-option>
+    </vscode-single-select>
+  </vscode-form-group>
+  <vscode-form-group variant="vertical">
+    <vscode-label for="form2-email">What's your email address?</vscode-label>
+    <vscode-textfield type="email" name="email" id="form2-email"
+    ></vscode-textfield>
+  </vscode-form-group>
+  <vscode-form-group variant="vertical">
+    <vscode-label for="form2-message">Leave a short message</vscode-label>
+    <vscode-textarea id="form2-message" name="msg" maxlength="140" rows="5"
+    ></vscode-textarea>
+  </vscode-form-group>
+  <vscode-form-group variant="vertical">
+    <vscode-button type="submit">Submit</vscode-button>
+  </vscode-form-group>
+  <pre id="form2-output"></pre>
+</form>
+
+<script is:inline>
+  (() => {
+    const form = document.getElementById("form2");
+    let output = document.getElementById("form2-output");
+
+    form.addEventListener("submit", (ev) => {
+      ev.preventDefault();
+
+      const fd = new FormData(form);
+      let out = "";
+
+      for (let [name, value] of fd) {
+        out += `${name}: ${value}\n`;
+      }
+
+      output.innerHTML = out;
+    });
+  })();
+</script>
