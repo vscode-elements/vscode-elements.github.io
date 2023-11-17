@@ -1,10 +1,13 @@
 ---
 import type {
+  Attribute,
   ClassMember,
   ClassMethod,
   CssCustomProperty,
   CustomElement,
   CustomElementField,
+  Event,
+  Slot,
 } from "custom-elements-manifest/schema";
 import { marked } from "marked";
 import ApiDocsBadge from "./ApiDocsBadge.astro";
@@ -12,60 +15,41 @@ import ApiDocsDescriptionDeprecated from "./ApiDocsDescriptionDeprecated.astro";
 import ApiDocsSection from "./ApiDocsSection.astro";
 
 interface Props {
-  declaration: CustomElement;
+  tagName: string;
+  deprecated?: string | boolean;
+  description?: string;
+  fields?: CustomElementField[];
+  attributes?: Attribute[];
+  methods?: ClassMethod[];
+  events?: Event[];
+  slots?: Slot[];
+  cssProps?: CssCustomProperty[];
 }
 
-const { declaration } = Astro.props;
-
-type Comparable = ClassMember | CssCustomProperty;
-
-const memberCompare = (a: Comparable, b: Comparable) => {
-  if (a.name > b.name) {
-    return 1;
-  } else if (a.name < b.name) {
-    return -1;
-  } else {
-    return 0;
-  }
-};
-
-const deprecatedDeclaration = declaration.deprecated ?? false;
-const members = declaration.members ?? [];
-const publicMembers = members.filter((m) =>
-  m.privacy ? m.privacy !== "private" && m.privacy !== "protected" : true
-);
-const fields = publicMembers
-  .filter((m) => m.kind === "field")
-  .sort(memberCompare) as CustomElementField[];
-const methods = publicMembers
-  .filter((m) => m.kind === "method")
-  .sort(memberCompare) as ClassMethod[];
-const attributes = declaration.attributes
-  ? declaration.attributes.filter((a) => !a.fieldName).sort(memberCompare)
-  : [];
-const events = declaration.events ? declaration.events.sort(memberCompare) : [];
-const slots = declaration.slots ? declaration.slots.sort(memberCompare) : [];
-const cssProps = declaration.cssProperties
-  ? declaration.cssProperties.sort(memberCompare)
-  : [];
+const {
+  tagName,
+  deprecated,
+  description,
+  fields = [],
+  attributes = [],
+  methods = [],
+  events = [],
+  slots = [],
+  cssProps = [],
+} = Astro.props;
 ---
 
-<div class:list={["declaration-header", {deprecated: deprecatedDeclaration}]}>
-  <code>&lt;{declaration.tagName}&gt;</code>{
-    deprecatedDeclaration ? <ApiDocsBadge flag="deprecated" /> : null
+<div class:list={["declaration-header", { deprecated }]}>
+  <code>&lt;{tagName}&gt;</code>{
+    deprecated ? <ApiDocsBadge flag="deprecated" /> : null
   }
 </div>
 {
-  typeof deprecatedDeclaration === "string" &&
-  deprecatedDeclaration !== "true" ? (
-    <ApiDocsDescriptionDeprecated markdown={deprecatedDeclaration} />
+  typeof deprecated === "string" && deprecated !== "true" ? (
+    <ApiDocsDescriptionDeprecated markdown={deprecated} />
   ) : null
 }
-{
-  declaration.description ? (
-    <div set:html={marked.parse(declaration.description)} />
-  ) : null
-}
+{description ? <div set:html={marked.parse(description)} /> : null}
 
 <ApiDocsSection title="Properties" members={fields} />
 <ApiDocsSection title="Attributes" members={attributes} />

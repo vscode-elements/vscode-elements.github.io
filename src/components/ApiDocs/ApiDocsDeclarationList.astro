@@ -1,0 +1,131 @@
+---
+import type {
+  CustomElementField,
+  Attribute,
+  ClassMethod,
+  Event,
+  Slot,
+  CssCustomProperty,
+} from "custom-elements-manifest";
+
+interface Props {
+  fields?: CustomElementField[];
+  attributes?: Attribute[];
+  methods?: ClassMethod[];
+  events?: Event[];
+  slots?: Slot[];
+  cssProps?: CssCustomProperty[];
+}
+
+const {
+  fields = [],
+  attributes = [],
+  methods = [],
+  events = [],
+  slots = [],
+  cssProps = [],
+} = Astro.props;
+---
+
+<ul class="ApiDocsDeclarationList">
+  {
+    fields.length > 0 ? (
+      <li>
+        <a href="#Properties">Properties</a>
+        <ul>
+          {fields.map((f) => (
+            <li>
+              <a href={`#Properties_${f.name}`}>{f.name}</a>
+            </li>
+          ))}
+        </ul>
+      </li>
+    ) : null
+  }
+  {
+    attributes.length > 0 ? (
+      <li>
+        <a href="#Attributes">Attributes</a>
+        <ul>
+          {attributes.map((f) => (
+            <li>
+              <a href={`#Attributes_${f.name}`}>{f.name}</a>
+            </li>
+          ))}
+        </ul>
+      </li>
+    ) : null
+  }
+  {
+    methods.length > 0 ? (
+      <li>
+        <a href="#Methods">Methods</a>
+        <ul>
+          {methods.map((f) => (
+            <li>
+              <a href={`#Methods_${f.name}`}>{f.name}</a>
+            </li>
+          ))}
+        </ul>
+      </li>
+    ) : null
+  }
+  {
+    events.length > 0 ? (
+      <li>
+        <a href="#Events">Events</a>
+        <ul>
+          {events.map((f) => (
+            <li>
+              <a href={`#Events_${f.name}`}>{f.name}</a>
+            </li>
+          ))}
+        </ul>
+      </li>
+    ) : null
+  }
+  {
+    slots.length > 0 ? (
+      <li>
+        <a href="#Slots">Slots</a>
+        <ul>
+          {slots.map((f) => (
+            <li>
+              <a href={`#Slots_${f.name}`}>{f.name}</a>
+            </li>
+          ))}
+        </ul>
+      </li>
+    ) : null
+  }
+  {
+    cssProps.length > 0 ? (
+      <li>
+        <a href="#Custom_CSS_Properties">Custom CSS Properties</a>
+        <ul>
+          {cssProps.map((f) => (
+            <li>
+              <a href={`#Custom_CSS_Properties_${f.name}`}>{f.name}</a>
+            </li>
+          ))}
+        </ul>
+      </li>
+    ) : null
+  }
+</ul>
+
+<style>
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    font-size: 13px;
+    list-style: none;
+  }
+
+  li ul {
+    padding-left: 20px;
+  }
+</style>

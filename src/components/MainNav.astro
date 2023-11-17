@@ -4,9 +4,6 @@ import { getCollection } from "astro:content";
 const componentPageEntries = await getCollection("components");
 const { pathname } = Astro.url;
 
-const staticPages = [
-  { title: "Building Forms", path: "/introduction/building-forms" },
-];
 ---
 
 <nav class="MainNav">
@@ -71,6 +68,10 @@ const staticPages = [
   .MainNav a {
     color: inherit;
     text-decoration: none;
+  }
+
+  .MainNav a:hover {
+    color: var(--color-vscode-blue);
   }
 
   .MainNav ul {

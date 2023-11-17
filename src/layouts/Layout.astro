@@ -35,305 +35,90 @@ const { title } = Astro.props;
     <title>{title} &ndash; VSCode Webview Elements</title>
   </head>
   <body class="vscode-light">
-    <MainHeader />
-    <PageContent>
-      <Sidebar>
-        <MainNav />
-      </Sidebar>
-      <MainContent>
-        <slot />
-      </MainContent>
-    </PageContent>
-  </body>
+    <Sidebar />
+    <MainContent>
+      <slot />
+    </MainContent>
+  </body><GlobalStyles />
+
+  <style is:global>
+    .page h1 {
+      font-size: 48px;
+      font-weight: normal;
+      margin: 20px 0 0;
+      line-height: 1.2;
+    }
+
+    .page h2 {
+      font-size: 32px;
+      font-weight: normal;
+      line-height: 1.2;
+      margin: 48px 0 8px;
+    }
+
+    .page h3 {
+      font-size: 20px;
+      font-weight: normal;
+      line-height: 1.2;
+      margin: 32px 0 8px;
+    }
+
+    .page h1,
+    .page h2,
+    .page h3 {
+      align-items: center;
+      display: flex;
+    }
+
+    @keyframes highlight {
+      from {
+        background-color: yellow;
+      }
+
+      to {
+        background-color: transparent;
+      }
+    }
+
+    .page h1:target,
+    .page h2:target,
+    .page h3:target {
+      animation: highlight 3000ms;
+      outline: none;
+    }
+
+    .page h1 a,
+    .page h2 a,
+    .page h3 a {
+      color: inherit;
+      text-decoration: inherit;
+    }
+
+    .page h1 a:hover,
+    .page h2 a:hover,
+    .page h3 a:hover {
+      text-decoration: underline;
+    }
+
+    .page h1 a:focus,
+    .page h2 a:focus,
+    .page h3 a:focus {
+      outline: none;
+    }
+
+    .page h1 a:focus-visible,
+    .page h2 a:focus-visible,
+    .page h3 a:focus-visible {
+      outline: 1px solid currentColor;
+    }
+
+    @media screen and (min-width: 1024px) {
+      .toc {
+        position: fixed;
+        right: 0;
+        top: 70px;
+        width: 250px;
+      }
+    }
+  </style>
 </html>
-
-<GlobalStyles />
-<style is:global>
-  body {
-    padding-top: 50px;
-  }
-
-  .in-page-nav {
-    align-items: center;
-    list-style: none;
-    margin: 0 0 0 auto;
-    padding: 0;
-    position: relative;
-  }
-
-  .in-page-nav > li {
-    display: flex;
-  }
-
-  .in-page-nav h2 {
-    align-items: center;
-    border: 1px solid #ddd;
-    display: flex;
-    font-size: 14px;
-    font-weight: normal;
-    height: 30px;
-    margin: 0;
-    padding: 0 20px;
-  }
-
-  .in-page-nav h2 span {
-    cursor: pointer;
-    display: block;
-    padding-right: 15px;
-    position: relative;
-  }
-
-  .in-page-nav h2 span::after {
-    border-color: currentColor transparent transparent transparent;
-    border-style: solid;
-    border-width: 6px 4px;
-    content: "";
-    display: block;
-    margin-top: -2px;
-    position: absolute;
-    right: 0;
-    top: 50%;
-  }
-
-  .in-page-nav-dropdown {
-    background-color: var(--color-light-gray);
-    border: 1px solid #ddd;
-    border-top: 0;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
-    box-sizing: border-box;
-    display: none;
-    list-style: none;
-    min-width: 100%;
-    padding: 5px 0;
-    position: absolute;
-    right: 0;
-    top: 32px;
-  }
-
-  .in-page-nav:hover .in-page-nav-dropdown {
-    display: block;
-  }
-
-  .in-page-nav-dropdown a {
-    color: inherit;
-    display: block;
-    font-size: 14px;
-    padding: 5px 20px;
-    text-decoration: none;
-  }
-
-  .in-page-nav-dropdown li:first-child a::before {
-    content: "↑";
-    display: inline-block;
-    margin-right: 4px;
-  }
-
-  .in-page-nav-dropdown a:hover {
-    background-color: var(--color-vscode-blue);
-    color: var(--color-light-gray);
-  }
-
-  .a11y-status {
-    align-items: center;
-    display: flex;
-    margin-left: auto;
-  }
-
-  .status-icon {
-    margin: 0 4px;
-    padding: 2px 6px;
-  }
-
-  .status-high {
-    background-color: #238551;
-    color: #fff;
-  }
-
-  .status-medium {
-    background-color: #fbb360;
-  }
-
-  .status-low {
-    background-color: #cd4246;
-    color: #fff;
-  }
-
-  .status-unknown {
-    background-color: #f6f7f9;
-  }
-
-  .deprecated-message {
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
-    color: #721c24;
-    margin: 20px 0;
-    padding: 0 20px;
-  }
-
-  .page pre[class*="language-"] {
-    font-size: 0.875rem;
-  }
-
-  .page h1 {
-    font-size: 48px;
-    font-weight: normal;
-    margin: 20px 0 0;
-    line-height: 1.2;
-  }
-
-  .page h2 {
-    font-size: 32px;
-    font-weight: normal;
-    line-height: 1.2;
-    margin: 48px 0 8px;
-  }
-
-  .page h3 {
-    font-size: 20px;
-    font-weight: normal;
-    line-height: 1.2;
-    margin: 32px 0 8px;
-  }
-
-  .page h1,
-  .page h2,
-  .page h3 {
-    align-items: center;
-    display: flex;
-  }
-
-  @keyframes highlight {
-    from {
-      background-color: yellow;
-    }
-
-    to {
-      background-color: transparent;
-    }
-  }
-
-  .page h1:target,
-  .page h2:target,
-  .page h3:target {
-    animation: highlight 3000ms;
-    outline: none;
-  }
-
-  .page h1 a,
-  .page h2 a,
-  .page h3 a {
-    color: inherit;
-    text-decoration: inherit;
-  }
-
-  .page h1 a:hover,
-  .page h2 a:hover,
-  .page h3 a:hover {
-    text-decoration: underline;
-  }
-
-  .page h1 a:focus,
-  .page h2 a:focus,
-  .page h3 a:focus {
-    outline: none;
-  }
-
-  .page h1 a:focus-visible,
-  .page h2 a:focus-visible,
-  .page h3 a:focus-visible {
-    outline: 1px solid currentColor;
-  }
-
-  .page table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-
-  .page table thead {
-    margin: 0;
-  }
-
-  .page table th {
-    background-color: #dfdfdf;
-    border-bottom: 1px solid #adadad;
-    font-size: 15px;
-    padding: 5px 15px;
-    text-align: left;
-  }
-
-  .page table td {
-    background-color: #fcfcfc;
-    border-top: 1px solid #d4d4d4;
-    font-size: 15px;
-    padding: 15px;
-    vertical-align: top;
-    white-space: nowrap;
-  }
-
-  .page table td:first-child {
-    font-weight: bold;
-  }
-
-  .page table tr:first-child td {
-    border-top-width: 0;
-  }
-
-  .page table tr:nth-child(even) td {
-    background-color: #ededed;
-  }
-
-  .page table td:last-child {
-    white-space: normal;
-  }
-
-  .last-modified {
-    color: #666;
-    display: block;
-    font-size: 12px;
-    margin-top: 30px;
-  }
-
-  .api-docs {
-    --ave-border-radius: 0;
-    --ave-header-background: var(--color-vscode-blue);
-    --ave-primary-color: var(--color-vscode-blue);
-    background-color: #fafafa;
-    border: 0;
-    margin: 20px 0;
-    max-width: 100%;
-  }
-
-  .api-docs::part(md-code) {
-    background-color: #ddd;
-    display: inline-block;
-    padding: 0 3px;
-  }
-
-  component-preview {
-    margin: 15px 0;
-  }
-
-  details {
-    background-color: #fff;
-    font-size: 14px;
-    padding: 5px 15px;
-  }
-
-  details summary {
-    cursor: pointer;
-    user-select: none;
-  }
-
-  @media screen and (min-width: 1024px) {
-    .content {
-      margin-right: 250px;
-    }
-
-    .toc {
-      position: fixed;
-      right: 0;
-      top: 70px;
-      width: 250px;
-    }
-  }
-</style>
