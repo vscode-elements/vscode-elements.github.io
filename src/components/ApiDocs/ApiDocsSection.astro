@@ -35,6 +35,8 @@ const urlHash = title.replaceAll(" ", "_");
       <dl>
         {members.map((member) => {
           const { name, description, deprecated } = member;
+          const emptyName = name === "";
+          const failSafeName = emptyName ? "Unnamed" : name;
           const readonly = "readonly" in member;
           const reflected = "reflects" in member;
           const staticMember = "static" in member && member.static === true;
@@ -61,7 +63,9 @@ const urlHash = title.replaceAll(" ", "_");
               <DescriptionTermWrapper
                 class:list={["description-term", { deprecated }]}
               >
-                <span class="name" id={`${urlHash}_${name}`}>{name ? name : <i>Unnamed</i>}</span>{" "}
+                <span class="name" id={`${urlHash}_${failSafeName}`}>
+                  {name ? name : <i>Unnamed</i>}
+                </span>{" "}
                 {deprecated ? <ApiDocsBadge flag="deprecated" /> : null}{" "}
                 {readonly ? <ApiDocsBadge flag="readonly" /> : null}{" "}
                 {reflected ? <ApiDocsBadge flag="reflected" /> : null}{" "}

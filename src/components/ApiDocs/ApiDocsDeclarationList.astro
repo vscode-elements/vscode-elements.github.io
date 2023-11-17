@@ -25,96 +25,80 @@ const {
   slots = [],
   cssProps = [],
 } = Astro.props;
+
+const sections = {
+  Properties: fields,
+  Attributes: attributes,
+  Methods: methods,
+  Events: events,
+  Slots: slots,
+  "Custom CSS Properties": cssProps,
+};
+type SectionName = keyof typeof sections;
 ---
 
 <ul class="ApiDocsDeclarationList">
   {
-    fields.length > 0 ? (
-      <li>
-        <a href="#Properties">Properties</a>
-        <ul>
-          {fields.map((f) => (
-            <li>
-              <a href={`#Properties_${f.name}`}>{f.name}</a>
-            </li>
-          ))}
-        </ul>
-      </li>
-    ) : null
-  }
-  {
-    attributes.length > 0 ? (
-      <li>
-        <a href="#Attributes">Attributes</a>
-        <ul>
-          {attributes.map((f) => (
-            <li>
-              <a href={`#Attributes_${f.name}`}>{f.name}</a>
-            </li>
-          ))}
-        </ul>
-      </li>
-    ) : null
-  }
-  {
-    methods.length > 0 ? (
-      <li>
-        <a href="#Methods">Methods</a>
-        <ul>
-          {methods.map((f) => (
-            <li>
-              <a href={`#Methods_${f.name}`}>{f.name}</a>
-            </li>
-          ))}
-        </ul>
-      </li>
-    ) : null
-  }
-  {
-    events.length > 0 ? (
-      <li>
-        <a href="#Events">Events</a>
-        <ul>
-          {events.map((f) => (
-            <li>
-              <a href={`#Events_${f.name}`}>{f.name}</a>
-            </li>
-          ))}
-        </ul>
-      </li>
-    ) : null
-  }
-  {
-    slots.length > 0 ? (
-      <li>
-        <a href="#Slots">Slots</a>
-        <ul>
-          {slots.map((f) => (
-            <li>
-              <a href={`#Slots_${f.name}`}>{f.name}</a>
-            </li>
-          ))}
-        </ul>
-      </li>
-    ) : null
-  }
-  {
-    cssProps.length > 0 ? (
-      <li>
-        <a href="#Custom_CSS_Properties">Custom CSS Properties</a>
-        <ul>
-          {cssProps.map((f) => (
-            <li>
-              <a href={`#Custom_CSS_Properties_${f.name}`}>{f.name}</a>
-            </li>
-          ))}
-        </ul>
-      </li>
-    ) : null
+    Object.keys(sections).map((key) => {
+      const section = sections[key as SectionName];
+      const categoryUrlHash = `#${key.replaceAll(" ", "_")}`;
+
+      return section.length > 0 ? (
+        <li>
+          <div class="category-header">
+            <button type="button" title="toggle" class="toggle-subtree">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M10.072 8.024L5.715 3.667l.618-.62L11 7.716v.618L6.333 13l-.618-.619 4.357-4.357z"
+                />
+              </svg>
+            </button>
+            <a href={categoryUrlHash}>{key}</a>
+          </div>
+          <ul class="subtree">
+            {sections[key as SectionName].map(({ name }) => {
+              const emptyName = name === "";
+              const failSafeName = emptyName ? "Unnamed" : name;
+
+              return (
+                <li>
+                  <a href={`${categoryUrlHash}_${failSafeName}`}>
+                    {emptyName ? <i>{failSafeName}</i> : name}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </li>
+      ) : null;
+    })
   }
 </ul>
 
 <style>
+  .ApiDocsDeclarationList {
+    border-left: 1px solid #ccc;
+    overflow-y: auto;
+    max-height: 100%;
+    padding-left: 10px;
+  }
+
+  .ApiDocsDeclarationList::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .ApiDocsDeclarationList:hover::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+  }
+
   ul {
     margin: 0;
     padding: 0;
@@ -125,7 +109,76 @@ const {
     list-style: none;
   }
 
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--color-vscode-blue);
+  }
+
+  .category-header {
+    font-size: 16px;
+  }
+
   li ul {
-    padding-left: 20px;
+    display: none;
+    padding-left: 32px;
+  }
+
+  li ul.opened {
+    display: block;
+  }
+
+  .category-header {
+    display: flex;
+    align-items: center;
+  }
+
+  .toggle-subtree {
+    background-color: transparent;
+    border: 0;
+    box-sizing: content-box;
+    cursor: pointer;
+    display: inline-block;
+    height: 16px;
+    padding: 8px;
+    width: 16px;
+  }
+
+  .toggle-subtree svg {
+    display: block;
+    height: 16px;
+    width: 16px;
+  }
+
+  .toggle-subtree.opened svg {
+    transform: rotate(90deg);
+  }
+
+  li ul li {
+    margin: 5px 0;
   }
 </style>
+
+<script>
+  const toggleButtons =
+    document.querySelectorAll<HTMLButtonElement>(".toggle-subtree");
+
+  const handleClick = (ev: MouseEvent) => {
+    console.log(ev.currentTarget);
+    const bt = ev.currentTarget as HTMLButtonElement;
+    const subtree = bt.closest("li")?.querySelector(".subtree");
+
+    bt.classList.toggle("opened");
+
+    if (subtree) {
+      subtree.classList.toggle("opened");
+    }
+  };
+
+  toggleButtons.forEach((b) =>
+    b.addEventListener("click", handleClick, { capture: true })
+  );
+</script>

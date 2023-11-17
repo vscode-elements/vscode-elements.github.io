@@ -1,3 +1,42 @@
 ---
 title: Checkbox Group
 ---
+import Demo from "@components/Demo.astro";
+
+## Horizontal Group
+
+<Demo>
+  <vscode-checkbox-group>
+    <vscode-checkbox label="Lorem"></vscode-checkbox>
+    <vscode-checkbox label="Ipsum"></vscode-checkbox>
+    <vscode-checkbox label="Dolor"></vscode-checkbox>
+  </vscode-checkbox-group>
+  <Fragment slot="html">
+    ```html
+    <vscode-checkbox-group>
+      <vscode-checkbox label="Lorem"></vscode-checkbox>
+      <vscode-checkbox label="Ipsum"></vscode-checkbox>
+      <vscode-checkbox label="Dolor"></vscode-checkbox>
+    </vscode-checkbox-group>
+    ```
+  </Fragment>
+</Demo>
+
+## Vertical Group
+
+<Demo>
+  <vscode-checkbox-group variant="vertical">
+    <vscode-checkbox label="Lorem"></vscode-checkbox>
+    <vscode-checkbox label="Ipsum"></vscode-checkbox>
+    <vscode-checkbox label="Dolor"></vscode-checkbox>
+  </vscode-checkbox-group>
+  <Fragment slot="html">
+    ```html
+    <vscode-checkbox-group variant="vertical">
+      <vscode-checkbox label="Lorem"></vscode-checkbox>
+      <vscode-checkbox label="Ipsum"></vscode-checkbox>
+      <vscode-checkbox label="Dolor"></vscode-checkbox>
+    </vscode-checkbox-group>
+    ```
+  </Fragment>
+</Demo>

@@ -1288,7 +1288,7 @@
           "slots": [
             {
               "description": "Main content.",
-              "name": "body"
+              "name": ""
             },
             {
               "description": "You can place any action icon in this slot in the header, but it's also possible to use any HTML element in it. It's only visible when the component is open.",

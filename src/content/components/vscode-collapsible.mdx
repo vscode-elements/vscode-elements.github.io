@@ -1,3 +1,205 @@
 ---
 title: Collapsible
 ---
+
+import Demo from "@components/Demo.astro";
+import BasicExample from "@components/examples/vscode-collapsible/BasicExample.astro";
+import ActionsExample from "@components/examples/vscode-collapsible/ActionsExample.astro";
+import DecorationsExample from "@components/examples/vscode-collapsible/DecorationsExample.astro";
+import ScrollableExample from "@components/examples/vscode-collapsible/ScrollableExample.astro";
+
+## Basic example
+
+<Demo>
+  <BasicExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-collapsible title="Basic example" open>
+      <p>Open by default</p>
+    </vscode-collapsible>
+    <vscode-collapsible title="Basic example">
+      <p>Suspendisse potenti. Maecenas eu egestas metus. Nulla eget placerat mi, et efficitur augue.</p>
+    </vscode-collapsible>
+    ```
+  </Fragment>
+  <Fragment slot="css">
+    ```css
+    vscode-collapsible p {
+      margin: 10px;
+    }
+    ```
+  </Fragment>
+</Demo>
+
+## Actions
+
+Clickable action icons. Please review the developer console for logged messages. These icons are
+visible exclusively when the component is in the opened state.
+
+<Demo>
+  <ActionsExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-collapsible title="Actions example" class="collapsible" open>
+      <vscode-icon
+        name="file-add"
+        action-icon
+        aria-role="button"
+        id="btn-file-add"
+        title="New File"
+        slot="actions"></vscode-icon>
+      <vscode-icon
+        name="refresh"
+        action-icon
+        aria-role="button"
+        id="btn-refresh"
+        title="Refresh"
+        slot="actions"></vscode-icon>
+      <p>
+        Suspendisse potenti. Maecenas eu egestas metus. Nulla eget placerat mi, et
+        efficitur augue.
+      </p>
+    </vscode-collapsible>
+    ```
+  </Fragment>
+  <Fragment slot="css">
+    ```css
+    .collapsible ul {
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    .collapsible li {
+      align-items: center;
+      display: flex;
+      height: 22px;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+      width: 28px;
+    }
+
+    .collapsible p {
+      margin: 10px;
+    }
+    ```
+
+  </Fragment>
+  <Fragment slot="js">
+    ```javascript
+    document
+      .querySelector("#btn-file-add")
+      .addEventListener("click", (event) => {
+        event.stopPropagation();
+        console.log("New File");
+      });
+
+    document
+      .querySelector("#btn-refresh")
+      .addEventListener("click", (event) => {
+        event.stopPropagation();
+        console.log("Refresh");
+      });
+    ```
+
+  </Fragment>
+</Demo>
+
+## Decorations
+
+Elements in the `decorations` slot are always visible, in contrast to the `actions` slot.
+
+<Demo>
+  <DecorationsExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-collapsible title="Decorations example" class="collapsible">
+      <vscode-badge variant="counter" slot="decorations">99</vscode-badge>
+      <p>
+        Suspendisse potenti. Maecenas eu egestas metus. Nulla eget placerat mi, et
+        efficitur augue.
+      </p>
+    </vscode-collapsible>
+    ```
+  </Fragment>
+  <Fragment slot="css">
+    ```css
+    .collapsible p {
+      margin: 10px;
+    }
+    ```
+  </Fragment>
+</Demo>
+
+## Displaying large amounts of data
+
+Long content can be managed by the [Scrollable](/components/vscode-scrollable) component.
+
+<Demo>
+  <ScrollableExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-collapsible
+      title="Timeline"
+      description="vscode-collapsible.ts"
+      class="collapsible complex-example"
+      open
+    >
+      <vscode-icon name="pin" action-icon slot="actions" id="pin-icon"
+      ></vscode-icon>
+      <vscode-icon name="refresh" action-icon slot="actions" id="refresh-icon"
+      ></vscode-icon>
+      <vscode-icon name="filter" action-icon slot="actions" id="filter-icon"
+      ></vscode-icon>
+      <vscode-scrollable>
+        <vscode-tree id="tree-example"></vscode-tree>
+      </vscode-scrollable>
+    </vscode-collapsible>
+    ```
+  </Fragment>
+  <Fragment slot="css">
+    ```css
+    .collapsible.complex-example vscode-scrollable {
+      height: 200px;
+    }
+    ```
+  </Fragment>
+  <Fragment slot="js">
+    ```javascript
+    const icons = {
+      leaf: "circle-outline",
+    };
+    const tree = document.getElementById("tree-example");
+    document.getElementById("pin-icon").addEventListener("click", (ev) => {
+      ev.stopPropagation();
+    });
+    document.getElementById("refresh-icon").addEventListener("click", (ev) => {
+      ev.stopPropagation();
+    });
+    document.getElementById("filter-icon").addEventListener("click", (ev) => {
+      ev.stopPropagation();
+    });
+
+    tree.data = [
+      { icons, label: "File Saved" },
+      { icons, label: "File Saved" },
+      { icons, label: "File Saved" },
+      { icons, label: "File Saved" },
+      { icons, label: "File Saved" },
+      { icons, label: "File Saved" },
+      { icons, label: "File Saved" },
+      { icons, label: "File Saved" },
+      { icons, label: "File Saved" },
+      { icons, label: "File Saved" },
+      { icons, label: "File Saved" },
+      { icons, label: "File Saved" },
+      { icons, label: "File Saved" },
+      { icons, label: "File Saved" },
+      { icons, label: "File Saved" },
+      { icons, label: "File Saved" },
+    ];
+    ```
+
+  </Fragment>
+</Demo>
