@@ -539,6 +539,7 @@
               "type": {
                 "text": "CustomEvent"
               },
+              "deprecated": "true",
               "description": "Dispatched only when button is not in disabled state."
             }
           ],
@@ -1163,16 +1164,6 @@
           "members": [
             {
               "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'group'",
-              "attribute": "role",
-              "reflects": true
-            },
-            {
-              "kind": "field",
               "name": "variant",
               "type": {
                 "text": "'horizontal' | 'vertical'"
@@ -1183,14 +1174,6 @@
             }
           ],
           "attributes": [
-            {
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'group'",
-              "fieldName": "role"
-            },
             {
               "name": "variant",
               "type": {
@@ -1478,16 +1461,6 @@
             },
             {
               "kind": "field",
-              "name": "tabindex",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "attribute": "tabindex",
-              "reflects": true
-            },
-            {
-              "kind": "field",
               "name": "_selectedClickableItemIndex",
               "type": {
                 "text": "number"
@@ -1628,14 +1601,6 @@
                 "text": "boolean"
               },
               "fieldName": "show"
-            },
-            {
-              "name": "tabindex",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "fieldName": "tabindex"
             }
           ],
           "superclass": {
@@ -2650,80 +2615,61 @@
               "default": "2"
             },
             {
-              "name": "--badge-background",
-              "default": "var(--vscode-badge-background)"
+              "name": "--vscode-badge-background"
             },
             {
-              "name": "--badge-foreground",
-              "default": "var(--vscode-badge-foreground)"
+              "name": "--vscode-badge-foreground"
             },
             {
-              "name": "--border",
-              "default": "var(--vscode-settings-dropdownBorder)"
+              "name": "--vscode-settings-dropdownBorder"
             },
             {
-              "name": "--checkbox-background",
-              "default": "var(--vscode-settings-checkboxBackground)"
+              "name": "--vscode-settings-checkboxBackground"
             },
             {
-              "name": "--dropdown-background",
-              "default": "var(--vscode-settings-dropdownBackground)"
+              "name": "--vscode-settings-dropdownBackground"
             },
             {
-              "name": "--dropdown-border",
-              "default": "var(--vscode-settings-dropdownListBorder)"
+              "name": "--vscode-settings-dropdownListBorder"
             },
             {
-              "name": "--focus-border",
-              "default": "var(--vscode-focusBorder)"
+              "name": "--vscode-focusBorder"
             },
             {
-              "name": "--foreground",
-              "default": "var(--vscode-foreground)"
+              "name": "--vscode-foreground"
             },
             {
-              "name": "--font-family",
-              "default": "var(--vscode-font-family)"
+              "name": "--vscode-font-family"
             },
             {
-              "name": "--font-size",
-              "default": "var(--vscode-font-size)"
+              "name": "--vscode-font-size"
             },
             {
-              "name": "--font-weight",
-              "default": "var(--vscode-font-weight)"
+              "name": "--vscode-font-weight"
             },
             {
-              "name": "--list-active-selection-background",
-              "default": "var(--vscode-list-activeSelectionBackground)"
+              "name": "--vscode-list-activeSelectionBackground"
             },
             {
-              "name": "--list-active-selection-foreground",
-              "default": "var(--vscode-list-activeSelectionForeground)"
+              "name": "--vscode-list-activeSelectionForeground"
             },
             {
-              "name": "--list-focus-outline",
-              "default": "var(--vscode-list-focusOutline)"
+              "name": "--vscode-list-focusOutline"
             },
             {
-              "name": "--list-hover-background",
-              "default": "var(--vscode-list-hoverBackground)"
+              "name": "--vscode-list-hoverBackground"
             },
             {
-              "name": "--list-hover-foreground",
-              "default": "var(--vscode-list-hoverForeground)"
+              "name": "--vscode-list-hoverForeground"
             },
             {
-              "name": "--selected-background",
-              "default": "var(--vscode-list-hoverBackground)"
+              "name": "--vscode-list-hoverBackground"
             },
             {
-              "name": "--input-background",
-              "default": "var(--vscode-settings-textInputBackground)"
+              "name": "--vscode-settings-textInputBackground"
             },
             {
-              "name": "--list-hover-background",
-              "default": "var(--vscode-list-hoverBackground)"
+              "name": "--vscode-list-hoverBackground"
             }
           ],
           "members": [
@@ -2844,38 +2790,6 @@
             },
             {
               "kind": "method",
-              "name": "formResetCallback",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "formStateRestoreCallback",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "state",
-                  "type": {
-                    "text": "FormData"
-                  }
-                },
-                {
-                  "name": "_mode",
-                  "type": {
-                    "text": "'restore' | 'autocomplete'"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
               "name": "_setDefaultValue",
               "privacy": "private"
             },
@@ -2992,14 +2906,6 @@
                 "name": "VscodeSelectBase",
                 "module": "src/includes/vscode-select/vscode-select-base.ts"
               }
-            },
-            {
-              "kind": "field",
-              "name": "_multiple",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "true"
             },
             {
               "kind": "field",
@@ -4134,38 +4040,6 @@
             },
             {
               "kind": "method",
-              "name": "formResetCallback",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "formStateRestoreCallback",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "state",
-                  "type": {
-                    "text": "string"
-                  }
-                },
-                {
-                  "name": "_mode",
-                  "type": {
-                    "text": "'restore' | 'autocomplete'"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
               "name": "_dispatchCustomEvent",
               "privacy": "private",
               "deprecated": "true"
@@ -4506,26 +4380,6 @@
             },
             {
               "kind": "field",
-              "name": "inline",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "inline",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'radiogroup'",
-              "attribute": "role",
-              "reflects": true
-            },
-            {
-              "kind": "field",
               "name": "_radios",
               "type": {
                 "text": "VscodeRadio[]"
@@ -4638,22 +4492,6 @@
               },
               "default": "'horizontal'",
               "fieldName": "variant"
-            },
-            {
-              "name": "inline",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "inline"
-            },
-            {
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'radiogroup'",
-              "fieldName": "role"
             }
           ],
           "superclass": {
@@ -5083,7 +4921,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "## Types\r\n\r\n```typescript\r\ninterface Option {\r\n label: string;\r\n value: string;\r\n description: string;\r\n selected: boolean;\r\n disabled: boolean;\r\n}\r\n```",
+          "description": "## Types\n\n```typescript\ninterface Option {\n label: string;\n value: string;\n description: string;\n selected: boolean;\n disabled: boolean;\n}\n```",
           "name": "VscodeSingleSelect",
           "cssProperties": [
             {
@@ -5146,15 +4984,6 @@
             }
           ],
           "members": [
-            {
-              "kind": "field",
-              "name": "formAssociated",
-              "type": {
-                "text": "boolean"
-              },
-              "static": true,
-              "default": "true"
-            },
             {
               "kind": "field",
               "name": "defaultValue",
@@ -6517,16 +6346,6 @@
             },
             {
               "kind": "field",
-              "name": "ariaControls",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "aria-controls",
-              "reflects": true
-            },
-            {
-              "kind": "field",
               "name": "panel",
               "type": {
                 "text": "boolean"
@@ -6534,26 +6353,6 @@
               "default": "false",
               "description": "Panel-like look",
               "attribute": "panel",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'tab'",
-              "attribute": "role",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "tabId",
-              "type": {
-                "text": "number"
-              },
-              "default": "-1",
-              "attribute": "tab-id",
               "reflects": true
             }
           ],
@@ -6567,14 +6366,6 @@
               "fieldName": "active"
             },
             {
-              "name": "aria-controls",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "ariaControls"
-            },
-            {
               "name": "panel",
               "type": {
                 "text": "boolean"
@@ -6582,22 +6373,6 @@
               "default": "false",
               "description": "Panel-like look",
               "fieldName": "panel"
-            },
-            {
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'tab'",
-              "fieldName": "role"
-            },
-            {
-              "name": "tab-id",
-              "type": {
-                "text": "number"
-              },
-              "default": "-1",
-              "fieldName": "tabId"
             }
           ],
           "superclass": {
@@ -6680,16 +6455,6 @@
             },
             {
               "kind": "field",
-              "name": "ariaLabelledby",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "aria-labelledby",
-              "reflects": true
-            },
-            {
-              "kind": "field",
               "name": "panel",
               "type": {
                 "text": "boolean"
@@ -6697,26 +6462,6 @@
               "default": "false",
               "description": "Panel-like look",
               "attribute": "panel",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'tabpanel'",
-              "attribute": "role",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "tabindex",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "attribute": "tabindex",
               "reflects": true
             }
           ],
@@ -6730,14 +6475,6 @@
               "fieldName": "hidden"
             },
             {
-              "name": "aria-labelledby",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "ariaLabelledby"
-            },
-            {
               "name": "panel",
               "type": {
                 "text": "boolean"
@@ -6745,22 +6482,6 @@
               "default": "false",
               "description": "Panel-like look",
               "fieldName": "panel"
-            },
-            {
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'tabpanel'",
-              "fieldName": "role"
-            },
-            {
-              "name": "tabindex",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "fieldName": "tabindex"
             }
           ],
           "superclass": {
@@ -6894,16 +6615,6 @@
           "members": [
             {
               "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'table'",
-              "attribute": "role",
-              "reflects": true
-            },
-            {
-              "kind": "field",
               "name": "resizable",
               "type": {
                 "text": "boolean"
@@ -6934,7 +6645,7 @@
             {
               "kind": "field",
               "name": "columns",
-              "description": "Initial column sizes in a JSON-encoded array.\r\nAccepted values are:\r\n- number\r\n- string-type number (ex.: \"100\")\r\n- px value (ex.: \"100px\")\r\n- percentage value (ex.: \"50%\")\r\n- percentage value (ex.: \"50%\")\r\n- \"auto\" keyword",
+              "description": "Initial column sizes in a JSON-encoded array.\nAccepted values are:\n- number\n- string-type number (ex.: \"100\")\n- px value (ex.: \"100px\")\n- percentage value (ex.: \"50%\")\n- percentage value (ex.: \"50%\")\n- \"auto\" keyword",
               "type": {
                 "text": "string[]"
               },
@@ -6947,7 +6658,7 @@
                 "text": "string"
               },
               "default": "'50px'",
-              "description": "Minimum column width. Valid values are:\r\n- number\r\n- string-type number (ex.: \"100\")\r\n- px value (ex.: \"100px\")\r\n- percentage value (ex.: \"50%\")\r\n- percentage value (ex.: \"50%\")\r\n- \"auto\" keyword",
+              "description": "Minimum column width. Valid values are:\n- number\n- string-type number (ex.: \"100\")\n- px value (ex.: \"100px\")\n- percentage value (ex.: \"50%\")\n- percentage value (ex.: \"50%\")\n- \"auto\" keyword",
               "attribute": "min-column-width"
             },
             {
@@ -7126,7 +6837,7 @@
               },
               "privacy": "private",
               "default": "[]",
-              "description": "Cached querySelectorAll result. Updated when the header slot changes.\r\nIt shouldn't be used directly, check the \"_getHeaderCells\" function."
+              "description": "Cached querySelectorAll result. Updated when the header slot changes.\nIt shouldn't be used directly, check the \"_getHeaderCells\" function."
             },
             {
               "kind": "field",
@@ -7136,7 +6847,7 @@
               },
               "privacy": "private",
               "default": "[]",
-              "description": "Cached querySelectorAll result. Updated when the body slot changes.\r\nIt shouldn't be used directly, check the \"_getCellsOfFirstRow\" function."
+              "description": "Cached querySelectorAll result. Updated when the body slot changes.\nIt shouldn't be used directly, check the \"_getCellsOfFirstRow\" function."
             },
             {
               "kind": "field",
@@ -7392,7 +7103,7 @@
               "privacy": "private",
               "return": {
                 "type": {
-                  "text": "{\r\n    sashPos: number;\r\n    prevSashPos: number;\r\n    nextSashPos: number;\r\n  }"
+                  "text": "{\n    sashPos: number;\n    prevSashPos: number;\n    nextSashPos: number;\n  }"
                 }
               }
             },
@@ -7466,14 +7177,6 @@
               "name": "bordered"
             },
             {
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'table'",
-              "fieldName": "role"
-            },
-            {
               "name": "resizable",
               "type": {
                 "text": "boolean"
@@ -7499,7 +7202,7 @@
             },
             {
               "name": "columns",
-              "description": "Initial column sizes in a JSON-encoded array.\r\nAccepted values are:\r\n- number\r\n- string-type number (ex.: \"100\")\r\n- px value (ex.: \"100px\")\r\n- percentage value (ex.: \"50%\")\r\n- percentage value (ex.: \"50%\")\r\n- \"auto\" keyword",
+              "description": "Initial column sizes in a JSON-encoded array.\nAccepted values are:\n- number\n- string-type number (ex.: \"100\")\n- px value (ex.: \"100px\")\n- percentage value (ex.: \"50%\")\n- percentage value (ex.: \"50%\")\n- \"auto\" keyword",
               "type": {
                 "text": "string[]"
               },
@@ -7511,7 +7214,7 @@
                 "text": "string"
               },
               "default": "'50px'",
-              "description": "Minimum column width. Valid values are:\r\n- number\r\n- string-type number (ex.: \"100\")\r\n- px value (ex.: \"100px\")\r\n- percentage value (ex.: \"50%\")\r\n- percentage value (ex.: \"50%\")\r\n- \"auto\" keyword",
+              "description": "Minimum column width. Valid values are:\n- number\n- string-type number (ex.: \"100\")\n- px value (ex.: \"100px\")\n- percentage value (ex.: \"50%\")\n- percentage value (ex.: \"50%\")\n- \"auto\" keyword",
               "fieldName": "minColumnWidth"
             },
             {
@@ -7596,28 +7299,7 @@
               "name": "--vscode-keybindingTable-rowsBackground"
             }
           ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'rowgroup'",
-              "attribute": "role",
-              "reflects": true
-            }
-          ],
-          "attributes": [
-            {
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'rowgroup'",
-              "fieldName": "role"
-            }
-          ],
+          "members": [],
           "superclass": {
             "name": "VscElement",
             "module": "/src/includes/VscElement.js"
@@ -7694,16 +7376,6 @@
           "members": [
             {
               "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'cell'",
-              "attribute": "role",
-              "reflects": true
-            },
-            {
-              "kind": "field",
               "name": "columnLabel",
               "type": {
                 "text": "string"
@@ -7725,14 +7397,6 @@
             }
           ],
           "attributes": [
-            {
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'cell'",
-              "fieldName": "role"
-            },
             {
               "name": "column-label",
               "type": {
@@ -7817,28 +7481,7 @@
               "name": "--vscode-keybindingTable-headerBackground"
             }
           ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'rowgroup'",
-              "attribute": "role",
-              "reflects": true
-            }
-          ],
-          "attributes": [
-            {
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'rowgroup'",
-              "fieldName": "role"
-            }
-          ],
+          "members": [],
           "superclass": {
             "name": "VscElement",
             "module": "/src/includes/VscElement.js"
@@ -7909,28 +7552,7 @@
               "name": "--vscode-font-size"
             }
           ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'columnheader'",
-              "attribute": "role",
-              "reflects": true
-            }
-          ],
-          "attributes": [
-            {
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'columnheader'",
-              "fieldName": "role"
-            }
-          ],
+          "members": [],
           "superclass": {
             "name": "VscElement",
             "module": "/src/includes/VscElement.js"
@@ -7995,28 +7617,7 @@
               "name": "--vscode-editorGroup-border"
             }
           ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'row'",
-              "attribute": "role",
-              "reflects": true
-            }
-          ],
-          "attributes": [
-            {
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'row'",
-              "fieldName": "role"
-            }
-          ],
+          "members": [],
           "superclass": {
             "name": "VscElement",
             "module": "/src/includes/VscElement.js"
@@ -8040,277 +7641,6 @@
           "declaration": {
             "name": "VscodeTableRow",
             "module": "src/vscode-table-row/vscode-table-row.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-tabs/vscode-tabs.styles.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "styles",
-          "type": {
-            "text": "CSSResultGroup"
-          },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      display: block;\r\n    }\r\n\r\n    .header {\r\n      align-items: center;\r\n      display: flex;\r\n      font-family: var(--vscode-font-family);\r\n      font-size: var(--vscode-font-size);\r\n      font-weight: var(--vscode-font-weight);\r\n      width: 100%;\r\n    }\r\n\r\n    .header {\r\n      border-bottom-color: var(--vscode-settings-headerBorder);\r\n      border-bottom-style: solid;\r\n      border-bottom-width: 1px;\r\n    }\r\n\r\n    .header.panel {\r\n      background-color: var(--vscode-panel-background);\r\n      border-bottom-width: 0;\r\n      box-sizing: border-box;\r\n      padding-left: 8px;\r\n      padding-right: 8px;\r\n    }\r\n\r\n    slot[name='addons'] {\r\n      display: block;\r\n      margin-left: auto;\r\n    }\r\n  `,\r\n]"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "styles",
-            "module": "src/vscode-tabs/vscode-tabs.styles.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-tabs/vscode-tabs.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "VscodeTabs",
-          "cssProperties": [
-            {
-              "name": "--vscode-font-family"
-            },
-            {
-              "name": "--vscode-font-size"
-            },
-            {
-              "name": "--vscode-font-weight"
-            },
-            {
-              "name": "--vscode-settings-headerBorder"
-            },
-            {
-              "name": "--vscode-panel-background"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Default slot. It is used for tab panels.",
-              "name": ""
-            },
-            {
-              "description": "Slot for tab headers.",
-              "name": "header"
-            },
-            {
-              "description": "Right aligned area in the header.",
-              "name": "addons"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "panel",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Panel-like look",
-              "attribute": "panel",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'tablist'",
-              "attribute": "role",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "selectedIndex",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "attribute": "selected-index",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "_headerSlotElements",
-              "type": {
-                "text": "Element[]"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "_mainSlotElements",
-              "type": {
-                "text": "Element[]"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "_tabHeaders",
-              "type": {
-                "text": "VscodeTabHeader[]"
-              },
-              "privacy": "private",
-              "default": "[]"
-            },
-            {
-              "kind": "field",
-              "name": "_tabPanels",
-              "type": {
-                "text": "VscodeTabPanel[]"
-              },
-              "privacy": "private",
-              "default": "[]"
-            },
-            {
-              "kind": "field",
-              "name": "_componentId",
-              "type": {
-                "text": "string"
-              },
-              "privacy": "private",
-              "default": "''"
-            },
-            {
-              "kind": "field",
-              "name": "_tabFocus",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "method",
-              "name": "_dispatchSelectEvent",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_setActiveTab",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_focusPrevTab",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_focusNextTab",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_onHeaderKeyDown",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "ev",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "_moveHeadersToHeaderSlot",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_onMainSlotChange",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_onHeaderSlotChange",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_onHeaderClick",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            }
-          ],
-          "events": [
-            {
-              "name": "vsc-select",
-              "type": {
-                "text": "CustomEvent"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "panel",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Panel-like look",
-              "fieldName": "panel"
-            },
-            {
-              "name": "role",
-              "type": {
-                "text": "string"
-              },
-              "default": "'tablist'",
-              "fieldName": "role"
-            },
-            {
-              "name": "selected-index",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "fieldName": "selectedIndex"
-            }
-          ],
-          "superclass": {
-            "name": "VscElement",
-            "module": "/src/includes/VscElement.js"
-          },
-          "tagName": "vscode-tabs",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "VscodeTabs",
-          "declaration": {
-            "name": "VscodeTabs",
-            "module": "src/vscode-tabs/vscode-tabs.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "vscode-tabs",
-          "declaration": {
-            "name": "VscodeTabs",
-            "module": "src/vscode-tabs/vscode-tabs.ts"
           }
         }
       ]
@@ -8559,7 +7889,7 @@
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Use monospace fonts. The font family, weight, size, and color will be the same as set in the\r\nVSCode code editor.",
+              "description": "Use monospace fonts. The font family, weight, size, and color will be the same as set in the\nVSCode code editor.",
               "attribute": "monospace",
               "reflects": true
             },
@@ -8621,38 +7951,6 @@
               "type": {
                 "text": "number | undefined"
               }
-            },
-            {
-              "kind": "method",
-              "name": "formResetCallback",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              }
-            },
-            {
-              "kind": "method",
-              "name": "formStateRestoreCallback",
-              "return": {
-                "type": {
-                  "text": "void"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "state",
-                  "type": {
-                    "text": "string"
-                  }
-                },
-                {
-                  "name": "_mode",
-                  "type": {
-                    "text": "'restore' | 'autocomplete'"
-                  }
-                }
-              ]
             },
             {
               "kind": "method",
@@ -8946,7 +8244,7 @@
                 "text": "boolean"
               },
               "default": "false",
-              "description": "Use monospace fonts. The font family, weight, size, and color will be the same as set in the\r\nVSCode code editor.",
+              "description": "Use monospace fonts. The font family, weight, size, and color will be the same as set in the\nVSCode code editor.",
               "fieldName": "monospace"
             },
             {
@@ -8980,6 +8278,259 @@
           "declaration": {
             "name": "VscodeTextarea",
             "module": "src/vscode-textarea/vscode-textarea.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-tabs/vscode-tabs.styles.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "styles",
+          "type": {
+            "text": "CSSResultGroup"
+          },
+          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      display: block;\r\n    }\r\n\r\n    .header {\r\n      align-items: center;\r\n      display: flex;\r\n      font-family: var(--vscode-font-family);\r\n      font-size: var(--vscode-font-size);\r\n      font-weight: var(--vscode-font-weight);\r\n      width: 100%;\r\n    }\r\n\r\n    .header {\r\n      border-bottom-color: var(--vscode-settings-headerBorder);\r\n      border-bottom-style: solid;\r\n      border-bottom-width: 1px;\r\n    }\r\n\r\n    .header.panel {\r\n      background-color: var(--vscode-panel-background);\r\n      border-bottom-width: 0;\r\n      box-sizing: border-box;\r\n      padding-left: 8px;\r\n      padding-right: 8px;\r\n    }\r\n\r\n    slot[name='addons'] {\r\n      display: block;\r\n      margin-left: auto;\r\n    }\r\n  `,\r\n]"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "styles",
+            "module": "src/vscode-tabs/vscode-tabs.styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-tabs/vscode-tabs.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "VscodeTabs",
+          "cssProperties": [
+            {
+              "name": "--vscode-font-family"
+            },
+            {
+              "name": "--vscode-font-size"
+            },
+            {
+              "name": "--vscode-font-weight"
+            },
+            {
+              "name": "--vscode-settings-headerBorder"
+            },
+            {
+              "name": "--vscode-panel-background"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Default slot. It is used for tab panels.",
+              "name": ""
+            },
+            {
+              "description": "Slot for tab headers.",
+              "name": "header"
+            },
+            {
+              "description": "Right aligned area in the header.",
+              "name": "addons"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "panel",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Panel-like look",
+              "attribute": "panel",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "selectedIndex",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "attribute": "selected-index",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "_headerSlotElements",
+              "type": {
+                "text": "Element[]"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_mainSlotElements",
+              "type": {
+                "text": "Element[]"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_tabHeaders",
+              "type": {
+                "text": "VscodeTabHeader[]"
+              },
+              "privacy": "private",
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "_tabPanels",
+              "type": {
+                "text": "VscodeTabPanel[]"
+              },
+              "privacy": "private",
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "_componentId",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "''"
+            },
+            {
+              "kind": "field",
+              "name": "_tabFocus",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0"
+            },
+            {
+              "kind": "method",
+              "name": "_dispatchSelectEvent",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_setActiveTab",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_focusPrevTab",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_focusNextTab",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_onHeaderKeyDown",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "ev",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_moveHeadersToHeaderSlot",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_onMainSlotChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_onHeaderSlotChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_onHeaderClick",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            }
+          ],
+          "events": [
+            {
+              "name": "vsc-select",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "panel",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Panel-like look",
+              "fieldName": "panel"
+            },
+            {
+              "name": "selected-index",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "fieldName": "selectedIndex"
+            }
+          ],
+          "superclass": {
+            "name": "VscElement",
+            "module": "/src/includes/VscElement.js"
+          },
+          "tagName": "vscode-tabs",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "VscodeTabs",
+          "declaration": {
+            "name": "VscodeTabs",
+            "module": "src/vscode-tabs/vscode-tabs.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "vscode-tabs",
+          "declaration": {
+            "name": "VscodeTabs",
+            "module": "src/vscode-tabs/vscode-tabs.ts"
           }
         }
       ]
