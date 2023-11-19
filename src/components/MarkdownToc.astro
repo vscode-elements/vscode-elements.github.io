@@ -1,0 +1,26 @@
+---
+import type { MarkdownHeading } from "astro";
+
+export type Props = {
+  headings: MarkdownHeading[];
+};
+
+const { headings } = Astro.props;
+---
+
+<ul class="MarkdownToc">
+  {
+    headings.map(({ slug, text }) => (
+      <li>
+        <a href={`#${slug}`}>{text}</a>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .MarkdownToc {
+    position: sticky;
+    top: 20px;
+  }
+</style>

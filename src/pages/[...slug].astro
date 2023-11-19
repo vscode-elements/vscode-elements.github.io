@@ -1,11 +1,11 @@
 ---
 import { getCollection } from "astro:content";
-import ComponentPage from "src/layouts/ComponentPage.astro";
+import ArticlePage from "src/layouts/ArticlePage.astro";
 
 export async function getStaticPaths() {
-  const componentPageEntries = await getCollection("components");
+  const articlePages = await getCollection("articles");
 
-  return componentPageEntries.map((entry) => ({
+  return articlePages.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
   }));
@@ -16,6 +16,6 @@ const { title } = entry.data;
 const { Content, headings } = await entry.render();
 ---
 
-<ComponentPage {title} {headings}>
+<ArticlePage {title} {headings}>
   <Content />
-</ComponentPage>
+</ArticlePage>

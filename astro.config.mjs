@@ -16,7 +16,6 @@ export default defineConfig({
     rehypePlugins: [
       rehypeSlug,
       [rehypeAutolinkHeadings, {behavior: 'wrap'}],
-      [rehypeToc, {headings: ['h2', 'h3']}],
     ],
   },
 });

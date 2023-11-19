@@ -2,18 +2,12 @@
 import GlobalStyles from "../components/GlobalStyles.astro";
 import LinkedScripts from "../components/LinkedScripts.astro";
 import Analytics from "../components/Analytics.astro";
-import MainHeader from "../components/MainHeader.astro";
-import PageContent from "../components/PageContent.astro";
 import Sidebar from "../components/Sidebar.astro";
-import MainNav from "../components/MainNav.astro";
-import MainContent from "../components/MainContent.astro";
+import "@vscode/codicons/dist/codicon.css";
 
 interface Props {
   title: string;
 }
-
-const { slug } = Astro.params;
-const log = Astro.url;
 
 const { title } = Astro.props;
 ---
@@ -30,95 +24,114 @@ const { title } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@900&display=swap&text=VSCodeWebviewElements"
       rel="stylesheet"
     />
-    <LinkedScripts />
+    <link rel="stylesheet" href="/codicon.css" id="vscode-codicon-stylesheet" />
     <meta name="generator" content={Astro.generator} />
     <title>{title} &ndash; VSCode Webview Elements</title>
+    <script is:inline>
+      window.__COMPONENT_PREVIEW_THEMES_DIR__ = "/dev-assets";
+    </script>
+    <script>
+      import "@vsc-elements/elements/dist/bundled.js";
+      import "../scripts/component-preview.js";
+    </script>
   </head>
   <body class="vscode-light">
     <Sidebar />
-    <MainContent>
+    <main class="main">
       <slot />
-    </MainContent>
-  </body><GlobalStyles />
+    </main>
+    <GlobalStyles />
 
-  <style is:global>
-    .page h1 {
-      font-size: 48px;
-      font-weight: normal;
-      margin: 20px 0 0;
-      line-height: 1.2;
-    }
-
-    .page h2 {
-      font-size: 32px;
-      font-weight: normal;
-      line-height: 1.2;
-      margin: 48px 0 8px;
-    }
-
-    .page h3 {
-      font-size: 20px;
-      font-weight: normal;
-      line-height: 1.2;
-      margin: 32px 0 8px;
-    }
-
-    .page h1,
-    .page h2,
-    .page h3 {
-      align-items: center;
-      display: flex;
-    }
-
-    @keyframes highlight {
-      from {
-        background-color: yellow;
+    <style is:global>
+      :root {
+        --Sidebar-width: 250px;
       }
 
-      to {
-        background-color: transparent;
+      h1 {
+        font-size: 48px;
+        font-weight: normal;
+        margin: 20px 0 0;
+        line-height: 1.2;
       }
-    }
 
-    .page h1:target,
-    .page h2:target,
-    .page h3:target {
-      animation: highlight 3000ms;
-      outline: none;
-    }
-
-    .page h1 a,
-    .page h2 a,
-    .page h3 a {
-      color: inherit;
-      text-decoration: inherit;
-    }
-
-    .page h1 a:hover,
-    .page h2 a:hover,
-    .page h3 a:hover {
-      text-decoration: underline;
-    }
-
-    .page h1 a:focus,
-    .page h2 a:focus,
-    .page h3 a:focus {
-      outline: none;
-    }
-
-    .page h1 a:focus-visible,
-    .page h2 a:focus-visible,
-    .page h3 a:focus-visible {
-      outline: 1px solid currentColor;
-    }
-
-    @media screen and (min-width: 1024px) {
-      .toc {
-        position: fixed;
-        right: 0;
-        top: 70px;
-        width: 250px;
+      h2 {
+        font-size: 32px;
+        font-weight: normal;
+        line-height: 1.2;
+        margin: 48px 0 8px;
       }
-    }
-  </style>
+
+      h3 {
+        font-size: 20px;
+        font-weight: normal;
+        line-height: 1.2;
+        margin: 32px 0 8px;
+      }
+
+      .page h1,
+      .page h2,
+      .page h3 {
+        align-items: center;
+        display: flex;
+      }
+
+      @keyframes highlight {
+        from {
+          background-color: yellow;
+        }
+
+        to {
+          background-color: transparent;
+        }
+      }
+
+      :target {
+        animation: highlight 3000ms;
+        outline: none;
+      }
+
+      h1 a,
+      h2 a,
+      h3 a {
+        color: inherit;
+        text-decoration: inherit;
+      }
+
+      h1 a:hover,
+      h2 a:hover,
+      h3 a:hover {
+        text-decoration: underline;
+      }
+
+      h1 a:focus,
+      h2 a:focus,
+      h3 a:focus {
+        outline: none;
+      }
+
+      h1 a:focus-visible,
+      h2 a:focus-visible,
+      h3 a:focus-visible {
+        outline: 1px solid currentColor;
+      }
+
+      @media screen and (min-width: 1024px) {
+        .toc {
+          position: fixed;
+          right: 0;
+          top: 70px;
+          width: 250px;
+        }
+      }
+    </style>
+    <style>
+      .main {
+        box-sizing: border-box;
+        margin-left: var(--Sidebar-width);
+        padding: 20px 25px;
+        position: relative;
+        width: calc(100% - var(--Sidebar-width));
+      }
+    </style>
+  </body>
 </html>

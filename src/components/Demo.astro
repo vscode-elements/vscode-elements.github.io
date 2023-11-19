@@ -1,45 +1,66 @@
 ---
-import { uniqueId } from '../scripts/helpers'
+import { uniqueId } from "../scripts/helpers";
 
-const uid = uniqueId('Demo_');
+const uid = uniqueId("Demo_");
+const { html, css, js } = Astro.slots;
+const sourceVisible = html || css || js;
 ---
+
 <div class="Demo" id={uid}>
   <component-preview><slot /></component-preview>
-  <div class="source">
-    <ul class="tabs">
-      <li class="active" id={`${uid}_html_tab`}>
-        <button
-          data-demo-tab-button
-          data-uid={uid}
-          data-target="html"
-          type="button"
-        >HTML</button>
-      </li>
-      {Astro.slots.css && (
-        <li id={`${uid}_css_tab`}>
-          <button
-            data-demo-tab-button
-            data-uid={uid}
-            data-target="css"
-            type="button"
-          >CSS</button>
-        </li>
-      )}
-      {Astro.slots.js && (
-        <li id={`${uid}_js_tab`}>
-          <button
-            data-demo-tab-button
-            data-uid={uid}
-            data-target="js"
-            type="button"
-          >JavaScript</button>
-        </li>
-      )}
-    </ul>
-    <div class="tab-content active" id={`${uid}_html`}><slot name="html" /></div>
-    <div class="tab-content" id={`${uid}_css`}><slot name="css" /></div>
-    <div class="tab-content" id={`${uid}_js`}><slot name="js" /></div>
-  </div>
+  {
+    sourceVisible ? (
+      <div class="source">
+        <ul class="tabs">
+          {html && (
+            <li class="active" id={`${uid}_html_tab`}>
+              <button
+                data-demo-tab-button
+                data-uid={uid}
+                data-target="html"
+                type="button"
+              >
+                HTML
+              </button>
+            </li>
+          )}
+          {css && (
+            <li id={`${uid}_css_tab`}>
+              <button
+                data-demo-tab-button
+                data-uid={uid}
+                data-target="css"
+                type="button"
+              >
+                CSS
+              </button>
+            </li>
+          )}
+          {js && (
+            <li id={`${uid}_js_tab`}>
+              <button
+                data-demo-tab-button
+                data-uid={uid}
+                data-target="js"
+                type="button"
+              >
+                JavaScript
+              </button>
+            </li>
+          )}
+        </ul>
+        <div class="tab-content active" id={`${uid}_html`}>
+          <slot name="html" />
+        </div>
+        <div class="tab-content" id={`${uid}_css`}>
+          <slot name="css" />
+        </div>
+        <div class="tab-content" id={`${uid}_js`}>
+          <slot name="js" />
+        </div>
+      </div>
+    ) : null
+  }
 </div>
 <style>
   .Demo {
@@ -55,6 +76,7 @@ const uid = uniqueId('Demo_');
 
   .tab-content {
     display: none;
+    position: relative;
   }
 
   .tab-content.active {
@@ -76,15 +98,22 @@ const uid = uniqueId('Demo_');
   }
 
   .Demo :global(pre code .line:before) {
+    background-color: #fafafa;
     border-right: 1px solid #ccc;
     color: #888;
     content: counter(step);
     counter-increment: step;
     display: inline-block;
+    left: 0;
     margin-right: 10px;
     padding-right: 10px;
+    position: absolute;
     text-align: right;
     width: 40px;
+  }
+
+  .Demo :global(.line) {
+    padding-left: 60px;
   }
 
   .tabs {
@@ -108,48 +137,54 @@ const uid = uniqueId('Demo_');
   }
 </style>
 <script>
-function hideAllTabs(uid: string) {
-  const cmp = document.getElementById(uid);
-  const tabs = cmp?.querySelectorAll<HTMLLIElement>('.tabs > li') ?? [];
-  const tabContents = cmp?.querySelectorAll<HTMLDivElement>('.tab-content') ?? [];
+  function hideAllTabs(uid: string) {
+    const cmp = document.getElementById(uid);
+    const tabs = cmp?.querySelectorAll<HTMLLIElement>(".tabs > li") ?? [];
+    const tabContents =
+      cmp?.querySelectorAll<HTMLDivElement>(".tab-content") ?? [];
 
-  tabs.forEach((tb) => {
-    tb.classList.toggle('active', false);
+    tabs.forEach((tb) => {
+      tb.classList.toggle("active", false);
+    });
+
+    tabContents.forEach((tp) => {
+      tp.classList.toggle("active", false);
+    });
+  }
+
+  function showTab(uid: string, lang: "html" | "js" | "css" = "html") {
+    const tab = document.getElementById(`${uid}_${lang}_tab`) as HTMLLIElement;
+    const tabContent = document.getElementById(
+      `${uid}_${lang}`
+    ) as HTMLDivElement;
+
+    hideAllTabs(uid);
+    tab.classList.toggle("active", true);
+    tabContent.classList.toggle("active", true);
+  }
+
+  const buttons = document.querySelectorAll<HTMLButtonElement>(
+    "[data-demo-tab-button]"
+  );
+  const demoDetails =
+    document.querySelectorAll<HTMLDetailsElement>(".Demo__details");
+
+  buttons.forEach((bt) => {
+    bt.addEventListener("click", () => {
+      const uid = bt.dataset.uid ?? "";
+      const target = bt.dataset.target ?? "html";
+
+      showTab(uid, target as "html" | "css" | "js");
+    });
   });
 
-  tabContents.forEach((tp) => {
-    tp.classList.toggle('active', false);
+  demoDetails.forEach((dt) => {
+    const uid = dt.dataset.uid ?? "";
+
+    dt.addEventListener("toggle", () => {
+      if (dt.open) {
+        showTab(uid, "html");
+      }
+    });
   });
-}
-
-function showTab(uid: string, lang: 'html' | 'js' | 'css' = 'html') {
-  const tab = document.getElementById(`${uid}_${lang}_tab`) as HTMLLIElement;
-  const tabContent = document.getElementById(`${uid}_${lang}`) as HTMLDivElement;
-
-  hideAllTabs(uid);
-  tab.classList.toggle('active', true);
-  tabContent.classList.toggle('active', true);
-}
-
-const buttons = document.querySelectorAll<HTMLButtonElement>('[data-demo-tab-button]');
-const demoDetails = document.querySelectorAll<HTMLDetailsElement>('.Demo__details');
-
-buttons.forEach((bt) => {
-  bt.addEventListener('click', () => {
-    const uid = bt.dataset.uid ?? '';
-    const target = bt.dataset.target ?? 'html';
-
-    showTab(uid, target as 'html' |'css' | 'js');
-  });
-});
-
-demoDetails.forEach((dt) => {
-  const uid = dt.dataset.uid ?? '';
-
-  dt.addEventListener('toggle', () => {
-    if (dt.open) {
-      showTab(uid, 'html');
-    }
-  });
-});
 </script>

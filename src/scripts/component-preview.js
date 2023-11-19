@@ -9,6 +9,10 @@ function getDirectoryUrl() {
     return directoryUrl;
   }
 
+  if (window.__COMPONENT_PREVIEW_THEMES_DIR__) {
+    return window.__COMPONENT_PREVIEW_THEMES_DIR__;
+  }
+
   const urlParts = import.meta.url.split('/');
   urlParts.pop();
   return urlParts.join('/');

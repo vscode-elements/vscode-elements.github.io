@@ -3,7 +3,6 @@ import type { MarkdownHeading } from "astro";
 import Layout from "./Layout.astro";
 import MultiColumnContent from "@components/MultiColumnContent.astro";
 import SingleColumnContent from "@components/SingleColumnContent.astro";
-import ApiPageSwitcher from "@components/ApiPageSwitcher.astro";
 import MarkdownToc from "@components/MarkdownToc.astro";
 
 interface Props {
@@ -17,7 +16,6 @@ const filteredHeadings = headings.filter((h) => h.depth === 2);
 
 <Layout title={title}>
   <div class="content">
-    <ApiPageSwitcher />
     {
       filteredHeadings.length > 0 ? (
         <MultiColumnContent title={title}>
@@ -32,10 +30,3 @@ const filteredHeadings = headings.filter((h) => h.depth === 2);
     }
   </div>
 </Layout>
-
-<style>
-  .content {
-    margin: 0 auto;
-    max-width: 1000px;
-  }
-</style>

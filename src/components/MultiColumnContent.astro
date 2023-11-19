@@ -1,0 +1,31 @@
+---
+export type Props = {
+  title: string;
+};
+
+const { title } = Astro.props;
+---
+
+<div class="MultiColumnContent">
+  <aside class="sidebar"><slot name="sidebar" /></aside>
+  <article class="body">
+    <h1>{title}</h1>
+    <slot />
+  </article>
+</div>
+
+<style>
+  .MultiColumnContent {
+    display: flex;
+  }
+
+  .sidebar {
+    order: 2;
+    width: 25%;
+  }
+
+  .body {
+    order: 1;
+    width: 75%;
+  }
+</style>

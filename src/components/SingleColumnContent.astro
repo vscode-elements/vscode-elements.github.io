@@ -1,0 +1,14 @@
+---
+export type Props = {
+  title: string;
+};
+
+const { title } = Astro.props;
+---
+
+<div class="content">
+  <article>
+    <h1>{title}</h1>
+    <slot />
+  </article>
+</div>

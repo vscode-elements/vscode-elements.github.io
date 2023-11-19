@@ -1,5 +1,4 @@
 ---
-layout: "@layouts/MarkdownPage.astro"
 title: Working with forms
 ---
 
@@ -8,7 +7,7 @@ import BasicFormExample from "@components/examples/forms/BasicFormExample.astro"
 import FormDataExample from "@components/examples/forms/FormDataExample.astro";
 import BuiltInValidation from "@components/examples/forms/BuiltInValidation.astro";
 
-The following components can be used as form controls: 
+The following components can be used as form controls:
 
 - [Button](/components/vscode-button)
 - [Single Select](/components/vscode-single-select)
@@ -41,7 +40,7 @@ Form controls in VSC Elements work just like native form controls without needin
 
 ## Processing form data
 
-In a standard Webview-based extension, the form data is typically submitted in the background 
+In a standard Webview-based extension, the form data is typically submitted in the background
 without reloading the page; in some cases, it may not be submitted at all. In these cases the
 [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) interface can be used to
 access the form data.
@@ -96,14 +95,12 @@ access the form data.
       output.innerHTML = out;
     });
     ```
+
   </Fragment>
 </Demo>
 
 ## Built-in form validation
 
-{/* VSC Elements support the browsers built-in HTML form validation features. The
-following example reimplements the MDN form validation sample application with
-VSC ELements form controls. */}
 VSC Elements supports the [HTML form validation features](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation#using_built-in_form_validation) built into browsers.
 The example below demonstrates how the MDN form validation [sample application](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation#full_example) is re-implemented using
 VSC Elements form controls.
@@ -185,5 +182,6 @@ VSC Elements form controls.
         output.innerHTML = out;
       });
     ```
+
   </Fragment>
 </Demo>

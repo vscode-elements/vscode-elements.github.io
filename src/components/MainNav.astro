@@ -1,24 +1,38 @@
 ---
+import { Debug } from "astro:components";
 import { getCollection } from "astro:content";
 
-const componentPageEntries = await getCollection("components");
+const componentsCollection = await getCollection("components");
+const articlesCollection = await getCollection("articles");
 const { pathname } = Astro.url;
-
 ---
 
 <nav class="MainNav">
   <ul>
     <li>
-      <a href="/introduction">Introduction</a>
+      <a href="/">Home</a>
       <ul>
-        <li><a href="/introduction/working-with-forms">Working with forms</a></li>
+        {
+          articlesCollection.map(({ slug, data }) => {
+            const { title } = data;
+            const current = `/${slug}` === pathname;
+
+            return (
+              <li>
+                <a href={`/${slug}`} class:list={[{ current }]}>
+                  {title}
+                </a>
+              </li>
+            );
+          })
+        }
       </ul>
     </li>
     <li>
       <a href="/components">Components</a>
       <ul>
         {
-          componentPageEntries
+          componentsCollection
             .sort((a, b) => {
               if (a.data.title > b.data.title) {
                 return 1;
@@ -100,7 +114,9 @@ const { pathname } = Astro.url;
   }
 
   .MainNav .current {
+    /* background-color: rgba(var(--vscode-blue-rgb), 0.1); */
     border-left: 3px solid var(--color-vscode-blue);
+    color: var(--color-vscode-blue);
     display: block;
   }
 
