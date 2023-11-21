@@ -55,21 +55,20 @@ import MainNav from "./MainNav.astro";
   }
 </style>
 
-<script>
-const SESSION_STORAGE_KEY = 'Sidebar_scrollTop';
-const sidebar = document.getElementById('Sidebar');
+<script is:inline>
+  (() => {
+    const SESSION_STORAGE_KEY = "Sidebar_scrollTop";
+    const sidebar = document.getElementById("Sidebar");
 
-sidebar?.addEventListener('click', () => {
-  sessionStorage.setItem(SESSION_STORAGE_KEY, sidebar.scrollTop.toString());
-});
+    sidebar?.addEventListener("click", () => {
+      sessionStorage.setItem(SESSION_STORAGE_KEY, sidebar.scrollTop.toString());
+    });
 
-window.addEventListener('load', () => {
-  const prevScrollPos = sessionStorage.getItem(SESSION_STORAGE_KEY);
+    const prevScrollPos = sessionStorage.getItem(SESSION_STORAGE_KEY);
 
-  if (prevScrollPos && sidebar) {
-    sidebar.scrollTop = parseInt(prevScrollPos);
-    sessionStorage.removeItem(SESSION_STORAGE_KEY);
-  }
-});
-
+    if (prevScrollPos && sidebar) {
+      sidebar.scrollTop = parseInt(prevScrollPos);
+      sessionStorage.removeItem(SESSION_STORAGE_KEY);
+    }
+  })();
 </script>
