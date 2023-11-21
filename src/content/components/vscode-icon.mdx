@@ -27,6 +27,36 @@ import Demo from "@components/Demo.astro";
   <vscode-icon name="account" size="48"></vscode-icon>
   <vscode-icon name="account" size="64"></vscode-icon>
   ```
+</Fragment>
+</Demo>
+
+## Action icons
+
+<Demo>
+  <vscode-icon name="account" action-icon></vscode-icon>
+  <vscode-icon name="add" action-icon></vscode-icon>
+  <vscode-icon name="git-compare" action-icon></vscode-icon>
+  <Fragment slot="html">
+    ```html
+    <vscode-icon name="account" action-icon></vscode-icon>
+    <vscode-icon name="add" action-icon></vscode-icon>
+    <vscode-icon name="git-compare" action-icon></vscode-icon>
+    ```
+  </Fragment>
+</Demo>
+
+## Animated icons
+
+<Demo>
+  <vscode-icon name="loading" spin spin-duration="1"></vscode-icon>
+  <vscode-icon name="sync" spin></vscode-icon>
+  <vscode-icon name="gear" spin spin-duration="2"></vscode-icon>
+  <Fragment slot="html">
+    ```html
+    <vscode-icon name="loading" spin spin-duration="1"></vscode-icon>
+    <vscode-icon name="sync" spin></vscode-icon>
+    <vscode-icon name="gear" spin spin-duration="2"></vscode-icon>
+    ```
   </Fragment>
 </Demo>
 
