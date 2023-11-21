@@ -7,7 +7,8 @@ import BasicFormExample from "@components/examples/forms/BasicFormExample.astro"
 import FormDataExample from "@components/examples/forms/FormDataExample.astro";
 import BuiltInValidation from "@components/examples/forms/BuiltInValidation.astro";
 
-The following components can be used as form controls:
+Form controls in VSC Elements are designed to be used like standard HTML form elements. The
+following components can serve as fully functional form controls:
 
 - [Button](/components/vscode-button)
 - [Single Select](/components/vscode-single-select)
@@ -19,7 +20,7 @@ The following components can be used as form controls:
 
 ## Basic example
 
-Form controls in VSC Elements work just like native form controls without needing any extra JavaScript.
+Form controls in VSC Elements work just like native form controls without requiring additional JavaScript.
 
 <Demo>
   <BasicFormExample />
@@ -40,10 +41,9 @@ Form controls in VSC Elements work just like native form controls without needin
 
 ## Processing form data
 
-In a standard Webview-based extension, the form data is typically submitted in the background
-without reloading the page; in some cases, it may not be submitted at all. In these cases the
-[FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) interface can be used to
-access the form data.
+In a typical Webview-based extension, the form data is usually submitted in the background without reloading the page. 
+In certain scenarios, it might not be submitted at all. In such cases, the 
+[FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) interface can be utilized to access the form data.
 
 <Demo>
   <FormDataExample />

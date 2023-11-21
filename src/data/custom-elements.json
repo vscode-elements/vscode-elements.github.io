@@ -216,7 +216,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      background-color: var(--vscode-badge-background);\r\n      border: 1px solid var(--vscode-contrastBorder, transparent);\r\n      border-radius: 2px;\r\n      box-sizing: border-box;\r\n      color: var(--vscode-badge-foreground);\r\n      display: inline-block;\r\n      font-family: var(--vscode-font-family);\r\n      font-size: 11px;\r\n      font-weight: 400;\r\n      line-height: 14px;\r\n      min-width: 18px;\r\n      padding: 2px 3px;\r\n      text-align: center;\r\n      white-space: nowrap;\r\n    }\r\n\r\n    :host([variant='counter']) {\r\n      border-radius: 11px;\r\n      box-sizing: border-box;\r\n      height: 18px;\r\n      line-height: 1;\r\n      padding: 3px 5px;\r\n    }\r\n\r\n    :host([variant='activity-bar-counter']) {\r\n      background-color: var(--vscode-activityBarBadge-background);\r\n      border-radius: 20px;\r\n      color: var(--vscode-activityBarBadge-foreground);\r\n      font-size: 9px;\r\n      font-weight: 600;\r\n      line-height: 16px;\r\n      padding: 0 4px;\r\n    }\r\n  `,\r\n]"
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      background-color: var(--vscode-badge-background);\n      border: 1px solid var(--vscode-contrastBorder, transparent);\n      border-radius: 2px;\n      box-sizing: border-box;\n      color: var(--vscode-badge-foreground);\n      display: inline-block;\n      font-family: var(--vscode-font-family);\n      font-size: 11px;\n      font-weight: 400;\n      line-height: 14px;\n      min-width: 18px;\n      padding: 2px 3px;\n      text-align: center;\n      white-space: nowrap;\n    }\n\n    :host([variant='counter']) {\n      border-radius: 11px;\n      box-sizing: border-box;\n      height: 18px;\n      line-height: 1;\n      padding: 3px 5px;\n    }\n\n    :host([variant='activity-bar-counter']) {\n      background-color: var(--vscode-activityBarBadge-background);\n      border-radius: 20px;\n      color: var(--vscode-activityBarBadge-foreground);\n      font-size: 9px;\n      font-weight: 600;\n      line-height: 16px;\n      padding: 0 4px;\n    }\n  `,\n]"
         }
       ],
       "exports": [
@@ -309,341 +309,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/vscode-button/vscode-button.styles.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "styles",
-          "type": {
-            "text": "CSSResultGroup"
-          },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      align-items: center;\r\n      background-color: var(--vscode-button-background);\r\n      border-color: var(--vscode-button-border, var(--vscode-button-background));\r\n      border-style: solid;\r\n      border-radius: 2px;\r\n      border-width: 1px;\r\n      color: var(--vscode-button-foreground);\r\n      cursor: pointer;\r\n      display: inline-block;\r\n      font-family: var(--vscode-font-family);\r\n      font-size: var(--vscode-font-size);\r\n      font-weight: var(--vscode-font-weight);\r\n      line-height: 22px;\r\n      overflow: hidden;\r\n      padding: 1px 13px;\r\n      user-select: none;\r\n      white-space: nowrap;\r\n    }\r\n\r\n    :host([secondary]) {\r\n      color: var(--vscode-button-secondaryForeground);\r\n      background-color: var(--vscode-button-secondaryBackground);\r\n      border-color: var(--vscode-button-border, var(--vscode-button-secondaryBackground));\r\n    }\r\n\r\n    :host([disabled]) {\r\n      cursor: default;\r\n      opacity: 0.4;\r\n      pointer-events: none;\r\n    }\r\n\r\n    :host(:hover) {\r\n      background-color: var(--vscode-button-hoverBackground);\r\n    }\r\n\r\n    :host([disabled]:hover) {\r\n      background-color: var(--vscode-button-background);\r\n    }\r\n\r\n    :host([secondary]:hover) {\r\n      background-color: var(--vscode-button-secondaryHoverBackground);\r\n    }\r\n\r\n    :host([secondary][disabled]:hover) {\r\n      background-color: var(--vscode-button-secondaryBackground);\r\n    }\r\n\r\n    :host(:focus),\r\n    :host(:active) {\r\n      outline: none;\r\n    }\r\n\r\n    :host(:focus) {\r\n      background-color: var(--vscode-button-hoverBackground);\r\n      outline: 1px solid var(--vscode-focusBorder);\r\n      outline-offset: 2px;\r\n    }\r\n\r\n    :host([disabled]:focus) {\r\n      background-color: var(--vscode-button-background);\r\n      outline: 0;\r\n    }\r\n\r\n    :host([secondary]:focus) {\r\n      background-color: var(--vscode-button-secondaryHoverBackground);\r\n    }\r\n\r\n    :host([secondary][disabled]:focus) {\r\n      background-color: var(--vscode-button-secondaryBackground);\r\n    }\r\n\r\n    .wrapper {\r\n      align-items: center;\r\n      box-sizing: border-box;\r\n      display: flex;\r\n      justify-content: center;\r\n      position: relative;\r\n      width: 100%;\r\n    }\r\n\r\n    slot {\r\n      display: block;\r\n    }\r\n\r\n    .icon {\r\n      color: inherit;\r\n      display: block;\r\n      margin-right: 3px;\r\n    }\r\n\r\n    .icon-after {\r\n      color: inherit;\r\n      display: block;\r\n      margin-left: 3px;\r\n    }\r\n  `,\r\n]"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "styles",
-            "module": "src/vscode-button/vscode-button.styles.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-button/vscode-button.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "VscodeButton",
-          "cssProperties": [
-            {
-              "name": "--vscode-button-background"
-            },
-            {
-              "name": "--vscode-button-foreground"
-            },
-            {
-              "name": "--vscode-button-border",
-              "default": "var(--vscode-button-background)"
-            },
-            {
-              "name": "--vscode-button-hoverBackground"
-            },
-            {
-              "name": "--vscode-font-family"
-            },
-            {
-              "name": "--vscode-font-size"
-            },
-            {
-              "name": "--vscode-font-weight"
-            },
-            {
-              "name": "--vscode-button-secondaryForeground"
-            },
-            {
-              "name": "--vscode-button-secondaryBackground"
-            },
-            {
-              "name": "--vscode-button-secondaryHoverBackground"
-            },
-            {
-              "name": "--vscode-focusBorder"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "secondary",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Button has a less prominent style.",
-              "attribute": "secondary",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "disabled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "icon",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "A [Codicon](https://microsoft.github.io/vscode-codicons/dist/codicon.html) before the label",
-              "attribute": "icon"
-            },
-            {
-              "kind": "field",
-              "name": "iconAfter",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "A [Codicon](https://microsoft.github.io/vscode-codicons/dist/codicon.html) after the label",
-              "attribute": "icon-after"
-            },
-            {
-              "kind": "field",
-              "name": "focused",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "focused",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "name",
-              "type": {
-                "text": "string | undefined"
-              },
-              "default": "undefined",
-              "attribute": "name",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "type",
-              "type": {
-                "text": "'submit' | 'reset' | 'button'"
-              },
-              "default": "'button'",
-              "attribute": "type",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "value",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "attribute": "value"
-            },
-            {
-              "kind": "field",
-              "name": "_prevTabindex",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "field",
-              "name": "_internals",
-              "type": {
-                "text": "ElementInternals"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "form",
-              "type": {
-                "text": "HTMLFormElement | null"
-              },
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "_executeAction",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_handleKeyDown",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "_handleClick",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "_handleFocus",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "_handleFocusBound",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_handleBlur",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "_handleBlurBound",
-              "privacy": "private"
-            }
-          ],
-          "events": [
-            {
-              "name": "vsc-click",
-              "type": {
-                "text": "CustomEvent"
-              },
-              "deprecated": "true",
-              "description": "Dispatched only when button is not in disabled state."
-            }
-          ],
-          "attributes": [
-            {
-              "name": "secondary",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Button has a less prominent style.",
-              "fieldName": "secondary"
-            },
-            {
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "disabled"
-            },
-            {
-              "name": "icon",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "A [Codicon](https://microsoft.github.io/vscode-codicons/dist/codicon.html) before the label",
-              "fieldName": "icon"
-            },
-            {
-              "name": "icon-after",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "description": "A [Codicon](https://microsoft.github.io/vscode-codicons/dist/codicon.html) after the label",
-              "fieldName": "iconAfter"
-            },
-            {
-              "name": "focused",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "focused"
-            },
-            {
-              "name": "name",
-              "type": {
-                "text": "string | undefined"
-              },
-              "default": "undefined",
-              "resolveInitializer": {
-                "module": "src/vscode-button/vscode-button.ts"
-              },
-              "fieldName": "name"
-            },
-            {
-              "name": "type",
-              "type": {
-                "text": "'submit' | 'reset' | 'button'"
-              },
-              "default": "'button'",
-              "fieldName": "type"
-            },
-            {
-              "name": "value",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "fieldName": "value"
-            }
-          ],
-          "superclass": {
-            "name": "VscElement",
-            "module": "/src/includes/VscElement.js"
-          },
-          "tagName": "vscode-button",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "VscodeButton",
-          "declaration": {
-            "name": "VscodeButton",
-            "module": "src/vscode-button/vscode-button.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "vscode-button",
-          "declaration": {
-            "name": "VscodeButton",
-            "module": "src/vscode-button/vscode-button.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/vscode-checkbox/vscode-checkbox.styles.ts",
       "declarations": [
         {
@@ -652,7 +317,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[\r\n  defaultStyles,\r\n  baseStyles,\r\n  css`\r\n    :host(:invalid) .icon,\r\n    :host([invalid]) .icon {\r\n      background-color: var(--vscode-inputValidation-errorBackground);\r\n      border-color: var(--vscode-inputValidation-errorBorder, #be1100);\r\n    }\r\n\r\n    .icon {\r\n      border-radius: 3px;\r\n    }\r\n\r\n    .indeterminate-icon {\r\n      background-color: currentColor;\r\n      position: absolute;\r\n      height: 1px;\r\n      width: 12px;\r\n    }\r\n\r\n    :host(:focus):host(:not([disabled])) .icon {\r\n      outline: 1px solid var(--focus-border);\r\n      outline-offset: -1px;\r\n    }\r\n  `,\r\n  formHelperTextStyles\r\n]"
+          "default": "[\n  defaultStyles,\n  baseStyles,\n  css`\n    :host(:invalid) .icon,\n    :host([invalid]) .icon {\n      background-color: var(--vscode-inputValidation-errorBackground);\n      border-color: var(--vscode-inputValidation-errorBorder, #be1100);\n    }\n\n    .icon {\n      border-radius: 3px;\n    }\n\n    .indeterminate-icon {\n      background-color: currentColor;\n      position: absolute;\n      height: 1px;\n      width: 12px;\n    }\n\n    :host(:focus):host(:not([disabled])) .icon {\n      outline: 1px solid var(--focus-border);\n      outline-offset: -1px;\n    }\n  `,\n  formHelperTextStyles\n]"
         }
       ],
       "exports": [
@@ -749,7 +414,7 @@
                 "text": "string"
               },
               "default": "''",
-              "description": "Associate a value to the checkbox. According to the native checkbox [specification](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#value_2), If the component participates in a form:\r\n\r\n- If it is unchecked, the value will not be submitted.\r\n- If it is checked but the value is not set, `on` will be submitted.\r\n- If it is checked and value is set, the value will be submitted.",
+              "description": "Associate a value to the checkbox. According to the native checkbox [specification](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#value_2), If the component participates in a form:\n\n- If it is unchecked, the value will not be submitted.\n- If it is checked but the value is not set, `on` will be submitted.\n- If it is checked and value is set, the value will be submitted.",
               "attribute": "value"
             },
             {
@@ -1056,7 +721,7 @@
                 "text": "string"
               },
               "default": "''",
-              "description": "Associate a value to the checkbox. According to the native checkbox [specification](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#value_2), If the component participates in a form:\r\n\r\n- If it is unchecked, the value will not be submitted.\r\n- If it is checked but the value is not set, `on` will be submitted.\r\n- If it is checked and value is set, the value will be submitted.",
+              "description": "Associate a value to the checkbox. According to the native checkbox [specification](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#value_2), If the component participates in a form:\n\n- If it is unchecked, the value will not be submitted.\n- If it is checked but the value is not set, `on` will be submitted.\n- If it is checked and value is set, the value will be submitted.",
               "fieldName": "value"
             },
             {
@@ -1139,7 +804,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      display: block;\r\n    }\r\n\r\n    .wrapper {\r\n      display: flex;\r\n      flex-wrap: wrap;\r\n    }\r\n\r\n    :host([variant='vertical']) .wrapper {\r\n      display: block;\r\n    }\r\n\r\n    ::slotted(vscode-checkbox) {\r\n      margin-right: 20px;\r\n    }\r\n\r\n    ::slotted(vscode-checkbox:last-child) {\r\n      margin-right: 0;\r\n    }\r\n\r\n    :host([variant='vertical']) ::slotted(vscode-checkbox) {\r\n      display: block;\r\n      margin-bottom: 15px;\r\n    }\r\n\r\n    :host([variant='vertical']) ::slotted(vscode-checkbox:last-child) {\r\n      margin-bottom: 0;\r\n    }\r\n  `,\r\n  formHelperTextStyles,\r\n]"
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      display: block;\n    }\n\n    .wrapper {\n      display: flex;\n      flex-wrap: wrap;\n    }\n\n    :host([variant='vertical']) .wrapper {\n      display: block;\n    }\n\n    ::slotted(vscode-checkbox) {\n      margin-right: 20px;\n    }\n\n    ::slotted(vscode-checkbox:last-child) {\n      margin-right: 0;\n    }\n\n    :host([variant='vertical']) ::slotted(vscode-checkbox) {\n      display: block;\n      margin-bottom: 15px;\n    }\n\n    :host([variant='vertical']) ::slotted(vscode-checkbox:last-child) {\n      margin-bottom: 0;\n    }\n  `,\n  formHelperTextStyles,\n]"
         }
       ],
       "exports": [
@@ -1220,7 +885,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    .collapsible {\r\n      background-color: var(--vscode-sideBar-background);\r\n    }\r\n\r\n    .collapsible-header {\r\n      align-items: center;\r\n      background-color: var(--vscode-sideBarSectionHeader-background);\r\n      cursor: pointer;\r\n      display: flex;\r\n      height: 22px;\r\n      line-height: 22px;\r\n      user-select: none;\r\n    }\r\n\r\n    .collapsible-header:focus {\r\n      opacity: 1;\r\n      outline-offset: -1px;\r\n      outline-style: solid;\r\n      outline-width: 1px;\r\n      outline-color: var(--vscode-focusBorder);\r\n    }\r\n\r\n    .title {\r\n      color: var(--vscode-sideBarTitle-foreground);\r\n      display: block;\r\n      font-family: var(--vscode-font-family);\r\n      font-size: 11px;\r\n      font-weight: 700;\r\n      margin: 0;\r\n      overflow: hidden;\r\n      text-overflow: ellipsis;\r\n      text-transform: uppercase;\r\n      white-space: nowrap;\r\n    }\r\n\r\n    .title .description {\r\n      font-weight: 400;\r\n      margin-left: 10px;\r\n      text-transform: none;\r\n      opacity: .6;\r\n    }\r\n\r\n    .header-icon {\r\n      color: var(--vscode-icon-foreground);\r\n      display: block;\r\n      flex-shrink: 0;\r\n      margin: 0 3px;\r\n    }\r\n\r\n    .collapsible.open .header-icon {\r\n      transform: rotate(90deg);\r\n    }\r\n\r\n    .header-slots {\r\n      align-items: center;\r\n      display: flex;\r\n      height: 22px;\r\n      margin-left: auto;\r\n      margin-right: 4px;\r\n    }\r\n\r\n    .actions {\r\n      display: none;\r\n    }\r\n\r\n    .collapsible.open .actions {\r\n      display: block;\r\n    }\r\n\r\n    .header-slots slot {\r\n      display: flex;\r\n      max-height: 22px;\r\n      overflow: hidden;\r\n    }\r\n\r\n    .header-slots slot::slotted(div) {\r\n      align-items: center;\r\n      display: flex;\r\n    }\r\n\r\n    .collapsible-body {\r\n      display: none;\r\n      overflow: hidden;\r\n    }\r\n\r\n    .collapsible.open .collapsible-body {\r\n      display: block;\r\n    }\r\n  `,\r\n]"
+          "default": "[\n  defaultStyles,\n  css`\n    .collapsible {\n      background-color: var(--vscode-sideBar-background);\n    }\n\n    .collapsible-header {\n      align-items: center;\n      background-color: var(--vscode-sideBarSectionHeader-background);\n      cursor: pointer;\n      display: flex;\n      height: 22px;\n      line-height: 22px;\n      user-select: none;\n    }\n\n    .collapsible-header:focus {\n      opacity: 1;\n      outline-offset: -1px;\n      outline-style: solid;\n      outline-width: 1px;\n      outline-color: var(--vscode-focusBorder);\n    }\n\n    .title {\n      color: var(--vscode-sideBarTitle-foreground);\n      display: block;\n      font-family: var(--vscode-font-family);\n      font-size: 11px;\n      font-weight: 700;\n      margin: 0;\n      overflow: hidden;\n      text-overflow: ellipsis;\n      text-transform: uppercase;\n      white-space: nowrap;\n    }\n\n    .title .description {\n      font-weight: 400;\n      margin-left: 10px;\n      text-transform: none;\n      opacity: .6;\n    }\n\n    .header-icon {\n      color: var(--vscode-icon-foreground);\n      display: block;\n      flex-shrink: 0;\n      margin: 0 3px;\n    }\n\n    .collapsible.open .header-icon {\n      transform: rotate(90deg);\n    }\n\n    .header-slots {\n      align-items: center;\n      display: flex;\n      height: 22px;\n      margin-left: auto;\n      margin-right: 4px;\n    }\n\n    .actions {\n      display: none;\n    }\n\n    .collapsible.open .actions {\n      display: block;\n    }\n\n    .header-slots slot {\n      display: flex;\n      max-height: 22px;\n      overflow: hidden;\n    }\n\n    .header-slots slot::slotted(div) {\n      align-items: center;\n      display: flex;\n    }\n\n    .collapsible-body {\n      display: none;\n      overflow: hidden;\n    }\n\n    .collapsible.open .collapsible-body {\n      display: block;\n    }\n  `,\n]"
         }
       ],
       "exports": [
@@ -1389,6 +1054,341 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/vscode-button/vscode-button.styles.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "styles",
+          "type": {
+            "text": "CSSResultGroup"
+          },
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      align-items: center;\n      background-color: var(--vscode-button-background);\n      border-color: var(--vscode-button-border, var(--vscode-button-background));\n      border-style: solid;\n      border-radius: 2px;\n      border-width: 1px;\n      color: var(--vscode-button-foreground);\n      cursor: pointer;\n      display: inline-block;\n      font-family: var(--vscode-font-family);\n      font-size: var(--vscode-font-size);\n      font-weight: var(--vscode-font-weight);\n      line-height: 22px;\n      overflow: hidden;\n      padding: 1px 13px;\n      user-select: none;\n      white-space: nowrap;\n    }\n\n    :host([secondary]) {\n      color: var(--vscode-button-secondaryForeground);\n      background-color: var(--vscode-button-secondaryBackground);\n      border-color: var(--vscode-button-border, var(--vscode-button-secondaryBackground));\n    }\n\n    :host([disabled]) {\n      cursor: default;\n      opacity: 0.4;\n      pointer-events: none;\n    }\n\n    :host(:hover) {\n      background-color: var(--vscode-button-hoverBackground);\n    }\n\n    :host([disabled]:hover) {\n      background-color: var(--vscode-button-background);\n    }\n\n    :host([secondary]:hover) {\n      background-color: var(--vscode-button-secondaryHoverBackground);\n    }\n\n    :host([secondary][disabled]:hover) {\n      background-color: var(--vscode-button-secondaryBackground);\n    }\n\n    :host(:focus),\n    :host(:active) {\n      outline: none;\n    }\n\n    :host(:focus) {\n      background-color: var(--vscode-button-hoverBackground);\n      outline: 1px solid var(--vscode-focusBorder);\n      outline-offset: 2px;\n    }\n\n    :host([disabled]:focus) {\n      background-color: var(--vscode-button-background);\n      outline: 0;\n    }\n\n    :host([secondary]:focus) {\n      background-color: var(--vscode-button-secondaryHoverBackground);\n    }\n\n    :host([secondary][disabled]:focus) {\n      background-color: var(--vscode-button-secondaryBackground);\n    }\n\n    .wrapper {\n      align-items: center;\n      box-sizing: border-box;\n      display: flex;\n      justify-content: center;\n      position: relative;\n      width: 100%;\n    }\n\n    slot {\n      display: block;\n    }\n\n    .icon {\n      color: inherit;\n      display: block;\n      margin-right: 3px;\n    }\n\n    .icon-after {\n      color: inherit;\n      display: block;\n      margin-left: 3px;\n    }\n  `,\n]"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "styles",
+            "module": "src/vscode-button/vscode-button.styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-button/vscode-button.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "VscodeButton",
+          "cssProperties": [
+            {
+              "name": "--vscode-button-background"
+            },
+            {
+              "name": "--vscode-button-foreground"
+            },
+            {
+              "name": "--vscode-button-border",
+              "default": "var(--vscode-button-background)"
+            },
+            {
+              "name": "--vscode-button-hoverBackground"
+            },
+            {
+              "name": "--vscode-font-family"
+            },
+            {
+              "name": "--vscode-font-size"
+            },
+            {
+              "name": "--vscode-font-weight"
+            },
+            {
+              "name": "--vscode-button-secondaryForeground"
+            },
+            {
+              "name": "--vscode-button-secondaryBackground"
+            },
+            {
+              "name": "--vscode-button-secondaryHoverBackground"
+            },
+            {
+              "name": "--vscode-focusBorder"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "secondary",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Button has a less prominent style.",
+              "attribute": "secondary",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "A [Codicon](https://microsoft.github.io/vscode-codicons/dist/codicon.html) before the label",
+              "attribute": "icon"
+            },
+            {
+              "kind": "field",
+              "name": "iconAfter",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "A [Codicon](https://microsoft.github.io/vscode-codicons/dist/codicon.html) after the label",
+              "attribute": "icon-after"
+            },
+            {
+              "kind": "field",
+              "name": "focused",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "focused",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string | undefined"
+              },
+              "default": "undefined",
+              "attribute": "name",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "'submit' | 'reset' | 'button'"
+              },
+              "default": "'button'",
+              "attribute": "type",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "_prevTabindex",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "_internals",
+              "type": {
+                "text": "ElementInternals"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "form",
+              "type": {
+                "text": "HTMLFormElement | null"
+              },
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "_executeAction",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_handleKeyDown",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_handleClick",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_handleFocus",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_handleFocusBound",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_handleBlur",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_handleBlurBound",
+              "privacy": "private"
+            }
+          ],
+          "events": [
+            {
+              "name": "vsc-click",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "deprecated": "Please use the standard `click` event.",
+              "description": "Dispatched only when button is not in disabled state."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "secondary",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Button has a less prominent style.",
+              "fieldName": "secondary"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "icon",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "A [Codicon](https://microsoft.github.io/vscode-codicons/dist/codicon.html) before the label",
+              "fieldName": "icon"
+            },
+            {
+              "name": "icon-after",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "description": "A [Codicon](https://microsoft.github.io/vscode-codicons/dist/codicon.html) after the label",
+              "fieldName": "iconAfter"
+            },
+            {
+              "name": "focused",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "focused"
+            },
+            {
+              "name": "name",
+              "type": {
+                "text": "string | undefined"
+              },
+              "default": "undefined",
+              "resolveInitializer": {
+                "module": "src/vscode-button/vscode-button.ts"
+              },
+              "fieldName": "name"
+            },
+            {
+              "name": "type",
+              "type": {
+                "text": "'submit' | 'reset' | 'button'"
+              },
+              "default": "'button'",
+              "fieldName": "type"
+            },
+            {
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "value"
+            }
+          ],
+          "superclass": {
+            "name": "VscElement",
+            "module": "/src/includes/VscElement.js"
+          },
+          "tagName": "vscode-button",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "VscodeButton",
+          "declaration": {
+            "name": "VscodeButton",
+            "module": "src/vscode-button/vscode-button.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "vscode-button",
+          "declaration": {
+            "name": "VscodeButton",
+            "module": "src/vscode-button/vscode-button.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/vscode-context-menu/vscode-context-menu.styles.ts",
       "declarations": [
         {
@@ -1397,7 +1397,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      display: block;\r\n      font-family: var(--vscode-font-family);\r\n      font-size: var(--vscode-font-size);\r\n      font-weight: var(--vscode-font-weight);\r\n      line-height: 1.4em;\r\n      position: relative;\r\n    }\r\n\r\n    .context-menu {\r\n      background-color: var(--vscode-menu-background);\r\n      border-color: var(--vscode-menu-border);\r\n      border-radius: 5px;\r\n      border-style: solid;\r\n      border-width: 1px;\r\n      box-shadow: 0 2px 8px var(--vscode-widget-shadow);\r\n      color: var(--vscode-menu-foreground);\r\n      padding: 4px 0;\r\n      white-space: nowrap;\r\n    }\r\n\r\n    .context-menu:focus {\r\n      outline: 0;\r\n    }\r\n  `,\r\n]"
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      display: block;\n      font-family: var(--vscode-font-family);\n      font-size: var(--vscode-font-size);\n      font-weight: var(--vscode-font-weight);\n      line-height: 1.4em;\n      position: relative;\n    }\n\n    .context-menu {\n      background-color: var(--vscode-menu-background);\n      border-color: var(--vscode-menu-border);\n      border-radius: 5px;\n      border-style: solid;\n      border-width: 1px;\n      box-shadow: 0 2px 8px var(--vscode-widget-shadow);\n      color: var(--vscode-menu-foreground);\n      padding: 4px 0;\n      white-space: nowrap;\n    }\n\n    .context-menu:focus {\n      outline: 0;\n    }\n  `,\n]"
         }
       ],
       "exports": [
@@ -1640,7 +1640,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      display: block;\r\n      font-family: var(--vscode-font-family);\r\n      font-size: var(--vscode-font-size);\r\n      font-weight: var(--vscode-font-weight);\r\n      line-height: 1.4em;\r\n      outline: none;\r\n      position: relative;\r\n    }\r\n\r\n    .context-menu-item {\r\n      background-color: var(--vscode-menu-background);\r\n      color: var(--vscode-menu-foreground);\r\n      display: flex;\r\n      user-select: none;\r\n      white-space: nowrap;\r\n    }\r\n\r\n    .ruler {\r\n      border-bottom: 1px solid var(--vscode-menu-separatorBackground);\r\n      display: block;\r\n      margin: 0 0 4px;\r\n      padding-top: 4px;\r\n      width: 100%;\r\n    }\r\n\r\n    .context-menu-item a {\r\n      align-items: center;\r\n      border-color: transparent;\r\n      border-radius: 3px;\r\n      border-style: solid;\r\n      border-width: 1px;\r\n      box-sizing: border-box;\r\n      color: var(--vscode-menu-foreground);\r\n      cursor: default;\r\n      display: flex;\r\n      flex: 1 1 auto;\r\n      height: 2em;\r\n      margin-left: 4px;\r\n      margin-right: 4px;\r\n      outline: none;\r\n      position: relative;\r\n      text-decoration: inherit;\r\n    }\r\n\r\n    :host([selected]) .context-menu-item a {\r\n      background-color: var(--vscode-menu-selectionBackground);\r\n      border-color: var(--vscode-menu-selectionBorder, var(--vscode-menu-selectionBackground));\r\n      color: var(--vscode-menu-selectionForeground);\r\n    }\r\n\r\n    .label {\r\n      background: none;\r\n      display: flex;\r\n      flex: 1 1 auto;\r\n      font-size: 12px;\r\n      line-height: 1;\r\n      padding: 0 22px;\r\n      text-decoration: none;\r\n    }\r\n\r\n    .keybinding {\r\n      display: block;\r\n      flex: 2 1 auto;\r\n      line-height: 1;\r\n      padding: 0 22px;\r\n      text-align: right;\r\n    }\r\n  `,\r\n]"
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      display: block;\n      font-family: var(--vscode-font-family);\n      font-size: var(--vscode-font-size);\n      font-weight: var(--vscode-font-weight);\n      line-height: 1.4em;\n      outline: none;\n      position: relative;\n    }\n\n    .context-menu-item {\n      background-color: var(--vscode-menu-background);\n      color: var(--vscode-menu-foreground);\n      display: flex;\n      user-select: none;\n      white-space: nowrap;\n    }\n\n    .ruler {\n      border-bottom: 1px solid var(--vscode-menu-separatorBackground);\n      display: block;\n      margin: 0 0 4px;\n      padding-top: 4px;\n      width: 100%;\n    }\n\n    .context-menu-item a {\n      align-items: center;\n      border-color: transparent;\n      border-radius: 3px;\n      border-style: solid;\n      border-width: 1px;\n      box-sizing: border-box;\n      color: var(--vscode-menu-foreground);\n      cursor: default;\n      display: flex;\n      flex: 1 1 auto;\n      height: 2em;\n      margin-left: 4px;\n      margin-right: 4px;\n      outline: none;\n      position: relative;\n      text-decoration: inherit;\n    }\n\n    :host([selected]) .context-menu-item a {\n      background-color: var(--vscode-menu-selectionBackground);\n      border-color: var(--vscode-menu-selectionBorder, var(--vscode-menu-selectionBackground));\n      color: var(--vscode-menu-selectionForeground);\n    }\n\n    .label {\n      background: none;\n      display: flex;\n      flex: 1 1 auto;\n      font-size: 12px;\n      line-height: 1;\n      padding: 0 22px;\n      text-decoration: none;\n    }\n\n    .keybinding {\n      display: block;\n      flex: 2 1 auto;\n      line-height: 1;\n      padding: 0 22px;\n      text-align: right;\n    }\n  `,\n]"
         }
       ],
       "exports": [
@@ -1832,7 +1832,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      display: block;\r\n      max-width: 727px;\r\n    }\r\n  `,\r\n]"
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      display: block;\n      max-width: 727px;\n    }\n  `,\n]"
         }
       ],
       "exports": [
@@ -2041,7 +2041,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      --label-right-margin: 14px;\r\n      --label-width: 150px;\r\n\r\n      display: block;\r\n      margin: 15px 0;\r\n    }\r\n\r\n    :host([variant='settings-group']) {\r\n      margin: 0;\r\n      padding: 12px 14px 18px;\r\n      max-width: 727px;\r\n    }\r\n\r\n    .wrapper {\r\n      display: flex;\r\n      flex-wrap: wrap;\r\n    }\r\n\r\n    :host([variant='vertical']) .wrapper,\r\n    :host([variant='settings-group']) .wrapper {\r\n      display: block;\r\n    }\r\n\r\n    :host([variant='horizontal']) ::slotted(vscode-checkbox-group),\r\n    :host([variant='horizontal']) ::slotted(vscode-radio-group) {\r\n      width: calc(100% - calc(var(--label-width) + var(--label-right-margin)));\r\n    }\r\n\r\n    :host([variant='horizontal']) ::slotted(vscode-label) {\r\n      margin-right: var(--label-right-margin);\r\n      text-align: right;\r\n      width: var(--label-width);\r\n    }\r\n\r\n    :host([variant='settings-group']) ::slotted(vscode-label) {\r\n      height: 18px;\r\n      line-height: 18px;\r\n      margin-bottom: 4px;\r\n      margin-right: 0;\r\n      padding: 0;\r\n    }\r\n\r\n    ::slotted(vscode-form-helper) {\r\n      margin-left: calc(var(--label-width) + var(--label-right-margin));\r\n    }\r\n\r\n    :host([variant='vertical']) ::slotted(vscode-form-helper),\r\n    :host([variant='settings-group']) ::slotted(vscode-form-helper) {\r\n      display: block;\r\n      margin-left: 0;\r\n    }\r\n\r\n    :host([variant='settings-group']) ::slotted(vscode-form-helper) {\r\n      margin-bottom: 0;\r\n      margin-top: 0;\r\n    }\r\n\r\n    :host([variant='vertical']) ::slotted(vscode-label),\r\n    :host([variant='settings-group']) ::slotted(vscode-label) {\r\n      display: block;\r\n      margin-left: 0;\r\n      text-align: left;\r\n    }\r\n\r\n    :host([variant='settings-group']) ::slotted(vscode-inputbox),\r\n    :host([variant='settings-group']) ::slotted(vscode-textfield),\r\n    :host([variant='settings-group']) ::slotted(vscode-textarea),\r\n    :host([variant='settings-group']) ::slotted(vscode-single-select),\r\n    :host([variant='settings-group']) ::slotted(vscode-multi-select) {\r\n      margin-top: 9px;\r\n    }\r\n\r\n    ::slotted(vscode-button:first-child) {\r\n      margin-left: calc(var(--label-width) + var(--label-right-margin));\r\n    }\r\n\r\n    :host([variant='vertical']) ::slotted(vscode-button) {\r\n      margin-left: 0;\r\n    }\r\n\r\n    ::slotted(vscode-button) {\r\n      margin-right: 4px;\r\n    }\r\n  `,\r\n]"
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      --label-right-margin: 14px;\n      --label-width: 150px;\n\n      display: block;\n      margin: 15px 0;\n    }\n\n    :host([variant='settings-group']) {\n      margin: 0;\n      padding: 12px 14px 18px;\n      max-width: 727px;\n    }\n\n    .wrapper {\n      display: flex;\n      flex-wrap: wrap;\n    }\n\n    :host([variant='vertical']) .wrapper,\n    :host([variant='settings-group']) .wrapper {\n      display: block;\n    }\n\n    :host([variant='horizontal']) ::slotted(vscode-checkbox-group),\n    :host([variant='horizontal']) ::slotted(vscode-radio-group) {\n      width: calc(100% - calc(var(--label-width) + var(--label-right-margin)));\n    }\n\n    :host([variant='horizontal']) ::slotted(vscode-label) {\n      margin-right: var(--label-right-margin);\n      text-align: right;\n      width: var(--label-width);\n    }\n\n    :host([variant='settings-group']) ::slotted(vscode-label) {\n      height: 18px;\n      line-height: 18px;\n      margin-bottom: 4px;\n      margin-right: 0;\n      padding: 0;\n    }\n\n    ::slotted(vscode-form-helper) {\n      margin-left: calc(var(--label-width) + var(--label-right-margin));\n    }\n\n    :host([variant='vertical']) ::slotted(vscode-form-helper),\n    :host([variant='settings-group']) ::slotted(vscode-form-helper) {\n      display: block;\n      margin-left: 0;\n    }\n\n    :host([variant='settings-group']) ::slotted(vscode-form-helper) {\n      margin-bottom: 0;\n      margin-top: 0;\n    }\n\n    :host([variant='vertical']) ::slotted(vscode-label),\n    :host([variant='settings-group']) ::slotted(vscode-label) {\n      display: block;\n      margin-left: 0;\n      text-align: left;\n    }\n\n    :host([variant='settings-group']) ::slotted(vscode-inputbox),\n    :host([variant='settings-group']) ::slotted(vscode-textfield),\n    :host([variant='settings-group']) ::slotted(vscode-textarea),\n    :host([variant='settings-group']) ::slotted(vscode-single-select),\n    :host([variant='settings-group']) ::slotted(vscode-multi-select) {\n      margin-top: 9px;\n    }\n\n    ::slotted(vscode-button:first-child) {\n      margin-left: calc(var(--label-width) + var(--label-right-margin));\n    }\n\n    :host([variant='vertical']) ::slotted(vscode-button) {\n      margin-left: 0;\n    }\n\n    ::slotted(vscode-button) {\n      margin-right: 4px;\n    }\n  `,\n]"
         }
       ],
       "exports": [
@@ -2134,7 +2134,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      color: var(--vsc-foreground-translucent);\r\n      display: block;\r\n      margin-bottom: 4px;\r\n      margin-top: 4px;\r\n      max-width: 720px;\r\n    }\r\n\r\n    :host([vertical]) {\r\n      margin-left: 0;\r\n    }\r\n  `,\r\n  formHelperTextStyles,\r\n]"
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      color: var(--vsc-foreground-translucent);\n      display: block;\n      margin-bottom: 4px;\n      margin-top: 4px;\n      max-width: 720px;\n    }\n\n    :host([vertical]) {\n      margin-left: 0;\n    }\n  `,\n  formHelperTextStyles,\n]"
         }
       ],
       "exports": [
@@ -2200,7 +2200,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      color: var(--vscode-icon-foreground);\r\n      display: inline-block;\r\n    }\r\n\r\n    .codicon[class*='codicon-'] {\r\n      display: block;\r\n    }\r\n\r\n    .icon,\r\n    .button {\r\n      background-color: transparent;\r\n      display: block;\r\n      padding: 0;\r\n    }\r\n\r\n    .button {\r\n      border-color: transparent;\r\n      border-style: solid;\r\n      border-width: 1px;\r\n      border-radius: 5px;\r\n      color: currentColor;\r\n      cursor: pointer;\r\n      padding: 2px;\r\n    }\r\n\r\n    .button:hover {\r\n      background-color: var(--vscode-toolbar-hoverBackground);\r\n    }\r\n\r\n    .button:active {\r\n      background-color: var(--vscode-toolbar-activeBackground);\r\n    }\r\n\r\n    .button:focus {\r\n      outline: none;\r\n    }\r\n\r\n    .button:focus-visible {\r\n      border-color: var(--vscode-focusBorder);\r\n    }\r\n\r\n    @keyframes icon-spin {\r\n      100% {\r\n        transform: rotate(360deg);\r\n      }\r\n    }\r\n\r\n    .spin {\r\n      animation-name: icon-spin;\r\n      animation-timing-function: linear;\r\n      animation-iteration-count: infinite;\r\n    }\r\n  `,\r\n]"
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      color: var(--vscode-icon-foreground);\n      display: inline-block;\n    }\n\n    .codicon[class*='codicon-'] {\n      display: block;\n    }\n\n    .icon,\n    .button {\n      background-color: transparent;\n      display: block;\n      padding: 0;\n    }\n\n    .button {\n      border-color: transparent;\n      border-style: solid;\n      border-width: 1px;\n      border-radius: 5px;\n      color: currentColor;\n      cursor: pointer;\n      padding: 2px;\n    }\n\n    .button:hover {\n      background-color: var(--vscode-toolbar-hoverBackground);\n    }\n\n    .button:active {\n      background-color: var(--vscode-toolbar-activeBackground);\n    }\n\n    .button:focus {\n      outline: none;\n    }\n\n    .button:focus-visible {\n      border-color: var(--vscode-focusBorder);\n    }\n\n    @keyframes icon-spin {\n      100% {\n        transform: rotate(360deg);\n      }\n    }\n\n    .spin {\n      animation-name: icon-spin;\n      animation-timing-function: linear;\n      animation-iteration-count: infinite;\n    }\n  `,\n]"
         }
       ],
       "exports": [
@@ -2220,7 +2220,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Display a [Codicon](https://microsoft.github.io/vscode-codicons/dist/codicon.html).\r\nIn \"action-icon\" mode it behaves like a button. In this case, it is\r\nrecommended that a meaningful label is specified with the `label` property.",
+          "description": "Display a [Codicon](https://microsoft.github.io/vscode-codicons/dist/codicon.html).\nIn \"action-icon\" mode it behaves like a button. In this case, it is\nrecommended that a meaningful label is specified with the `label` property.",
           "name": "VscodeIcon",
           "cssProperties": [
             {
@@ -2327,10 +2327,10 @@
               "privacy": "private",
               "return": {
                 "type": {
-                  "text": "{\r\n    href: string | undefined;\r\n    nonce: string | undefined;\r\n  }"
+                  "text": "{\n    href: string | undefined;\n    nonce: string | undefined;\n  }"
                 }
               },
-              "description": "For using web fonts in web components, the font stylesheet must be included\r\ntwice: on the page and in the web component. This function looks for the\r\nfont stylesheet on the page and returns the stylesheet URL and the nonce\r\nid."
+              "description": "For using web fonts in web components, the font stylesheet must be included\ntwice: on the page and in the web component. This function looks for the\nfont stylesheet on the page and returns the stylesheet URL and the nonce\nid."
             },
             {
               "kind": "field",
@@ -2431,7 +2431,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      color: var(--vscode-foreground);\r\n      font-family: var(--vscode-font-family);\r\n      font-size: var(--vscode-font-size);\r\n      font-weight: 600;\r\n      line-height: ${INPUT_LINE_HEIGHT_RATIO};\r\n      cursor: default;\r\n      display: block;\r\n      padding: 5px 0;\r\n    }\r\n\r\n    .wrapper {\r\n      display: block;\r\n    }\r\n\r\n    .wrapper.required:after {\r\n      content: ' *';\r\n    }\r\n\r\n    ::slotted(.normal) {\r\n      font-weight: normal;\r\n    }\r\n\r\n    ::slotted(.lightened) {\r\n      color: var(--vscode-foreground);\r\n      opacity: 0.9;\r\n    }\r\n  `,\r\n]"
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      color: var(--vscode-foreground);\n      font-family: var(--vscode-font-family);\n      font-size: var(--vscode-font-size);\n      font-weight: 600;\n      line-height: ${INPUT_LINE_HEIGHT_RATIO};\n      cursor: default;\n      display: block;\n      padding: 5px 0;\n    }\n\n    .wrapper {\n      display: block;\n    }\n\n    .wrapper.required:after {\n      content: ' *';\n    }\n\n    ::slotted(.normal) {\n      font-weight: normal;\n    }\n\n    ::slotted(.lightened) {\n      color: var(--vscode-foreground);\n      opacity: 0.9;\n    }\n  `,\n]"
         }
       ],
       "exports": [
@@ -3839,7 +3839,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[\r\n  defaultStyles,\r\n  baseStyles,\r\n  css`\r\n    :host(:invalid) .icon,\r\n    :host([invalid]) .icon {\r\n      background-color: var(--vscode-inputValidation-errorBackground);\r\n      border-color: var(--vscode-inputValidation-errorBorder, #be1100);\r\n    }\r\n\r\n    .icon {\r\n      border-radius: 9px;\r\n    }\r\n\r\n    .icon.checked:before {\r\n      background-color: currentColor;\r\n      border-radius: 4px;\r\n      content: '';\r\n      height: 8px;\r\n      left: 50%;\r\n      margin: -4px 0 0 -4px;\r\n      position: absolute;\r\n      top: 50%;\r\n      width: 8px;\r\n    }\r\n\r\n    :host(:focus):host(:not([disabled])) .icon {\r\n      outline: 1px solid var(--vscode-focusBorder);\r\n      outline-offset: -1px;\r\n    }\r\n  `,\r\n  formHelperTextStyles,\r\n]"
+          "default": "[\n  defaultStyles,\n  baseStyles,\n  css`\n    :host(:invalid) .icon,\n    :host([invalid]) .icon {\n      background-color: var(--vscode-inputValidation-errorBackground);\n      border-color: var(--vscode-inputValidation-errorBorder, #be1100);\n    }\n\n    .icon {\n      border-radius: 9px;\n    }\n\n    .icon.checked:before {\n      background-color: currentColor;\n      border-radius: 4px;\n      content: '';\n      height: 8px;\n      left: 50%;\n      margin: -4px 0 0 -4px;\n      position: absolute;\n      top: 50%;\n      width: 8px;\n    }\n\n    :host(:focus):host(:not([disabled])) .icon {\n      outline: 1px solid var(--vscode-focusBorder);\n      outline-offset: -1px;\n    }\n  `,\n  formHelperTextStyles,\n]"
         }
       ],
       "exports": [
@@ -4345,7 +4345,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      display: block;\r\n    }\r\n\r\n    .wrapper {\r\n      display: flex;\r\n      flex-wrap: wrap;\r\n    }\r\n\r\n    :host([variant='vertical']) .wrapper {\r\n      display: block;\r\n    }\r\n\r\n    ::slotted(vscode-radio) {\r\n      margin-right: 20px;\r\n    }\r\n\r\n    ::slotted(vscode-radio:last-child) {\r\n      margin-right: 0;\r\n    }\r\n\r\n    :host([variant='vertical']) ::slotted(vscode-radio) {\r\n      display: block;\r\n      margin-bottom: 15px;\r\n    }\r\n\r\n    :host([variant='vertical']) ::slotted(vscode-radio:last-child) {\r\n      margin-bottom: 0;\r\n    }\r\n  `,\r\n]"
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      display: block;\n    }\n\n    .wrapper {\n      display: flex;\n      flex-wrap: wrap;\n    }\n\n    :host([variant='vertical']) .wrapper {\n      display: block;\n    }\n\n    ::slotted(vscode-radio) {\n      margin-right: 20px;\n    }\n\n    ::slotted(vscode-radio:last-child) {\n      margin-right: 0;\n    }\n\n    :host([variant='vertical']) ::slotted(vscode-radio) {\n      display: block;\n      margin-bottom: 15px;\n    }\n\n    :host([variant='vertical']) ::slotted(vscode-radio:last-child) {\n      margin-bottom: 0;\n    }\n  `,\n]"
         }
       ],
       "exports": [
@@ -4531,7 +4531,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      display: block;\r\n      position: relative;\r\n    }\r\n\r\n    .scrollable-container {\r\n      height: 100%;\r\n      overflow: auto;\r\n    }\r\n\r\n    .scrollable-container::-webkit-scrollbar {\r\n      cursor: default;\r\n      width: 0;\r\n    }\r\n\r\n    .scrollable-container {\r\n      scrollbar-width: none;\r\n    }\r\n\r\n    .shadow {\r\n      box-shadow: var(--vscode-scrollbar-shadow) 0 6px 6px -6px inset;\r\n      display: none;\r\n      height: 3px;\r\n      left: 0;\r\n      pointer-events: none;\r\n      position: absolute;\r\n      top: 0;\r\n      z-index: 1;\r\n      width: 100%;\r\n    }\r\n\r\n    .shadow.visible {\r\n      display: block;\r\n    }\r\n\r\n    .scrollbar-track {\r\n      height: 100%;\r\n      position: absolute;\r\n      right: 0;\r\n      top: 0;\r\n      width: 10px;\r\n      z-index: 100;\r\n    }\r\n\r\n    .scrollbar-track.hidden {\r\n      display: none;\r\n    }\r\n\r\n    .scrollbar-thumb {\r\n      background-color: transparent;\r\n      min-height: var(--min-thumb-height, 20px);\r\n      opacity: 0;\r\n      position: absolute;\r\n      right: 0;\r\n      width: 10px;\r\n    }\r\n\r\n    .scrollbar-thumb.visible {\r\n      background-color: var(--vscode-scrollbarSlider-background);\r\n      opacity: 1;\r\n      transition: opacity 100ms;\r\n    }\r\n\r\n    .scrollbar-thumb.fade {\r\n      background-color: var(--vscode-scrollbarSlider-background);\r\n      opacity: 0;\r\n      transition: opacity 800ms;\r\n    }\r\n\r\n    .scrollbar-thumb.visible:hover {\r\n      background-color: var(--vscode-scrollbarSlider-hoverBackground);\r\n    }\r\n\r\n    .scrollbar-thumb.visible.active,\r\n    .scrollbar-thumb.visible.active:hover {\r\n      background-color: var(--vscode-scrollbarSlider-activeBackground);\r\n    }\r\n\r\n    .prevent-interaction {\r\n      bottom: 0;\r\n      left: 0;\r\n      right: 0;\r\n      top: 0;\r\n      position: absolute;\r\n      z-index: 99;\r\n    }\r\n\r\n    .content {\r\n      overflow: hidden;\r\n    }\r\n  `,\r\n]"
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      display: block;\n      position: relative;\n    }\n\n    .scrollable-container {\n      height: 100%;\n      overflow: auto;\n    }\n\n    .scrollable-container::-webkit-scrollbar {\n      cursor: default;\n      width: 0;\n    }\n\n    .scrollable-container {\n      scrollbar-width: none;\n    }\n\n    .shadow {\n      box-shadow: var(--vscode-scrollbar-shadow) 0 6px 6px -6px inset;\n      display: none;\n      height: 3px;\n      left: 0;\n      pointer-events: none;\n      position: absolute;\n      top: 0;\n      z-index: 1;\n      width: 100%;\n    }\n\n    .shadow.visible {\n      display: block;\n    }\n\n    .scrollbar-track {\n      height: 100%;\n      position: absolute;\n      right: 0;\n      top: 0;\n      width: 10px;\n      z-index: 100;\n    }\n\n    .scrollbar-track.hidden {\n      display: none;\n    }\n\n    .scrollbar-thumb {\n      background-color: transparent;\n      min-height: var(--min-thumb-height, 20px);\n      opacity: 0;\n      position: absolute;\n      right: 0;\n      width: 10px;\n    }\n\n    .scrollbar-thumb.visible {\n      background-color: var(--vscode-scrollbarSlider-background);\n      opacity: 1;\n      transition: opacity 100ms;\n    }\n\n    .scrollbar-thumb.fade {\n      background-color: var(--vscode-scrollbarSlider-background);\n      opacity: 0;\n      transition: opacity 800ms;\n    }\n\n    .scrollbar-thumb.visible:hover {\n      background-color: var(--vscode-scrollbarSlider-hoverBackground);\n    }\n\n    .scrollbar-thumb.visible.active,\n    .scrollbar-thumb.visible.active:hover {\n      background-color: var(--vscode-scrollbarSlider-activeBackground);\n    }\n\n    .prevent-interaction {\n      bottom: 0;\n      left: 0;\n      right: 0;\n      top: 0;\n      position: absolute;\n      z-index: 99;\n    }\n\n    .content {\n      overflow: hidden;\n    }\n  `,\n]"
         }
       ],
       "exports": [
@@ -5994,6 +5994,127 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/vscode-tab-header/vscode-tab-header.styles.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "styles",
+          "type": {
+            "text": "CSSResultGroup"
+          },
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      border-bottom: 1px solid transparent;\n      cursor: pointer;\n      display: block;\n      margin-bottom: -1px;\n      overflow: hidden;\n      padding: 7px 8px;\n      text-overflow: ellipsis;\n      user-select: none;\n      white-space: nowrap;\n    }\n\n    :host([active]) {\n      border-bottom-color: var(--vscode-panelTitle-activeForeground);\n      color: var(--vscode-panelTitle-activeForeground);\n    }\n\n    :host([panel]) {\n      border-bottom: 0;\n      margin-bottom: 0;\n      padding: 0;\n    }\n\n    :host(:focus-visible) {\n      outline: none;\n    }\n\n    .wrapper {\n      align-items: center;\n      color: var(--vscode-foreground);\n      display: flex;\n      min-height: 20px;\n      overflow: inherit;\n      text-overflow: inherit;\n      position: relative;\n    }\n\n    .wrapper.panel {\n      color: var(--vscode-panelTitle-inactiveForeground);\n    }\n\n    .wrapper.panel.active,\n    .wrapper.panel:hover {\n      color: var(--vscode-panelTitle-inactiveForeground);\n    }\n\n    :host([panel]) .wrapper {\n      display: flex;\n      font-size: 11px;\n      height: 31px;\n      padding: 2px 10px;\n      text-transform: uppercase;\n    }\n\n    .main {\n      overflow: inherit;\n      text-overflow: inherit;\n    }\n\n    .active-indicator {\n      display: none;\n    }\n\n    .active-indicator.panel.active {\n      border-top: 1px solid var(--vscode-panelTitle-activeBorder);\n      bottom: 4px;\n      display: block;\n      left: 8px;\n      pointer-events: none;\n      position: absolute;\n      right: 8px;\n    }\n\n    :host(:focus-visible) .wrapper {\n      outline-color: var(--vscode-focusBorder);\n      outline-offset: 3px;\n      outline-style: solid;\n      outline-width: 1px;\n    }\n\n    :host(:focus-visible) .wrapper.panel {\n      outline-offset: -2px;\n    }\n\n    slot[name='content-before']::slotted(vscode-badge) {\n      margin-right: 8px;\n    }\n\n    slot[name='content-after']::slotted(vscode-badge) {\n      margin-left: 8px;\n    }\n  `,\n]"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "styles",
+            "module": "src/vscode-tab-header/vscode-tab-header.styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-tab-header/vscode-tab-header.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "VscodeTabHeader",
+          "cssProperties": [
+            {
+              "name": "--vscode-foreground"
+            },
+            {
+              "name": "--vscode-panelTitle-inactiveForeground"
+            },
+            {
+              "name": "--vscode-panelTitle-activeForeground"
+            },
+            {
+              "name": "--vscode-panelTitle-activeBorder"
+            },
+            {
+              "name": "--vscode-focusBorder"
+            },
+            {
+              "name": "--vscode-settings-headerForeground"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "active",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "active",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "panel",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Panel-like look",
+              "attribute": "panel",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "active",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "active"
+            },
+            {
+              "name": "panel",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Panel-like look",
+              "fieldName": "panel"
+            }
+          ],
+          "superclass": {
+            "name": "VscElement",
+            "module": "/src/includes/VscElement.js"
+          },
+          "tagName": "vscode-tab-header",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "VscodeTabHeader",
+          "declaration": {
+            "name": "VscodeTabHeader",
+            "module": "src/vscode-tab-header/vscode-tab-header.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "vscode-tab-header",
+          "declaration": {
+            "name": "VscodeTabHeader",
+            "module": "src/vscode-tab-header/vscode-tab-header.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/vscode-split-layout/vscode-split-layout.styles.ts",
       "declarations": [
         {
@@ -6002,7 +6123,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      display: block;\r\n      overflow: hidden;\r\n      position: relative;\r\n    }\r\n\r\n    .start {\r\n      left: 0;\r\n      top: 0;\r\n      overflow: hidden;\r\n      position: absolute;\r\n    }\r\n\r\n    .end {\r\n      bottom: 0;\r\n      overflow: hidden;\r\n      position: absolute;\r\n      right: 0;\r\n    }\r\n\r\n    .handle-overlay {\r\n      display: none;\r\n      height: 100%;\r\n      left: 0;\r\n      position: absolute;\r\n      top: 0;\r\n      width: 100%;\r\n      z-index: 1;\r\n    }\r\n\r\n    .handle-overlay.active {\r\n      display: block;\r\n    }\r\n\r\n    .handle-overlay.split-vertical {\r\n      cursor: ew-resize;\r\n    }\r\n\r\n    .handle-overlay.split-horizontal {\r\n      cursor: ns-resize;\r\n    }\r\n\r\n    .handle {\r\n      position: absolute;\r\n      z-index: 2;\r\n    }\r\n\r\n    .handle.hover {\r\n      background-color: var(--vscode-sash-hoverBorder);\r\n      transition: background-color 100ms linear 300ms;\r\n    }\r\n\r\n    .handle.hide {\r\n      background-color: transparent;\r\n      transition: background-color 100ms linear;\r\n    }\r\n\r\n    .handle.split-vertical {\r\n      cursor: ew-resize;\r\n      height: 100%;\r\n    }\r\n\r\n    .handle.split-horizontal {\r\n      cursor: ns-resize;\r\n      width: 100%;\r\n    }\r\n  `,\r\n]"
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      display: block;\n      overflow: hidden;\n      position: relative;\n    }\n\n    .start {\n      left: 0;\n      top: 0;\n      overflow: hidden;\n      position: absolute;\n    }\n\n    .end {\n      bottom: 0;\n      overflow: hidden;\n      position: absolute;\n      right: 0;\n    }\n\n    .handle-overlay {\n      display: none;\n      height: 100%;\n      left: 0;\n      position: absolute;\n      top: 0;\n      width: 100%;\n      z-index: 1;\n    }\n\n    .handle-overlay.active {\n      display: block;\n    }\n\n    .handle-overlay.split-vertical {\n      cursor: ew-resize;\n    }\n\n    .handle-overlay.split-horizontal {\n      cursor: ns-resize;\n    }\n\n    .handle {\n      position: absolute;\n      z-index: 2;\n    }\n\n    .handle.hover {\n      background-color: var(--vscode-sash-hoverBorder);\n      transition: background-color 100ms linear 300ms;\n    }\n\n    .handle.hide {\n      background-color: transparent;\n      transition: background-color 100ms linear;\n    }\n\n    .handle.split-vertical {\n      cursor: ew-resize;\n      height: 100%;\n    }\n\n    .handle.split-horizontal {\n      cursor: ns-resize;\n      width: 100%;\n    }\n  `,\n]"
         }
       ],
       "exports": [
@@ -6283,127 +6404,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/vscode-tab-header/vscode-tab-header.styles.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "styles",
-          "type": {
-            "text": "CSSResultGroup"
-          },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      border-bottom: 1px solid transparent;\r\n      cursor: pointer;\r\n      display: block;\r\n      margin-bottom: -1px;\r\n      overflow: hidden;\r\n      padding: 7px 8px;\r\n      text-overflow: ellipsis;\r\n      user-select: none;\r\n      white-space: nowrap;\r\n    }\r\n\r\n    :host([active]) {\r\n      border-bottom-color: var(--vscode-panelTitle-activeForeground);\r\n      color: var(--vscode-panelTitle-activeForeground);\r\n    }\r\n\r\n    :host([panel]) {\r\n      border-bottom: 0;\r\n      margin-bottom: 0;\r\n      padding: 0;\r\n    }\r\n\r\n    :host(:focus-visible) {\r\n      outline: none;\r\n    }\r\n\r\n    .wrapper {\r\n      align-items: center;\r\n      color: var(--vscode-foreground);\r\n      display: flex;\r\n      min-height: 20px;\r\n      overflow: inherit;\r\n      text-overflow: inherit;\r\n      position: relative;\r\n    }\r\n\r\n    .wrapper.panel {\r\n      color: var(--vscode-panelTitle-inactiveForeground);\r\n    }\r\n\r\n    .wrapper.panel.active,\r\n    .wrapper.panel:hover {\r\n      color: var(--vscode-panelTitle-inactiveForeground);\r\n    }\r\n\r\n    :host([panel]) .wrapper {\r\n      display: flex;\r\n      font-size: 11px;\r\n      height: 31px;\r\n      padding: 2px 10px;\r\n      text-transform: uppercase;\r\n    }\r\n\r\n    .main {\r\n      overflow: inherit;\r\n      text-overflow: inherit;\r\n    }\r\n\r\n    .active-indicator {\r\n      display: none;\r\n    }\r\n\r\n    .active-indicator.panel.active {\r\n      border-top: 1px solid var(--vscode-panelTitle-activeBorder);\r\n      bottom: 4px;\r\n      display: block;\r\n      left: 8px;\r\n      pointer-events: none;\r\n      position: absolute;\r\n      right: 8px;\r\n    }\r\n\r\n    :host(:focus-visible) .wrapper {\r\n      outline-color: var(--vscode-focusBorder);\r\n      outline-offset: 3px;\r\n      outline-style: solid;\r\n      outline-width: 1px;\r\n    }\r\n\r\n    :host(:focus-visible) .wrapper.panel {\r\n      outline-offset: -2px;\r\n    }\r\n\r\n    slot[name='content-before']::slotted(vscode-badge) {\r\n      margin-right: 8px;\r\n    }\r\n\r\n    slot[name='content-after']::slotted(vscode-badge) {\r\n      margin-left: 8px;\r\n    }\r\n  `,\r\n]"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "styles",
-            "module": "src/vscode-tab-header/vscode-tab-header.styles.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-tab-header/vscode-tab-header.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "VscodeTabHeader",
-          "cssProperties": [
-            {
-              "name": "--vscode-foreground"
-            },
-            {
-              "name": "--vscode-panelTitle-inactiveForeground"
-            },
-            {
-              "name": "--vscode-panelTitle-activeForeground"
-            },
-            {
-              "name": "--vscode-panelTitle-activeBorder"
-            },
-            {
-              "name": "--vscode-focusBorder"
-            },
-            {
-              "name": "--vscode-settings-headerForeground"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "active",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "active",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "panel",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Panel-like look",
-              "attribute": "panel",
-              "reflects": true
-            }
-          ],
-          "attributes": [
-            {
-              "name": "active",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "active"
-            },
-            {
-              "name": "panel",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Panel-like look",
-              "fieldName": "panel"
-            }
-          ],
-          "superclass": {
-            "name": "VscElement",
-            "module": "/src/includes/VscElement.js"
-          },
-          "tagName": "vscode-tab-header",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "VscodeTabHeader",
-          "declaration": {
-            "name": "VscodeTabHeader",
-            "module": "src/vscode-tab-header/vscode-tab-header.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "vscode-tab-header",
-          "declaration": {
-            "name": "VscodeTabHeader",
-            "module": "src/vscode-tab-header/vscode-tab-header.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/vscode-tab-panel/vscode-tab-panel.styles.ts",
       "declarations": [
         {
@@ -6412,7 +6412,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      display: block;\r\n      overflow: hidden;\r\n    }\r\n\r\n    :host(:focus-visible) {\r\n      outline-color: var(--vscode-focusBorder);\r\n      outline-offset: 3px;\r\n      outline-style: solid;\r\n      outline-width: 1px;\r\n    }\r\n\r\n    :host([panel]) {\r\n      background-color: var(--vscode-panel-background);\r\n    }\r\n  `,\r\n]"
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      display: block;\n      overflow: hidden;\n    }\n\n    :host(:focus-visible) {\n      outline-color: var(--vscode-focusBorder);\n      outline-offset: 3px;\n      outline-style: solid;\n      outline-width: 1px;\n    }\n\n    :host([panel]) {\n      background-color: var(--vscode-panel-background);\n    }\n  `,\n]"
         }
       ],
       "exports": [
@@ -6560,7 +6560,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[\r\n  baseStyles,\r\n  css`\r\n    :host {\r\n      display: block;\r\n      --vsc-row-even-background: transparent;\r\n      --vsc-row-odd-background: transparent;\r\n      --vsc-row-border-bottom-width: 0;\r\n      --vsc-row-border-top-width: 0;\r\n      --vsc-row-display: table-row;\r\n    }\r\n\r\n    :host([bordered]) {\r\n      --vsc-row-border-bottom-width: 1px;\r\n    }\r\n\r\n    :host([compact]) {\r\n      --vsc-row-display: block;\r\n    }\r\n\r\n    :host([bordered][compact]) {\r\n      --vsc-row-border-bottom-width: 0;\r\n      --vsc-row-border-top-width: 1px;\r\n    }\r\n\r\n    :host([zebra]) {\r\n      --vsc-row-even-background: var(--vscode-keybindingTable-rowsBackground);\r\n    }\r\n\r\n    :host([zebra-odd]) {\r\n      --vsc-row-odd-background: var(--vscode-keybindingTable-rowsBackground);\r\n    }\r\n\r\n    ::slotted(vscode-table-row) {\r\n      width: 100%;\r\n    }\r\n\r\n    .wrapper {\r\n      height: 100%;\r\n      max-width: 100%;\r\n      overflow: hidden;\r\n      position: relative;\r\n      width: 100%;\r\n    }\r\n\r\n    .wrapper.select-disabled {\r\n      user-select: none;\r\n    }\r\n\r\n    .wrapper.resize-cursor {\r\n      cursor: ew-resize;\r\n    }\r\n\r\n    .wrapper.compact-view .header-slot-wrapper {\r\n      height: 0;\r\n      overflow: hidden;\r\n    }\r\n\r\n    .scrollable {\r\n      height: 100%;\r\n    }\r\n\r\n    .scrollable:before {\r\n      background-color: transparent;\r\n      content: '';\r\n      display: block;\r\n      height: 1px;\r\n      position: absolute;\r\n      width: 100%;\r\n    }\r\n\r\n    :host(:not([bordered]))\r\n      .wrapper:not(.compact-view):hover\r\n      .scrollable:not([scrolled]):before,\r\n    :host([bordered])\r\n      .wrapper:not(.compact-view)\r\n      .scrollable:not([scrolled]):before {\r\n      background-color: var(--vscode-editorGroup-border);\r\n    }\r\n\r\n    :host(:not([bordered])) .sash {\r\n      visibility: hidden;\r\n    }\r\n\r\n    :host(:not([compact])) .wrapper:hover .sash {\r\n      visibility: visible;\r\n    }\r\n\r\n    .sash {\r\n      height: 100%;\r\n      position: absolute;\r\n      top: 0;\r\n      width: 1px;\r\n    }\r\n\r\n    .wrapper.compact-view .sash {\r\n      display: none;\r\n    }\r\n\r\n    .sash.resizable {\r\n      cursor: ew-resize;\r\n    }\r\n\r\n    .sash-visible {\r\n      background-color: var(--vscode-editorGroup-border);\r\n      height: 100%;\r\n      position: absolute;\r\n      top: 0;\r\n      width: 1px;\r\n    }\r\n\r\n    .sash.hover .sash-visible {\r\n      background-color: var(--vscode-sash-hoverBorder);\r\n      transition: background-color 50ms linear 300ms;\r\n    }\r\n\r\n    .sash .sash-clickable {\r\n      background-color: transparent;\r\n      height: 100%;\r\n      left: -2px;\r\n      position: absolute;\r\n      width: 5px;\r\n    }\r\n  `,\r\n]"
+          "default": "[\n  baseStyles,\n  css`\n    :host {\n      display: block;\n      --vsc-row-even-background: transparent;\n      --vsc-row-odd-background: transparent;\n      --vsc-row-border-bottom-width: 0;\n      --vsc-row-border-top-width: 0;\n      --vsc-row-display: table-row;\n    }\n\n    :host([bordered]) {\n      --vsc-row-border-bottom-width: 1px;\n    }\n\n    :host([compact]) {\n      --vsc-row-display: block;\n    }\n\n    :host([bordered][compact]) {\n      --vsc-row-border-bottom-width: 0;\n      --vsc-row-border-top-width: 1px;\n    }\n\n    :host([zebra]) {\n      --vsc-row-even-background: var(--vscode-keybindingTable-rowsBackground);\n    }\n\n    :host([zebra-odd]) {\n      --vsc-row-odd-background: var(--vscode-keybindingTable-rowsBackground);\n    }\n\n    ::slotted(vscode-table-row) {\n      width: 100%;\n    }\n\n    .wrapper {\n      height: 100%;\n      max-width: 100%;\n      overflow: hidden;\n      position: relative;\n      width: 100%;\n    }\n\n    .wrapper.select-disabled {\n      user-select: none;\n    }\n\n    .wrapper.resize-cursor {\n      cursor: ew-resize;\n    }\n\n    .wrapper.compact-view .header-slot-wrapper {\n      height: 0;\n      overflow: hidden;\n    }\n\n    .scrollable {\n      height: 100%;\n    }\n\n    .scrollable:before {\n      background-color: transparent;\n      content: '';\n      display: block;\n      height: 1px;\n      position: absolute;\n      width: 100%;\n    }\n\n    :host(:not([bordered]))\n      .wrapper:not(.compact-view):hover\n      .scrollable:not([scrolled]):before,\n    :host([bordered])\n      .wrapper:not(.compact-view)\n      .scrollable:not([scrolled]):before {\n      background-color: var(--vscode-editorGroup-border);\n    }\n\n    :host(:not([bordered])) .sash {\n      visibility: hidden;\n    }\n\n    :host(:not([compact])) .wrapper:hover .sash {\n      visibility: visible;\n    }\n\n    .sash {\n      height: 100%;\n      position: absolute;\n      top: 0;\n      width: 1px;\n    }\n\n    .wrapper.compact-view .sash {\n      display: none;\n    }\n\n    .sash.resizable {\n      cursor: ew-resize;\n    }\n\n    .sash-visible {\n      background-color: var(--vscode-editorGroup-border);\n      height: 100%;\n      position: absolute;\n      top: 0;\n      width: 1px;\n    }\n\n    .sash.hover .sash-visible {\n      background-color: var(--vscode-sash-hoverBorder);\n      transition: background-color 50ms linear 300ms;\n    }\n\n    .sash .sash-clickable {\n      background-color: transparent;\n      height: 100%;\n      left: -2px;\n      position: absolute;\n      width: 5px;\n    }\n  `,\n]"
         }
       ],
       "exports": [
@@ -7272,7 +7272,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      display: table;\r\n      table-layout: fixed;\r\n      width: 100%;\r\n    }\r\n\r\n\r\n      ::slotted(vscode-table-row:nth-child(even)) {\r\n      background-color: var(--vsc-row-even-background);\r\n    }\r\n\r\n    ::slotted(vscode-table-row:nth-child(odd)) {\r\n      background-color: var(--vsc-row-odd-background);\r\n    }\r\n  `,\r\n]"
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      display: table;\n      table-layout: fixed;\n      width: 100%;\n    }\n\n\n      ::slotted(vscode-table-row:nth-child(even)) {\n      background-color: var(--vsc-row-even-background);\n    }\n\n    ::slotted(vscode-table-row:nth-child(odd)) {\n      background-color: var(--vsc-row-odd-background);\n    }\n  `,\n]"
         }
       ],
       "exports": [
@@ -7337,7 +7337,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      border-bottom-color: var(--vscode-editorGroup-border);\r\n      border-bottom-style: solid;\r\n      border-bottom-width: var(--vsc-row-border-bottom-width);\r\n      box-sizing: border-box;\r\n      color: var(--vscode-foreground);\r\n      display: table-cell;\r\n      font-family: var(--vscode-font-family);\r\n      font-size: var(--vscode-font-size);\r\n      height: 24px;\r\n      overflow: hidden;\r\n      padding-left: 10px;\r\n      text-overflow: ellipsis;\r\n      vertical-align: middle;\r\n      white-space: nowrap;\r\n    }\r\n\r\n    :host([compact]) {\r\n      display: block;\r\n      height: auto;\r\n      padding-bottom: 5px;\r\n      width: 100% !important;\r\n    }\r\n\r\n    :host([compact]:first-child) {\r\n      padding-top: 10px;\r\n    }\r\n\r\n    :host([compact]:last-child) {\r\n      padding-bottom: 10px;\r\n    }\r\n\r\n    .wrapper {\r\n      overflow: inherit;\r\n      text-overflow: inherit;\r\n      white-space: inherit;\r\n      width: 100%;\r\n    }\r\n\r\n    .column-label {\r\n      font-weight: bold;\r\n    }\r\n  `,\r\n]"
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      border-bottom-color: var(--vscode-editorGroup-border);\n      border-bottom-style: solid;\n      border-bottom-width: var(--vsc-row-border-bottom-width);\n      box-sizing: border-box;\n      color: var(--vscode-foreground);\n      display: table-cell;\n      font-family: var(--vscode-font-family);\n      font-size: var(--vscode-font-size);\n      height: 24px;\n      overflow: hidden;\n      padding-left: 10px;\n      text-overflow: ellipsis;\n      vertical-align: middle;\n      white-space: nowrap;\n    }\n\n    :host([compact]) {\n      display: block;\n      height: auto;\n      padding-bottom: 5px;\n      width: 100% !important;\n    }\n\n    :host([compact]:first-child) {\n      padding-top: 10px;\n    }\n\n    :host([compact]:last-child) {\n      padding-bottom: 10px;\n    }\n\n    .wrapper {\n      overflow: inherit;\n      text-overflow: inherit;\n      white-space: inherit;\n      width: 100%;\n    }\n\n    .column-label {\n      font-weight: bold;\n    }\n  `,\n]"
         }
       ],
       "exports": [
@@ -7453,7 +7453,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      background-color: var(--vscode-keybindingTable-headerBackground);\r\n      display: table;\r\n      table-layout: fixed;\r\n      width: 100%;\r\n    }\r\n  `,\r\n]"
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      background-color: var(--vscode-keybindingTable-headerBackground);\n      display: table;\n      table-layout: fixed;\n      width: 100%;\n    }\n  `,\n]"
         }
       ],
       "exports": [
@@ -7519,7 +7519,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      box-sizing: border-box;\r\n      color: var(--vscode-foreground);\r\n      display: table-cell;\r\n      font-family: var(--vscode-font-family);\r\n      font-size: var(--vscode-font-size);\r\n      font-weight: bold;\r\n      line-height: 20px;\r\n      overflow: hidden;\r\n      padding-bottom: 5px;\r\n      padding-left: 10px;\r\n      padding-right: 0;\r\n      padding-top: 5px;\r\n      text-overflow: ellipsis;\r\n      white-space: nowrap;\r\n    }\r\n\r\n    .wrapper {\r\n      box-sizing: inherit;\r\n      overflow: inherit;\r\n      text-overflow: inherit;\r\n      white-space: inherit;\r\n      width: 100%;\r\n    }\r\n  `,\r\n]"
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      box-sizing: border-box;\n      color: var(--vscode-foreground);\n      display: table-cell;\n      font-family: var(--vscode-font-family);\n      font-size: var(--vscode-font-size);\n      font-weight: bold;\n      line-height: 20px;\n      overflow: hidden;\n      padding-bottom: 5px;\n      padding-left: 10px;\n      padding-right: 0;\n      padding-top: 5px;\n      text-overflow: ellipsis;\n      white-space: nowrap;\n    }\n\n    .wrapper {\n      box-sizing: inherit;\n      overflow: inherit;\n      text-overflow: inherit;\n      white-space: inherit;\n      width: 100%;\n    }\n  `,\n]"
         }
       ],
       "exports": [
@@ -7590,7 +7590,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      border-top-color: var(--vscode-editorGroup-border);\r\n      border-top-style: solid;\r\n      border-top-width: var(--vsc-row-border-top-width);\r\n      display: var(--vsc-row-display);\r\n      width: 100%;\r\n    }\r\n  `,\r\n]"
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      border-top-color: var(--vscode-editorGroup-border);\n      border-top-style: solid;\n      border-top-width: var(--vsc-row-border-top-width);\n      display: var(--vsc-row-display);\n      width: 100%;\n    }\n  `,\n]"
         }
       ],
       "exports": [
@@ -7647,6 +7647,259 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/vscode-tabs/vscode-tabs.styles.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "styles",
+          "type": {
+            "text": "CSSResultGroup"
+          },
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      display: block;\n    }\n\n    .header {\n      align-items: center;\n      display: flex;\n      font-family: var(--vscode-font-family);\n      font-size: var(--vscode-font-size);\n      font-weight: var(--vscode-font-weight);\n      width: 100%;\n    }\n\n    .header {\n      border-bottom-color: var(--vscode-settings-headerBorder);\n      border-bottom-style: solid;\n      border-bottom-width: 1px;\n    }\n\n    .header.panel {\n      background-color: var(--vscode-panel-background);\n      border-bottom-width: 0;\n      box-sizing: border-box;\n      padding-left: 8px;\n      padding-right: 8px;\n    }\n\n    slot[name='addons'] {\n      display: block;\n      margin-left: auto;\n    }\n  `,\n]"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "styles",
+            "module": "src/vscode-tabs/vscode-tabs.styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-tabs/vscode-tabs.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "VscodeTabs",
+          "cssProperties": [
+            {
+              "name": "--vscode-font-family"
+            },
+            {
+              "name": "--vscode-font-size"
+            },
+            {
+              "name": "--vscode-font-weight"
+            },
+            {
+              "name": "--vscode-settings-headerBorder"
+            },
+            {
+              "name": "--vscode-panel-background"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Default slot. It is used for tab panels.",
+              "name": ""
+            },
+            {
+              "description": "Slot for tab headers.",
+              "name": "header"
+            },
+            {
+              "description": "Right aligned area in the header.",
+              "name": "addons"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "panel",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Panel-like look",
+              "attribute": "panel",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "selectedIndex",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "attribute": "selected-index",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "_headerSlotElements",
+              "type": {
+                "text": "Element[]"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_mainSlotElements",
+              "type": {
+                "text": "Element[]"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_tabHeaders",
+              "type": {
+                "text": "VscodeTabHeader[]"
+              },
+              "privacy": "private",
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "_tabPanels",
+              "type": {
+                "text": "VscodeTabPanel[]"
+              },
+              "privacy": "private",
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "_componentId",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "''"
+            },
+            {
+              "kind": "field",
+              "name": "_tabFocus",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0"
+            },
+            {
+              "kind": "method",
+              "name": "_dispatchSelectEvent",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_setActiveTab",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_focusPrevTab",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_focusNextTab",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_onHeaderKeyDown",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "ev",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_moveHeadersToHeaderSlot",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_onMainSlotChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_onHeaderSlotChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_onHeaderClick",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            }
+          ],
+          "events": [
+            {
+              "name": "vsc-select",
+              "type": {
+                "text": "CustomEvent"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "panel",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Panel-like look",
+              "fieldName": "panel"
+            },
+            {
+              "name": "selected-index",
+              "type": {
+                "text": "number"
+              },
+              "default": "0",
+              "fieldName": "selectedIndex"
+            }
+          ],
+          "superclass": {
+            "name": "VscElement",
+            "module": "/src/includes/VscElement.js"
+          },
+          "tagName": "vscode-tabs",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "VscodeTabs",
+          "declaration": {
+            "name": "VscodeTabs",
+            "module": "src/vscode-tabs/vscode-tabs.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "vscode-tabs",
+          "declaration": {
+            "name": "VscodeTabs",
+            "module": "src/vscode-tabs/vscode-tabs.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/vscode-textarea/vscode-textarea.styles.ts",
       "declarations": [
         {
@@ -7655,7 +7908,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      display: inline-block;\r\n      height: 40px;\r\n      position: relative;\r\n      width: 320px;\r\n    }\r\n\r\n    :host([cols]) {\r\n      width: auto;\r\n    }\r\n\r\n    :host([rows]) {\r\n      height: auto;\r\n    }\r\n\r\n    .shadow {\r\n      box-shadow: var(--vscode-scrollbar-shadow) 0 6px 6px -6px inset;\r\n      display: none;\r\n      inset: 0 0 auto 0;\r\n      height: 6px;\r\n      pointer-events: none;\r\n      position: absolute;\r\n      width: 100%;\r\n    }\r\n\r\n    .shadow.visible {\r\n      display: block;\r\n    }\r\n\r\n    textarea {\r\n      background-color: var(--vscode-settings-textInputBackground);\r\n      border-color: var(--vscode-settings-textInputBorder, var(--vscode-settings-textInputBackground));\r\n      border-radius: 2px;\r\n      border-style: solid;\r\n      border-width: 1px;\r\n      box-sizing: border-box;\r\n      color: var(--vscode-settings-textInputForeground);\r\n      display: block;\r\n      font-family: var(--vscode-font-family);\r\n      font-size: var(--vscode-font-size);\r\n      font-weight: var(--vscode-font-weight);\r\n      height: 100%;\r\n      width: 100%;\r\n    }\r\n\r\n    :host([cols]) textarea {\r\n      width: auto;\r\n    }\r\n\r\n    :host([rows]) textarea {\r\n      height: auto;\r\n    }\r\n\r\n    :host([invalid]) textarea,\r\n    :host(:invalid) textarea {\r\n      background-color: var(--vscode-inputValidation-errorBackground);\r\n      border-color: var(--vscode-inputValidation-errorBorder, #be1100);\r\n    }\r\n\r\n    textarea.monospace {\r\n      background-color: var(--vscode-editor-background);\r\n      color: var(--vscode-editor-foreground);\r\n      font-family: var(---vscode-editor-font-family);\r\n      font-size: var(--vscode-editor-font-size);\r\n      font-weight: var(--vscode-editor-font-weight);\r\n    }\r\n\r\n    .textarea.monospace::placeholder {\r\n      color: var(--vscode-editor-inlineValuesForeground);\r\n    }\r\n\r\n    textarea.cursor-pointer {\r\n      cursor: pointer;\r\n    }\r\n\r\n    textarea:focus {\r\n      border-color: var(--vscode-focusBorder);\r\n      outline: none;\r\n    }\r\n\r\n    textarea::placeholder {\r\n      color: var(--vscode-input-placeholderForeground);\r\n      opacity: 1;\r\n    }\r\n\r\n    textarea::-webkit-scrollbar-track {\r\n      background-color: transparent;\r\n    }\r\n\r\n    textarea::-webkit-scrollbar {\r\n      width: 14px;\r\n    }\r\n\r\n    textarea::-webkit-scrollbar-thumb {\r\n      background-color: transparent;\r\n    }\r\n\r\n    textarea:hover::-webkit-scrollbar-thumb {\r\n      background-color: var(--vscode-scrollbarSlider-background);\r\n    }\r\n\r\n    textarea::-webkit-scrollbar-thumb:hover {\r\n      background-color: var(--vscode-scrollbarSlider-hoverBackground);\r\n    }\r\n\r\n    textarea::-webkit-scrollbar-thumb:active {\r\n      background-color: var(--vscode-scrollbarSlider-activeBackground);\r\n    }\r\n\r\n    textarea::-webkit-scrollbar-corner {\r\n      background-color: transparent;\r\n    }\r\n\r\n    textarea::-webkit-resizer {\r\n      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAACJJREFUeJxjYMAOZuIQZ5j5//9/rJJESczEKYGsG6cEXgAAsEEefMxkua4AAAAASUVORK5CYII=');\r\n      background-repeat: no-repeat;\r\n      background-position: right bottom;\r\n    }\r\n  `,\r\n]"
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      display: inline-block;\n      height: 40px;\n      position: relative;\n      width: 320px;\n    }\n\n    :host([cols]) {\n      width: auto;\n    }\n\n    :host([rows]) {\n      height: auto;\n    }\n\n    .shadow {\n      box-shadow: var(--vscode-scrollbar-shadow) 0 6px 6px -6px inset;\n      display: none;\n      inset: 0 0 auto 0;\n      height: 6px;\n      pointer-events: none;\n      position: absolute;\n      width: 100%;\n    }\n\n    .shadow.visible {\n      display: block;\n    }\n\n    textarea {\n      background-color: var(--vscode-settings-textInputBackground);\n      border-color: var(--vscode-settings-textInputBorder, var(--vscode-settings-textInputBackground));\n      border-radius: 2px;\n      border-style: solid;\n      border-width: 1px;\n      box-sizing: border-box;\n      color: var(--vscode-settings-textInputForeground);\n      display: block;\n      font-family: var(--vscode-font-family);\n      font-size: var(--vscode-font-size);\n      font-weight: var(--vscode-font-weight);\n      height: 100%;\n      width: 100%;\n    }\n\n    :host([cols]) textarea {\n      width: auto;\n    }\n\n    :host([rows]) textarea {\n      height: auto;\n    }\n\n    :host([invalid]) textarea,\n    :host(:invalid) textarea {\n      background-color: var(--vscode-inputValidation-errorBackground);\n      border-color: var(--vscode-inputValidation-errorBorder, #be1100);\n    }\n\n    textarea.monospace {\n      background-color: var(--vscode-editor-background);\n      color: var(--vscode-editor-foreground);\n      font-family: var(---vscode-editor-font-family);\n      font-size: var(--vscode-editor-font-size);\n      font-weight: var(--vscode-editor-font-weight);\n    }\n\n    .textarea.monospace::placeholder {\n      color: var(--vscode-editor-inlineValuesForeground);\n    }\n\n    textarea.cursor-pointer {\n      cursor: pointer;\n    }\n\n    textarea:focus {\n      border-color: var(--vscode-focusBorder);\n      outline: none;\n    }\n\n    textarea::placeholder {\n      color: var(--vscode-input-placeholderForeground);\n      opacity: 1;\n    }\n\n    textarea::-webkit-scrollbar-track {\n      background-color: transparent;\n    }\n\n    textarea::-webkit-scrollbar {\n      width: 14px;\n    }\n\n    textarea::-webkit-scrollbar-thumb {\n      background-color: transparent;\n    }\n\n    textarea:hover::-webkit-scrollbar-thumb {\n      background-color: var(--vscode-scrollbarSlider-background);\n    }\n\n    textarea::-webkit-scrollbar-thumb:hover {\n      background-color: var(--vscode-scrollbarSlider-hoverBackground);\n    }\n\n    textarea::-webkit-scrollbar-thumb:active {\n      background-color: var(--vscode-scrollbarSlider-activeBackground);\n    }\n\n    textarea::-webkit-scrollbar-corner {\n      background-color: transparent;\n    }\n\n    textarea::-webkit-resizer {\n      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAACJJREFUeJxjYMAOZuIQZ5j5//9/rJJESczEKYGsG6cEXgAAsEEefMxkua4AAAAASUVORK5CYII=');\n      background-repeat: no-repeat;\n      background-position: right bottom;\n    }\n  `,\n]"
         }
       ],
       "exports": [
@@ -8284,259 +8537,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/vscode-tabs/vscode-tabs.styles.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "styles",
-          "type": {
-            "text": "CSSResultGroup"
-          },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      display: block;\r\n    }\r\n\r\n    .header {\r\n      align-items: center;\r\n      display: flex;\r\n      font-family: var(--vscode-font-family);\r\n      font-size: var(--vscode-font-size);\r\n      font-weight: var(--vscode-font-weight);\r\n      width: 100%;\r\n    }\r\n\r\n    .header {\r\n      border-bottom-color: var(--vscode-settings-headerBorder);\r\n      border-bottom-style: solid;\r\n      border-bottom-width: 1px;\r\n    }\r\n\r\n    .header.panel {\r\n      background-color: var(--vscode-panel-background);\r\n      border-bottom-width: 0;\r\n      box-sizing: border-box;\r\n      padding-left: 8px;\r\n      padding-right: 8px;\r\n    }\r\n\r\n    slot[name='addons'] {\r\n      display: block;\r\n      margin-left: auto;\r\n    }\r\n  `,\r\n]"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "styles",
-            "module": "src/vscode-tabs/vscode-tabs.styles.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-tabs/vscode-tabs.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "VscodeTabs",
-          "cssProperties": [
-            {
-              "name": "--vscode-font-family"
-            },
-            {
-              "name": "--vscode-font-size"
-            },
-            {
-              "name": "--vscode-font-weight"
-            },
-            {
-              "name": "--vscode-settings-headerBorder"
-            },
-            {
-              "name": "--vscode-panel-background"
-            }
-          ],
-          "slots": [
-            {
-              "description": "Default slot. It is used for tab panels.",
-              "name": ""
-            },
-            {
-              "description": "Slot for tab headers.",
-              "name": "header"
-            },
-            {
-              "description": "Right aligned area in the header.",
-              "name": "addons"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "panel",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Panel-like look",
-              "attribute": "panel",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "selectedIndex",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "attribute": "selected-index",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "_headerSlotElements",
-              "type": {
-                "text": "Element[]"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "_mainSlotElements",
-              "type": {
-                "text": "Element[]"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "_tabHeaders",
-              "type": {
-                "text": "VscodeTabHeader[]"
-              },
-              "privacy": "private",
-              "default": "[]"
-            },
-            {
-              "kind": "field",
-              "name": "_tabPanels",
-              "type": {
-                "text": "VscodeTabPanel[]"
-              },
-              "privacy": "private",
-              "default": "[]"
-            },
-            {
-              "kind": "field",
-              "name": "_componentId",
-              "type": {
-                "text": "string"
-              },
-              "privacy": "private",
-              "default": "''"
-            },
-            {
-              "kind": "field",
-              "name": "_tabFocus",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "method",
-              "name": "_dispatchSelectEvent",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_setActiveTab",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_focusPrevTab",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_focusNextTab",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_onHeaderKeyDown",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "ev",
-                  "type": {
-                    "text": "KeyboardEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "_moveHeadersToHeaderSlot",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_onMainSlotChange",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_onHeaderSlotChange",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_onHeaderClick",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            }
-          ],
-          "events": [
-            {
-              "name": "vsc-select",
-              "type": {
-                "text": "CustomEvent"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "panel",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "description": "Panel-like look",
-              "fieldName": "panel"
-            },
-            {
-              "name": "selected-index",
-              "type": {
-                "text": "number"
-              },
-              "default": "0",
-              "fieldName": "selectedIndex"
-            }
-          ],
-          "superclass": {
-            "name": "VscElement",
-            "module": "/src/includes/VscElement.js"
-          },
-          "tagName": "vscode-tabs",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "VscodeTabs",
-          "declaration": {
-            "name": "VscodeTabs",
-            "module": "src/vscode-tabs/vscode-tabs.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "vscode-tabs",
-          "declaration": {
-            "name": "VscodeTabs",
-            "module": "src/vscode-tabs/vscode-tabs.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/vscode-textfield/vscode-textfield.styles.ts",
       "declarations": [
         {
@@ -8545,7 +8545,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      align-items: center;\r\n      background-color: var(--vscode-settings-textInputBackground);\r\n      border-color: var(--vscode-settings-textInputBorder, var(--vscode-settings-textInputBackground));\r\n      border-radius: 2px;\r\n      border-style: solid;\r\n      border-width: 1px;\r\n      box-sizing: border-box;\r\n      color: var(--vscode-settings-textInputForeground);\r\n      display: inline-flex;\r\n      max-width: 100%;\r\n      position: relative;\r\n      width: 320px;\r\n    }\r\n\r\n    :host([focused]) {\r\n      border-color: var(--vscode-focusBorder);\r\n    }\r\n\r\n    :host([invalid]),\r\n    :host(:invalid) {\r\n      border-color: var(--vscode-inputValidation-errorBorder, #be1100);\r\n    }\r\n\r\n    :host([invalid]) input,\r\n    :host(:invalid) input {\r\n      background-color: var(--vscode-inputValidation-errorBackground);\r\n    }\r\n\r\n    ::slotted([slot='content-before']) {\r\n      display: block;\r\n      margin-left: 2px;\r\n    }\r\n\r\n    ::slotted([slot='content-after']) {\r\n      display: block;\r\n      margin-right: 2px;\r\n    }\r\n\r\n    slot[name='content-before'],\r\n    slot[name='content-after'] {\r\n      align-items: center;\r\n      display: flex;\r\n    }\r\n\r\n    input {\r\n      background-color: var(--vscode-settings-textInputBackground);\r\n      border: 0;\r\n      box-sizing: border-box;\r\n      color: var(--vscode-settings-textInputForeground);\r\n      display: block;\r\n      font-family: var(--vscode-font-family);\r\n      font-size: var(--vscode-font-size);\r\n      font-weight: var(--vscode-font-weight);\r\n      line-height: 18px;\r\n      outline: none;\r\n      padding-bottom: 3px;\r\n      padding-left: 4px;\r\n      padding-right: 4px;\r\n      padding-top: 3px;\r\n      width: 100%;\r\n    }\r\n\r\n    input:read-only:not([type=\"file\"]) {\r\n      cursor: not-allowed;\r\n    }\r\n\r\n    input::placeholder {\r\n      color: var(--vscode-input-placeholderForeground);\r\n      opacity: 1;\r\n    }\r\n\r\n    input[type='file'] {\r\n      line-height: 24px;\r\n      padding-bottom: 0;\r\n      padding-left: 2px;\r\n      padding-top: 0;\r\n    }\r\n\r\n    input[type='file']::file-selector-button {\r\n      background-color: var(--vscode-button-background);\r\n      border: 0;\r\n      border-radius: 2px;\r\n      color: var(--vscode-button-foreground);\r\n      cursor: pointer;\r\n      font-family: var(--vscode-font-family);\r\n      font-size: var(--vscode-font-size);\r\n      font-weight: var(--vscode-font-weight);\r\n      line-height: 20px;\r\n      padding: 0 14px;\r\n    }\r\n\r\n    input[type='file']::file-selector-button:hover {\r\n      background-color: var(--vscode-button-hoverBackground);\r\n    }\r\n  `,\r\n]"
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      align-items: center;\n      background-color: var(--vscode-settings-textInputBackground);\n      border-color: var(--vscode-settings-textInputBorder, var(--vscode-settings-textInputBackground));\n      border-radius: 2px;\n      border-style: solid;\n      border-width: 1px;\n      box-sizing: border-box;\n      color: var(--vscode-settings-textInputForeground);\n      display: inline-flex;\n      max-width: 100%;\n      position: relative;\n      width: 320px;\n    }\n\n    :host([focused]) {\n      border-color: var(--vscode-focusBorder);\n    }\n\n    :host([invalid]),\n    :host(:invalid) {\n      border-color: var(--vscode-inputValidation-errorBorder, #be1100);\n    }\n\n    :host([invalid]) input,\n    :host(:invalid) input {\n      background-color: var(--vscode-inputValidation-errorBackground);\n    }\n\n    ::slotted([slot='content-before']) {\n      display: block;\n      margin-left: 2px;\n    }\n\n    ::slotted([slot='content-after']) {\n      display: block;\n      margin-right: 2px;\n    }\n\n    slot[name='content-before'],\n    slot[name='content-after'] {\n      align-items: center;\n      display: flex;\n    }\n\n    input {\n      background-color: var(--vscode-settings-textInputBackground);\n      border: 0;\n      box-sizing: border-box;\n      color: var(--vscode-settings-textInputForeground);\n      display: block;\n      font-family: var(--vscode-font-family);\n      font-size: var(--vscode-font-size);\n      font-weight: var(--vscode-font-weight);\n      line-height: 18px;\n      outline: none;\n      padding-bottom: 3px;\n      padding-left: 4px;\n      padding-right: 4px;\n      padding-top: 3px;\n      width: 100%;\n    }\n\n    input:read-only:not([type=\"file\"]) {\n      cursor: not-allowed;\n    }\n\n    input::placeholder {\n      color: var(--vscode-input-placeholderForeground);\n      opacity: 1;\n    }\n\n    input[type='file'] {\n      line-height: 24px;\n      padding-bottom: 0;\n      padding-left: 2px;\n      padding-top: 0;\n    }\n\n    input[type='file']::file-selector-button {\n      background-color: var(--vscode-button-background);\n      border: 0;\n      border-radius: 2px;\n      color: var(--vscode-button-foreground);\n      cursor: pointer;\n      font-family: var(--vscode-font-family);\n      font-size: var(--vscode-font-size);\n      font-weight: var(--vscode-font-weight);\n      line-height: 20px;\n      padding: 0 14px;\n    }\n\n    input[type='file']::file-selector-button:hover {\n      background-color: var(--vscode-button-hoverBackground);\n    }\n  `,\n]"
         }
       ],
       "exports": [
@@ -8777,7 +8777,7 @@
             {
               "kind": "field",
               "name": "type",
-              "description": "Same as the `type` of the native `<input>` element but only a subset of types are supported.\r\nThe supported ones are: `color`,`date`,`datetime-local`,`email`,`file`,`month`,`number`,`password`,`search`,`tel`,`text`,`time`,`url`,`week`",
+              "description": "Same as the `type` of the native `<input>` element but only a subset of types are supported.\nThe supported ones are: `color`,`date`,`datetime-local`,`email`,`file`,`month`,`number`,`password`,`search`,`tel`,`text`,`time`,`url`,`week`",
               "type": {
                 "text": "InputType"
               },
@@ -9138,7 +9138,7 @@
             },
             {
               "name": "type",
-              "description": "Same as the `type` of the native `<input>` element but only a subset of types are supported.\r\nThe supported ones are: `color`,`date`,`datetime-local`,`email`,`file`,`month`,`number`,`password`,`search`,`tel`,`text`,`time`,`url`,`week`",
+              "description": "Same as the `type` of the native `<input>` element but only a subset of types are supported.\nThe supported ones are: `color`,`date`,`datetime-local`,`email`,`file`,`month`,`number`,`password`,`search`,`tel`,`text`,`time`,`url`,`week`",
               "type": {
                 "text": "InputType"
               },
@@ -9189,7 +9189,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      --hover-outline-color: transparent;\r\n      --hover-outline-style: solid;\r\n      --hover-outline-width: 0;\r\n      --selected-outline-color: transparent;\r\n      --selected-outline-style: solid;\r\n      --selected-outline-width: 0;\r\n\r\n      display: block;\r\n      outline: none;\r\n      user-select: none;\r\n    }\r\n\r\n    .wrapper {\r\n      height: 100%;\r\n    }\r\n\r\n    li {\r\n      list-style: none;\r\n    }\r\n\r\n    ul,\r\n    li {\r\n      margin: 0;\r\n      padding: 0;\r\n    }\r\n\r\n    ul {\r\n      position: relative;\r\n    }\r\n\r\n    :host([indent-guides]) ul ul:before {\r\n      content: '';\r\n      display: block;\r\n      height: 100%;\r\n      position: absolute;\r\n      bottom: 0;\r\n      left: var(--indent-guide-pos);\r\n      top: 0;\r\n      pointer-events: none;\r\n      width: 1px;\r\n      z-index: 1;\r\n    }\r\n\r\n    .contents {\r\n      align-items: center;\r\n      display: flex;\r\n      font-family: var(--vscode-font-family);\r\n      font-size: var(--vscode-font-size);\r\n      font-weight: var(--vscode-font-weight);\r\n      outline-offset: -1px;\r\n      padding-right: 12px;\r\n    }\r\n\r\n    .multi .contents {\r\n      align-items: flex-start;\r\n    }\r\n\r\n    .contents:hover {\r\n      cursor: pointer;\r\n    }\r\n\r\n    .arrow-container {\r\n      align-items: center;\r\n      display: flex;\r\n      height: 22px;\r\n      justify-content: center;\r\n      padding-left: 8px;\r\n      padding-right: 6px;\r\n      width: 16px;\r\n    }\r\n\r\n    .icon-arrow {\r\n      color: currentColor;\r\n      display: block;\r\n    }\r\n\r\n    .theme-icon {\r\n      display: block;\r\n      flex-shrink: 0;\r\n      margin-right: 6px;\r\n    }\r\n\r\n    .image-icon {\r\n      background-repeat: no-repeat;\r\n      background-position: 0 center;\r\n      background-size: 16px;\r\n      display: block;\r\n      flex-shrink: 0;\r\n      margin-right: 6px;\r\n      height: 22px;\r\n      width: 16px;\r\n    }\r\n\r\n    .multi .contents .theme-icon {\r\n      margin-top: 3px;\r\n    }\r\n\r\n    .text-content {\r\n      display: flex;\r\n      line-height: 22px;\r\n    }\r\n\r\n    .single .text-content {\r\n      display: block;\r\n      overflow: hidden;\r\n      text-overflow: ellipsis;\r\n      white-space: nowrap;\r\n      width: 100%;\r\n    }\r\n\r\n    .description {\r\n      font-size: 0.9em;\r\n      line-height: 22px;\r\n      margin-left: 0.5em;\r\n      opacity: 0.95;\r\n      white-space: pre;\r\n    }\r\n\r\n    .actions {\r\n      display: none;\r\n    }\r\n\r\n    .contents.selected > .actions,\r\n    .contents.focused > .actions,\r\n    .contents:hover > .actions {\r\n      display: flex;\r\n    }\r\n\r\n    .decorations {\r\n      align-items: center;\r\n      display: flex;\r\n      height: 22px;\r\n      margin-left: 5px;\r\n    }\r\n\r\n    .filled-circle {\r\n      margin-right: 3px;\r\n      opacity: 0.4;\r\n    }\r\n\r\n    .decoration-text {\r\n      font-size: 90%;\r\n      font-weight: 600;\r\n      margin-right: 3px;\r\n      opacity: 0.75;\r\n    }\r\n\r\n    .filled-circle,\r\n    .decoration-text {\r\n      color: var(--color, currentColor);\r\n    }\r\n\r\n    .contents:hover .filled-circle,\r\n    .contents:hover .decoration-text {\r\n      color: var(--hover-color, var(--color));\r\n    }\r\n\r\n    .contents.focused .filled-circle,\r\n    .contents.focused .decoration-text {\r\n      color: var(--focused-color, var(--color));\r\n    }\r\n\r\n    .contents.selected .filled-circle,\r\n    .contents.selected .decoration-text {\r\n      color: var(--selected-color, var(--color));\r\n    }\r\n\r\n    /* Theme colors */\r\n    :host(:focus) .wrapper.has-not-focused-item {\r\n      outline: 1px solid var(--vscode-focusBorder);\r\n    }\r\n\r\n    :host(:focus) .contents.selected,\r\n    :host(:focus) .contents.focused.selected {\r\n      color: var(--vscode-list-activeSelectionForeground);\r\n      background-color: var(--vscode-list-activeSelectionBackground);\r\n    }\r\n\r\n    :host(:focus) .contents.selected .icon-arrow,\r\n    :host(:focus) .contents.selected.focused .icon-arrow,\r\n    :host(:focus) .contents.selected .theme-icon,\r\n    :host(:focus) .contents.selected.focused .theme-icon,\r\n    :host(:focus) .contents.selected .action-icon,\r\n    :host(:focus) .contents.selected.focused .action-icon {\r\n      color: var(--vscode-list-activeSelectionIconForeground);\r\n    }\r\n\r\n    :host(:focus) .contents.focused {\r\n      color: var(--vscode-list-focusForeground);\r\n      background-color: var(--vscode-list-focusBackground);\r\n    }\r\n\r\n    :host(:focus) .contents.selected.focused {\r\n      outline-color: var(--vscode-list-focusAndSelectionOutline, var(--vscode-list-focusOutline));\r\n    }\r\n\r\n    .contents:hover {\r\n      background-color: var(--vscode-list-hoverBackground);\r\n      color: var(--vscode-list-hoverForeground);\r\n    }\r\n\r\n    .contents:hover,\r\n    .contents.selected:hover {\r\n      outline-color: var(--hover-outline-color);\r\n      outline-style: var(--hover-outline-style);\r\n      outline-width: var(--hover-outline-width);\r\n    }\r\n\r\n    .contents.selected,\r\n    .contents.selected.focused {\r\n      background-color: var(--vscode-list-inactiveSelectionBackground);\r\n      color: var(--vscode-list-inactiveSelectionForeground);\r\n    }\r\n\r\n    .contents.selected,\r\n    .contents.selected.focused {\r\n      outline-color: var(--selected-outline-color);\r\n      outline-style: var(--selected-outline-style);\r\n      outline-width: var(--selected-outline-width);\r\n    }\r\n\r\n    .contents.selected .theme-icon {\r\n      color: var(--vscode-list-inactiveSelectionIconForeground);\r\n    }\r\n\r\n    .contents.focused {\r\n      background-color: var(--vscode-list-inactiveFocusBackground);\r\n      outline: 1px dotted var(--vscode-list-inactiveFocusOutline);\r\n    }\r\n\r\n    :host(:focus) .contents.focused {\r\n      outline: 1px solid var(--vscode-list-focusOutline);\r\n    }\r\n\r\n    :host([indent-guides]) ul ul:before {\r\n      background-color: var(--vscode-tree-inactiveIndentGuidesStroke);\r\n    }\r\n\r\n    :host([indent-guides]) ul ul.has-active-item:before {\r\n      background-color: var(--vscode-tree-indentGuidesStroke);\r\n    }\r\n  `,\r\n]"
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      --hover-outline-color: transparent;\n      --hover-outline-style: solid;\n      --hover-outline-width: 0;\n      --selected-outline-color: transparent;\n      --selected-outline-style: solid;\n      --selected-outline-width: 0;\n\n      display: block;\n      outline: none;\n      user-select: none;\n    }\n\n    .wrapper {\n      height: 100%;\n    }\n\n    li {\n      list-style: none;\n    }\n\n    ul,\n    li {\n      margin: 0;\n      padding: 0;\n    }\n\n    ul {\n      position: relative;\n    }\n\n    :host([indent-guides]) ul ul:before {\n      content: '';\n      display: block;\n      height: 100%;\n      position: absolute;\n      bottom: 0;\n      left: var(--indent-guide-pos);\n      top: 0;\n      pointer-events: none;\n      width: 1px;\n      z-index: 1;\n    }\n\n    .contents {\n      align-items: center;\n      display: flex;\n      font-family: var(--vscode-font-family);\n      font-size: var(--vscode-font-size);\n      font-weight: var(--vscode-font-weight);\n      outline-offset: -1px;\n      padding-right: 12px;\n    }\n\n    .multi .contents {\n      align-items: flex-start;\n    }\n\n    .contents:hover {\n      cursor: pointer;\n    }\n\n    .arrow-container {\n      align-items: center;\n      display: flex;\n      height: 22px;\n      justify-content: center;\n      padding-left: 8px;\n      padding-right: 6px;\n      width: 16px;\n    }\n\n    .icon-arrow {\n      color: currentColor;\n      display: block;\n    }\n\n    .theme-icon {\n      display: block;\n      flex-shrink: 0;\n      margin-right: 6px;\n    }\n\n    .image-icon {\n      background-repeat: no-repeat;\n      background-position: 0 center;\n      background-size: 16px;\n      display: block;\n      flex-shrink: 0;\n      margin-right: 6px;\n      height: 22px;\n      width: 16px;\n    }\n\n    .multi .contents .theme-icon {\n      margin-top: 3px;\n    }\n\n    .text-content {\n      display: flex;\n      line-height: 22px;\n    }\n\n    .single .text-content {\n      display: block;\n      overflow: hidden;\n      text-overflow: ellipsis;\n      white-space: nowrap;\n      width: 100%;\n    }\n\n    .description {\n      font-size: 0.9em;\n      line-height: 22px;\n      margin-left: 0.5em;\n      opacity: 0.95;\n      white-space: pre;\n    }\n\n    .actions {\n      display: none;\n    }\n\n    .contents.selected > .actions,\n    .contents.focused > .actions,\n    .contents:hover > .actions {\n      display: flex;\n    }\n\n    .decorations {\n      align-items: center;\n      display: flex;\n      height: 22px;\n      margin-left: 5px;\n    }\n\n    .filled-circle {\n      margin-right: 3px;\n      opacity: 0.4;\n    }\n\n    .decoration-text {\n      font-size: 90%;\n      font-weight: 600;\n      margin-right: 3px;\n      opacity: 0.75;\n    }\n\n    .filled-circle,\n    .decoration-text {\n      color: var(--color, currentColor);\n    }\n\n    .contents:hover .filled-circle,\n    .contents:hover .decoration-text {\n      color: var(--hover-color, var(--color));\n    }\n\n    .contents.focused .filled-circle,\n    .contents.focused .decoration-text {\n      color: var(--focused-color, var(--color));\n    }\n\n    .contents.selected .filled-circle,\n    .contents.selected .decoration-text {\n      color: var(--selected-color, var(--color));\n    }\n\n    /* Theme colors */\n    :host(:focus) .wrapper.has-not-focused-item {\n      outline: 1px solid var(--vscode-focusBorder);\n    }\n\n    :host(:focus) .contents.selected,\n    :host(:focus) .contents.focused.selected {\n      color: var(--vscode-list-activeSelectionForeground);\n      background-color: var(--vscode-list-activeSelectionBackground);\n    }\n\n    :host(:focus) .contents.selected .icon-arrow,\n    :host(:focus) .contents.selected.focused .icon-arrow,\n    :host(:focus) .contents.selected .theme-icon,\n    :host(:focus) .contents.selected.focused .theme-icon,\n    :host(:focus) .contents.selected .action-icon,\n    :host(:focus) .contents.selected.focused .action-icon {\n      color: var(--vscode-list-activeSelectionIconForeground);\n    }\n\n    :host(:focus) .contents.focused {\n      color: var(--vscode-list-focusForeground);\n      background-color: var(--vscode-list-focusBackground);\n    }\n\n    :host(:focus) .contents.selected.focused {\n      outline-color: var(--vscode-list-focusAndSelectionOutline, var(--vscode-list-focusOutline));\n    }\n\n    .contents:hover {\n      background-color: var(--vscode-list-hoverBackground);\n      color: var(--vscode-list-hoverForeground);\n    }\n\n    .contents:hover,\n    .contents.selected:hover {\n      outline-color: var(--hover-outline-color);\n      outline-style: var(--hover-outline-style);\n      outline-width: var(--hover-outline-width);\n    }\n\n    .contents.selected,\n    .contents.selected.focused {\n      background-color: var(--vscode-list-inactiveSelectionBackground);\n      color: var(--vscode-list-inactiveSelectionForeground);\n    }\n\n    .contents.selected,\n    .contents.selected.focused {\n      outline-color: var(--selected-outline-color);\n      outline-style: var(--selected-outline-style);\n      outline-width: var(--selected-outline-width);\n    }\n\n    .contents.selected .theme-icon {\n      color: var(--vscode-list-inactiveSelectionIconForeground);\n    }\n\n    .contents.focused {\n      background-color: var(--vscode-list-inactiveFocusBackground);\n      outline: 1px dotted var(--vscode-list-inactiveFocusOutline);\n    }\n\n    :host(:focus) .contents.focused {\n      outline: 1px solid var(--vscode-list-focusOutline);\n    }\n\n    :host([indent-guides]) ul ul:before {\n      background-color: var(--vscode-tree-inactiveIndentGuidesStroke);\n    }\n\n    :host([indent-guides]) ul ul.has-active-item:before {\n      background-color: var(--vscode-tree-indentGuidesStroke);\n    }\n  `,\n]"
         }
       ],
       "exports": [
@@ -9499,7 +9499,7 @@
                 {
                   "name": "additionalOptions",
                   "type": {
-                    "text": "{\r\n      path: number[];\r\n      itemType: ItemType;\r\n      hasFocusedItem: boolean;\r\n      hasSelectedItem: boolean;\r\n    }"
+                    "text": "{\n      path: number[];\n      itemType: ItemType;\n      hasFocusedItem: boolean;\n      hasSelectedItem: boolean;\n    }"
                   }
                 }
               ]

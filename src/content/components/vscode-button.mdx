@@ -14,25 +14,21 @@ import CustomizedStyles from '@components/examples/vscode-button/CustomizedStyle
     <vscode-button id="button-1">Button</vscode-button>
     <vscode-button id="button-2" secondary>Secondary button</vscode-button>
     <vscode-button id="button-3" disabled>Disabled button</vscode-button>
-    <vscode-button id="button-4" disabled secondary>Disabled secondary button</vscode-button>
-    <vscode-button id="button-5" icon="account" icon-after="chevron-right">Icons</vscode-button>
+    <vscode-button id="button-4" icon="account" icon-after="chevron-right">Icons</vscode-button>
     ```
   </Fragment>
   <Fragment slot="js">
     ```javascript
-    document.getElementById('button-1').addEventListener('vsc-click', (ev) => {
+    document.getElementById('button-1').addEventListener('click', (ev) => {
       console.log(ev);
     });
-    document.getElementById('button-2').addEventListener('vsc-click', (ev) => {
+    document.getElementById('button-2').addEventListener('click', (ev) => {
       console.log(ev);
     });
-    document.getElementById('button-3').addEventListener('vsc-click', (ev) => {
+    document.getElementById('button-3').addEventListener('click', (ev) => {
       console.log(ev);
     });
-    document.getElementById('button-4').addEventListener('vsc-click', (ev) => {
-      console.log(ev);
-    });
-    document.getElementById('button-5').addEventListener('vsc-click', (ev) => {
+    document.getElementById('button-4').addEventListener('click', (ev) => {
       console.log(ev);
     });
     ```
