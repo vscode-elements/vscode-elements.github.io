@@ -19,7 +19,11 @@ const { pathname } = Astro.url;
 
             return (
               <li>
-                <a href={`/${slug}`} class:list={[{ current }]}>
+                <a
+                  href={`/${slug}`}
+                  class:list={[{ current }]}
+                  data-astro-prefetch
+                >
                   {title}
                 </a>
               </li>
@@ -62,6 +66,7 @@ const { pathname } = Astro.url;
                     }
                     aria-current={current ? "page" : null}
                     class={current ? "current" : null}
+                    data-astro-prefetch
                   >
                     {entry.data.title}
                   </a>
