@@ -1,3 +1,53 @@
 ---
 title: Multi Select
 ---
+
+import Demo from "@components/Demo.astro";
+import BasicExample from "@components/examples/vscode-multi-select/BasicExample.astro";
+import ComboboxExample from "@components/examples/vscode-multi-select/ComboboxExample.astro";
+
+## Basic example
+
+<Demo>
+  <BasicExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-multi-select id="select-example">
+      <vscode-option description="Consectetur adipiscing elit">
+        Lorem
+      </vscode-option>
+      <vscode-option selected description="Donec elit odio">
+        Ipsum
+      </vscode-option>
+      <vscode-option description="Aliquam ac vulputate eros">
+        Dolor
+      </vscode-option>
+    </vscode-multi-select>
+    ```
+  </Fragment>
+  <Fragment slot="js">
+    ```javascript
+    const select = document.querySelector("#select-example");
+
+    select.addEventListener("change", () => {
+      console.log(select.value);
+    });
+    ```
+  </Fragment>
+</Demo>
+
+## Combobox mode
+
+<Demo>
+  <ComboboxExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-multi-select filter="startsWith" id="combobox-example" combobox>
+      <vscode-option>Afghanistan</vscode-option>
+      <vscode-option>Albania</vscode-option>
+      <vscode-option>Algeria</vscode-option>
+      ...
+    </vscode-multi-select>
+    ```
+  </Fragment>
+</Demo>

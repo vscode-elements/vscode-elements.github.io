@@ -1,3 +1,21 @@
 ---
 title: Label
 ---
+
+import Demo from "@components/Demo.astro";
+import BasicExample from "@components/examples/vscode-label/BasicExample.astro";
+
+## Basic example
+
+Label font weight is bold by default. It can be changed to normal by wrapping it into `<span class="normal"></span>` element.
+
+<Demo>
+  <BasicExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-label for="select-01" side-aligned="end" required>
+      <span class="normal">Editor:</span> Font Size
+    </vscode-label>
+    ```
+  </Fragment>
+</Demo>
