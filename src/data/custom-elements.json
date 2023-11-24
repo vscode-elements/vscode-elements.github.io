@@ -188,6 +188,23 @@
           "kind": "class",
           "description": "",
           "name": "VscElement",
+          "members": [
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'"
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true
+            }
+          ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
@@ -202,6 +219,130 @@
           "declaration": {
             "name": "VscElement",
             "module": "src/includes/VscElement.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-badge/vscode-badge.styles.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "styles",
+          "type": {
+            "text": "CSSResultGroup"
+          },
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      background-color: var(--vscode-badge-background);\n      border: 1px solid var(--vscode-contrastBorder, transparent);\n      border-radius: 2px;\n      box-sizing: border-box;\n      color: var(--vscode-badge-foreground);\n      display: inline-block;\n      font-family: var(--vscode-font-family);\n      font-size: 11px;\n      font-weight: 400;\n      line-height: 14px;\n      min-width: 18px;\n      padding: 2px 3px;\n      text-align: center;\n      white-space: nowrap;\n    }\n\n    :host([variant='counter']) {\n      border-radius: 11px;\n      box-sizing: border-box;\n      height: 18px;\n      line-height: 1;\n      padding: 3px 5px;\n    }\n\n    :host([variant='activity-bar-counter']) {\n      background-color: var(--vscode-activityBarBadge-background);\n      border-radius: 20px;\n      color: var(--vscode-activityBarBadge-foreground);\n      font-size: 9px;\n      font-weight: 600;\n      line-height: 16px;\n      padding: 0 4px;\n    }\n  `,\n]"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "styles",
+            "module": "src/vscode-badge/vscode-badge.styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-badge/vscode-badge.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "VscodeBadge",
+          "cssProperties": [
+            {
+              "name": "--vscode-font-family"
+            },
+            {
+              "description": "default and counter variant background color",
+              "name": "--vscode-badge-background"
+            },
+            {
+              "description": "default and counter variant foreground color",
+              "name": "--vscode-badge-foreground"
+            },
+            {
+              "description": "activity bar variant background color",
+              "name": "--vscode-activityBarBadge-background"
+            },
+            {
+              "description": "activity bar variant foreground color",
+              "name": "--vscode-activityBarBadge-foreground"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "'default' | 'counter' | 'activity-bar-counter'"
+              },
+              "default": "'default'",
+              "attribute": "variant"
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant",
+              "type": {
+                "text": "'default' | 'counter' | 'activity-bar-counter'"
+              },
+              "default": "'default'",
+              "fieldName": "variant"
+            }
+          ],
+          "superclass": {
+            "name": "VscElement",
+            "module": "/src/includes/VscElement.js"
+          },
+          "tagName": "vscode-badge",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "VscodeBadge",
+          "declaration": {
+            "name": "VscodeBadge",
+            "module": "src/vscode-badge/vscode-badge.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "vscode-badge",
+          "declaration": {
+            "name": "VscodeBadge",
+            "module": "src/vscode-badge/vscode-badge.ts"
           }
         }
       ]
@@ -430,6 +571,29 @@
               "kind": "field",
               "name": "_handleBlur",
               "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "events": [
@@ -891,6 +1055,29 @@
                 "name": "FormButtonWidgetBase",
                 "module": "src/includes/form-button-widget/FormButtonWidgetBase.ts"
               }
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "events": [
@@ -1038,188 +1225,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/vscode-checkbox-group/vscode-checkbox-group.styles.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "styles",
-          "type": {
-            "text": "CSSResultGroup"
-          },
-          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      display: block;\n    }\n\n    .wrapper {\n      display: flex;\n      flex-wrap: wrap;\n    }\n\n    :host([variant='vertical']) .wrapper {\n      display: block;\n    }\n\n    ::slotted(vscode-checkbox) {\n      margin-right: 20px;\n    }\n\n    ::slotted(vscode-checkbox:last-child) {\n      margin-right: 0;\n    }\n\n    :host([variant='vertical']) ::slotted(vscode-checkbox) {\n      display: block;\n      margin-bottom: 15px;\n    }\n\n    :host([variant='vertical']) ::slotted(vscode-checkbox:last-child) {\n      margin-bottom: 0;\n    }\n  `,\n  formHelperTextStyles,\n]"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "styles",
-            "module": "src/vscode-checkbox-group/vscode-checkbox-group.styles.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-checkbox-group/vscode-checkbox-group.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "VscodeCheckboxGroup",
-          "members": [
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "'horizontal' | 'vertical'"
-              },
-              "default": "'horizontal'",
-              "attribute": "variant",
-              "reflects": true
-            }
-          ],
-          "attributes": [
-            {
-              "name": "variant",
-              "type": {
-                "text": "'horizontal' | 'vertical'"
-              },
-              "default": "'horizontal'",
-              "fieldName": "variant"
-            }
-          ],
-          "superclass": {
-            "name": "VscElement",
-            "module": "/src/includes/VscElement.js"
-          },
-          "tagName": "vscode-checkbox-group",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "VscodeCheckboxGroup",
-          "declaration": {
-            "name": "VscodeCheckboxGroup",
-            "module": "src/vscode-checkbox-group/vscode-checkbox-group.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "vscode-checkbox-group",
-          "declaration": {
-            "name": "VscodeCheckboxGroup",
-            "module": "src/vscode-checkbox-group/vscode-checkbox-group.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-badge/vscode-badge.styles.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "styles",
-          "type": {
-            "text": "CSSResultGroup"
-          },
-          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      background-color: var(--vscode-badge-background);\n      border: 1px solid var(--vscode-contrastBorder, transparent);\n      border-radius: 2px;\n      box-sizing: border-box;\n      color: var(--vscode-badge-foreground);\n      display: inline-block;\n      font-family: var(--vscode-font-family);\n      font-size: 11px;\n      font-weight: 400;\n      line-height: 14px;\n      min-width: 18px;\n      padding: 2px 3px;\n      text-align: center;\n      white-space: nowrap;\n    }\n\n    :host([variant='counter']) {\n      border-radius: 11px;\n      box-sizing: border-box;\n      height: 18px;\n      line-height: 1;\n      padding: 3px 5px;\n    }\n\n    :host([variant='activity-bar-counter']) {\n      background-color: var(--vscode-activityBarBadge-background);\n      border-radius: 20px;\n      color: var(--vscode-activityBarBadge-foreground);\n      font-size: 9px;\n      font-weight: 600;\n      line-height: 16px;\n      padding: 0 4px;\n    }\n  `,\n]"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "styles",
-            "module": "src/vscode-badge/vscode-badge.styles.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-badge/vscode-badge.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "VscodeBadge",
-          "cssProperties": [
-            {
-              "name": "--vscode-font-family"
-            },
-            {
-              "description": "default and counter variant background color",
-              "name": "--vscode-badge-background"
-            },
-            {
-              "description": "default and counter variant foreground color",
-              "name": "--vscode-badge-foreground"
-            },
-            {
-              "description": "activity bar variant background color",
-              "name": "--vscode-activityBarBadge-background"
-            },
-            {
-              "description": "activity bar variant foreground color",
-              "name": "--vscode-activityBarBadge-foreground"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "'default' | 'counter' | 'activity-bar-counter'"
-              },
-              "default": "'default'",
-              "attribute": "variant"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "variant",
-              "type": {
-                "text": "'default' | 'counter' | 'activity-bar-counter'"
-              },
-              "default": "'default'",
-              "fieldName": "variant"
-            }
-          ],
-          "superclass": {
-            "name": "VscElement",
-            "module": "/src/includes/VscElement.js"
-          },
-          "tagName": "vscode-badge",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "VscodeBadge",
-          "declaration": {
-            "name": "VscodeBadge",
-            "module": "src/vscode-badge/vscode-badge.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "vscode-badge",
-          "declaration": {
-            "name": "VscodeBadge",
-            "module": "src/vscode-badge/vscode-badge.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/vscode-collapsible/vscode-collapsible.styles.ts",
       "declarations": [
         {
@@ -1338,6 +1343,29 @@
                   }
                 }
               ]
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -1391,6 +1419,110 @@
           "declaration": {
             "name": "VscodeCollapsible",
             "module": "src/vscode-collapsible/vscode-collapsible.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-checkbox-group/vscode-checkbox-group.styles.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "styles",
+          "type": {
+            "text": "CSSResultGroup"
+          },
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      display: block;\n    }\n\n    .wrapper {\n      display: flex;\n      flex-wrap: wrap;\n    }\n\n    :host([variant='vertical']) .wrapper {\n      display: block;\n    }\n\n    ::slotted(vscode-checkbox) {\n      margin-right: 20px;\n    }\n\n    ::slotted(vscode-checkbox:last-child) {\n      margin-right: 0;\n    }\n\n    :host([variant='vertical']) ::slotted(vscode-checkbox) {\n      display: block;\n      margin-bottom: 15px;\n    }\n\n    :host([variant='vertical']) ::slotted(vscode-checkbox:last-child) {\n      margin-bottom: 0;\n    }\n  `,\n  formHelperTextStyles,\n]"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "styles",
+            "module": "src/vscode-checkbox-group/vscode-checkbox-group.styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-checkbox-group/vscode-checkbox-group.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "VscodeCheckboxGroup",
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "'horizontal' | 'vertical'"
+              },
+              "default": "'horizontal'",
+              "attribute": "variant",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant",
+              "type": {
+                "text": "'horizontal' | 'vertical'"
+              },
+              "default": "'horizontal'",
+              "fieldName": "variant"
+            }
+          ],
+          "superclass": {
+            "name": "VscElement",
+            "module": "/src/includes/VscElement.js"
+          },
+          "tagName": "vscode-checkbox-group",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "VscodeCheckboxGroup",
+          "declaration": {
+            "name": "VscodeCheckboxGroup",
+            "module": "src/vscode-checkbox-group/vscode-checkbox-group.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "vscode-checkbox-group",
+          "declaration": {
+            "name": "VscodeCheckboxGroup",
+            "module": "src/vscode-checkbox-group/vscode-checkbox-group.ts"
           }
         }
       ]
@@ -1592,6 +1724,29 @@
               "kind": "method",
               "name": "_onItemMouseOut",
               "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "events": [
@@ -1751,6 +1906,29 @@
               "kind": "method",
               "name": "onItemClick",
               "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "events": [
@@ -1985,6 +2163,29 @@
               "kind": "method",
               "name": "_deactivateResizeObserver",
               "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -2093,6 +2294,29 @@
               "default": "'horizontal'",
               "attribute": "variant",
               "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -2170,7 +2394,31 @@
               "name": "--vsc-foreground-translucent"
             }
           ],
-          "members": [],
+          "members": [
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            }
+          ],
           "superclass": {
             "name": "VscElement",
             "module": "/src/includes/VscElement.js"
@@ -2344,6 +2592,29 @@
               "kind": "field",
               "name": "_onButtonClick",
               "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -2541,6 +2812,29 @@
               "kind": "method",
               "name": "_handleClick",
               "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -3555,6 +3849,29 @@
                 "name": "VscodeSelectBase",
                 "module": "src/includes/vscode-select/vscode-select-base.ts"
               }
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -3774,6 +4091,29 @@
               "default": "false",
               "attribute": "disabled",
               "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -4217,6 +4557,29 @@
                 "name": "FormButtonWidgetBase",
                 "module": "src/includes/form-button-widget/FormButtonWidgetBase.ts"
               }
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "events": [
@@ -4490,6 +4853,29 @@
               "kind": "method",
               "name": "_onSlotChange",
               "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -4846,6 +5232,29 @@
               "kind": "field",
               "name": "_onComponentMouseOutBound",
               "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -5835,6 +6244,29 @@
                 "name": "VscodeSelectBase",
                 "module": "src/includes/vscode-select/vscode-select-base.ts"
               }
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -6010,7 +6442,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      display: block;\n      overflow: hidden;\n      position: relative;\n    }\n\n    .start {\n      left: 0;\n      top: 0;\n      overflow: hidden;\n      position: absolute;\n    }\n\n    .end {\n      bottom: 0;\n      overflow: hidden;\n      position: absolute;\n      right: 0;\n    }\n\n    .handle-overlay {\n      display: none;\n      height: 100%;\n      left: 0;\n      position: absolute;\n      top: 0;\n      width: 100%;\n      z-index: 1;\n    }\n\n    .handle-overlay.active {\n      display: block;\n    }\n\n    .handle-overlay.split-vertical {\n      cursor: ew-resize;\n    }\n\n    .handle-overlay.split-horizontal {\n      cursor: ns-resize;\n    }\n\n    .handle {\n      position: absolute;\n      z-index: 2;\n    }\n\n    .handle.hover {\n      background-color: var(--vscode-sash-hoverBorder);\n      transition: background-color 100ms linear 300ms;\n    }\n\n    .handle.hide {\n      background-color: transparent;\n      transition: background-color 100ms linear;\n    }\n\n    .handle.split-vertical {\n      cursor: ew-resize;\n      height: 100%;\n    }\n\n    .handle.split-horizontal {\n      cursor: ns-resize;\n      width: 100%;\n    }\n  `,\n]"
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      --separator-border: var(--vscode-editorWidget-border, transparent);\n\n      border: 1px solid var(--vscode-editorWidget-border);\n      display: block;\n      overflow: hidden;\n      position: relative;\n    }\n\n    ::slotted(*) {\n      height: 100%;\n      width: 100%;\n    }\n\n    ::slotted(vscode-split-layout) {\n      border: 0;\n    }\n\n    .start {\n      box-sizing: border-box;\n      left: 0;\n      top: 0;\n      overflow: hidden;\n      position: absolute;\n    }\n\n    :host([split='vertical']) .start {\n      border-right: 1px solid var(--separator-border);\n    }\n\n    :host([split='horizontal']) .start {\n      border-bottom: 1px solid var(--separator-border);\n    }\n\n    .end {\n      bottom: 0;\n      box-sizing: border-box;\n      overflow: hidden;\n      position: absolute;\n      right: 0;\n    }\n\n    .handle-overlay {\n      display: none;\n      height: 100%;\n      left: 0;\n      position: absolute;\n      top: 0;\n      width: 100%;\n      z-index: 1;\n    }\n\n    .handle-overlay.active {\n      display: block;\n    }\n\n    .handle-overlay.split-vertical {\n      cursor: ew-resize;\n    }\n\n    .handle-overlay.split-horizontal {\n      cursor: ns-resize;\n    }\n\n    .handle {\n      position: absolute;\n      z-index: 2;\n    }\n\n    .handle.hover {\n      background-color: var(--vscode-sash-hoverBorder);\n      transition: background-color 100ms linear 300ms;\n    }\n\n    .handle.hide {\n      background-color: transparent;\n      transition: background-color 100ms linear;\n    }\n\n    .handle.split-vertical {\n      cursor: ew-resize;\n      height: 100%;\n    }\n\n    .handle.split-horizontal {\n      cursor: ns-resize;\n      width: 100%;\n    }\n  `,\n]"
         }
       ],
       "exports": [
@@ -6046,7 +6478,8 @@
                 "text": "'horizontal' | 'vertical'"
               },
               "default": "'vertical'",
-              "attribute": "split"
+              "attribute": "split",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -6060,12 +6493,24 @@
             },
             {
               "kind": "field",
-              "name": "initialPos",
+              "name": "handleSize",
+              "type": {
+                "text": "number"
+              },
+              "default": "4",
+              "description": "Controls the draggable area size in pixels. it is recommended to use the value of `workbench.sash.size`.",
+              "attribute": "handle-size",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "initialPosition",
               "type": {
                 "text": "string"
               },
               "default": "'50%'",
-              "attribute": "initial-pos"
+              "attribute": "initial-position",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -6150,6 +6595,22 @@
             },
             {
               "kind": "field",
+              "name": "_nestedLayoutsAtStart",
+              "type": {
+                "text": "HTMLElement[]"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_nestedLayoutsAtEnd",
+              "type": {
+                "text": "HTMLElement[]"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
               "name": "_boundRect",
               "type": {
                 "text": "DOMRect"
@@ -6203,37 +6664,47 @@
               ]
             },
             {
-              "kind": "method",
+              "kind": "field",
               "name": "_handleMouseUp",
               "privacy": "private"
             },
             {
               "kind": "field",
-              "name": "_handleMouseUpBound",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
               "name": "_handleMouseMove",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "field",
-              "name": "_handleMouseMoveBound",
               "privacy": "private"
             },
             {
               "kind": "method",
               "name": "_handleDblClick",
               "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_handleSlotChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -6254,12 +6725,21 @@
               "fieldName": "resetOnDblClick"
             },
             {
-              "name": "initial-pos",
+              "name": "handle-size",
+              "type": {
+                "text": "number"
+              },
+              "default": "4",
+              "description": "Controls the draggable area size in pixels. it is recommended to use the value of `workbench.sash.size`.",
+              "fieldName": "handleSize"
+            },
+            {
+              "name": "initial-position",
               "type": {
                 "text": "string"
               },
               "default": "'50%'",
-              "fieldName": "initialPos"
+              "fieldName": "initialPosition"
             }
           ],
           "superclass": {
@@ -6362,6 +6842,29 @@
               "description": "Panel-like look",
               "attribute": "panel",
               "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -6471,6 +6974,29 @@
               "description": "Panel-like look",
               "attribute": "panel",
               "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -7161,6 +7687,29 @@
               "kind": "field",
               "name": "_onResizingMouseUpBound",
               "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -7307,7 +7856,31 @@
               "name": "--vscode-keybindingTable-rowsBackground"
             }
           ],
-          "members": [],
+          "members": [
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            }
+          ],
           "superclass": {
             "name": "VscElement",
             "module": "/src/includes/VscElement.js"
@@ -7402,6 +7975,29 @@
               "description": "Enable compact view in the responsive mode. For internal use only.",
               "attribute": "compact",
               "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -7489,7 +8085,31 @@
               "name": "--vscode-keybindingTable-headerBackground"
             }
           ],
-          "members": [],
+          "members": [
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            }
+          ],
           "superclass": {
             "name": "VscElement",
             "module": "/src/includes/VscElement.js"
@@ -7560,7 +8180,31 @@
               "name": "--vscode-font-size"
             }
           ],
-          "members": [],
+          "members": [
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            }
+          ],
           "superclass": {
             "name": "VscElement",
             "module": "/src/includes/VscElement.js"
@@ -7625,7 +8269,31 @@
               "name": "--vscode-editorGroup-border"
             }
           ],
-          "members": [],
+          "members": [
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            }
+          ],
           "superclass": {
             "name": "VscElement",
             "module": "/src/includes/VscElement.js"
@@ -7850,6 +8518,29 @@
                   }
                 }
               ]
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "events": [
@@ -8327,6 +9018,29 @@
               "kind": "method",
               "name": "_handleScroll",
               "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "events": [
@@ -8950,6 +9664,29 @@
                   }
                 }
               ]
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "events": [
@@ -9630,6 +10367,29 @@
               "kind": "field",
               "name": "_handleComponentKeyDownBound",
               "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "events": [
@@ -9775,6 +10535,29 @@
               "kind": "field",
               "name": "_handleBlur",
               "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -10649,6 +11432,29 @@
               "kind": "method",
               "name": "_renderDropdown",
               "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "events": [
