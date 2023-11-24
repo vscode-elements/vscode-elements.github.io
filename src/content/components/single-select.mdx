@@ -1,3 +1,49 @@
 ---
 title: Single Select
 ---
+
+import Demo from "@components/Demo.astro";
+import FormControlInfo from "@components/FormControlInfo.astro";
+import BasicExample from "@components/examples/single-select/BasicExample.astro";
+import ComboboxExample from "@components/examples/single-select/ComboboxExample.astro";
+
+<FormControlInfo />
+
+## Basic example
+
+<Demo>
+  <BasicExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-single-select id="select-example">
+      <vscode-option description="Consectetur adipiscing elit">Lorem</vscode-option>
+      <vscode-option selected description="Donec elit odio">Ipsum</vscode-option>
+      <vscode-option description="Aliquam ac vulputate eros">Dolor</vscode-option>
+    </vscode-single-select>
+    ```
+  </Fragment>
+  <Fragment slot="js">
+    ```javascript
+    const select = document.querySelector('#select-example');
+
+    select.addEventListener('change', (event) => {
+      console.log(select.value);
+    });
+    ```
+  </Fragment>
+</Demo>
+
+## Combobox mode
+
+<Demo>
+  <ComboboxExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-single-select filter="fuzzy" combobox>
+      <vscode-option>Afghanistan</vscode-option>
+      <vscode-option>Albania</vscode-option>
+      ...
+    </vscode-single-select>
+    ```
+  </Fragment>
+</Demo>
