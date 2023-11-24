@@ -4,10 +4,10 @@
   "version": "0.0.1",
   "scripts": {
     "copy-assets": "node scripts/copy-assets.cjs",
-    "dev": "astro dev",
+    "dev": "npm run copy-assets && astro dev",
     "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
+    "build": "npm run copy-assets && astro build",
+    "preview": "npm run copy-assets && astro preview",
     "astro": "astro"
   },
   "dependencies": {
