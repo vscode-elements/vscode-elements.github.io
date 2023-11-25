@@ -8,7 +8,8 @@
     "start": "astro dev",
     "build": "npm run copy-assets && astro build",
     "preview": "npm run copy-assets && astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "cc": "node scripts/clear-cache.mjs"
   },
   "dependencies": {
     "@astrojs/language-server": "^2.5.2",
@@ -20,6 +21,7 @@
     "rehype-toc": "^3.0.2"
   },
   "devDependencies": {
+    "@types/node": "^20.10.0",
     "@vsc-elements/elements": "^1.0.0-pre.4",
     "@vscode/codicons": "^0.0.35",
     "custom-elements-manifest": "^2.0.0",
