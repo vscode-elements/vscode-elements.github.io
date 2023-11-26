@@ -1,3 +1,36 @@
 ---
 title: Textarea
 ---
+import Demo from "@components/Demo.astro";
+import FormControlInfo from "@components/FormControlInfo.astro";
+import Imports from "@components/examples/textarea/Imports.astro";
+import BasicExample from "@components/examples/textarea/BasicExample.astro";
+import MonospaceModeExample from "@components/examples/textarea/MonospaceModeExample.astro";
+
+<Imports />
+
+<FormControlInfo />
+
+## Basic example
+
+<Demo>
+  <BasicExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-textarea></vscode-textarea>
+    ```
+  </Fragment>
+</Demo>
+
+## Monospace mode
+
+In monospace mode, the same font is used as in VSCode in the code editor.
+
+<Demo>
+  <MonospaceModeExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-textarea monospace></vscode-textarea>
+    ```
+  </Fragment>
+</Demo>

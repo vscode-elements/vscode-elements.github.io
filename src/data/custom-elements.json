@@ -7476,23 +7476,13 @@
               "privacy": "private"
             },
             {
-              "kind": "method",
+              "kind": "field",
               "name": "_componentResizeObserverCallback",
               "privacy": "private"
             },
             {
               "kind": "field",
-              "name": "_componentResizeObserverCallbackBound",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
               "name": "_headerResizeObserverCallback",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "_headerResizeObserverCallbackBound",
               "privacy": "private"
             },
             {
@@ -7653,39 +7643,13 @@
               ]
             },
             {
-              "kind": "method",
-              "name": "_onResizingMouseMove",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            },
-            {
               "kind": "field",
-              "name": "_onResizingMouseMoveBound",
+              "name": "_onResizingMouseMove",
               "privacy": "private"
             },
             {
-              "kind": "method",
-              "name": "_onResizingMouseUp",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            },
-            {
               "kind": "field",
-              "name": "_onResizingMouseUpBound",
+              "name": "_onResizingMouseUp",
               "privacy": "private"
             },
             {
@@ -8622,7 +8586,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      display: inline-block;\r\n      height: 40px;\r\n      position: relative;\r\n      width: 320px;\r\n    }\r\n\r\n    :host([cols]) {\r\n      width: auto;\r\n    }\r\n\r\n    :host([rows]) {\r\n      height: auto;\r\n    }\r\n\r\n    .shadow {\r\n      box-shadow: var(--vscode-scrollbar-shadow) 0 6px 6px -6px inset;\r\n      display: none;\r\n      inset: 0 0 auto 0;\r\n      height: 6px;\r\n      pointer-events: none;\r\n      position: absolute;\r\n      width: 100%;\r\n    }\r\n\r\n    .shadow.visible {\r\n      display: block;\r\n    }\r\n\r\n    textarea {\r\n      background-color: var(--vscode-settings-textInputBackground);\r\n      border-color: var(--vscode-settings-textInputBorder, var(--vscode-settings-textInputBackground));\r\n      border-radius: 2px;\r\n      border-style: solid;\r\n      border-width: 1px;\r\n      box-sizing: border-box;\r\n      color: var(--vscode-settings-textInputForeground);\r\n      display: block;\r\n      font-family: var(--vscode-font-family);\r\n      font-size: var(--vscode-font-size);\r\n      font-weight: var(--vscode-font-weight);\r\n      height: 100%;\r\n      width: 100%;\r\n    }\r\n\r\n    :host([cols]) textarea {\r\n      width: auto;\r\n    }\r\n\r\n    :host([rows]) textarea {\r\n      height: auto;\r\n    }\r\n\r\n    :host([invalid]) textarea,\r\n    :host(:invalid) textarea {\r\n      background-color: var(--vscode-inputValidation-errorBackground);\r\n      border-color: var(--vscode-inputValidation-errorBorder, #be1100);\r\n    }\r\n\r\n    textarea.monospace {\r\n      background-color: var(--vscode-editor-background);\r\n      color: var(--vscode-editor-foreground);\r\n      font-family: var(---vscode-editor-font-family);\r\n      font-size: var(--vscode-editor-font-size);\r\n      font-weight: var(--vscode-editor-font-weight);\r\n    }\r\n\r\n    .textarea.monospace::placeholder {\r\n      color: var(--vscode-editor-inlineValuesForeground);\r\n    }\r\n\r\n    textarea.cursor-pointer {\r\n      cursor: pointer;\r\n    }\r\n\r\n    textarea:focus {\r\n      border-color: var(--vscode-focusBorder);\r\n      outline: none;\r\n    }\r\n\r\n    textarea::placeholder {\r\n      color: var(--vscode-input-placeholderForeground);\r\n      opacity: 1;\r\n    }\r\n\r\n    textarea::-webkit-scrollbar-track {\r\n      background-color: transparent;\r\n    }\r\n\r\n    textarea::-webkit-scrollbar {\r\n      width: 14px;\r\n    }\r\n\r\n    textarea::-webkit-scrollbar-thumb {\r\n      background-color: transparent;\r\n    }\r\n\r\n    textarea:hover::-webkit-scrollbar-thumb {\r\n      background-color: var(--vscode-scrollbarSlider-background);\r\n    }\r\n\r\n    textarea::-webkit-scrollbar-thumb:hover {\r\n      background-color: var(--vscode-scrollbarSlider-hoverBackground);\r\n    }\r\n\r\n    textarea::-webkit-scrollbar-thumb:active {\r\n      background-color: var(--vscode-scrollbarSlider-activeBackground);\r\n    }\r\n\r\n    textarea::-webkit-scrollbar-corner {\r\n      background-color: transparent;\r\n    }\r\n\r\n    textarea::-webkit-resizer {\r\n      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAACJJREFUeJxjYMAOZuIQZ5j5//9/rJJESczEKYGsG6cEXgAAsEEefMxkua4AAAAASUVORK5CYII=');\r\n      background-repeat: no-repeat;\r\n      background-position: right bottom;\r\n    }\r\n  `,\r\n]"
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      display: inline-block;\n      height: 40px;\n      position: relative;\n      width: 320px;\n    }\n\n    :host([cols]) {\n      width: auto;\n    }\n\n    :host([rows]) {\n      height: auto;\n    }\n\n    .shadow {\n      box-shadow: var(--vscode-scrollbar-shadow) 0 6px 6px -6px inset;\n      display: none;\n      inset: 0 0 auto 0;\n      height: 6px;\n      pointer-events: none;\n      position: absolute;\n      width: 100%;\n    }\n\n    .shadow.visible {\n      display: block;\n    }\n\n    textarea {\n      background-color: var(--vscode-settings-textInputBackground);\n      border-color: var(--vscode-settings-textInputBorder, var(--vscode-settings-textInputBackground));\n      border-radius: 2px;\n      border-style: solid;\n      border-width: 1px;\n      box-sizing: border-box;\n      color: var(--vscode-settings-textInputForeground);\n      display: block;\n      font-family: var(--vscode-font-family);\n      font-size: var(--vscode-font-size);\n      font-weight: var(--vscode-font-weight);\n      height: 100%;\n      width: 100%;\n    }\n\n    :host([cols]) textarea {\n      width: auto;\n    }\n\n    :host([rows]) textarea {\n      height: auto;\n    }\n\n    :host([invalid]) textarea,\n    :host(:invalid) textarea {\n      background-color: var(--vscode-inputValidation-errorBackground);\n      border-color: var(--vscode-inputValidation-errorBorder, #be1100);\n    }\n\n    textarea.monospace {\n      background-color: var(--vscode-editor-background);\n      color: var(--vscode-editor-foreground);\n      font-family: var(--vscode-editor-font-family);\n      font-size: var(--vscode-editor-font-size);\n      font-weight: var(--vscode-editor-font-weight);\n    }\n\n    .textarea.monospace::placeholder {\n      color: var(--vscode-editor-inlineValuesForeground);\n    }\n\n    textarea.cursor-pointer {\n      cursor: pointer;\n    }\n\n    textarea:focus {\n      border-color: var(--vscode-focusBorder);\n      outline: none;\n    }\n\n    textarea::placeholder {\n      color: var(--vscode-input-placeholderForeground);\n      opacity: 1;\n    }\n\n    textarea::-webkit-scrollbar-track {\n      background-color: transparent;\n    }\n\n    textarea::-webkit-scrollbar {\n      width: 14px;\n    }\n\n    textarea::-webkit-scrollbar-thumb {\n      background-color: transparent;\n    }\n\n    textarea:hover::-webkit-scrollbar-thumb {\n      background-color: var(--vscode-scrollbarSlider-background);\n    }\n\n    textarea::-webkit-scrollbar-thumb:hover {\n      background-color: var(--vscode-scrollbarSlider-hoverBackground);\n    }\n\n    textarea::-webkit-scrollbar-thumb:active {\n      background-color: var(--vscode-scrollbarSlider-activeBackground);\n    }\n\n    textarea::-webkit-scrollbar-corner {\n      background-color: transparent;\n    }\n\n    textarea::-webkit-resizer {\n      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAACJJREFUeJxjYMAOZuIQZ5j5//9/rJJESczEKYGsG6cEXgAAsEEefMxkua4AAAAASUVORK5CYII=');\n      background-repeat: no-repeat;\n      background-position: right bottom;\n    }\n  `,\n]"
         }
       ],
       "exports": [
