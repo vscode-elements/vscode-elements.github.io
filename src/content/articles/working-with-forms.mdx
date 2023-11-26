@@ -3,9 +3,12 @@ title: Working with forms
 ---
 
 import Demo from "@components/Demo.astro";
+import Imports from "@components/examples/forms/Imports.astro";
 import BasicFormExample from "@components/examples/forms/BasicFormExample.astro";
 import FormDataExample from "@components/examples/forms/FormDataExample.astro";
 import BuiltInValidation from "@components/examples/forms/BuiltInValidation.astro";
+
+<Imports />
 
 Form controls in VSC Elements are designed to be used like standard HTML form elements. The
 following components can serve as fully functional form controls:
@@ -27,7 +30,7 @@ Form controls in VSC Elements work just like native form controls without requir
   <Fragment slot="html">
     ```html
     <form
-      action="/introduction/building-forms"
+      action="/working-with-forms"
       method="get"
       enctype="application/x-www-form-urlencoded"
     >
@@ -70,7 +73,7 @@ In certain scenarios, it might not be submitted at all. In such cases, the
         <vscode-checkbox label="Draft" name="draft" id="form1-draft"
         ></vscode-checkbox>
       </vscode-form-group>
-      <vscode-form-group>
+      <vscode-form-group variant="vertical">
         <vscode-button type="submit">Submit</vscode-button>
       </vscode-form-group>
       <pre id="form1-output"></pre>
