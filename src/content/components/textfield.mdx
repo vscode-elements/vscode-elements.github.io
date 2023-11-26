@@ -1,3 +1,71 @@
 ---
 title: Textfield
 ---
+
+import Demo from "@components/Demo.astro";
+import FormControlInfo from "@components/FormControlInfo.astro";
+import Imports from "@components/examples/textfield/Imports.astro";
+import BasicExample from "@components/examples/textfield/BasicExample.astro";
+import SlotsExample from "@components/examples/textfield/SlotsExample.astro";
+import FileInputExample from "@components/examples/textfield/FileInputExample.astro";
+
+<Imports />
+
+<FormControlInfo />
+
+## Basic example
+
+<Demo>
+  <BasicExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-textfield></vscode-textfield>
+    ```
+  </Fragment>
+</Demo>
+
+## Using Slots
+
+<Demo>
+  <SlotsExample />
+  <Fragment slot="html">
+    ```html
+    <p>
+      <vscode-textfield placeholder="Type something">
+        <vscode-badge slot="content-after">308 Settings Found</vscode-badge>
+        <vscode-icon
+          slot="content-after"
+          name="clear-all"
+          title="clear-all"
+          action-icon
+        ></vscode-icon>
+        <vscode-icon
+          slot="content-after"
+          name="filter"
+          action-icon
+        ></vscode-icon>
+      </vscode-textfield>
+    </p>
+    <p>
+      <vscode-textfield placeholder="Type something">
+        <vscode-icon
+          slot="content-before"
+          name="search"
+          title="search"
+        ></vscode-icon>
+      </vscode-textfield>
+    </p>
+    ```
+  </Fragment>
+</Demo>
+
+## File input
+
+<Demo>
+  <FileInputExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-textfield type="file"></vscode-textfield>
+    ```
+  </Fragment>
+</Demo>
