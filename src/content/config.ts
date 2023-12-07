@@ -4,6 +4,7 @@ const apiCollection = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
+    tagName: z.string(),
   }),
 });
 

@@ -1,6 +1,8 @@
 ---
 import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
 import ComponentPage from "src/layouts/ComponentPage.astro";
+import ApiPageSwitcher from "@components/ApiPageSwitcher.astro";
 
 export async function getStaticPaths() {
   const componentPageEntries = await getCollection("components");
@@ -16,6 +18,7 @@ const { title } = entry.data;
 const { Content, headings } = await entry.render();
 ---
 
-<ComponentPage {title} {headings}>
+<!-- <ComponentPage {title} {headings}>
   <Content />
-</ComponentPage>
+</ComponentPage> -->
+<Layout {title} {headings}><ApiPageSwitcher /><Content /></Layout>

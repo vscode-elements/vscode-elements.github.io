@@ -1,14 +1,18 @@
 ---
+import type { MarkdownHeading } from "astro";
 import GlobalStyles from "../components/GlobalStyles.astro";
-import LinkedScripts from "../components/LinkedScripts.astro";
 import Analytics from "../components/Analytics.astro";
-import Sidebar from "../components/Sidebar.astro";
+import PrimarySidebar from "../components/PrimarySidebar.astro";
+import MarkdownToc from "@components/MarkdownToc.astro";
 
 interface Props {
   title: string;
+  headings?: MarkdownHeading[];
 }
 
-const { title } = Astro.props;
+const { title, headings = [] } = Astro.props;
+const { secondarySidebar } = Astro.slots;
+const filteredHeadings = headings.filter((h) => h.depth === 2);
 ---
 
 <!doctype html>
@@ -20,6 +24,7 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="/codicon.css" id="vscode-codicon-stylesheet" />
     <meta name="generator" content={Astro.generator} />
+    <GlobalStyles />
     <title>{title} &ndash; VSCode Webview Elements</title>
     <script is:inline>
       window.__COMPONENT_PREVIEW_THEMES_DIR__ = "/dev-assets";
@@ -29,115 +34,119 @@ const { title } = Astro.props;
     </script>
   </head>
   <body class="vscode-light">
-    <Sidebar />
-    <main class="main">
+    <PrimarySidebar />
+    <main>
+      <h1>{title}</h1>
       <slot />
     </main>
-    <GlobalStyles />
+    {
+      secondarySidebar || filteredHeadings.length > 0 ? (
+        <aside class="secondary-sidebar">
+          {filteredHeadings.length > 0 ? (
+            <MarkdownToc headings={filteredHeadings} />
+          ) : null}
+          {secondarySidebar ? <slot name="secondarySidebar" /> : null}
+        </aside>
+      ) : null
+    }
+  </body><style is:global>
+    :root {
+      --Sidebar-width: 250px;
+    }
 
-    <style is:global>
-      :root {
-        --Sidebar-width: 250px;
+    @font-face {
+      font-family: "Source Sans Pro";
+      font-style: normal;
+      font-weight: 900;
+      font-display: swap;
+      src: url(/fonts/heading.woff2) format("woff2");
+    }
+
+    main {
+      height: 100%;
+      overflow-y: auto;
+      width: 100%;
+    }
+
+    .secondary-sidebar {
+      flex-shrink: 0;
+      flex-grow: 0;
+      height: 100%;
+      overflow-y: auto;
+      width: var(--Sidebar-width);
+    }
+
+    h1 {
+      font-size: 48px;
+      font-weight: normal;
+      margin: 20px 0 0;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 32px;
+      font-weight: normal;
+      line-height: 1.2;
+      margin: 48px 0 8px;
+    }
+
+    h3 {
+      font-size: 20px;
+      font-weight: normal;
+      line-height: 1.2;
+      margin: 32px 0 8px;
+    }
+
+    .page h1,
+    .page h2,
+    .page h3 {
+      align-items: center;
+      display: flex;
+    }
+
+    @keyframes highlight {
+      from {
+        background-color: yellow;
       }
 
-      @font-face {
-        font-family: "Source Sans Pro";
-        font-style: normal;
-        font-weight: 900;
-        font-display: swap;
-        src: url(/fonts/heading.woff2) format("woff2");
+      to {
+        background-color: transparent;
       }
+    }
 
-      h1 {
-        font-size: 48px;
-        font-weight: normal;
-        margin: 20px 0 0;
-        line-height: 1.2;
-      }
+    :target {
+      animation: highlight 3000ms;
+      outline: none;
+    }
 
-      h2 {
-        font-size: 32px;
-        font-weight: normal;
-        line-height: 1.2;
-        margin: 48px 0 8px;
-      }
+    h1 a,
+    h2 a,
+    h3 a {
+      color: inherit;
+      text-decoration: inherit;
+    }
 
-      h3 {
-        font-size: 20px;
-        font-weight: normal;
-        line-height: 1.2;
-        margin: 32px 0 8px;
-      }
+    h1 a:hover,
+    h2 a:hover,
+    h3 a:hover {
+      text-decoration: underline;
+    }
 
-      .page h1,
-      .page h2,
-      .page h3 {
-        align-items: center;
-        display: flex;
-      }
+    h1 a:focus,
+    h2 a:focus,
+    h3 a:focus {
+      outline: none;
+    }
 
-      @keyframes highlight {
-        from {
-          background-color: yellow;
-        }
+    h1 a:focus-visible,
+    h2 a:focus-visible,
+    h3 a:focus-visible {
+      outline: 1px solid currentColor;
+    }
 
-        to {
-          background-color: transparent;
-        }
-      }
-
-      :target {
-        animation: highlight 3000ms;
-        outline: none;
-      }
-
-      h1 a,
-      h2 a,
-      h3 a {
-        color: inherit;
-        text-decoration: inherit;
-      }
-
-      h1 a:hover,
-      h2 a:hover,
-      h3 a:hover {
-        text-decoration: underline;
-      }
-
-      h1 a:focus,
-      h2 a:focus,
-      h3 a:focus {
-        outline: none;
-      }
-
-      h1 a:focus-visible,
-      h2 a:focus-visible,
-      h3 a:focus-visible {
-        outline: 1px solid currentColor;
-      }
-
-      pre {
-        font-size: 16px;
-        padding: 10px;
-      }
-
-      @media screen and (min-width: 1024px) {
-        .toc {
-          position: fixed;
-          right: 0;
-          top: 70px;
-          width: 250px;
-        }
-      }
-    </style>
-    <style>
-      .main {
-        box-sizing: border-box;
-        margin-left: var(--Sidebar-width);
-        padding: 20px 25px;
-        position: relative;
-        width: calc(100% - var(--Sidebar-width));
-      }
-    </style>
-  </body>
+    pre {
+      font-size: 16px;
+      padding: 10px;
+    }
+  </style>
 </html>

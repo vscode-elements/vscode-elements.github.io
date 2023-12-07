@@ -1,121 +1,20 @@
 ---
-import type {
-  ClassMember,
-  ClassMethod,
-  CssCustomProperty,
-  CustomElement,
-  CustomElementDeclaration,
-  CustomElementField,
-  Package,
-} from "custom-elements-manifest/schema";
-import cemData from "@data/custom-elements.json";
 import ApiDocsDeclaration from "./ApiDocsDeclaration.astro";
 import ApiDocsDeclarationList from "./ApiDocsDeclarationList.astro";
+import { getCustomElementDeclarations } from "./data";
 
 interface Props {
   element: string;
 }
 
 const { element } = Astro.props;
-
-const getElementGroup = (name: string, pack: Package) => {
-  const foundModule = pack.modules.find((m) => {
-    const foundCustomElementDef = m.exports?.find(
-      (e) => e.kind === "custom-element-definition" && e.name === name
-    );
-
-    return foundCustomElementDef;
-  });
-
-  return foundModule;
-};
-
-type Comparable = ClassMember | CssCustomProperty;
-
-const memberCompare = (a: Comparable, b: Comparable) => {
-  if (a.name > b.name) {
-    return 1;
-  } else if (a.name < b.name) {
-    return -1;
-  } else {
-    return 0;
-  }
-};
-
-const elementGroup = getElementGroup(element, cemData as Package);
-const customElementDeclarations = elementGroup?.declarations
-  ? (elementGroup.declarations.filter(
-      (d) => (d as CustomElementDeclaration).customElement
-    ) as CustomElement[])
-  : [];
-const orderedDeclarations = customElementDeclarations.map((declaration) => {
-  const { tagName, deprecated, description } = declaration;
-  const members = declaration.members ?? [];
-  const publicMembers = members.filter((m) =>
-    m.privacy ? m.privacy !== "private" && m.privacy !== "protected" : true
-  );
-  const fields = publicMembers
-    .filter((m) => m.kind === "field")
-    .sort(memberCompare) as CustomElementField[];
-  const methods = publicMembers
-    .filter((m) => m.kind === "method")
-    .sort(memberCompare) as ClassMethod[];
-  const attributes = declaration.attributes
-    ? declaration.attributes.filter((a) => !a.fieldName).sort(memberCompare)
-    : [];
-  const events = declaration.events
-    ? declaration.events.sort(memberCompare)
-    : [];
-  const slots = declaration.slots ? declaration.slots.sort(memberCompare) : [];
-  const cssProps = declaration.cssProperties
-    ? declaration.cssProperties.sort(memberCompare)
-    : [];
-
-  return {
-    tagName,
-    deprecated,
-    description,
-    members,
-    publicMembers,
-    fields,
-    methods,
-    attributes,
-    events,
-    slots,
-    cssProps,
-  };
-});
+const declarations = getCustomElementDeclarations(element);
 ---
 
 <div class="ApiDocs">
-  <div class="ApiDocs__toc">
-    {
-      orderedDeclarations.map((d) => {
-        const {
-          fields = [],
-          attributes = [],
-          methods = [],
-          events = [],
-          slots = [],
-          cssProps = [],
-        } = d;
-
-        return (
-          <ApiDocsDeclarationList
-            fields={fields}
-            attributes={attributes}
-            methods={methods}
-            events={events}
-            slots={slots}
-            cssProps={cssProps}
-          />
-        );
-      })
-    }
-  </div>
   <div class="ApiDocs__body">
     {
-      orderedDeclarations.map((d) => {
+      declarations.map((d) => {
         const {
           tagName = "Unknown Element",
           deprecated = false,
@@ -149,7 +48,6 @@ const orderedDeclarations = customElementDeclarations.map((declaration) => {
 <style>
   .ApiDocs {
     display: flex;
-    padding-right: 250px;
   }
 
   .ApiDocs__toc {

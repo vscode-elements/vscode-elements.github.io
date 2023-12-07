@@ -12,16 +12,21 @@ interface Props {
 }
 
 const { title, headings } = Astro.props;
+const { sidebar } = Astro.slots;
 const filteredHeadings = headings.filter((h) => h.depth === 2);
+const hasToc = filteredHeadings.length > 0;
 ---
 
 <Layout title={title}>
   <div class="content">
     <ApiPageSwitcher />
     {
-      filteredHeadings.length > 0 ? (
+      hasToc || sidebar ? (
         <MultiColumnContent title={title}>
-          <MarkdownToc headings={filteredHeadings} slot="sidebar" />
+          {hasToc ? (
+            <MarkdownToc headings={filteredHeadings} slot="sidebar" />
+          ) : null}
+          {sidebar ? <slot name="sidebar" slot="sidebar" /> : null}
           <slot />
         </MultiColumnContent>
       ) : (
@@ -35,7 +40,7 @@ const filteredHeadings = headings.filter((h) => h.depth === 2);
 
 <style>
   .content {
-    margin: 0 auto;
-    max-width: 1000px;
+    max-height: 100%;
+    overflow-y: auto;
   }
 </style>

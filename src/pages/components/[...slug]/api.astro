@@ -1,10 +1,15 @@
 ---
 import { getCollection } from "astro:content";
-import ComponentPage from "src/layouts/ComponentPage.astro";
+import Layout from "@layouts/Layout.astro";
+import { getCustomElementDeclarations } from "@components/ApiDocs/data";
+import ApiDocsDeclarationList from "@components/ApiDocs/ApiDocsDeclarationList.astro";
+import ApiPageSwitcher from "@components/ApiPageSwitcher.astro";
 
 const { entry } = Astro.props;
-const { title } = entry.data;
+const { title, tagName } = entry.data;
 const { Content, headings } = await entry.render();
+
+const declarations = getCustomElementDeclarations(tagName);
 
 export async function getStaticPaths() {
   const apiPageEntries = await getCollection("api");
@@ -16,6 +21,32 @@ export async function getStaticPaths() {
 }
 ---
 
-<ComponentPage {title} {headings}>
+<Layout {title} {headings}>
+  <ApiPageSwitcher />
   <Content />
-</ComponentPage>
+  {
+    declarations.map((d) => {
+      const {
+        fields = [],
+        attributes = [],
+        methods = [],
+        events = [],
+        slots = [],
+        cssProps = [],
+      } = d;
+
+      return (
+        <ApiDocsDeclarationList
+          fields={fields}
+          attributes={attributes}
+          methods={methods}
+          events={events}
+          slots={slots}
+          cssProps={cssProps}
+          slot="secondarySidebar"
+        />
+      );
+    })
+  }
+</Layout>
+
