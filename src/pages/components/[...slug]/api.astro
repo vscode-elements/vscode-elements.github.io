@@ -22,7 +22,7 @@ export async function getStaticPaths() {
 ---
 
 <Layout {title} {headings}>
-  <ApiPageSwitcher />
+  <ApiPageSwitcher slot="contentToolbar" />
   <Content />
   {
     declarations.map((d) => {

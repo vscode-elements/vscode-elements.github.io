@@ -25,6 +25,8 @@ const isApiPage = path.search(new RegExp(`/components/${slug}/api/?$`)) > -1;
   .ApiPageSwitcher {
     align-items: center;
     display: flex;
+    position: sticky;
+    top: 20px;
   }
 
   .ApiPageSwitcher > ul {

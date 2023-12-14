@@ -21,6 +21,23 @@ const { headings } = Astro.props;
 <style>
   ul {
     margin-bottom: 0;
+    margin-left: 20px;
     margin-top: 0;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  li {
+    font-size: 14px;
+    margin: 8px 0;
+  }
+
+  li a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  li a:hover {
+    color: var(--color-vscode-blue);
   }
 </style>

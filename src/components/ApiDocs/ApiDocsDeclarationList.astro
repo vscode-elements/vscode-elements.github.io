@@ -61,7 +61,7 @@ type SectionName = keyof typeof sections;
                 />
               </svg>
             </button>
-            <a href={categoryUrlHash}>{key}</a>
+            <a href={categoryUrlHash} class="category-link">{key}</a>
           </div>
           <ul class="subtree">
             {sections[key as SectionName].map(({ name }) => {
@@ -114,6 +114,10 @@ type SectionName = keyof typeof sections;
 
   a:hover {
     color: var(--color-vscode-blue);
+  }
+
+  .category-link {
+    font-size: 14px;
   }
 
   .category-header {
