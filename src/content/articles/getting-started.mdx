@@ -48,7 +48,28 @@ todo
 
 ### Properties and attributes
 
-todo
+Custom elements are configurable through properties and attributes. Properties used in JavaScript
+while attributes are used in HTML.
+
+An example of using a property:
+
+```javascript
+const badge = document.querySelector('vscode-badge');
+badge.variant = 'activity-bar-counter';
+```
+
+An attribute example
+
+```html
+<vscode-badge variant="activity-bar-counter"></vscode-badge>
+```
+
+The attribute name may differs from the property name. In the API documentation, the attribute 
+corresponding to the property is always indicated if it exists.
+
+#### Attribute and property reflection
+
+#### Boolean attributes
 
 ### Methods
 

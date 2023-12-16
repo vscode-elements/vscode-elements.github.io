@@ -169,7 +169,6 @@ type SectionName = keyof typeof sections;
     document.querySelectorAll<HTMLButtonElement>(".toggle-subtree");
 
   const handleClick = (ev: MouseEvent) => {
-    console.log(ev.currentTarget);
     const bt = ev.currentTarget as HTMLButtonElement;
     const subtree = bt.closest("li")?.querySelector(".subtree");
 
