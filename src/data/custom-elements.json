@@ -4,33 +4,6 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "src/events/events.ts",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "VscMenuSelectEvent",
-          "declaration": {
-            "name": "VscMenuSelectEvent",
-            "module": "./MenuSelect"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/events/MenuSelect.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/events/TabsSelect.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/includes/AssociatedFormControl.ts",
       "declarations": [],
       "exports": []
@@ -1252,110 +1225,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/vscode-checkbox-group/vscode-checkbox-group.styles.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "styles",
-          "type": {
-            "text": "CSSResultGroup"
-          },
-          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      display: block;\n    }\n\n    .wrapper {\n      display: flex;\n      flex-wrap: wrap;\n    }\n\n    :host([variant='vertical']) .wrapper {\n      display: block;\n    }\n\n    ::slotted(vscode-checkbox) {\n      margin-right: 20px;\n    }\n\n    ::slotted(vscode-checkbox:last-child) {\n      margin-right: 0;\n    }\n\n    :host([variant='vertical']) ::slotted(vscode-checkbox) {\n      display: block;\n      margin-bottom: 15px;\n    }\n\n    :host([variant='vertical']) ::slotted(vscode-checkbox:last-child) {\n      margin-bottom: 0;\n    }\n  `,\n  formHelperTextStyles,\n]"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "styles",
-            "module": "src/vscode-checkbox-group/vscode-checkbox-group.styles.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-checkbox-group/vscode-checkbox-group.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "VscodeCheckboxGroup",
-          "members": [
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "'horizontal' | 'vertical'"
-              },
-              "default": "'horizontal'",
-              "attribute": "variant",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "_version",
-              "type": {
-                "text": "string"
-              },
-              "privacy": "private",
-              "default": "'1.0.0-pre.7'",
-              "inheritedFrom": {
-                "name": "VscElement",
-                "module": "src/includes/VscElement.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "version",
-              "description": "VSC Element version",
-              "readonly": true,
-              "inheritedFrom": {
-                "name": "VscElement",
-                "module": "src/includes/VscElement.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "variant",
-              "type": {
-                "text": "'horizontal' | 'vertical'"
-              },
-              "default": "'horizontal'",
-              "fieldName": "variant"
-            }
-          ],
-          "superclass": {
-            "name": "VscElement",
-            "module": "/src/includes/VscElement.js"
-          },
-          "tagName": "vscode-checkbox-group",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "VscodeCheckboxGroup",
-          "declaration": {
-            "name": "VscodeCheckboxGroup",
-            "module": "src/vscode-checkbox-group/vscode-checkbox-group.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "vscode-checkbox-group",
-          "declaration": {
-            "name": "VscodeCheckboxGroup",
-            "module": "src/vscode-checkbox-group/vscode-checkbox-group.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/vscode-collapsible/vscode-collapsible.styles.ts",
       "declarations": [
         {
@@ -1718,32 +1587,6 @@
             },
             {
               "kind": "method",
-              "name": "_dispatchSelectEvent",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "selectedOption",
-                  "type": {
-                    "text": "VscodeContextMenuItem"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "_dispatchLegacySelectEvent",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "selectedOption",
-                  "type": {
-                    "text": "VscodeContextMenuItem"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
               "name": "_handleEnter",
               "privacy": "private"
             },
@@ -1807,15 +1650,7 @@
               "name": "vsc-select",
               "type": {
                 "text": "CustomEvent"
-              },
-              "deprecated": "true"
-            },
-            {
-              "type": {
-                "text": "CustomEvent"
-              },
-              "description": "Emitted when a menu item is clicked",
-              "name": "vsc-menu-select"
+              }
             }
           ],
           "attributes": [
@@ -1856,6 +1691,110 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/vscode-checkbox-group/vscode-checkbox-group.styles.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "styles",
+          "type": {
+            "text": "CSSResultGroup"
+          },
+          "default": "[\n  defaultStyles,\n  css`\n    :host {\n      display: block;\n    }\n\n    .wrapper {\n      display: flex;\n      flex-wrap: wrap;\n    }\n\n    :host([variant='vertical']) .wrapper {\n      display: block;\n    }\n\n    ::slotted(vscode-checkbox) {\n      margin-right: 20px;\n    }\n\n    ::slotted(vscode-checkbox:last-child) {\n      margin-right: 0;\n    }\n\n    :host([variant='vertical']) ::slotted(vscode-checkbox) {\n      display: block;\n      margin-bottom: 15px;\n    }\n\n    :host([variant='vertical']) ::slotted(vscode-checkbox:last-child) {\n      margin-bottom: 0;\n    }\n  `,\n  formHelperTextStyles,\n]"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "styles",
+            "module": "src/vscode-checkbox-group/vscode-checkbox-group.styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-checkbox-group/vscode-checkbox-group.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "VscodeCheckboxGroup",
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "'horizontal' | 'vertical'"
+              },
+              "default": "'horizontal'",
+              "attribute": "variant",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.7'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant",
+              "type": {
+                "text": "'horizontal' | 'vertical'"
+              },
+              "default": "'horizontal'",
+              "fieldName": "variant"
+            }
+          ],
+          "superclass": {
+            "name": "VscElement",
+            "module": "/src/includes/VscElement.js"
+          },
+          "tagName": "vscode-checkbox-group",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "VscodeCheckboxGroup",
+          "declaration": {
+            "name": "VscodeCheckboxGroup",
+            "module": "src/vscode-checkbox-group/vscode-checkbox-group.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "vscode-checkbox-group",
+          "declaration": {
+            "name": "VscodeCheckboxGroup",
+            "module": "src/vscode-checkbox-group/vscode-checkbox-group.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/vscode-context-menu-item/vscode-context-menu-item.styles.ts",
       "declarations": [
         {
@@ -1884,7 +1823,7 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "Child component of [ContextMenu](/components/context-menu/).",
+          "description": "Child component of [ContextMenu](https://bendera.github.io/vscode-webview-elements/components/vscode-context-menu/).",
           "name": "VscodeContextMenuItem",
           "cssProperties": [
             {
@@ -1989,6 +1928,14 @@
               "inheritedFrom": {
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "vsc-click",
+              "type": {
+                "text": "CustomEvent"
               }
             }
           ],
@@ -8578,13 +8525,6 @@
           "events": [
             {
               "name": "vsc-select",
-              "type": {
-                "text": "CustomEvent"
-              },
-              "deprecated": "true"
-            },
-            {
-              "name": "vsc-tabs-select",
               "type": {
                 "text": "CustomEvent"
               }
