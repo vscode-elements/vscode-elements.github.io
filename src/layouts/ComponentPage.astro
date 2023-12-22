@@ -23,10 +23,10 @@ const hasToc = filteredHeadings.length > 0;
     {
       hasToc || sidebar ? (
         <MultiColumnContent title={title}>
+          {sidebar ? <slot name="sidebar" slot="sidebar" /> : null}
           {hasToc ? (
             <MarkdownToc headings={filteredHeadings} slot="sidebar" />
           ) : null}
-          {sidebar ? <slot name="sidebar" slot="sidebar" /> : null}
           <slot />
         </MultiColumnContent>
       ) : (
