@@ -34,30 +34,32 @@ const filteredHeadings = headings.filter((h) => h.depth === 2);
     </script>
   </head>
   <body class="vscode-light">
-    <PrimarySidebar />
-    <main>
+    <div class="container">
+      <PrimarySidebar />
+      <main>
+        {
+          contentToolbar ? (
+            <div class="content-toolbar">
+              <slot name="contentToolbar" />
+            </div>
+          ) : null
+        }
+        <div class="content-wrapper">
+          <h1>{title}</h1>
+          <slot />
+        </div>
+      </main>
       {
-        contentToolbar ? (
-          <div class="content-toolbar">
-            <slot name="contentToolbar" />
-          </div>
+        secondarySidebar || filteredHeadings.length > 0 ? (
+          <aside class="secondary-sidebar">
+            {secondarySidebar ? <slot name="secondarySidebar" /> : null}
+            {filteredHeadings.length > 0 ? (
+              <MarkdownToc headings={filteredHeadings} />
+            ) : null}
+          </aside>
         ) : null
       }
-      <div class="content-wrapper">
-        <h1>{title}</h1>
-        <slot />
-      </div>
-    </main>
-    {
-      secondarySidebar || filteredHeadings.length > 0 ? (
-        <aside class="secondary-sidebar">
-          {secondarySidebar ? <slot name="secondarySidebar" /> : null}
-          {filteredHeadings.length > 0 ? (
-            <MarkdownToc headings={filteredHeadings} />
-          ) : null}
-        </aside>
-      ) : null
-    }
+    </div>
     <style is:global>
       :root {
         --Sidebar-width: 250px;
@@ -71,12 +73,19 @@ const filteredHeadings = headings.filter((h) => h.depth === 2);
         src: url(/fonts/heading.woff2) format("woff2");
       }
 
+      .container {
+        display: flex;
+        margin: 0 auto;
+        max-width: 1600px;
+        width: 100%;
+      }
+
       .content-toolbar {
         background-color: var(--color-light-gray);
         border-bottom: 1px solid #ddd;
         margin: 0 20px;
         padding: 20px 0;
-        position: sticky;
+        /* position: sticky; */
         top: 0;
         z-index: 3;
       }
