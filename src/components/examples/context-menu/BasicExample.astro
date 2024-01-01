@@ -2,6 +2,25 @@
 
 ---
 
+<style>
+  .menu-wrapper {
+    overflow: visible;
+    position: relative;
+  }
+
+  .toggle-menu-button {
+    cursor: pointer;
+    display: block;
+  }
+
+  .context-menu {
+    bottom: 36px;
+    left: 16px;
+    position: absolute;
+    z-index: 2;
+  }
+</style>
+
 <div class="menu-wrapper">
   <vscode-icon
     name="menu"
@@ -13,3 +32,39 @@
   <vscode-context-menu id="context-menu" class="context-menu"
   ></vscode-context-menu>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menu = document.querySelector("#context-menu");
+    const button = document.querySelector("#toggle-menu-button");
+
+    document.querySelector("#context-menu").data = [
+      {
+        label: "Command palette...",
+        keybinding: "Ctrl+Shift+A",
+        value: "menuitem1",
+      },
+      {
+        separator: true,
+      },
+      {
+        label: "Settings",
+        keybinding: "Ctrl+Comma",
+        value: "menuitem2",
+      },
+      {
+        label: "Extensions",
+        keybinding: "Ctrl+Shift+X",
+        value: "menuitem3",
+      },
+    ];
+
+    button.addEventListener("click", () => {
+      menu.show = !menu.show;
+    });
+
+    menu.addEventListener("vsc-select", (event) => {
+      console.log(event);
+    });
+  });
+</script>
