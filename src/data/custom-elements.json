@@ -715,6 +715,110 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/vscode-checkbox-group/vscode-checkbox-group.styles.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "styles",
+          "type": {
+            "text": "CSSResultGroup"
+          },
+          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      display: block;\r\n    }\r\n\r\n    .wrapper {\r\n      display: flex;\r\n      flex-wrap: wrap;\r\n    }\r\n\r\n    :host([variant='vertical']) .wrapper {\r\n      display: block;\r\n    }\r\n\r\n    ::slotted(vscode-checkbox) {\r\n      margin-right: 20px;\r\n    }\r\n\r\n    ::slotted(vscode-checkbox:last-child) {\r\n      margin-right: 0;\r\n    }\r\n\r\n    :host([variant='vertical']) ::slotted(vscode-checkbox) {\r\n      display: block;\r\n      margin-bottom: 15px;\r\n    }\r\n\r\n    :host([variant='vertical']) ::slotted(vscode-checkbox:last-child) {\r\n      margin-bottom: 0;\r\n    }\r\n  `,\r\n  formHelperTextStyles,\r\n]"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "styles",
+            "module": "src/vscode-checkbox-group/vscode-checkbox-group.styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-checkbox-group/vscode-checkbox-group.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "VscodeCheckboxGroup",
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "'horizontal' | 'vertical'"
+              },
+              "default": "'horizontal'",
+              "attribute": "variant",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.10'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant",
+              "type": {
+                "text": "'horizontal' | 'vertical'"
+              },
+              "default": "'horizontal'",
+              "fieldName": "variant"
+            }
+          ],
+          "superclass": {
+            "name": "VscElement",
+            "module": "/src/includes/VscElement.js"
+          },
+          "tagName": "vscode-checkbox-group",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "VscodeCheckboxGroup",
+          "declaration": {
+            "name": "VscodeCheckboxGroup",
+            "module": "src/vscode-checkbox-group/vscode-checkbox-group.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "vscode-checkbox-group",
+          "declaration": {
+            "name": "VscodeCheckboxGroup",
+            "module": "src/vscode-checkbox-group/vscode-checkbox-group.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/vscode-checkbox/vscode-checkbox.styles.ts",
       "declarations": [
         {
@@ -1225,110 +1329,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/vscode-checkbox-group/vscode-checkbox-group.styles.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "styles",
-          "type": {
-            "text": "CSSResultGroup"
-          },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      display: block;\r\n    }\r\n\r\n    .wrapper {\r\n      display: flex;\r\n      flex-wrap: wrap;\r\n    }\r\n\r\n    :host([variant='vertical']) .wrapper {\r\n      display: block;\r\n    }\r\n\r\n    ::slotted(vscode-checkbox) {\r\n      margin-right: 20px;\r\n    }\r\n\r\n    ::slotted(vscode-checkbox:last-child) {\r\n      margin-right: 0;\r\n    }\r\n\r\n    :host([variant='vertical']) ::slotted(vscode-checkbox) {\r\n      display: block;\r\n      margin-bottom: 15px;\r\n    }\r\n\r\n    :host([variant='vertical']) ::slotted(vscode-checkbox:last-child) {\r\n      margin-bottom: 0;\r\n    }\r\n  `,\r\n  formHelperTextStyles,\r\n]"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "styles",
-            "module": "src/vscode-checkbox-group/vscode-checkbox-group.styles.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-checkbox-group/vscode-checkbox-group.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "VscodeCheckboxGroup",
-          "members": [
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "'horizontal' | 'vertical'"
-              },
-              "default": "'horizontal'",
-              "attribute": "variant",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "_version",
-              "type": {
-                "text": "string"
-              },
-              "privacy": "private",
-              "default": "'1.0.0-pre.10'",
-              "inheritedFrom": {
-                "name": "VscElement",
-                "module": "src/includes/VscElement.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "version",
-              "description": "VSC Element version",
-              "readonly": true,
-              "inheritedFrom": {
-                "name": "VscElement",
-                "module": "src/includes/VscElement.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "variant",
-              "type": {
-                "text": "'horizontal' | 'vertical'"
-              },
-              "default": "'horizontal'",
-              "fieldName": "variant"
-            }
-          ],
-          "superclass": {
-            "name": "VscElement",
-            "module": "/src/includes/VscElement.js"
-          },
-          "tagName": "vscode-checkbox-group",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "VscodeCheckboxGroup",
-          "declaration": {
-            "name": "VscodeCheckboxGroup",
-            "module": "src/vscode-checkbox-group/vscode-checkbox-group.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "vscode-checkbox-group",
-          "declaration": {
-            "name": "VscodeCheckboxGroup",
-            "module": "src/vscode-checkbox-group/vscode-checkbox-group.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/vscode-collapsible/vscode-collapsible.styles.ts",
       "declarations": [
         {
@@ -1785,7 +1785,7 @@
             },
             {
               "type": {
-                "text": "CustomEvent"
+                "text": "VscMenuSelectEvent"
               },
               "description": "Emitted when a menu item is clicked",
               "name": "vsc-menu-select"
@@ -4943,6 +4943,408 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/vscode-scrollable/vscode-scrollable.styles.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "styles",
+          "type": {
+            "text": "CSSResultGroup"
+          },
+          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      display: block;\r\n      position: relative;\r\n    }\r\n\r\n    .scrollable-container {\r\n      height: 100%;\r\n      overflow: auto;\r\n    }\r\n\r\n    .scrollable-container::-webkit-scrollbar {\r\n      cursor: default;\r\n      width: 0;\r\n    }\r\n\r\n    .scrollable-container {\r\n      scrollbar-width: none;\r\n    }\r\n\r\n    .shadow {\r\n      box-shadow: var(--vscode-scrollbar-shadow) 0 6px 6px -6px inset;\r\n      display: none;\r\n      height: 3px;\r\n      left: 0;\r\n      pointer-events: none;\r\n      position: absolute;\r\n      top: 0;\r\n      z-index: 1;\r\n      width: 100%;\r\n    }\r\n\r\n    .shadow.visible {\r\n      display: block;\r\n    }\r\n\r\n    .scrollbar-track {\r\n      height: 100%;\r\n      position: absolute;\r\n      right: 0;\r\n      top: 0;\r\n      width: 10px;\r\n      z-index: 100;\r\n    }\r\n\r\n    .scrollbar-track.hidden {\r\n      display: none;\r\n    }\r\n\r\n    .scrollbar-thumb {\r\n      background-color: transparent;\r\n      min-height: var(--min-thumb-height, 20px);\r\n      opacity: 0;\r\n      position: absolute;\r\n      right: 0;\r\n      width: 10px;\r\n    }\r\n\r\n    .scrollbar-thumb.visible {\r\n      background-color: var(--vscode-scrollbarSlider-background);\r\n      opacity: 1;\r\n      transition: opacity 100ms;\r\n    }\r\n\r\n    .scrollbar-thumb.fade {\r\n      background-color: var(--vscode-scrollbarSlider-background);\r\n      opacity: 0;\r\n      transition: opacity 800ms;\r\n    }\r\n\r\n    .scrollbar-thumb.visible:hover {\r\n      background-color: var(--vscode-scrollbarSlider-hoverBackground);\r\n    }\r\n\r\n    .scrollbar-thumb.visible.active,\r\n    .scrollbar-thumb.visible.active:hover {\r\n      background-color: var(--vscode-scrollbarSlider-activeBackground);\r\n    }\r\n\r\n    .prevent-interaction {\r\n      bottom: 0;\r\n      left: 0;\r\n      right: 0;\r\n      top: 0;\r\n      position: absolute;\r\n      z-index: 99;\r\n    }\r\n\r\n    .content {\r\n      overflow: hidden;\r\n    }\r\n  `,\r\n]"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "styles",
+            "module": "src/vscode-scrollable/vscode-scrollable.styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-scrollable/vscode-scrollable.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "VscodeScrollable",
+          "cssProperties": [
+            {
+              "description": "Scrollbar thumb minimum height",
+              "name": "--min-thumb-height",
+              "default": "20px"
+            },
+            {
+              "name": "--vscode-scrollbar-shadow"
+            },
+            {
+              "name": "--vscode-scrollbarSlider-background"
+            },
+            {
+              "name": "--vscode-scrollbarSlider-hoverBackground"
+            },
+            {
+              "name": "--vscode-scrollbarSlider-activeBackground"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "shadow",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "true",
+              "attribute": "shadow",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "scrolled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "scrolled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "scrollPos",
+              "type": {
+                "text": "number"
+              },
+              "attribute": "scroll-pos"
+            },
+            {
+              "kind": "field",
+              "name": "scrollMax",
+              "type": {
+                "text": "number"
+              },
+              "readonly": true,
+              "attribute": "scroll-max"
+            },
+            {
+              "kind": "field",
+              "name": "_isDragging",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "_thumbHeight",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "_thumbY",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "_thumbVisible",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "_thumbFade",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "_thumbActive",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "_contentElement",
+              "type": {
+                "text": "HTMLDivElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_scrollThumbElement",
+              "type": {
+                "text": "HTMLDivElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_scrollableContainer",
+              "type": {
+                "text": "HTMLDivElement"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_assignedElements",
+              "type": {
+                "text": "NodeList"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_resizeObserver",
+              "type": {
+                "text": "ResizeObserver"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_scrollThumbStartY",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "_mouseStartY",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "_scrollbarVisible",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "true"
+            },
+            {
+              "kind": "field",
+              "name": "_scrollbarTrackZ",
+              "type": {
+                "text": "number"
+              },
+              "privacy": "private",
+              "default": "0"
+            },
+            {
+              "kind": "method",
+              "name": "_resizeObserverCallback",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_resizeObserverCallbackBound",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_updateScrollbar",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_zIndexFix",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_onSlotChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_onScrollThumbMouseDown",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_onScrollThumbMouseMove",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "_onScrollThumbMouseMoveBound",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_onScrollThumbMouseUp",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "_onScrollThumbMouseUpBound",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_onScrollableContainerScroll",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_onComponentMouseOver",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_onComponentMouseOverBound",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_onComponentMouseOut",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_onComponentMouseOutBound",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_version",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "default": "'1.0.0-pre.10'",
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "description": "VSC Element version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "shadow",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "true",
+              "fieldName": "shadow"
+            },
+            {
+              "name": "scrolled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "scrolled"
+            },
+            {
+              "name": "scroll-pos",
+              "type": {
+                "text": "number"
+              },
+              "fieldName": "scrollPos"
+            },
+            {
+              "name": "scroll-max",
+              "type": {
+                "text": "number"
+              },
+              "readonly": true,
+              "fieldName": "scrollMax"
+            }
+          ],
+          "superclass": {
+            "name": "VscElement",
+            "module": "/src/includes/VscElement.js"
+          },
+          "tagName": "vscode-scrollable",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "VscodeScrollable",
+          "declaration": {
+            "name": "VscodeScrollable",
+            "module": "src/vscode-scrollable/vscode-scrollable.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "vscode-scrollable",
+          "declaration": {
+            "name": "VscodeScrollable",
+            "module": "src/vscode-scrollable/vscode-scrollable.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/vscode-single-select/vscode-single-select.styles.ts",
       "declarations": [],
       "exports": [
@@ -6058,408 +6460,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/vscode-scrollable/vscode-scrollable.styles.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "styles",
-          "type": {
-            "text": "CSSResultGroup"
-          },
-          "default": "[\r\n  defaultStyles,\r\n  css`\r\n    :host {\r\n      display: block;\r\n      position: relative;\r\n    }\r\n\r\n    .scrollable-container {\r\n      height: 100%;\r\n      overflow: auto;\r\n    }\r\n\r\n    .scrollable-container::-webkit-scrollbar {\r\n      cursor: default;\r\n      width: 0;\r\n    }\r\n\r\n    .scrollable-container {\r\n      scrollbar-width: none;\r\n    }\r\n\r\n    .shadow {\r\n      box-shadow: var(--vscode-scrollbar-shadow) 0 6px 6px -6px inset;\r\n      display: none;\r\n      height: 3px;\r\n      left: 0;\r\n      pointer-events: none;\r\n      position: absolute;\r\n      top: 0;\r\n      z-index: 1;\r\n      width: 100%;\r\n    }\r\n\r\n    .shadow.visible {\r\n      display: block;\r\n    }\r\n\r\n    .scrollbar-track {\r\n      height: 100%;\r\n      position: absolute;\r\n      right: 0;\r\n      top: 0;\r\n      width: 10px;\r\n      z-index: 100;\r\n    }\r\n\r\n    .scrollbar-track.hidden {\r\n      display: none;\r\n    }\r\n\r\n    .scrollbar-thumb {\r\n      background-color: transparent;\r\n      min-height: var(--min-thumb-height, 20px);\r\n      opacity: 0;\r\n      position: absolute;\r\n      right: 0;\r\n      width: 10px;\r\n    }\r\n\r\n    .scrollbar-thumb.visible {\r\n      background-color: var(--vscode-scrollbarSlider-background);\r\n      opacity: 1;\r\n      transition: opacity 100ms;\r\n    }\r\n\r\n    .scrollbar-thumb.fade {\r\n      background-color: var(--vscode-scrollbarSlider-background);\r\n      opacity: 0;\r\n      transition: opacity 800ms;\r\n    }\r\n\r\n    .scrollbar-thumb.visible:hover {\r\n      background-color: var(--vscode-scrollbarSlider-hoverBackground);\r\n    }\r\n\r\n    .scrollbar-thumb.visible.active,\r\n    .scrollbar-thumb.visible.active:hover {\r\n      background-color: var(--vscode-scrollbarSlider-activeBackground);\r\n    }\r\n\r\n    .prevent-interaction {\r\n      bottom: 0;\r\n      left: 0;\r\n      right: 0;\r\n      top: 0;\r\n      position: absolute;\r\n      z-index: 99;\r\n    }\r\n\r\n    .content {\r\n      overflow: hidden;\r\n    }\r\n  `,\r\n]"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "styles",
-            "module": "src/vscode-scrollable/vscode-scrollable.styles.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-scrollable/vscode-scrollable.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "VscodeScrollable",
-          "cssProperties": [
-            {
-              "description": "Scrollbar thumb minimum height",
-              "name": "--min-thumb-height",
-              "default": "20px"
-            },
-            {
-              "name": "--vscode-scrollbar-shadow"
-            },
-            {
-              "name": "--vscode-scrollbarSlider-background"
-            },
-            {
-              "name": "--vscode-scrollbarSlider-hoverBackground"
-            },
-            {
-              "name": "--vscode-scrollbarSlider-activeBackground"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "shadow",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "true",
-              "attribute": "shadow",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "scrolled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "scrolled",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "scrollPos",
-              "type": {
-                "text": "number"
-              },
-              "attribute": "scroll-pos"
-            },
-            {
-              "kind": "field",
-              "name": "scrollMax",
-              "type": {
-                "text": "number"
-              },
-              "readonly": true,
-              "attribute": "scroll-max"
-            },
-            {
-              "kind": "field",
-              "name": "_isDragging",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "_thumbHeight",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "field",
-              "name": "_thumbY",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "field",
-              "name": "_thumbVisible",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "_thumbFade",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "_thumbActive",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "_contentElement",
-              "type": {
-                "text": "HTMLDivElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "_scrollThumbElement",
-              "type": {
-                "text": "HTMLDivElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "_scrollableContainer",
-              "type": {
-                "text": "HTMLDivElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "_assignedElements",
-              "type": {
-                "text": "NodeList"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "_resizeObserver",
-              "type": {
-                "text": "ResizeObserver"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "_scrollThumbStartY",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "field",
-              "name": "_mouseStartY",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "field",
-              "name": "_scrollbarVisible",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "private",
-              "default": "true"
-            },
-            {
-              "kind": "field",
-              "name": "_scrollbarTrackZ",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "method",
-              "name": "_resizeObserverCallback",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "_resizeObserverCallbackBound",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_updateScrollbar",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_zIndexFix",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_onSlotChange",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_onScrollThumbMouseDown",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "_onScrollThumbMouseMove",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "field",
-              "name": "_onScrollThumbMouseMoveBound",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_onScrollThumbMouseUp",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "field",
-              "name": "_onScrollThumbMouseUpBound",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_onScrollableContainerScroll",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_onComponentMouseOver",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "_onComponentMouseOverBound",
-              "privacy": "private"
-            },
-            {
-              "kind": "method",
-              "name": "_onComponentMouseOut",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "_onComponentMouseOutBound",
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "_version",
-              "type": {
-                "text": "string"
-              },
-              "privacy": "private",
-              "default": "'1.0.0-pre.10'",
-              "inheritedFrom": {
-                "name": "VscElement",
-                "module": "src/includes/VscElement.ts"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "version",
-              "description": "VSC Element version",
-              "readonly": true,
-              "inheritedFrom": {
-                "name": "VscElement",
-                "module": "src/includes/VscElement.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "shadow",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "true",
-              "fieldName": "shadow"
-            },
-            {
-              "name": "scrolled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "scrolled"
-            },
-            {
-              "name": "scroll-pos",
-              "type": {
-                "text": "number"
-              },
-              "fieldName": "scrollPos"
-            },
-            {
-              "name": "scroll-max",
-              "type": {
-                "text": "number"
-              },
-              "readonly": true,
-              "fieldName": "scrollMax"
-            }
-          ],
-          "superclass": {
-            "name": "VscElement",
-            "module": "/src/includes/VscElement.js"
-          },
-          "tagName": "vscode-scrollable",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "VscodeScrollable",
-          "declaration": {
-            "name": "VscodeScrollable",
-            "module": "src/vscode-scrollable/vscode-scrollable.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "vscode-scrollable",
-          "declaration": {
-            "name": "VscodeScrollable",
-            "module": "src/vscode-scrollable/vscode-scrollable.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/vscode-split-layout/vscode-split-layout.styles.ts",
       "declarations": [
         {
@@ -6530,12 +6530,12 @@
             },
             {
               "kind": "field",
-              "name": "initialPosition",
+              "name": "initialHandlePosition",
               "type": {
                 "text": "string"
               },
               "default": "'50%'",
-              "attribute": "initial-position",
+              "attribute": "initial-handle-position",
               "reflects": true
             },
             {
@@ -6760,12 +6760,12 @@
               "fieldName": "handleSize"
             },
             {
-              "name": "initial-position",
+              "name": "initial-handle-position",
               "type": {
                 "text": "string"
               },
               "default": "'50%'",
-              "fieldName": "initialPosition"
+              "fieldName": "initialHandlePosition"
             }
           ],
           "superclass": {
