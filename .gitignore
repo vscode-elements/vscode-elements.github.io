@@ -23,3 +23,7 @@ pnpm-debug.log*
 .vscode
 !.vscode/extensions.json
 !.vscode/launch.json
+
+src/data/custom-elements.json
+public/codicon.css
+public/codicon.ttf
