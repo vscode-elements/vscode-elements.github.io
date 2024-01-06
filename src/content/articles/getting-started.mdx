@@ -100,6 +100,13 @@ tabs.addEventListener('vsc-tabs-select', () => {
 });
 ```
 
+Most of the components use native events if possible. When a component has a custom event, the event 
+is exported as a TypeScript type. All exported events are descendants of the `CustomEvent` class.
+
+```typescript
+import type { VscTabsSelectEvent } from "@vscode-elements/elements/dist/vscode-tabs/vscode-tabs";
+```
+
 ### Slots
 
 Slots are used to accept HTML content. 
