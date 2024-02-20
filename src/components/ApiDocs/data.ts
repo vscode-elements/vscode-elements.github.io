@@ -3,6 +3,7 @@ import type {
   ClassMember,
   ClassMethod,
   CssCustomProperty,
+  CssPart,
   CustomElement,
   CustomElementDeclaration,
   CustomElementField,
@@ -25,6 +26,7 @@ const memoizedDeclarations: {
     events: Event[];
     slots: Slot[];
     cssProps: CssCustomProperty[];
+    cssParts: CssPart[];
   }[];
 } = {};
 
@@ -60,10 +62,10 @@ export const getCustomElementDeclarations = (tagName: string) => {
   const elementGroup = getElementGroup(tagName, cemData as Package);
 
   const customElementDeclarations = elementGroup?.declarations
-  ? (elementGroup.declarations.filter(
-      (d) => (d as CustomElementDeclaration).customElement
-    ) as CustomElement[])
-  : [];
+    ? (elementGroup.declarations.filter(
+        (d) => (d as CustomElementDeclaration).customElement
+      ) as CustomElement[])
+    : [];
 
   const orderedDeclarations = customElementDeclarations.map((declaration) => {
     const { tagName, deprecated, description } = declaration;
@@ -83,11 +85,16 @@ export const getCustomElementDeclarations = (tagName: string) => {
     const events = declaration.events
       ? declaration.events.sort(memberCompare)
       : [];
-    const slots = declaration.slots ? declaration.slots.sort(memberCompare) : [];
+    const slots = declaration.slots
+      ? declaration.slots.sort(memberCompare)
+      : [];
     const cssProps = declaration.cssProperties
       ? declaration.cssProperties.sort(memberCompare)
       : [];
-  
+    const cssParts = declaration.cssParts
+      ? declaration.cssParts.sort(memberCompare)
+      : [];
+
     return {
       tagName,
       deprecated,
@@ -100,6 +107,7 @@ export const getCustomElementDeclarations = (tagName: string) => {
       events,
       slots,
       cssProps,
+      cssParts,
     };
   });
 

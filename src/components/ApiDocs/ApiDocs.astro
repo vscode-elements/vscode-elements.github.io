@@ -25,6 +25,7 @@ const declarations = getCustomElementDeclarations(element);
           events = [],
           slots = [],
           cssProps = [],
+          cssParts = [],
         } = d;
 
         return (
@@ -38,6 +39,7 @@ const declarations = getCustomElementDeclarations(element);
             events={events}
             slots={slots}
             cssProps={cssProps}
+            cssParts={cssParts}
           />
         );
       })

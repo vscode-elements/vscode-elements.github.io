@@ -4,6 +4,7 @@ import type {
   ClassMember,
   ClassMethod,
   CssCustomProperty,
+  CssPart,
   CustomElement,
   CustomElementField,
   Event,
@@ -24,6 +25,7 @@ interface Props {
   events?: Event[];
   slots?: Slot[];
   cssProps?: CssCustomProperty[];
+  cssParts?: CssPart[];
 }
 
 const {
@@ -36,6 +38,7 @@ const {
   events = [],
   slots = [],
   cssProps = [],
+  cssParts = [],
 } = Astro.props;
 ---
 
@@ -57,6 +60,7 @@ const {
 <ApiDocsSection title="Events" members={events} />
 <ApiDocsSection title="Slots" members={slots} />
 <ApiDocsSection title="Custom CSS Properties" members={cssProps} />
+<ApiDocsSection title="CSS Parts" members={cssParts} />
 
 <style>
   .declaration-header code {

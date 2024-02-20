@@ -33,6 +33,7 @@ export async function getStaticPaths() {
         events = [],
         slots = [],
         cssProps = [],
+        cssParts = [],
       } = d;
 
       return (
@@ -43,6 +44,7 @@ export async function getStaticPaths() {
           events={events}
           slots={slots}
           cssProps={cssProps}
+          cssParts={cssParts}
           slot="secondarySidebar"
         />
       );

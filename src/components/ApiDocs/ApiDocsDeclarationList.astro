@@ -6,6 +6,7 @@ import type {
   Event,
   Slot,
   CssCustomProperty,
+  CssPart,
 } from "custom-elements-manifest";
 
 interface Props {
@@ -15,6 +16,7 @@ interface Props {
   events?: Event[];
   slots?: Slot[];
   cssProps?: CssCustomProperty[];
+  cssParts?: CssPart[];
 }
 
 const {
@@ -24,6 +26,7 @@ const {
   events = [],
   slots = [],
   cssProps = [],
+  cssParts = [],
 } = Astro.props;
 
 const sections = {
@@ -33,6 +36,7 @@ const sections = {
   Events: events,
   Slots: slots,
   "Custom CSS Properties": cssProps,
+  "CSS Parts": cssParts,
 };
 type SectionName = keyof typeof sections;
 ---
@@ -61,7 +65,9 @@ type SectionName = keyof typeof sections;
                 />
               </svg>
             </button>
-            <a href={categoryUrlHash} class="category-link">{key}</a>
+            <a href={categoryUrlHash} class="category-link">
+              {key}
+            </a>
           </div>
           <ul class="subtree">
             {sections[key as SectionName].map(({ name }) => {
