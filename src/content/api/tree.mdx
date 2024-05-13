@@ -60,6 +60,7 @@ export interface TreeItemDecoration {
 export interface TreeItem {
   label: string;
   description?: string;
+  tooltip?: string;
   subItems?: TreeItem[];
   actions?: TreeItemAction[];
   open?: boolean;
