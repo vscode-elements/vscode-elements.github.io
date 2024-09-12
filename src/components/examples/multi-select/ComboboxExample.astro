@@ -2,7 +2,17 @@
 
 ---
 
-<vscode-multi-select filter="startsWith" id="combobox-example" combobox>
+<p>
+  <label for="search-method">Search method:</label>
+  <select name="search-method-selector" id="search-method-selector">
+    <option value="contains">contains</option>
+    <option value="fuzzy">fuzzy</option>
+    <option value="startsWith">startsWith</option>
+    <option value="startsWithPerTerm">startsWithPerTerm</option>
+  </select>
+</p>
+
+<vscode-multi-select id="combobox-example" combobox>
   <vscode-option>Afghanistan</vscode-option>
   <vscode-option>Albania</vscode-option>
   <vscode-option>Algeria</vscode-option>
@@ -199,3 +209,19 @@
   <vscode-option>Zambia</vscode-option>
   <vscode-option>Zimbabwe</vscode-option>
 </vscode-multi-select>
+
+<script>
+  import type { SearchMethod } from "@vscode-elements/elements/dist/includes/vscode-select/types";
+  import type { VscodeMultiSelect } from "@vscode-elements/elements/dist/vscode-multi-select";
+
+  const cb = document.querySelector<VscodeMultiSelect>("#combobox-example");
+  const sl = document.querySelector<HTMLSelectElement>(
+    "#search-method-selector"
+  );
+
+  sl?.addEventListener("change", () => {
+    cb!.filter = sl?.options[sl.selectedIndex].value as SearchMethod;
+  });
+
+  cb!.filter = sl?.options[sl.selectedIndex].value as SearchMethod;
+</script>
