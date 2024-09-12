@@ -5,7 +5,7 @@
   "scripts": {
     "copy-assets": "node scripts/copy-assets.cjs",
     "dev": "npm run copy-assets && astro dev",
-    "start": "astro dev",
+    "start": "npm run copy-assets && astro dev",
     "build": "npm run copy-assets && astro build",
     "preview": "npm run copy-assets && astro preview",
     "astro": "astro",
