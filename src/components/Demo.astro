@@ -6,8 +6,12 @@ const { html, css, js } = Astro.slots;
 const sourceVisible = html || css || js;
 ---
 
+<script>
+  import '@vscode-elements/webview-playground/dist/index.js';
+</script>
+
 <div class="Demo" id={uid}>
-  <component-preview><slot /></component-preview>
+  <vscode-demo><slot /></vscode-demo>
   {
     sourceVisible ? (
       <div class="source">
@@ -70,7 +74,7 @@ const sourceVisible = html || css || js;
     margin: 15px 0;
   }
 
-  component-preview {
+  vscode-demo {
     margin: 0;
   }
 
