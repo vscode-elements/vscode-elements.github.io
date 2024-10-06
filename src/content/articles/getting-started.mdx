@@ -3,6 +3,7 @@ title: Getting started
 ---
 
 import ApiDocsBadge from "@components/ApiDocs/ApiDocsBadge.astro";
+import InfoBlock from "@components/InfoBlock.astro";
 
 ## What is VSCode Elements?
 
@@ -11,6 +12,14 @@ While the VSCode API grants access to different UI elements, none of these UI wi
 in the "webview." VSCode Elements addresses this by re-implementing these UI controls as web
 components (aka custom elements), and introducing some new ones. This allows for the creation of
 user interfaces that look like the native user interface of VSCode.
+
+<InfoBlock>
+
+The appearance of components provided by VSCode Elements depends on the presence of hundreds of CSS 
+variables and default styles supplied by the VSCode Webview. The 
+[Webview Playground](https://github.com/vscode-elements/webview-playground) was created to emulate this environment.
+
+</InfoBlock>
 
 ## Installation
 
