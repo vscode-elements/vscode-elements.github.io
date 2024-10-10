@@ -27,3 +27,6 @@ pnpm-debug.log*
 src/data/custom-elements.json
 public/codicon.css
 public/codicon.ttf
+
+# docs-new
+docs-new
