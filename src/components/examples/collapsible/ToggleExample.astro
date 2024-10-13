@@ -1,0 +1,11 @@
+<vscode-collapsible title="Dispatch toggle event" id="toggle-event-example">
+  <p>Test content</p>
+</vscode-collapsible>
+
+<script>
+  const el = document.querySelector("#toggle-event-example");
+
+  el?.addEventListener("vsc-collapsible-toggle", (ev) => {
+    console.log(ev);
+  });
+</script>
