@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "cem": "nodemon scripts/cem-to-markdown.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -17,5 +18,9 @@
     "astro": "^4.16.0",
     "sharp": "^0.32.5",
     "typescript": "^5.6.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7",
+    "ts-node": "^10.9.2"
   }
 }

@@ -1,0 +1,19 @@
+.api-table {
+  overflow: auto;
+}
+
+.api-table th:first-child,
+.api-table td:first-child {
+  background-color: var(--sl-color-bg);
+  left: 0;
+  position: sticky;
+}
+
+.api-table td {
+  white-space: nowrap;
+}
+
+.api-table .description {
+  white-space: normal;
+  width: 450px;
+}

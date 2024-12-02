@@ -31,6 +31,9 @@ export default defineConfig({
           items: [{ label: "Badge", slug: "components/badge/api" }],
         },
       ],
+      customCss: [
+        "./src/styles/custom.css",
+      ]
     }),
   ],
 });
