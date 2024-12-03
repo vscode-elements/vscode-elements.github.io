@@ -17,3 +17,31 @@
   white-space: normal;
   width: 450px;
 }
+
+.api-details {
+  border-left: none !important;
+  padding-left: 0 !important;
+}
+
+.api-details + .api-details {
+  margin-top: 0.5rem;
+}
+
+.api-details summary {
+  font-weight: 400;
+  margin-bottom: 0 !important;
+}
+
+.api-details .flags {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.api-details table {
+  margin-top: 0 !important;
+  margin-bottom: 1rem;
+}
+
+.api-details .na {
+  opacity: 0.5;
+}

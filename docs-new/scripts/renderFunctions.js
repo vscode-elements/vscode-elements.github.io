@@ -1,13 +1,6 @@
-const renderDetail = (summary, content) => {
-  return `
-<detail>
-  <summary>${summary}</summary>
-  ${content}
-</detail>
-`;
-};
+const html = String.raw;
 
-function renderFieldsMd(fields) {
+export function renderFields1(fields) {
   let table = `
 <div class="api-table properties">
 
@@ -48,35 +41,81 @@ ${table}
   return md;
 }
 
-function renderFieldsHTML(fields) {
-  let html = "## Properties\n";
+const na = '<span class="na">n/a</span>';
 
-  fields.forEach((f) => {
-    const { name, attribute, type } = f;
-    const typeText = type?.text
-      ? `\`${type.text.replaceAll("|", "\\|")}\``
-      : "";
+function renderItem({
+  name,
+  attribute,
+  type,
+  defaultValue,
+  description,
+  readonly,
+  reflects,
+}) {
+  const readonlyBadge = readonly ? '<Badge text="readonly" />' : "";
+  const reflectsBadge = reflects
+    ? '<Badge text="reflected" variant="success" />'
+    : "";
+  const typeText = type?.text ? `\`${type.text.replaceAll("|", "|")}\`` : "";
+  const defaultText = defaultValue ? `\`${defaultValue}\`` : "";
+  const descriptionText = description ? "\n" + description + "\n" : "";
 
-    let rows = "";
-
-    rows += `<tr><th scope="row">Attribute</th><td>${attribute}</td></tr>`;
-    rows += `<tr><th scope="row">Type</th><td>${typeText}</td></tr>`;
-
-    html += `
-<details>
-  <summary>${name}</summary>
+  return `<details class="api-details" name="api-details">
+  <summary>
+    <span>${name} <span class="flags">${readonlyBadge}${reflectsBadge}</span></span>
+  </summary>
   <table>
-    <tbody>
-${rows}
-    </tbody>
+    <tr>
+      <th scope="row">Name</th>
+      <td>${name ?? ""}</td>
+    </tr>
+    <tr>
+      <th scope="row">Attribute</th>
+      <td>${attribute ?? ""}</td>
+    </tr>
+    <tr>
+      <th scope="row">Type</th>
+      <td>${typeText}</td>
+    </tr>
+    <tr>
+      <th scope="row">Default</th>
+      <td>${defaultText}</td>
+    </tr>
+    <tr>
+      <th scope="row">Description</th>
+      <td>${descriptionText}</td>
+    </tr>
   </table>
 </details>
-`;
-  });
 
-  return html;
+`;
 }
 
 export function renderFields(fields) {
-  return renderFieldsMd(fields);
+  let markup = "";
+  markup += "## Properties\n\n";
+
+  fields.forEach((f) => {
+    const {
+      name,
+      attribute,
+      type,
+      default: defaultValue,
+      description,
+      readonly,
+      reflects,
+    } = f;
+
+    markup += renderItem({
+      name,
+      attribute,
+      type,
+      defaultValue,
+      description,
+      readonly,
+      reflects,
+    });
+  });
+
+  return markup;
 }
