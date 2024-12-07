@@ -54,8 +54,22 @@ export const getElementGroup = (name: string, pack: Package) => {
   return foundModule;
 };
 
-const sanitizeDeclaration = (declaration: CustomElement) => {
-  const { tagName, deprecated, description } = declaration;
+export type ComponentDeclaration = {
+  tagName: string;
+  deprecated: string | boolean | undefined;
+  description?: string;
+  fields: CustomElementField[];
+  methods: ClassMethod[];
+  attributes: Attribute[];
+  events: Event[];
+  slots: Slot[];
+  cssProps: CssCustomProperty[];
+  cssParts: CssPart[];
+}
+
+const sanitizeDeclaration = (declaration: CustomElement): ComponentDeclaration => {
+  const { deprecated, description } = declaration;
+  const tagName = declaration.tagName ?? ''
   const members = declaration.members ?? [];
   const publicMembers = members.filter((m) =>
     m.privacy ? m.privacy !== "private" && m.privacy !== "protected" : true
@@ -84,8 +98,6 @@ const sanitizeDeclaration = (declaration: CustomElement) => {
     tagName,
     deprecated,
     description,
-    members,
-    publicMembers,
     fields,
     methods,
     attributes,
@@ -96,7 +108,7 @@ const sanitizeDeclaration = (declaration: CustomElement) => {
   };
 };
 
-export const getCustomElementDeclaration = (tagName: string) => {
+export const getCustomElementDeclaration = (tagName: string, cemData: Package) => {
   const elementGroup = getElementGroup(tagName, cemData as Package);
 
   if (!elementGroup?.declarations) {

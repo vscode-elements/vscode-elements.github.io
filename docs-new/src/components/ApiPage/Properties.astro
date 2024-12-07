@@ -1,0 +1,97 @@
+---
+import { Aside, Badge } from "@astrojs/starlight/components";
+import type { ClassMember, CustomElementField } from "custom-elements-manifest";
+import { marked } from "marked";
+
+export type Props = {
+  items: ClassMember[];
+};
+
+const { items } = Astro.props;
+---
+
+{
+  items.length > 0 ? (
+    <>
+      <h2 id="Properties">Properties</h2>
+      {items.map((m) => {
+        const {
+          name,
+          attribute,
+          type,
+          default: defaultValue,
+          deprecated,
+          description,
+          readonly,
+          reflects,
+        } = m as CustomElementField;
+        const isDeprecated = deprecated || typeof deprecated === "string";
+        const deprecationMessage =
+          typeof deprecated === "string" ? marked(deprecated) : "";
+        const typeMarkup = type?.text ? marked.parse(`\`${type.text}\``) : "";
+        const defaultValueMarkup = defaultValue
+          ? marked.parse(`\`${defaultValue}\``)
+          : "";
+        const descriptionMarkup = description ? marked(description) : "";
+
+        return (
+          <details name="api-member" class="api-member">
+            <summary class:list={[{ deprecated: isDeprecated }]}>
+              <>
+                <span class="caption">{name}</span>
+                <span class="badges">
+                  {isDeprecated ? (
+                    <Badge text="Deprecated" variant="danger" />
+                  ) : null}
+                  {readonly ? (
+                    <Badge text="Readonly" />
+                  ) : null}
+                  {reflects ? (
+                    <Badge text="Reflects" variant="success" />
+                  ) : null}
+                </span>
+              </>
+            </summary>
+            <table>
+              <tr>
+                <th scope="row">Name</th>
+                <td>{name}</td>
+              </tr>
+              <tr>
+                <th scope="row">Attribute</th>
+                <td>{attribute ? attribute : ""}</td>
+              </tr>
+              <tr>
+                <th scope="row">Type</th>
+                <td>{type ? <Fragment set:html={typeMarkup} /> : ""}</td>
+              </tr>
+              <tr>
+                <th scope="row">Default</th>
+                <td>
+                  {defaultValue ? (
+                    <Fragment set:html={defaultValueMarkup} />
+                  ) : (
+                    ""
+                  )}
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Description</th>
+                <td>
+                  {deprecationMessage ? (
+                    <Aside
+                      type="danger"
+                      title="Deprecation warning!"
+                      set:html={deprecationMessage}
+                    />
+                  ) : null}
+                  <Fragment set:html={descriptionMarkup} />
+                </td>
+              </tr>
+            </table>
+          </details>
+        );
+      })}
+    </>
+  ) : null
+}

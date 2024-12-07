@@ -1,0 +1,66 @@
+---
+import { Aside, Badge } from "@astrojs/starlight/components";
+import type {
+  ClassMember,
+  ClassMethod,
+  CustomElementField,
+} from "custom-elements-manifest";
+import { marked } from "marked";
+
+export type Props = {
+  items: ClassMethod[];
+};
+
+const { items } = Astro.props;
+---
+
+{
+  items.length > 0 ? (
+    <>
+      <h2 id="Methods">Methods</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Return type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {items.map((m) => {
+            const { name, deprecated, description, return: returnType } = m;
+            const isDeprecated = deprecated || typeof deprecated === "string";
+            const deprecationMessage =
+              typeof deprecated === "string" ? marked(deprecated) : "";
+            const returnTypeMarkup = returnType?.type
+              ? marked.parse(`\`${returnType.type.text}\``)
+              : "";
+            const descriptionMarkup = description ? marked(description) : "";
+
+            return (
+              <tr>
+                <td>
+                  {name}
+                  {isDeprecated ? (
+                    <Badge text="Deprecated" variant="danger" />
+                  ) : null}
+                </td>
+                <td><Fragment set:html={returnTypeMarkup} /></td>
+                <td>
+                  {deprecationMessage ? (
+                    <Aside
+                      type="danger"
+                      title="Deprecation warning!"
+                      set:html={deprecationMessage}
+                    />
+                  ) : null}
+                  <Fragment set:html={descriptionMarkup} />
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </>
+  ) : null
+}
