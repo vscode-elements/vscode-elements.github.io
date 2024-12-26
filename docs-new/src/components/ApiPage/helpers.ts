@@ -11,7 +11,6 @@ import type {
   Package,
   Slot,
 } from "custom-elements-manifest";
-import cemData from "@data/custom-elements.json";
 
 const memoizedDeclarations: {
   [key: string]: {

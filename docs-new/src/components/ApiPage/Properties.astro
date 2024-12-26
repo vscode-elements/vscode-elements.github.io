@@ -24,6 +24,7 @@ const { items } = Astro.props;
           description,
           readonly,
           reflects,
+          static: staticFlag
         } = m as CustomElementField;
         const isDeprecated = deprecated || typeof deprecated === "string";
         const deprecationMessage =
@@ -37,20 +38,15 @@ const { items } = Astro.props;
         return (
           <details name="api-member" class="api-member">
             <summary class:list={[{ deprecated: isDeprecated }]}>
-              <>
-                <span class="caption">{name}</span>
-                <span class="badges">
-                  {isDeprecated ? (
-                    <Badge text="Deprecated" variant="danger" />
-                  ) : null}
-                  {readonly ? (
-                    <Badge text="Readonly" />
-                  ) : null}
-                  {reflects ? (
-                    <Badge text="Reflects" variant="success" />
-                  ) : null}
-                </span>
-              </>
+              <span class="caption">{name}</span>
+              <span class="badges">
+                {isDeprecated ? (
+                  <Badge text="deprecated" variant="danger" />
+                ) : null}
+                {readonly ? <Badge text="readonly" /> : null}
+                {reflects ? <Badge text="reflects" variant="success" /> : null}
+                {staticFlag ? <Badge text="static" variant="tip" /> : null}
+              </span>
             </summary>
             <table>
               <tr>

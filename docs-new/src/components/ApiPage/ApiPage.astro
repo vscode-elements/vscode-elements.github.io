@@ -35,13 +35,15 @@ const declaration = getCustomElementDeclaration(tagName, manifest);
     { depth: 2, slug: "CSS_Parts", text: "CSS Parts" },
   ]}
 >
+  <p><code>&lt;{tagName}&gt;</code></p>
+  {declaration?.description ? <Fragment set:html={marked(declaration.description)} /> : null}
   {
     declaration ? (
       <>
         {declaration.fields.length > 0 ? (
           <Properties items={declaration.fields} />
         ) : null}
-        {declaration.fields.length > 0 ? (
+        {declaration.methods.length > 0 ? (
           <Methods items={declaration.methods} />
         ) : null}
       </>

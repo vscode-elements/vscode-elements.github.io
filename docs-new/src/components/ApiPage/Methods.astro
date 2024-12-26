@@ -1,5 +1,6 @@
 ---
 import { Aside, Badge } from "@astrojs/starlight/components";
+import { Debug } from "astro:components";
 import type {
   ClassMember,
   ClassMethod,
@@ -14,53 +15,75 @@ export type Props = {
 const { items } = Astro.props;
 ---
 
+<h2 id="Methods">Methods</h2>
+
 {
   items.length > 0 ? (
     <>
-      <h2 id="Methods">Methods</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Return type</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          {items.map((m) => {
-            const { name, deprecated, description, return: returnType } = m;
-            const isDeprecated = deprecated || typeof deprecated === "string";
-            const deprecationMessage =
-              typeof deprecated === "string" ? marked(deprecated) : "";
-            const returnTypeMarkup = returnType?.type
-              ? marked.parse(`\`${returnType.type.text}\``)
-              : "";
-            const descriptionMarkup = description ? marked(description) : "";
+      {items.map((m) => {
+        const {
+          name,
+          deprecated,
+          description,
+          return: returnType,
+          parameters,
+        } = m;
+        const isDeprecated = deprecated || typeof deprecated === "string";
+        const deprecationMessage =
+          typeof deprecated === "string" ? marked(deprecated) : "";
+        const deprecationMarkup = deprecationMessage ? (
+          <Aside
+            type="danger"
+            title="Deprecation warning!"
+            set:html={deprecationMessage}
+          />
+        ) : null;
+        const returnTypeMarkup = returnType?.type?.text ? (
+          <>
+            : <code>{returnType.type.text}</code>
+          </>
+        ) : null;
 
-            return (
+        const parametersMarkup = parameters?.map((p, i) => {
+          const { name, type } = p;
+          const parameterType = type?.text ?? "";
+
+          console.log(parameterType, typeof parameterType);
+
+          return (
+            <Fragment>
+              {name}: <code>{parameterType}</code>
+              {i < parameters.length - 1 ? ", " : ""}
+            </Fragment>
+          );
+        });
+        const descriptionMarkup = description ? (
+          <Fragment set:html={marked(description)} />
+        ) : (
+          ""
+        );
+
+        return (
+          <details>
+            <summary>
+              {name}({parametersMarkup}){returnTypeMarkup}
+            </summary>
+            <table>
               <tr>
+                <th scope="row">Name</th>
+                <td>{name}</td>
+              </tr>
+              <tr>
+                <th scope="row">Description</th>
                 <td>
-                  {name}
-                  {isDeprecated ? (
-                    <Badge text="Deprecated" variant="danger" />
-                  ) : null}
-                </td>
-                <td><Fragment set:html={returnTypeMarkup} /></td>
-                <td>
-                  {deprecationMessage ? (
-                    <Aside
-                      type="danger"
-                      title="Deprecation warning!"
-                      set:html={deprecationMessage}
-                    />
-                  ) : null}
-                  <Fragment set:html={descriptionMarkup} />
+                  {deprecationMarkup}
+                  {descriptionMarkup}
                 </td>
               </tr>
-            );
-          })}
-        </tbody>
-      </table>
+            </table>
+          </details>
+        );
+      })}
     </>
   ) : null
 }
