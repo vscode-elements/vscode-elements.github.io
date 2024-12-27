@@ -1,1 +1,56 @@
-<p>CSS Properties</p>
+---
+import type { CssCustomProperty } from "custom-elements-manifest";
+import { marked } from "marked";
+
+export type Props = {
+  items: CssCustomProperty[];
+};
+
+const { items } = Astro.props;
+---
+
+<>
+  <h2 id="CSS_Custom_Properties">CSS Custom Properties</h2>
+  {
+    items.map((p) => {
+      const { name, default: defaultValue, description } = p;
+
+      return (
+        <details>
+          <summary>{name}</summary>
+          <table>
+            <tr>
+              <th scope="row">Name</th>
+              <td>{name}</td>
+            </tr>
+            {defaultValue ? (
+              <tr>
+                <th scope="row">Default value</th>
+                <td>{defaultValue}</td>
+              </tr>
+            ) : null}
+            {description ? (
+              <tr>
+                <th scope="row">Description</th>
+                <td>
+                  <Fragment set:html={marked(description)} />
+                </td>
+              </tr>
+            ) : null}
+          </table>
+        </details>
+      );
+    })
+  }
+</>
+
+<style>
+.deprecated .caption {
+  text-decoration: line-through;
+}
+
+.badges {
+  margin-left: 20px;
+  font-weight: normal;
+}
+</style>

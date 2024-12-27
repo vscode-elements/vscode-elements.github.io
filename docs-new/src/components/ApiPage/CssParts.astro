@@ -1,1 +1,21 @@
-<p>CSS Parts</p>
+---
+import type { CssPart } from "custom-elements-manifest";
+import { marked } from "marked";
+
+export type Props = {
+  items: CssPart[];
+};
+
+const { items } = Astro.props;
+---
+
+<>
+  <h2 id="CSS_Parts">CSS Parts</h2>
+  {
+    items.map((p) => {
+      const { name, description } = p;
+
+      
+    })
+  }
+</>

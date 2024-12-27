@@ -10,6 +10,9 @@ export default defineConfig({
       social: {
         github: "https://github.com/withastro/starlight",
       },
+      editLink: {
+        baseUrl: 'https://github.com/vscode-elements/vscode-elements.github.io/edit/main/',
+      },
       sidebar: [
         {
           label: "Guides",
@@ -17,10 +20,12 @@ export default defineConfig({
             // Each item here is one entry in the navigation menu.
             { label: "Example Guide", slug: "guides/example" },
           ],
+          collapsed: true,
         },
         {
           label: "Reference",
           autogenerate: { directory: "reference" },
+          collapsed: true,
         },
         {
           label: "Components",
@@ -28,6 +33,7 @@ export default defineConfig({
             // { label: "Badge", slug: "components/badge" },
             { label: "Button", slug: "components/button" },
           ],
+          collapsed: true,
         },
         {
           label: "API",
@@ -69,6 +75,7 @@ export default defineConfig({
             { label: "Textfield", link: "components/textfield/api" },
             { label: "Tree", link: "components/tree/api" },
           ],
+          collapsed: true,
         },
       ],
       customCss: ["./src/styles/custom.css"],

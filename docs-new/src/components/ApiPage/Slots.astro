@@ -15,7 +15,7 @@ const { items } = Astro.props;
   {
     items.map((s) => {
       const { name, deprecated, description } = s;
-      const nameMarkup = name ? name : <i>Default</i>;
+      const nameMarkup = name ? name : <i>default/unnamed</i>;
       const isDeprecated = deprecated || typeof deprecated === "string";
       const deprecationMarkup =
         typeof deprecated === "string" ? marked(deprecated) : "";

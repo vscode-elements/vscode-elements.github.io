@@ -49,7 +49,11 @@ if (hasSlots) {
 }
 
 if (hasCssProperties) {
-  headings.push({ depth: 2, slug: "CSS_Properties", text: "CSS Properties" });
+  headings.push({
+    depth: 2,
+    slug: "CSS_Custom_Properties",
+    text: "CSS Custom Properties",
+  });
 }
 
 if (hasCssParts) {
@@ -57,7 +61,14 @@ if (hasCssParts) {
 }
 ---
 
-<StarlightPage frontmatter={{ title: title }} headings={headings}>
+<StarlightPage
+  frontmatter={{
+    title: title,
+    editUrl:
+      "https://github.com/vscode-elements/vscode-elements.github.io/edit/main/src/components/ApiPage/ApiPage.astro",
+  }}
+  headings={headings}
+>
   <p>Tag name: <code>&lt;{tagName}&gt;</code></p>
   {
     declaration?.description ? (
@@ -71,10 +82,12 @@ if (hasCssParts) {
         {hasMethods ? <Methods items={declaration.methods} /> : null}
         {hasEvents ? <Events items={declaration.events} /> : null}
         {hasSlots ? <Slots items={declaration.slots} /> : null}
-        {hasCssProperties ? <CssProperties /> : null}
-        {hasCssParts ? <CssParts /> : null}
+        {hasCssProperties ? (
+          <CssProperties items={declaration.cssProps} />
+        ) : null}
+        {hasCssParts ? <CssParts items={declaration.cssParts} /> : null}
       </>
     ) : null
   }
-  <Debug dec={declaration?.slots} />
+  <Debug dec={declaration?.cssParts} />
 </StarlightPage>
