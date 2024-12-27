@@ -1,0 +1,78 @@
+---
+import { marked } from "marked";
+import type { Event } from "custom-elements-manifest";
+import { Aside, Badge } from "@astrojs/starlight/components";
+
+export type Props = {
+  items: Event[];
+};
+
+const { items } = Astro.props;
+---
+
+<>
+  <h2 id="Events">Events</h2>
+  {
+    items.map((e) => {
+      const { name, deprecated, description, type } = e;
+      const isDeprecated = deprecated || typeof deprecated === "string";
+      const deprecationMessage =
+        typeof deprecated === "string" ? marked(deprecated) : "";
+      const descriptionMarkup = description ? marked(description) : "";
+      const typeMarkup = type ? <code>{type.text}</code> : null;
+
+      return (
+        <details>
+          <summary class:list={[{ deprecated: isDeprecated }]}>
+            {name}
+            <span class="badges">
+              {isDeprecated ? (
+                <Badge text="deprecated" variant="danger" />
+              ) : null}
+            </span>
+          </summary>
+          <table>
+            {name ? (
+              <tr>
+                <th scope="row">Name</th>
+                <td>{name}</td>
+              </tr>
+            ) : null}
+            {type ? (
+              <tr>
+                <th scope="row">Type</th>
+                <td>{typeMarkup}</td>
+              </tr>
+            ) : null}
+            {description || deprecationMessage ? (
+              <tr>
+                <th scope="row">Description</th>
+                <td>
+                  {deprecationMessage ? (
+                    <Aside
+                      type="danger"
+                      title="Deprecation warning!"
+                      set:html={deprecationMessage}
+                    />
+                  ) : null}
+                  <Fragment set:html={descriptionMarkup} />
+                </td>
+              </tr>
+            ) : null}
+          </table>
+        </details>
+      );
+    })
+  }
+</>
+
+<style>
+  summary.deprecated {
+    text-decoration: line-through;
+  }
+
+  .badges {
+    font-weight: normal;
+    margin-left: 20px;
+  }
+</style>

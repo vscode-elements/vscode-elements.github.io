@@ -10,67 +10,73 @@ export type Props = {
 const { items } = Astro.props;
 ---
 
-{
-  items.length > 0 ? (
-    <>
-      <h2 id="Properties">Properties</h2>
-      {items.map((m) => {
-        const {
-          name,
-          attribute,
-          type,
-          default: defaultValue,
-          deprecated,
-          description,
-          readonly,
-          reflects,
-          static: staticFlag
-        } = m as CustomElementField;
-        const isDeprecated = deprecated || typeof deprecated === "string";
-        const deprecationMessage =
-          typeof deprecated === "string" ? marked(deprecated) : "";
-        const typeMarkup = type?.text ? marked.parse(`\`${type.text}\``) : "";
-        const defaultValueMarkup = defaultValue
-          ? marked.parse(`\`${defaultValue}\``)
-          : "";
-        const descriptionMarkup = description ? marked(description) : "";
+<>
+  <h2 id="Properties">Properties</h2>
+  {
+    items.map((m) => {
+      const {
+        name,
+        attribute,
+        type,
+        default: defaultValue,
+        deprecated,
+        description,
+        readonly,
+        reflects,
+        static: staticFlag,
+      } = m as CustomElementField;
+      const isDeprecated = deprecated || typeof deprecated === "string";
+      const deprecationMessage =
+        typeof deprecated === "string" ? marked(deprecated) : "";
+      const typeMarkup = type?.text ? marked.parse(`\`${type.text}\``) : "";
+      const defaultValueMarkup = defaultValue
+        ? marked.parse(`\`${defaultValue}\``)
+        : "";
+      const descriptionMarkup = description ? marked(description) : "";
 
-        return (
-          <details name="api-member" class="api-member">
-            <summary class:list={[{ deprecated: isDeprecated }]}>
-              <span class="caption">{name}</span>
-              <span class="badges">
-                {isDeprecated ? (
-                  <Badge text="deprecated" variant="danger" />
-                ) : null}
-                {readonly ? <Badge text="readonly" /> : null}
-                {reflects ? <Badge text="reflects" variant="success" /> : null}
-                {staticFlag ? <Badge text="static" variant="tip" /> : null}
-              </span>
-            </summary>
-            <table>
+      return (
+        <details class="api-member">
+          <summary class:list={[{ deprecated: isDeprecated }]}>
+            <span class="caption">{name}</span>
+            <span class="badges">
+              {isDeprecated ? (
+                <Badge text="deprecated" variant="danger" />
+              ) : null}
+              {readonly ? <Badge text="readonly" /> : null}
+              {reflects ? <Badge text="reflects" variant="success" /> : null}
+              {staticFlag ? <Badge text="static" variant="tip" /> : null}
+            </span>
+          </summary>
+          <table>
+            {name ? (
               <tr>
                 <th scope="row">Name</th>
                 <td>{name}</td>
               </tr>
+            ) : null}
+            {attribute ? (
               <tr>
                 <th scope="row">Attribute</th>
-                <td>{attribute ? attribute : ""}</td>
+                <td>{attribute}</td>
               </tr>
+            ) : null}
+            {type ? (
               <tr>
                 <th scope="row">Type</th>
-                <td>{type ? <Fragment set:html={typeMarkup} /> : ""}</td>
+                <td>
+                  <Fragment set:html={typeMarkup} />
+                </td>
               </tr>
+            ) : null}
+            {defaultValue ? (
               <tr>
                 <th scope="row">Default</th>
                 <td>
-                  {defaultValue ? (
-                    <Fragment set:html={defaultValueMarkup} />
-                  ) : (
-                    ""
-                  )}
+                  <Fragment set:html={defaultValueMarkup} />
                 </td>
               </tr>
+            ) : null}
+            {description || deprecationMessage ? (
               <tr>
                 <th scope="row">Description</th>
                 <td>
@@ -84,10 +90,20 @@ const { items } = Astro.props;
                   <Fragment set:html={descriptionMarkup} />
                 </td>
               </tr>
-            </table>
-          </details>
-        );
-      })}
-    </>
-  ) : null
+            ) : null}
+          </table>
+        </details>
+      );
+    })
+  }
+</>
+
+<style>
+.deprecated {
+  text-decoration: line-through;
 }
+
+.badges  {
+  margin-left: 20px;
+}
+</style>
