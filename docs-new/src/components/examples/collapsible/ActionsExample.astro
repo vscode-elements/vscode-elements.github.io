@@ -1,0 +1,64 @@
+---
+import Imports from "./Imports.astro";
+---
+
+<vscode-collapsible title="Actions example" class="collapsible" open>
+  <vscode-icon
+    name="file-add"
+    action-icon
+    aria-role="button"
+    id="btn-file-add"
+    title="New File"
+    slot="actions"></vscode-icon>
+  <vscode-icon
+    name="refresh"
+    action-icon
+    aria-role="button"
+    id="btn-refresh"
+    title="Refresh"
+    slot="actions"></vscode-icon>
+  <p>
+    Suspendisse potenti. Maecenas eu egestas metus. Nulla eget placerat mi, et
+    efficitur augue.
+  </p>
+</vscode-collapsible>
+
+<style>
+  .collapsible ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+
+  .collapsible li {
+    align-items: center;
+    display: flex;
+    height: 22px;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    width: 28px;
+  }
+
+  .collapsible p {
+    margin: 10px;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document
+      .querySelector("#btn-file-add")
+      .addEventListener("click", (event) => {
+        event.stopPropagation();
+        console.log("New File");
+      });
+
+    document
+      .querySelector("#btn-refresh")
+      .addEventListener("click", (event) => {
+        event.stopPropagation();
+        console.log("Refresh");
+      });
+  });
+</script>

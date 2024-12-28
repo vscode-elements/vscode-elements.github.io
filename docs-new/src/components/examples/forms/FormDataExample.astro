@@ -1,0 +1,48 @@
+---
+
+---
+
+<form id="form1">
+  <vscode-form-group variant="vertical">
+    <vscode-label for="form1-title">Title</vscode-label>
+    <vscode-textfield name="title" id="form1-title"></vscode-textfield>
+  </vscode-form-group>
+  <vscode-form-group variant="vertical">
+    <vscode-label for="form1-category">Category</vscode-label>
+    <vscode-single-select name="category" id="form1-category">
+      <vscode-option value="page">Page</vscode-option>
+      <vscode-option value="article">Article</vscode-option>
+      <vscode-option value="blog">Blog Post</vscode-option>
+    </vscode-single-select>
+  </vscode-form-group>
+  <vscode-form-group variant="vertical">
+    <vscode-label for="form1-body">Body</vscode-label>
+    <vscode-textarea name="body" id="form1-body" rows="10"></vscode-textarea>
+  </vscode-form-group>
+  <vscode-form-group variant="vertical">
+    <vscode-checkbox label="Draft" name="draft" id="form1-draft"
+    ></vscode-checkbox>
+  </vscode-form-group>
+  <vscode-form-group variant="vertical">
+    <vscode-button type="submit">Submit</vscode-button>
+  </vscode-form-group>
+  <pre id="form1-output"></pre>
+</form>
+
+<script is:inline>
+  const form = document.getElementById("form1");
+  let output = document.getElementById("form1-output");
+
+  form.addEventListener("submit", (ev) => {
+    ev.preventDefault();
+
+    const fd = new FormData(form);
+    let out = "";
+
+    for (let [name, value] of fd) {
+      out += `${name}: ${value}\n`;
+    }
+
+    output.innerHTML = out;
+  });
+</script>

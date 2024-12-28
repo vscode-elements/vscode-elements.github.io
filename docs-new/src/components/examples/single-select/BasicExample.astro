@@ -1,0 +1,15 @@
+---
+---
+<vscode-single-select id="select-example">
+  <vscode-option description="Consectetur adipiscing elit">Lorem</vscode-option>
+  <vscode-option selected description="Donec elit odio">Ipsum</vscode-option>
+  <vscode-option description="Aliquam ac vulputate eros">Dolor</vscode-option>
+</vscode-single-select>
+
+<script>
+  // @ts-nocheck
+  const select = document.querySelector('#select-example');
+  select!.addEventListener('change', () => {
+    console.log(select?.value);
+  });
+</script>

@@ -1,0 +1,32 @@
+---
+
+---
+
+<vscode-button id="button-1">Button</vscode-button>
+<vscode-button id="button-2" secondary>Secondary button</vscode-button>
+<vscode-button id="button-3" disabled>Disabled button</vscode-button>
+<vscode-button id="button-4" icon="account" icon-after="chevron-right"
+  >Icons</vscode-button
+>
+
+<script>
+  document.getElementById("button-1")!.addEventListener("click", (ev) => {
+    console.log(ev);
+  });
+  document.getElementById("button-2")!.addEventListener("click", (ev) => {
+    console.log(ev);
+  });
+  document.getElementById("button-3")!.addEventListener("click", (ev) => {
+    console.log(ev);
+  });
+  document.getElementById("button-4")!.addEventListener("click", (ev) => {
+    console.log(ev);
+  });
+</script>
+
+<style>
+  div {
+    display: flex;
+    gap: 4px;
+  }
+</style>

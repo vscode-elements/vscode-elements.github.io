@@ -1,0 +1,59 @@
+<vscode-tree id="tree-basic-example"></vscode-tree>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const tree = document.querySelector("#tree-basic-example");
+    const icons = {
+      branch: "folder",
+      leaf: "file",
+      open: "folder-opened",
+    };
+    const data = [
+      {
+        icons,
+        label: "node_modules",
+        value: "black hole",
+        subItems: [
+          {
+            icons,
+            label: ".bin",
+            subItems: [
+              { icons, label: "_mocha_" },
+              { icons, label: "_mocha.cmd_" },
+              { icons, label: "_mocha.ps1_" },
+              { icons, label: "acorn" },
+              { icons, label: "acorn.cmd" },
+              { icons, label: "acorn.ps1" },
+            ],
+          },
+          {
+            icons,
+            label: "@11ty",
+            open: true,
+            subItems: [
+              { icons, label: "lorem.js" },
+              { icons, label: "ipsum.js" },
+              { icons, label: "dolor.js" },
+            ],
+          },
+          { icons, label: ".DS_Store" },
+        ],
+      },
+      {
+        icons,
+        label: "scripts",
+        subItems: [
+          { icons, label: "build.js" },
+          { icons, label: "start.js" },
+        ],
+      },
+      { icons, label: ".editorconfig", selected: true },
+      { icons, label: "2021-01-18T22_10_20_535Z-debug.log" },
+    ];
+
+    tree.data = data;
+
+    tree.addEventListener("vsc-select", (event) => {
+      console.log(event.detail);
+    });
+  });
+</script>
