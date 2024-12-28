@@ -12,6 +12,7 @@ import Events from "./Events.astro";
 import Slots from "./Slots.astro";
 import CssProperties from "./CssProperties.astro";
 import CssParts from "./CssParts.astro";
+import PageSwitcher from "@components/PageSwitcher.astro";
 
 export type Props = {
   /** Custom Elements Manifest path */
@@ -69,6 +70,7 @@ if (hasCssParts) {
   }}
   headings={headings}
 >
+  <PageSwitcher />
   <p>Tag name: <code>&lt;{tagName}&gt;</code></p>
   {
     declaration?.description ? (
