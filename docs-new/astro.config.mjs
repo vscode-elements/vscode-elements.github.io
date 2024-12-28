@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
+import { pluginLineNumbers } from "@expressive-code/plugin-line-numbers";
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,6 +14,10 @@ export default defineConfig({
       editLink: {
         baseUrl:
           "https://github.com/vscode-elements/vscode-elements.github.io/edit/main/",
+      },
+      expressiveCode: {
+        // @ts-ignore
+        plugins: [pluginLineNumbers()],
       },
       sidebar: [
         {
