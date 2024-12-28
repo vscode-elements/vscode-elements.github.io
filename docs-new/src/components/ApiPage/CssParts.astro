@@ -15,7 +15,19 @@ const { items } = Astro.props;
     items.map((p) => {
       const { name, description } = p;
 
-      
+      return (
+        <details>
+          <summary>{name}</summary>
+          <table>
+            {description ? (
+              <tr>
+                <th scope="row">Description</th>
+                <td><Fragment set:html={marked(description)} /></td>
+              </tr>
+            ) : null}
+          </table>
+        </details>
+      );
     })
   }
 </>

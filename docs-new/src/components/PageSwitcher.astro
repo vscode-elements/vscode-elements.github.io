@@ -10,6 +10,10 @@ const confUrl = `/components/${componentName}/api${hasTrailingSlash ? "/" : ""}`
 ---
 
 <style>
+  .page-switcher {
+    margin-top: 0 !important;
+  }
+
   ul {
     display: flex;
     list-style: none;
@@ -34,7 +38,7 @@ const confUrl = `/components/${componentName}/api${hasTrailingSlash ? "/" : ""}`
   }
 </style>
 
-<ul class="not-content">
+<ul class="page-switcher not-content">
   <li>
     <a
       href={docsUrl}

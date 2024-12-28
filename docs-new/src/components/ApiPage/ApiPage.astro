@@ -3,7 +3,6 @@ import * as fs from "node:fs/promises";
 import type { MarkdownHeading } from "astro";
 import { Debug } from "astro:components";
 import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
-import { Aside, Badge } from "@astrojs/starlight/components";
 import { marked } from "marked";
 import { getCustomElementDeclaration } from "./helpers";
 import Properties from "./Properties.astro";
@@ -91,5 +90,4 @@ if (hasCssParts) {
       </>
     ) : null
   }
-  <Debug dec={declaration?.cssParts} />
 </StarlightPage>
