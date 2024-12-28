@@ -1,13 +1,15 @@
 ---
-
+import Demo from "@components/Demo.astro";
 ---
 
-<vscode-button id="button-1">Button</vscode-button>
-<vscode-button id="button-2" secondary>Secondary button</vscode-button>
-<vscode-button id="button-3" disabled>Disabled button</vscode-button>
-<vscode-button id="button-4" icon="account" icon-after="chevron-right"
-  >Icons</vscode-button
->
+<Demo>
+  <vscode-button id="button-1">Button</vscode-button>
+  <vscode-button id="button-2" secondary>Secondary button</vscode-button>
+  <vscode-button id="button-3" disabled>Disabled button</vscode-button>
+  <vscode-button id="button-4" icon="account" icon-after="chevron-right"
+    >Icons</vscode-button
+  >
+</Demo>
 
 <script>
   document.getElementById("button-1")!.addEventListener("click", (ev) => {

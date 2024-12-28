@@ -1,3 +1,73 @@
 ---
 title: Button
 ---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+import Demo from "@components/Demo.astro";
+import PageSwitcher from "@components/PageSwitcher.astro";
+import FormControlInfo from "@components/FormControlInfo.astro";
+
+import Imports from "@components/examples/button/Imports.astro";
+import BasicExample from '@components/examples/button/BasicExample.astro';
+import CustomizedStyles from '@components/examples/button/CustomizedStyles.astro';
+
+<Imports />
+<PageSwitcher />
+<FormControlInfo />
+
+## Basic example
+
+<BasicExample />
+
+<Tabs>
+  <TabItem label="HTML">
+    ```html
+    <vscode-button id="button-1">Button</vscode-button>
+    <vscode-button id="button-2" secondary>Secondary button</vscode-button>
+    <vscode-button id="button-3" disabled>Disabled button</vscode-button>
+    <vscode-button id="button-4" icon="account" icon-after="chevron-right">Icons</vscode-button>
+    ```
+  </TabItem>
+  <TabItem label="JavaScript">
+    ```javascript
+    document.getElementById('button-1').addEventListener('click', (ev) => {
+      console.log(ev);
+    });
+    document.getElementById('button-2').addEventListener('click', (ev) => {
+      console.log(ev);
+    });
+    document.getElementById('button-3').addEventListener('click', (ev) => {
+      console.log(ev);
+    });
+    document.getElementById('button-4').addEventListener('click', (ev) => {
+      console.log(ev);
+    });
+    ```
+  </TabItem>
+</Tabs>
+
+## Customized styles
+
+<CustomizedStyles />
+
+<Tabs>
+  <TabItem label="HTML">
+    ```html
+    <vscode-button class="settings-button-example">Add item</vscode-button>
+    <vscode-button class="scm-button-example" icon="check">Commit</vscode-button>
+    ```
+  </TabItem>
+  <TabItem label="CSS">
+    ```css
+    .settings-button-example {
+      line-height: 18px;
+      padding: 2px 14px;
+    }
+
+    .scm-button-example {
+      line-height: 26px;
+      width: 179px;
+    }
+    ```
+  </TabItem>
+</Tabs>

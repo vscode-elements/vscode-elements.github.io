@@ -1,13 +1,10 @@
 ---
-import InfoBlock from "./InfoBlock.astro";
+import { Aside } from "@astrojs/starlight/components";
 ---
 
-<InfoBlock>
-  <p>
-    This component is compatible with standard <code>&lt;form&gt;</code>
-    elements. For more information on form submission and client-side
-    validation, please refer to the <a href="/working-with-forms"
-      >Working with forms</a
-    > section.
-  </p>
-</InfoBlock>
+<Aside type="note">
+  This component is compatible with standard <code>&lt;form&gt;</code>
+   elements. For more information on form submission and client-side validation,
+  please refer to the <a href="/guides/working-with-forms">Working with forms</a>
+  section.
+</Aside>
