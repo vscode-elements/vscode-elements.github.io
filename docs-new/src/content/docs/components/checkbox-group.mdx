@@ -3,9 +3,13 @@ title: Checkbox Group
 ---
 
 import Demo from "@components/Demo.astro";
+import PageSwitcher from "@components/PageSwitcher.astro";
 import Imports from "@components/examples/checkbox-group/Imports.astro";
+import CssFixes from "@components/examples/checkbox-group/CssFixes.astro";
 
 <Imports />
+<PageSwitcher />
+<CssFixes />
 
 ## Horizontal Group
 
@@ -15,16 +19,15 @@ import Imports from "@components/examples/checkbox-group/Imports.astro";
     <vscode-checkbox label="Ipsum"></vscode-checkbox>
     <vscode-checkbox label="Dolor"></vscode-checkbox>
   </vscode-checkbox-group>
-  <Fragment slot="html">
-    ```html
-    <vscode-checkbox-group>
-      <vscode-checkbox label="Lorem"></vscode-checkbox>
-      <vscode-checkbox label="Ipsum"></vscode-checkbox>
-      <vscode-checkbox label="Dolor"></vscode-checkbox>
-    </vscode-checkbox-group>
-    ```
-  </Fragment>
 </Demo>
+
+```html
+<vscode-checkbox-group>
+  <vscode-checkbox label="Lorem"></vscode-checkbox>
+  <vscode-checkbox label="Ipsum"></vscode-checkbox>
+  <vscode-checkbox label="Dolor"></vscode-checkbox>
+</vscode-checkbox-group>
+```
 
 ## Vertical Group
 
@@ -34,13 +37,12 @@ import Imports from "@components/examples/checkbox-group/Imports.astro";
     <vscode-checkbox label="Ipsum"></vscode-checkbox>
     <vscode-checkbox label="Dolor"></vscode-checkbox>
   </vscode-checkbox-group>
-  <Fragment slot="html">
-    ```html
-    <vscode-checkbox-group variant="vertical">
-      <vscode-checkbox label="Lorem"></vscode-checkbox>
-      <vscode-checkbox label="Ipsum"></vscode-checkbox>
-      <vscode-checkbox label="Dolor"></vscode-checkbox>
-    </vscode-checkbox-group>
-    ```
-  </Fragment>
 </Demo>
+
+```html 'variant="vertical"'
+<vscode-checkbox-group variant="vertical">
+  <vscode-checkbox label="Lorem"></vscode-checkbox>
+  <vscode-checkbox label="Ipsum"></vscode-checkbox>
+  <vscode-checkbox label="Dolor"></vscode-checkbox>
+</vscode-checkbox-group>
+```

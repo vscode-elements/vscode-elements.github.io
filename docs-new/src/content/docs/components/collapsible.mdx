@@ -3,13 +3,16 @@ title: Collapsible
 ---
 
 import Demo from "@components/Demo.astro";
+import PageSwitcher from "@components/PageSwitcher.astro";
+import Imports from "@components/examples/collapsible/Imports.astro";
+
 import BasicExample from "@components/examples/collapsible/BasicExample.astro";
 import ActionsExample from "@components/examples/collapsible/ActionsExample.astro";
 import DecorationsExample from "@components/examples/collapsible/DecorationsExample.astro";
 import ScrollableExample from "@components/examples/collapsible/ScrollableExample.astro";
-import Imports from "@components/examples/collapsible/Imports.astro";
 
 <Imports />
+<PageSwitcher />
 
 ## Basic example
 
@@ -42,7 +45,7 @@ visible exclusively when the component is in the opened state.
 <Demo>
   <ActionsExample />
   <Fragment slot="html">
-    ```html
+    ```html {2-15}
     <vscode-collapsible title="Actions example" class="collapsible" open>
       <vscode-icon
         name="file-add"
@@ -116,7 +119,7 @@ Elements in the `decorations` slot are always visible, in contrast to the `actio
 <Demo>
   <DecorationsExample />
   <Fragment slot="html">
-    ```html
+    ```html {2}
     <vscode-collapsible title="Decorations example" class="collapsible">
       <vscode-badge variant="counter" slot="decorations">99</vscode-badge>
       <p>

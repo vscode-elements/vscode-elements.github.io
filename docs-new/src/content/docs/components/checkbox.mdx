@@ -3,11 +3,12 @@ title: Checkbox
 ---
 
 import Demo from "@components/Demo.astro";
+import PageSwitcher from "@components/PageSwitcher.astro";
 import FormControlInfo from "@components/FormControlInfo.astro";
 import Imports from "@components/examples/checkbox/Imports.astro";
 
 <Imports />
-
+<PageSwitcher />
 <FormControlInfo />
 
 ## Basic example
@@ -37,7 +38,7 @@ import Imports from "@components/examples/checkbox/Imports.astro";
     indeterminate
   ></vscode-checkbox>
   <Fragment slot="html">
-    ```html
+    ```html "indeterminate"
     <vscode-checkbox
       label="Indeterminate example"
       indeterminate
@@ -53,7 +54,7 @@ import Imports from "@components/examples/checkbox/Imports.astro";
     <b>Hello</b> World!
   </vscode-checkbox>
   <Fragment slot="html">
-    ```html
+    ```html {2}
     <vscode-checkbox>
       <b>Hello</b> World!
     </vscode-checkbox>

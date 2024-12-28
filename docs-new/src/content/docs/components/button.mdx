@@ -2,7 +2,6 @@
 title: Button
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components";
 import Demo from "@components/Demo.astro";
 import PageSwitcher from "@components/PageSwitcher.astro";
 import FormControlInfo from "@components/FormControlInfo.astro";
@@ -17,18 +16,17 @@ import CustomizedStyles from '@components/examples/button/CustomizedStyles.astro
 
 ## Basic example
 
-<BasicExample />
-
-<Tabs>
-  <TabItem label="HTML">
+<Demo>
+  <BasicExample />
+  <Fragment slot="html">
     ```html
     <vscode-button id="button-1">Button</vscode-button>
     <vscode-button id="button-2" secondary>Secondary button</vscode-button>
     <vscode-button id="button-3" disabled>Disabled button</vscode-button>
     <vscode-button id="button-4" icon="account" icon-after="chevron-right">Icons</vscode-button>
     ```
-  </TabItem>
-  <TabItem label="JavaScript">
+  </Fragment>
+  <Fragment slot="js">
     ```javascript
     document.getElementById('button-1').addEventListener('click', (ev) => {
       console.log(ev);
@@ -43,21 +41,22 @@ import CustomizedStyles from '@components/examples/button/CustomizedStyles.astro
       console.log(ev);
     });
     ```
-  </TabItem>
-</Tabs>
+  </Fragment>
+</Demo>
 
 ## Customized styles
 
-<CustomizedStyles />
+Styles can be tweaked.
 
-<Tabs>
-  <TabItem label="HTML">
+<Demo>
+  <CustomizedStyles />
+  <Fragment slot="html">
     ```html
     <vscode-button class="settings-button-example">Add item</vscode-button>
     <vscode-button class="scm-button-example" icon="check">Commit</vscode-button>
     ```
-  </TabItem>
-  <TabItem label="CSS">
+  </Fragment>
+  <Fragment slot="css">
     ```css
     .settings-button-example {
       line-height: 18px;
@@ -69,5 +68,5 @@ import CustomizedStyles from '@components/examples/button/CustomizedStyles.astro
       width: 179px;
     }
     ```
-  </TabItem>
-</Tabs>
+  </Fragment>
+</Demo>
