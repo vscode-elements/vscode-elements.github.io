@@ -1,0 +1,31 @@
+---
+title: Badge
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+import Demo from "@components/Demo.astro";
+import PageSwitcher from "@components/PageSwitcher.astro";
+import Imports from "@components/examples/badge/Imports.astro";
+
+<Imports />
+<PageSwitcher />
+
+## Basic example
+
+<Demo>
+  <vscode-badge>308 Settings Found</vscode-badge>
+</Demo>
+
+```html title="HTML"
+<vscode-badge>308 Settings Found</vscode-badge>
+```
+
+## Counter
+
+<Demo>
+  <vscode-badge variant="counter">42</vscode-badge>
+</Demo>
+
+```html title="HTML" 'variant="counter"'
+<vscode-badge variant="counter">42</vscode-badge>
+```

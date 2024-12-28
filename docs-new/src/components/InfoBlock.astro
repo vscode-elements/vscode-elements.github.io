@@ -1,0 +1,25 @@
+<div class="InfoBlock">
+  <slot />
+</div>
+
+<style>
+  .InfoBlock {
+    background-color: #cce5ff;
+    border-style: solid;
+    border-color: #b8daff;
+    border-width: 1px;
+    color: #004085;
+    margin: 20px 0;
+    padding: 15px;
+  }
+</style>
+
+<style is:global>
+  .InfoBlock p:first-child {
+    margin-top: 0;
+  }
+
+  .InfoBlock p:last-child {
+    margin-bottom: 0;
+  }
+</style>

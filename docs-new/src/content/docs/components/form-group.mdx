@@ -1,0 +1,98 @@
+---
+title: Form Group
+---
+
+import Demo from "@components/Demo.astro";
+import BasicExample from "@components/examples/form-group/BasicExample.astro";
+import VerticalExample from "@components/examples/form-group/VerticalExample.astro";
+import SettingsPageExample from "@components/examples/form-group/SettingsPageExample.astro";
+import Imports from "@components/examples/form-group/Imports.astro";
+
+<Imports />
+
+## Basic example
+
+The form group serves as a container component for organizing form widgets, employing CSS
+adjustments to neatly arrange the elements. The default layout is horizontal.
+
+<Demo>
+  <BasicExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-form-group>
+      <vscode-label for="basic-textfield-01">
+        Lorem <span class="normal">ipsum</span>:
+      </vscode-label>
+      <vscode-textfield
+        id="basic-textfield-01"
+        placeholder="Placeholder example"
+      ></vscode-textfield>
+      <vscode-form-helper>
+        <p>
+          Lorem ipsum <code>let dolor = sit amet</code>, consectetur adipiscing
+          elit. <span class="error">Suspendisse</span> faucibus imperdiet
+          sapien, a gravida <a href="#">dolor</a>.
+        </p>
+      </vscode-form-helper>
+    </vscode-form-group>
+    ```
+  </Fragment>
+</Demo>
+
+## Vertical layout
+
+In vertical mode the elements are arranged vertically.
+
+<Demo>
+  <VerticalExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-form-group variant="vertical">
+      <vscode-label for="vertical-textfield-01">
+        Lorem <span class="normal">ipsum</span>:
+      </vscode-label>
+      <vscode-textfield
+        id="vertical-textfield-01"
+        placeholder="Placeholder example"
+      ></vscode-textfield>
+      <vscode-form-helper>
+        <p>
+          Lorem ipsum <code>let dolor = sit amet</code>, consectetur adipiscing
+          elit. <span class="error">Suspendisse</span> faucibus imperdiet
+          sapien, a gravida <a href="#">dolor</a>.
+        </p>
+      </vscode-form-helper>
+    </vscode-form-group>
+    ```
+  </Fragment>
+</Demo>
+
+## Settings page group
+
+To create a custom settings page, the "Settings page" variant is recommended.
+This method enables the creation of interfaces that resemble the appearance of the native settings page.
+The recommended order is: label, helper text, form control.
+
+<Demo>
+  <SettingsPageExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-form-group variant="settings-group">
+      <vscode-label for="settings-textfield-01">
+        Lorem <span class="normal">ipsum</span>:
+      </vscode-label>
+      <vscode-form-helper>
+        <p>
+          Lorem ipsum <code>let dolor = sit amet</code>, consectetur adipiscing
+          elit. <span class="error">Suspendisse</span> faucibus imperdiet
+          sapien, a gravida <a href="#">dolor</a>.
+        </p>
+      </vscode-form-helper>
+      <vscode-textfield
+        id="settings-textfield-01"
+        placeholder="Placeholder example"
+      ></vscode-textfield>
+    </vscode-form-group>
+    ```
+  </Fragment>
+</Demo>
