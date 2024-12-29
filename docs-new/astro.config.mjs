@@ -5,11 +5,12 @@ import { pluginLineNumbers } from "@expressive-code/plugin-line-numbers";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://vscode-elements.github.io",
   integrations: [
     starlight({
       title: "My Docs",
       social: {
-        github: "https://github.com/withastro/starlight",
+        github: "https://github.com/vscode-elements/elements",
       },
       editLink: {
         baseUrl:
