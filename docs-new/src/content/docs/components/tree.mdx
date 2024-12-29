@@ -76,7 +76,7 @@ import DecorationsExample from "@components/examples/tree/DecorationsExample.ast
 
     tree.data = data;
 
-    tree.addEventListener('vsc-select', (event) => {
+    tree.addEventListener('vsc-tree-select', (event) => {
       console.log(event.detail);
     });
     ```
@@ -190,7 +190,7 @@ The Tree component can also be used to display lists
 
     tree.data = data;
 
-    tree.addEventListener("vsc-select", (event) => {
+    tree.addEventListener("vsc-tree-select", (event) => {
       console.log(event.detail);
     });
     ```
@@ -270,7 +270,7 @@ the tree item itself.
 
     tree.data = data;
 
-    tree.addEventListener("vsc-run-action", (ev) => {
+    tree.addEventListener("vsc-tree-action", (ev) => {
       console.log(ev.detail);
     });
     ```

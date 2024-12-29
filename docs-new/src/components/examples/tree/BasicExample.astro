@@ -1,7 +1,9 @@
 <vscode-tree id="tree-basic-example"></vscode-tree>
 <script>
+  import type { VscodeTree } from "@vscode-elements/elements/dist/vscode-tree";
+
   document.addEventListener("DOMContentLoaded", () => {
-    const tree = document.querySelector("#tree-basic-example");
+    const tree = document.querySelector("#tree-basic-example") as VscodeTree;
     const icons = {
       branch: "folder",
       leaf: "file",
@@ -52,7 +54,7 @@
 
     tree.data = data;
 
-    tree.addEventListener("vsc-select", (event) => {
+    tree.addEventListener("vsc-tree-select", (event) => {
       console.log(event.detail);
     });
   });

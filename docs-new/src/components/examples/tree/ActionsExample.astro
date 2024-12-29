@@ -1,7 +1,8 @@
 <vscode-tree id="actions-example"></vscode-tree>
 <script>
-  const tree = document.getElementById("actions-example");
+  import type { VscodeTree } from "@vscode-elements/elements/dist/vscode-tree";
 
+  const tree = document.getElementById("actions-example") as VscodeTree;
   const icons = true;
 
   const actions = [
@@ -58,7 +59,7 @@
 
   tree.data = data;
 
-  tree.addEventListener("vsc-run-action", (ev) => {
+  tree.addEventListener("vsc-tree-action", (ev) => {
     console.log(ev.detail);
   });
 </script>

@@ -12,23 +12,6 @@ import type {
   Slot,
 } from "custom-elements-manifest";
 
-const memoizedDeclarations: {
-  [key: string]: {
-    tagName?: string;
-    deprecated?: string | boolean;
-    description?: string;
-    members: ClassMember[];
-    publicMembers: ClassMember[];
-    fields: CustomElementField[];
-    methods: ClassMethod[];
-    attributes: Attribute[];
-    events: Event[];
-    slots: Slot[];
-    cssProps: CssCustomProperty[];
-    cssParts: CssPart[];
-  }[];
-} = {};
-
 type Comparable = ClassMember | CssCustomProperty;
 
 const memberCompare = (a: Comparable, b: Comparable) => {
