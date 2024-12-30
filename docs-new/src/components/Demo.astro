@@ -13,29 +13,27 @@ const { html, css, js } = Astro.slots;
     <vscode-demo><slot /></vscode-demo>
   </div>
 </div>
-<Tabs>
-  {
-    html ? (
-      <TabItem label="HTML">
-        <slot name="html" />
-      </TabItem>
-    ) : null
-  }
-  {
-    css ? (
-      <TabItem label="CSS">
-        <slot name="css" />
-      </TabItem>
-    ) : null
-  }
-  {
-    js ? (
-      <TabItem label="JavaScript">
-        <slot name="js" />
-      </TabItem>
-    ) : null
-  }
-</Tabs>
+{
+  html || css || js ? (
+    <Tabs>
+      {html ? (
+        <TabItem label="HTML">
+          <slot name="html" />
+        </TabItem>
+      ) : null}
+      {css ? (
+        <TabItem label="CSS">
+          <slot name="css" />
+        </TabItem>
+      ) : null}
+      {js ? (
+        <TabItem label="JavaScript">
+          <slot name="js" />
+        </TabItem>
+      ) : null}
+    </Tabs>
+  ) : null
+}
 
 <style>
   vscode-demo {

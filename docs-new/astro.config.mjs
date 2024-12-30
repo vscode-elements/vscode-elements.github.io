@@ -122,7 +122,10 @@ export default defineConfig({
           collapsed: true,
         },
       ],
-      customCss: ["./src/styles/custom.css"],
+      customCss: [
+        "./src/styles/restore-defaults.css",
+        "./src/styles/custom.css",
+      ],
     }),
   ],
 });

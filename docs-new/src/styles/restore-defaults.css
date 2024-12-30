@@ -1,0 +1,77 @@
+/* Restore the default values overridden by Starlight's reset.css. */
+
+vscode-checkbox-group vscode-checkbox {
+  margin-right: 20px;
+}
+
+vscode-checkbox-group[variant="vertical"] vscode-checkbox:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+vscode-divider {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+vscode-form-group {
+  margin: 15px 0;
+}
+
+vscode-form-group vscode-form-helper {
+  margin-left: calc(var(--label-width) + var(--label-right-margin));
+}
+
+vscode-form-group[variant="vertical"] vscode-form-helper,
+vscode-form-group[variant="settings-group"] vscode-form-helper {
+  margin-left: 0;
+}
+
+vscode-form-group[variant="horizontal"] vscode-label {
+  margin-right: var(--label-right-margin);
+}
+
+vscode-form-group[variant="settings-group"] vscode-form-helper {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+vscode-form-group[variant="settings-group"] vscode-label {
+  margin-bottom: 4px;
+}
+
+vscode-form-group[variant="settings-group"] vscode-inputbox,
+vscode-form-group[variant="settings-group"] vscode-textfield,
+vscode-form-group[variant="settings-group"] vscode-textarea,
+vscode-form-group[variant="settings-group"] vscode-single-select,
+vscode-form-group[variant="settings-group"] vscode-multi-select {
+  margin-top: 9px;
+}
+
+vscode-form-helper {
+  margin-top: 4px;
+  margin-top: 4px;
+}
+
+vscode-radio-group vscode-radio {
+  margin-right: 20px;
+}
+
+vscode-radio-group[variant="vertical"] vscode-radio:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+vscode-tab-header {
+  margin-bottom: -1px;
+}
+
+vscode-tab-header vscode-badge[slot="content-after"] {
+  margin-left: 8px;
+}
+
+vscode-textfield [slot="content-before"] {
+  margin-left: 2px;
+}
+
+vscode-textfield [slot="content-after"] {
+  margin-right: 2px;
+}
