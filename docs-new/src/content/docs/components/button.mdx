@@ -4,7 +4,6 @@ title: Button
 
 import Demo from "@components/Demo.astro";
 import PageSwitcher from "@components/PageSwitcher.astro";
-import FormControlInfo from "@components/FormControlInfo.astro";
 
 import Imports from "@components/examples/button/Imports.astro";
 import BasicExample from '@components/examples/button/BasicExample.astro';
@@ -12,7 +11,13 @@ import CustomizedStyles from '@components/examples/button/CustomizedStyles.astro
 
 <Imports />
 <PageSwitcher />
-<FormControlInfo />
+
+:::note
+This component is compatible with the standard `<form>`
+element. For more information on form submission and client-side validation,
+please refer to the [Working with forms](/guides/working-with-forms)
+section.
+:::
 
 ## Basic example
 

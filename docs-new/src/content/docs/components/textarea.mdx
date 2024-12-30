@@ -4,14 +4,19 @@ title: Textarea
 import Demo from "@components/Demo.astro";
 import PageSwitcher from "@components/PageSwitcher.astro";
 import Imports from "@components/examples/textarea/Imports.astro";
-import FormControlInfo from "@components/FormControlInfo.astro";
 
 import BasicExample from "@components/examples/textarea/BasicExample.astro";
 import MonospaceModeExample from "@components/examples/textarea/MonospaceModeExample.astro";
 
 <Imports />
 <PageSwitcher />
-<FormControlInfo />
+
+:::note
+This component is compatible with the standard `<form>`
+element. For more information on form submission and client-side validation,
+please refer to the [Working with forms](/guides/working-with-forms)
+section.
+:::
 
 ## Basic example
 
