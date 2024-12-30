@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.10.0",
-    "@vscode-elements/elements": "^1.6.2",
+    "@vscode-elements/elements": "^1.9.0",
     "@vscode/codicons": "^0.0.35",
     "custom-elements-manifest": "^2.0.0",
     "prettier": "^3.1.0",
