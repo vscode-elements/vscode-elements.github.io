@@ -13,6 +13,9 @@ export default defineConfig({
         github: "https://github.com/vscode-elements/elements",
       },
       favicon: '/favicon.ico',
+      logo: {
+        src: "/src/assets/logo.svg",
+      },
       editLink: {
         baseUrl:
           "https://github.com/vscode-elements/vscode-elements.github.io/edit/main/",
