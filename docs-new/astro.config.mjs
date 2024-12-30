@@ -8,10 +8,11 @@ export default defineConfig({
   site: "https://vscode-elements.github.io",
   integrations: [
     starlight({
-      title: "My Docs",
+      title: "VSCode Elements",
       social: {
         github: "https://github.com/vscode-elements/elements",
       },
+      favicon: '/favicon.ico',
       editLink: {
         baseUrl:
           "https://github.com/vscode-elements/vscode-elements.github.io/edit/main/",
@@ -25,13 +26,17 @@ export default defineConfig({
           label: "Guides",
           items: [
             // Each item here is one entry in the navigation menu.
-            { label: "Example Guide", slug: "guides/example" },
+            { label: "Getting Started", slug: "guides/getting-started" },
+            { label: "Working with forms", slug: "guides/working-with-forms" },
+            {
+              label: "Framework integrations",
+              items: [
+                { label: "React", slug: "guides/framework-integrations/react" },
+                { label: "React 18 and older", slug: "guides/framework-integrations/react-18" },
+                { label: "Vue", slug: "guides/framework-integrations/vue" },
+              ],
+            },
           ],
-          collapsed: true,
-        },
-        {
-          label: "Reference",
-          autogenerate: { directory: "reference" },
           collapsed: true,
         },
         {
