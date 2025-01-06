@@ -35,7 +35,6 @@ export default defineConfig({
               label: "Framework integrations",
               items: [
                 { label: "React", slug: "guides/framework-integrations/react" },
-                { label: "React 18 and older", slug: "guides/framework-integrations/react-18" },
                 { label: "Vue", slug: "guides/framework-integrations/vue" },
               ],
             },

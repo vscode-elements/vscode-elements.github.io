@@ -1,3 +1,101 @@
 ---
 title: React
 ---
+
+## React 18 and older
+
+In React 18 and earlier, custom elements were not fully supported. Properties and custom events
+had to be added imperatively using the useEffect hook. To simplify this process, a separate package
+was created, providing wrapper components based on the [@lit/react](https://lit.dev/docs/frameworks/react/) package. To integrate these
+wrapper components into your React app, install the package via npm:
+
+```bash
+npm i @vscode-elements/react-elements
+```
+
+### Using the components
+
+Wrapper component names follow the PascalCase convention, derived from the tag names of
+the corresponding web components.
+
+```typescript
+import { VscodeSplitLayout } from "@vscode-elements/react-elements";
+
+export default function MyComponent() {
+  return (
+    <div>
+      <VscodeSplitLayout
+        initialHandlePosition="50%"
+        onVscSplitLayoutChange={(event) => {
+          console.log(event);
+        }}
+      ></VscodeSplitLayout>
+    </div>
+  );
+}
+```
+
+For more examples, please visit the [project repository](https://github.com/vscode-elements/react-elements/tree/main/packages/demo).
+
+## Recent React version
+
+From React 19, web components are fully supported. If you use custom tag names, you must configure
+the TypeScript parser to recognize the custom elements. An [example TypeScript definition](https://github.com/vscode-elements/examples/blob/react-vite/react-vite/src/global.d.ts) is 
+available in the examples repository. To ensure proper functionality, keep the following rules in mind:
+
+- Props are treated as properties if they exist on the element instance; otherwise, they are assigned as attributes.
+- Unlike native HTML elements, use the `class` and `for` props instead of `className` and `htmlFor`.  
+- Custom events are prefixed with `on` without further modification. For example, the `vsc-split-layout-change` event becomes `onvsc-split-layout-change`.
+
+### Example
+
+```typescript
+import "@vscode-elements/elements/dist/vscode-split-layout";
+
+export default function MyComponent() {
+  return (
+    <div>
+      <vscode-split-layout
+        initialHandlePosition="50%"
+        onvsc-split-layout-change={(event) => {
+          console.log(event);
+        }}
+      ></vscode-split-layout>
+    </div>
+  );
+}
+```
+
+## Install Webview Playground (Optional)
+
+VSCode Elements components are unstyled by default. To apply the same styles used in the VSCode
+webview during development, you can install the Webview Playground developer tools.
+
+### Install the package
+
+```bash
+npm i -D @vscode-elements/webview-playground
+```
+
+### Adding to the application
+
+The following example assumes the use of Vite as the bundler.
+
+```typescript {1-3} {8}
+if (import.meta.env.DEV) {
+  await import("@vscode-elements/webview-playground");
+}
+
+function App() {
+  return (
+    <>
+      {import.meta.env.DEV ? <vscode-dev-toolbar></vscode-dev-toolbar> : null}
+      <div>
+        Rest of the app...
+      </div>
+    </>
+  )
+}
+
+export default App;
+```
