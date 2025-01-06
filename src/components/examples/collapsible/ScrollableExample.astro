@@ -26,17 +26,19 @@
 </style>
 
 <script>
+  import type { VscodeTree } from "@vscode-elements/elements/dist/vscode-tree";
+
   const icons = {
     leaf: "circle-outline",
   };
-  const tree = document.getElementById("tree-example");
-  document.getElementById("pin-icon").addEventListener("click", (ev) => {
+  const tree = document.getElementById("tree-example") as VscodeTree;
+  document.getElementById("pin-icon")!.addEventListener("click", (ev) => {
     ev.stopPropagation();
   });
-  document.getElementById("refresh-icon").addEventListener("click", (ev) => {
+  document.getElementById("refresh-icon")!.addEventListener("click", (ev) => {
     ev.stopPropagation();
   });
-  document.getElementById("filter-icon").addEventListener("click", (ev) => {
+  document.getElementById("filter-icon")!.addEventListener("click", (ev) => {
     ev.stopPropagation();
   });
 

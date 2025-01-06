@@ -1,7 +1,3 @@
----
-import Imports from "./Imports.astro";
----
-
 <vscode-collapsible title="Actions example" class="collapsible" open>
   <vscode-icon
     name="file-add"
@@ -48,14 +44,14 @@ import Imports from "./Imports.astro";
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     document
-      .querySelector("#btn-file-add")
+      .querySelector("#btn-file-add")!
       .addEventListener("click", (event) => {
         event.stopPropagation();
         console.log("New File");
       });
 
     document
-      .querySelector("#btn-refresh")
+      .querySelector("#btn-refresh")!
       .addEventListener("click", (event) => {
         event.stopPropagation();
         console.log("Refresh");

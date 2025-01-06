@@ -1,10 +1,14 @@
 <vscode-tree id="decorations-example"></vscode-tree>
 <script>
-  const tree = document.getElementById("decorations-example");
+  import type {
+    TreeItem,
+    VscodeTree,
+  } from "@vscode-elements/elements/dist/vscode-tree/vscode-tree.js";
 
+  const tree = document.getElementById("decorations-example") as VscodeTree;
   const icons = true;
 
-  const data = [
+  const data: TreeItem[] = [
     {
       label: "vscode-tree",
       icons,

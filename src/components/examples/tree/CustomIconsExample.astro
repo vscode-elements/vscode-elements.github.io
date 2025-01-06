@@ -1,11 +1,13 @@
 <vscode-tree id="custom-icons-example" indent-guides arrows></vscode-tree>
 <script>
-  const tree = document.getElementById("custom-icons-example");
+  import type { VscodeTree } from "@vscode-elements/elements/dist/vscode-tree";
+
+  const tree = document.getElementById("custom-icons-example") as VscodeTree;
 
   const iconUrls = {
-    branch: `/dev-assets/icons/folder.svg`,
-    open: `/dev-assets/icons/folder.expanded.svg`,
-    leaf: `/dev-assets/icons/typescript.svg`,
+    branch: "/icons/folder.svg",
+    open: "/icons/folder.expanded.svg",
+    leaf: "/icons/typescript.svg",
   };
 
   const data = [
@@ -24,7 +26,7 @@
         {
           iconUrls: {
             ...iconUrls,
-            leaf: `/dev-assets/icons/typescript-test.svg`,
+            leaf: "/icons/typescript-test.svg",
           },
           label: "vscode-tree.test.ts",
         },
