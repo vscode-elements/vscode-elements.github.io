@@ -18,6 +18,11 @@ import Imports from "@components/examples/icon/Imports.astro";
   ```html
   <!--
     Download codicons from https://github.com/microsoft/vscode-codicons
+
+    Note the required `id` on the link element!
+    To use web fonts in web components, the component needs to include
+    the font stylesheet in addition to the page. This id serves as a lookup so
+    the icon component can automatically create and insert it's own link tag.
   -->
   <link
     rel="stylesheet"
