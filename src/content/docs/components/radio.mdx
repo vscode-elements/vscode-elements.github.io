@@ -2,6 +2,8 @@
 title: Radio
 ---
 
+import FormControlInfo from "@components/form-control-info.md";
+
 import Demo from "@components/Demo.astro";
 import PageSwitcher from "@components/PageSwitcher.astro";
 import Imports from "@components/examples/radio/Imports.astro";
@@ -11,13 +13,7 @@ import VerticalExample from "@components/examples/radio/VerticalExample.astro";
 
 <Imports />
 <PageSwitcher />
-
-:::note
-This component is compatible with the standard `<form>`
-element. For more information on form submission and client-side validation,
-please refer to the [Working with forms](/guides/working-with-forms)
-section.
-:::
+<FormControlInfo />
 
 The Radio component is intended to select a single option from a set of options.
 It is designed to be used together with the [Radio Group](/components/radio-group) component.
