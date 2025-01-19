@@ -1,0 +1,50 @@
+---
+import { Aside } from "@astrojs/starlight/components";
+import type { Slot } from "custom-elements-manifest";
+import { marked } from "marked";
+
+export type Props = {
+  items: Slot[];
+};
+
+const { items } = Astro.props;
+---
+
+<>
+  <h2 id="Slots">Slots</h2>
+  {
+    items.map((s) => {
+      const { name, deprecated, description } = s;
+      const nameMarkup = name ? name : <i>default/unnamed</i>;
+      const isDeprecated = deprecated || typeof deprecated === "string";
+      const deprecationMarkup =
+        typeof deprecated === "string" ? marked(deprecated) : "";
+      const descriptionMarkup = description ? marked(description) : "";
+
+      return (
+        <details>
+          <summary class:list={[{ deprecated: isDeprecated }]}>
+            {nameMarkup}
+          </summary>
+          <table>
+            {descriptionMarkup || deprecationMarkup ? (
+              <tr>
+                <th scope="row">Description</th>
+                <td>
+                  {deprecationMarkup ? (
+                    <Aside
+                      type="danger"
+                      title="Deprecation warning!"
+                      set:html={deprecationMarkup}
+                    />
+                  ) : null}
+                  <Fragment set:html={descriptionMarkup} />
+                </td>
+              </tr>
+            ) : null}
+          </table>
+        </details>
+      );
+    })
+  }
+</>

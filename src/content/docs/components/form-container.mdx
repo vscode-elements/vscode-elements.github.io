@@ -1,0 +1,23 @@
+---
+title: Form Container
+---
+
+import Demo from "@components/Demo.astro";
+import PageSwitcher from "@components/PageSwitcher.astro";
+import Imports from "@components/examples/form-container/Imports.astro";
+import ResponsiveExample from "@components/examples/form-container/ResponsiveExample.astro";
+
+<Imports />
+<PageSwitcher />
+
+Form container has two purposes. The first one is adjusting the layout of the child form controls in responsive mode.
+The second one is collecting the values of the child controls. The second one has no significance
+since when the [ElementInternals API](https://developer.mozilla.org/en-US/docs/Web/API/ElementInternals) is implemented
+and the form controls are as fully functional as standard HTML form elements. 
+If responsive mode is unnecessary, it is recommended to use the standard `<form>` element.
+
+## Responsive mode
+
+<Demo>
+  <ResponsiveExample />
+</Demo>

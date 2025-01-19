@@ -1,0 +1,105 @@
+---
+title: Tabs
+---
+
+import Demo from "@components/Demo.astro";
+import PageSwitcher from "@components/PageSwitcher.astro";
+import Imports from "@components/examples/tabs/Imports.astro";
+
+import BasicExample from "@components/examples/tabs/BasicExample.astro";
+import PanelModeExample from "@components/examples/tabs/PanelModeExample.astro";
+
+<Imports />
+<PageSwitcher />
+
+## Basic example
+
+<Demo>
+  <BasicExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-tabs selected-index="1">
+      <vscode-tab-header slot="header">Lorem</vscode-tab-header>
+      <vscode-tab-panel>
+        <p>
+          Lorem ipsum dolor...
+        </p>
+      </vscode-tab-panel>
+      <vscode-tab-header slot="header">
+        Ipsum<vscode-badge variant="counter" slot="content-after">2</vscode-badge>
+      </vscode-tab-header>
+      <vscode-tab-panel>
+        <p>
+          Aliquam malesuada rhoncus nulla...
+        </p>
+      </vscode-tab-panel>
+      <vscode-tab-header slot="header">Dolor</vscode-tab-header>
+      <vscode-tab-panel>
+        <p>
+          Nulla facilisi. Vivamus...
+        </p>
+      </vscode-tab-panel>
+    </vscode-tabs>
+    ```
+  </Fragment>
+</Demo>
+
+## Panel mode
+
+The `panel` attribute gives the component panel-like appearance.
+
+<Demo>
+  <PanelModeExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-tabs selected-index="1" panel class="panel-example">
+      <vscode-icon
+        label="Maximize Panel Size"
+        title="Maximize Panel Size"
+        name="chevron-up"
+        slot="addons"
+        action-icon></vscode-icon>
+      <vscode-icon
+        label="Close Panel"
+        title="Close Panel"
+        name="close"
+        slot="addons"
+        action-icon></vscode-icon>
+      <vscode-tab-header slot="header">
+        Output<vscode-badge variant="counter" slot="content-after">2</vscode-badge>
+      </vscode-tab-header>
+      <vscode-tab-panel>
+        <vscode-scrollable>
+          <pre>
+            2022-11-06 11:17:37.568 [info] Validating found git in: C:\Program Files\Git\cmd\git.exe
+            ...
+          </pre>
+        </vscode-scrollable>
+      </vscode-tab-panel>
+      <vscode-tab-header slot="header">Terminal</vscode-tab-header>
+      <vscode-tab-panel>
+        <pre>
+          Web Dev Server started...
+        </pre>
+      </vscode-tab-panel>
+    </vscode-tabs>
+    ```
+  </Fragment>
+  <Fragment slot="css">
+    ```css
+    .panel-example vscode-tab-panel,
+    .panel-example vscode-scrollable {
+      height: 200px;
+    }
+
+    vscode-tab-panel pre {
+      color: var(--vscode-terminal-foreground);
+      font-family: var(--vscode-editor-font-family);
+      font-size: var(--vscode-editor-font-size);
+      font-weight: var(--vscode-editor-font-weight);
+      margin: 0;
+      white-space: pre-line;
+    }
+    ```
+  </Fragment>
+</Demo>

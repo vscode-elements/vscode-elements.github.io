@@ -1,0 +1,64 @@
+---
+title: Checkbox
+---
+
+import FormControlInfo from "@components/form-control-info.md";
+
+import Demo from "@components/Demo.astro";
+import PageSwitcher from "@components/PageSwitcher.astro";
+import Imports from "@components/examples/checkbox/Imports.astro";
+
+<Imports />
+<PageSwitcher />
+<FormControlInfo />
+
+## Basic example
+
+<Demo>
+  <vscode-checkbox
+    label="Checkbox example"
+    value="testvalue1"
+    checked
+  ></vscode-checkbox>
+  <Fragment slot="html">
+    ```html
+    <vscode-checkbox
+      label="Checkbox example"
+      value="testvalue1"
+      checked
+    ></vscode-checkbox>
+    ```
+  </Fragment>
+</Demo>
+
+## Indeterminate state
+
+<Demo>
+  <vscode-checkbox
+    label="Indeterminate example"
+    indeterminate
+  ></vscode-checkbox>
+  <Fragment slot="html">
+    ```html "indeterminate"
+    <vscode-checkbox
+      label="Indeterminate example"
+      indeterminate
+    ></vscode-checkbox>
+    ```
+  </Fragment>
+</Demo>
+
+## Slotted content
+
+<Demo>
+  <vscode-checkbox>
+    <b>Hello</b> World!
+  </vscode-checkbox>
+  <Fragment slot="html">
+    ```html {2}
+    <vscode-checkbox>
+      <b>Hello</b> World!
+    </vscode-checkbox>
+    ```
+  </Fragment>
+</Demo>

@@ -1,0 +1,88 @@
+---
+title: Button
+---
+
+import Demo from "@components/Demo.astro";
+import PageSwitcher from "@components/PageSwitcher.astro";
+import FormControlInfo from "@components/form-control-info.md";
+import IconsInfo from "@components/icons-info.md";
+
+import Imports from "@components/examples/button/Imports.astro";
+import CustomizedStyles from '@components/examples/button/CustomizedStyles.astro';
+
+<Imports />
+<PageSwitcher />
+<FormControlInfo />
+
+## Basic example
+
+<Demo>
+  <vscode-button>Button</vscode-button>
+  <Fragment slot="html">
+    ```html
+    <vscode-button>Button</vscode-button>
+    ```
+  </Fragment>
+</Demo>
+
+## Secondary button
+
+<Demo>
+  <vscode-button secondary>Secondary button</vscode-button>
+  <Fragment slot="html">
+    ```html "secondary"
+    <vscode-button secondary>Secondary button</vscode-button>
+    ```
+  </Fragment>
+</Demo>
+
+## Disabled button
+
+<Demo>
+  <vscode-button disabled>Disabled button</vscode-button>
+  <Fragment slot="html">
+    ```html "disabled"
+    <vscode-button disabled>Disabled button</vscode-button>
+    ```
+  </Fragment>
+</Demo>
+
+## Icons
+
+<IconsInfo />
+
+<Demo>
+  <vscode-button icon="account" icon-after="chevron-right">Icons</vscode-button>
+  <Fragment slot="html">
+    ```html 'icon="account"' 'icon-after="chevron-right"'
+    <vscode-button icon="account" icon-after="chevron-right">Icons</vscode-button>
+    ```
+  </Fragment>
+</Demo>
+
+## Customized styles
+
+Styles can be tweaked.
+
+<Demo>
+  <CustomizedStyles />
+  <Fragment slot="html">
+    ```html
+    <vscode-button class="settings-button-example">Add item</vscode-button>
+    <vscode-button class="scm-button-example" icon="check">Commit</vscode-button>
+    ```
+  </Fragment>
+  <Fragment slot="css">
+    ```css
+    .settings-button-example {
+      line-height: 18px;
+      padding: 2px 14px;
+    }
+
+    .scm-button-example {
+      line-height: 26px;
+      width: 179px;
+    }
+    ```
+  </Fragment>
+</Demo>

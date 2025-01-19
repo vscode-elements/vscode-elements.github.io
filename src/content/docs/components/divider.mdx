@@ -1,0 +1,28 @@
+---
+title: Divider
+---
+
+import Demo from "@components/Demo.astro";
+import PageSwitcher from "@components/PageSwitcher.astro";
+import BasicExample from "@components/examples/divider/BasicExample.astro";
+import Imports from "@components/examples/divider/Imports.astro";
+
+<Imports />
+<PageSwitcher />
+
+## Basic example
+
+<Demo>
+  <BasicExample />
+  <Fragment slot="html">
+    ```html
+    <p>
+      Praesent ultrices mauris ...
+    </p>
+    <vscode-divider></vscode-divider>
+    <p>
+      Praesent ultrices mauris ...
+    </p>
+    ```
+  </Fragment>
+</Demo>

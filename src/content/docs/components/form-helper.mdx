@@ -1,0 +1,36 @@
+---
+title: Form Helper
+---
+
+import Demo from "@components/Demo.astro";
+import PageSwitcher from "@components/PageSwitcher.astro";
+import Imports from "@components/examples/form-helper/Imports.astro";
+
+import BasicExample from "@components/examples/form-helper/BasicExample.astro";
+
+<Imports />
+<PageSwitcher />
+
+The Form Helper offers additional help text for [Form Group](/components/form-group) and can include HTML content.
+
+## Basic example
+
+<Demo>
+  <BasicExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-form-helper>
+      <p>
+        Lorem ipsum <code>let dolor = sit amet</code>, consectetur adipiscing
+        elit. <span class="error">Suspendisse</span> faucibus imperdiet sapien,
+        a gravida <a href="#">dolor</a>.
+      </p>
+      <ul>
+        <li>Lorem</li>
+        <li>Ipsum</li>
+        <li>Dolor</li>
+      </ul>
+    </vscode-form-helper>
+    ```
+  </Fragment>
+</Demo>

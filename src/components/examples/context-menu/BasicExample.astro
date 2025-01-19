@@ -34,11 +34,13 @@
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const menu = document.querySelector("#context-menu");
-    const button = document.querySelector("#toggle-menu-button");
+import type { VscodeContextMenu } from "@vscode-elements/elements/dist/vscode-context-menu";
 
-    document.querySelector("#context-menu").data = [
+  document.addEventListener("DOMContentLoaded", () => {
+    const menu = document.querySelector("#context-menu") as VscodeContextMenu;
+    const button = document.querySelector("#toggle-menu-button") as HTMLElement;
+
+    menu.data = [
       {
         label: "Command palette...",
         keybinding: "Ctrl+Shift+A",
@@ -46,6 +48,7 @@
       },
       {
         separator: true,
+        label: ""
       },
       {
         label: "Settings",

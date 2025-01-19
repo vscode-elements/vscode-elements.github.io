@@ -1,0 +1,59 @@
+---
+import ApiPage from "@components/ApiPage/ApiPage.astro";
+
+export function getStaticPaths() {
+  return [
+    { params: { component: "badge" } },
+    { params: { component: "button" } },
+    { params: { component: "checkbox" } },
+    { params: { component: "checkbox-group" } },
+    { params: { component: "collapsible" } },
+    { params: { component: "context-menu" } },
+    { params: { component: "context-menu-item" } },
+    { params: { component: "divider" } },
+    { params: { component: "form-container" } },
+    { params: { component: "form-group" } },
+    { params: { component: "form-helper" } },
+    { params: { component: "icon" } },
+    { params: { component: "label" } },
+    { params: { component: "multi-select" } },
+    { params: { component: "option" } },
+    { params: { component: "progress-ring" } },
+    { params: { component: "radio" } },
+    { params: { component: "radio-group" } },
+    { params: { component: "scrollable" } },
+    { params: { component: "single-select" } },
+    { params: { component: "split-layout" } },
+    { params: { component: "tab-header" } },
+    { params: { component: "tab-panel" } },
+    { params: { component: "table" } },
+    { params: { component: "table-body" } },
+    { params: { component: "table-cell" } },
+    { params: { component: "table-header" } },
+    { params: { component: "table-header-cell" } },
+    { params: { component: "table-row" } },
+    { params: { component: "tabs" } },
+    { params: { component: "textarea" } },
+    { params: { component: "textfield" } },
+    { params: { component: "tree" } },
+  ];
+}
+
+const camelize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+
+const kebabToPascal = (kebab: string) => {
+  const parts = kebab.split('-');
+
+  return parts.reduce(
+    (prevVal, currentVal) => prevVal + camelize(currentVal),
+    ''
+  );
+};
+
+const { component } = Astro.params;
+const tagName = "vscode-" + component;
+const title = kebabToPascal(component);
+const cemPath = "node_modules/@vscode-elements/elements/custom-elements.json";
+---
+
+<ApiPage cemPath={cemPath} tagName={tagName} title={title} />

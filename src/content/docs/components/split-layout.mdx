@@ -1,0 +1,101 @@
+---
+title: Split Layout
+---
+
+import Demo from "@components/Demo.astro";
+import PageSwitcher from "@components/PageSwitcher.astro";
+
+import Imports from "@components/examples/split-layout/Imports.astro";
+import BasicExample from "@components/examples/split-layout/BasicExample.astro";
+import HorizontalExample from "@components/examples/split-layout/HorizontalExample.astro";
+import NestedExample from "@components/examples/split-layout/NestedExample.astro";
+
+<Imports />
+<PageSwitcher />
+
+## Basic example
+
+<Demo>
+  <BasicExample />
+  <Fragment slot="html">
+    ```html
+    <div slot="start" class="split-layout-content">
+      Praesent ultrices mauris lectus, eu molestie...
+    </div>
+    <div slot="end" class="split-layout-content">
+      Praesent ultrices mauris lectus, eu molestie...
+    </div>
+    ```
+  </Fragment>
+  <Fragment slot="css">
+    ```css
+    .split-layout-example {
+      border: 1px solid var(--vscode-editorWidget-border);
+      height: 200px;
+      width: 500px;
+    }
+
+    .split-layout-content {
+      overflow-y: auto;
+    }
+    ```
+
+  </Fragment>
+</Demo>
+
+## Split horizontally
+
+<Demo>
+  <HorizontalExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-split-layout class="split-layout-example" split="vertical">
+      <div slot="start" class="split-layout-content start">
+        Praesent ultrices mauris lectus...
+      </div>
+      <div slot="end" class="split-layout-content">
+        Praesent ultrices mauris lectus...
+      </div>
+    </vscode-split-layout>
+    ```
+  </Fragment>
+  <Fragment slot="css">
+    ```css
+    vscode-scrollable {
+      height: 500px;
+      width: 200px;
+    }
+    ```
+  </Fragment>
+</Demo>
+
+## Nested layouts
+
+<Demo>
+  <NestedExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-split-layout class="split-layout-example">
+      <div slot="start">
+        Praesent ultrices mauris lectus...
+      </div>
+      <vscode-split-layout split="horizontal" slot="end">
+        <div slot="start">
+          Praesent ultrices mauris lectus...
+        </div>
+        <div slot="end">
+          Praesent ultrices mauris lectus...
+        </div>
+      </vscode-split-layout>
+    </vscode-split-layout>
+    ```
+  </Fragment>
+  <Fragment slot="css">
+    ```css
+    .split-layout-example {
+      height: 500px;
+      width: 500px;
+    }
+    ```
+  </Fragment>
+</Demo>

@@ -1,0 +1,157 @@
+---
+title: Getting started
+---
+
+import { Badge } from "@astrojs/starlight/components";
+import { Aside } from "@astrojs/starlight/components";
+
+## What is VSCode Elements?
+
+The "webview API" enables extensions to build entirely customizable views within Visual Studio Code.
+While the VSCode API grants access to different UI elements, none of these UI widgets are functional
+in the "webview." VSCode Elements addresses this by re-implementing these UI controls as web
+components (aka custom elements), and introducing some new ones. This allows for the creation of
+user interfaces that look like the native user interface of VSCode.
+
+:::note
+The appearance of components provided by VSCode Elements depends on the
+presence of hundreds of CSS variables and default styles supplied by the
+VSCode Webview. The [Webview
+Playground](https://github.com/vscode-elements/webview-playground) was created
+to emulate this environment during development. 
+:::
+
+## You may not need VSCode Elements
+
+If you prefer traditional HTML and CSS over JavaScript, or if you'd rather avoid adding a new 
+dependency, consider checking out the [VSCode Elements Lite](https://vscode-elements.github.io/elements-lite) project. It offers a collection of HTML 
+and CSS snippets that, in many cases, are perfectly suitable. This approach is both simple and robust.
+
+## Installation
+
+You can access the library as NPM package:
+
+```bash
+npm i @vscode-elements/elements
+```
+
+### Including the bundled version
+
+This is the most straightforward method, and while it may not be the most optimized, it gets the job done.
+
+```html
+<script
+  src="node_modules/@vscode-elements/elements/dist/bundled.js"
+  type="module"
+></script>
+```
+
+### Importing only necessary components
+
+```typescript
+import "@vscode-elements/elements/dist/vscode-button/index.js";
+```
+
+## Usage
+
+The imported components will be automatically registered. Once registered,
+Vscode Elements can be used like standard HTML elements. A standard default view
+can be provided using the `:defined()` pseudo-class until the element is
+registered.
+
+```css
+vscode-buttton:not(:defined) {
+  display: inline-block;
+  height: 26px;
+  visibility: hidden;
+  width: 100px;
+}
+```
+
+### Properties and attributes
+
+Custom elements are configurable through properties and attributes. Properties used in JavaScript
+while attributes are used in HTML.
+
+An example of using a property:
+
+```javascript
+const badge = document.querySelector("vscode-badge");
+badge.variant = "activity-bar-counter";
+```
+
+An attribute example
+
+```html
+<vscode-badge variant="activity-bar-counter"></vscode-badge>
+```
+
+The attribute name may differs from the property name. In the API documentation, the attribute
+corresponding to the property is always indicated if it exists.
+
+#### Attribute and property reflection
+
+Property reflection means that the related attribute will be synchronized when the property is
+changed. When a property is reflected it will be indicated with the <Badge text="reflects" variant="success" />
+badge in the API documentation.
+
+### Methods
+
+Methods are callable functions on the element instances.
+
+```javascript
+const textfield = document.querySelector("vscode-textfield");
+textfield.reportValidity();
+```
+
+### Events
+
+Most of the components dispatch events.
+
+```javascript
+const tabs = document.querySelector("vscode-tabs");
+tabs.addEventListener("vsc-tabs-select", () => {
+  console.log("A tab has been selected.");
+});
+```
+
+Most of the components use native events if possible. When a component has a custom event, the event
+is exported as a TypeScript type. All exported events are descendants of the `CustomEvent` class.
+
+```typescript
+import type { VscTabsSelectEvent } from "@vscode-elements/elements/dist/vscode-tabs/vscode-tabs";
+```
+
+### Slots
+
+Slots are used to accept HTML content.
+The default slot, which is the content between the HTML tags, is the most common slot:
+
+```html
+<vscode-button>Click here</vscode-button>
+```
+
+Many components have named slots. In the following example the badge component
+is placed in the `decorations` slot.
+
+```html 'slot="decorations"'
+<vscode-collapsible title="Decorations example" class="collapsible">
+  <vscode-badge variant="counter" slot="decorations">99</vscode-badge>
+  <p>
+    Suspendisse potenti. Maecenas eu egestas metus. Nulla eget placerat mi, et
+    efficitur augue.
+  </p>
+</vscode-collapsible>
+```
+
+### Custom CSS properties
+
+The appearance of VSCode elements can be configured using custom CSS properties. These variables are 
+provided by VSCode, and in most cases, it is not recommended to change them manually, although they 
+can be modified if necessary.
+
+```css
+vscode-button {
+  --vscode-button-hoverBackground: red;
+}
+```

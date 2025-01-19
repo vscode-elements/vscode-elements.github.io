@@ -1,0 +1,94 @@
+---
+import { Aside } from "@astrojs/starlight/components";
+import type { ClassMethod } from "custom-elements-manifest";
+import { marked } from "marked";
+
+export type Props = {
+  items: ClassMethod[];
+};
+
+const { items } = Astro.props;
+---
+
+<>
+  <h2 id="Methods">Methods</h2>
+  {
+    items.map((m) => {
+      const {
+        name,
+        deprecated,
+        description,
+        return: returnType,
+        parameters,
+      } = m;
+      const isDeprecated = deprecated || typeof deprecated === "string";
+      const deprecationMessage =
+        typeof deprecated === "string" ? marked(deprecated) : "";
+      const deprecationMarkup = deprecationMessage ? (
+        <Aside
+          type="danger"
+          title="Deprecation warning!"
+          set:html={deprecationMessage}
+        />
+      ) : null;
+      const returnTypeMarkup = returnType?.type?.text ? (
+        <>
+          : <code>{returnType.type.text}</code>
+        </>
+      ) : null;
+
+      const parametersMarkup = parameters?.map((p, i) => {
+        const { name, type } = p;
+        const parameterType = type?.text ?? "";
+
+        return (
+          <Fragment>
+            {name}: <code>{parameterType}</code>
+            {i < parameters.length - 1 ? ", " : ""}
+          </Fragment>
+        );
+      });
+      const descriptionMarkup = description ? (
+        <Fragment set:html={marked(description)} />
+      ) : (
+        ""
+      );
+
+      return (
+        <details>
+          <summary class:list={[{ deprecated: isDeprecated }]}>
+            {name}({parametersMarkup}){returnTypeMarkup}
+          </summary>
+          <table>
+            {name ? (
+              <tr>
+                <th scope="row">Name</th>
+                <td>{name}</td>
+              </tr>
+            ) : null}
+            {description ? (
+              <tr>
+                <th scope="row">Description</th>
+                <td>
+                  {deprecationMarkup}
+                  {descriptionMarkup}
+                </td>
+              </tr>
+            ) : null}
+          </table>
+        </details>
+      );
+    })
+  }
+</>
+
+<style>
+.deprecated .caption {
+  text-decoration: line-through;
+}
+
+.badges {
+  margin-left: 20px;
+  font-weight: normal;
+}
+</style>

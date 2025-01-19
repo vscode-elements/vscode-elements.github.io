@@ -1,0 +1,43 @@
+---
+title: Badge
+---
+
+import Demo from "@components/Demo.astro";
+import PageSwitcher from "@components/PageSwitcher.astro";
+import Imports from "@components/examples/badge/Imports.astro";
+
+<Imports />
+<PageSwitcher />
+
+## Basic example
+
+<Demo>
+  <vscode-badge>308 Settings Found</vscode-badge>
+  <Fragment slot="html">
+    ```html
+    <vscode-badge>308 Settings Found</vscode-badge>
+    ```
+  </Fragment>
+</Demo>
+
+## Counter
+
+<Demo>
+  <vscode-badge variant="counter">42</vscode-badge>
+  <Fragment slot="html">
+    ```html
+    <vscode-badge variant="counter">42</vscode-badge>
+    ```
+  </Fragment>
+</Demo>
+
+## Activity bar counter
+
+<Demo>
+  <vscode-badge variant="activity-bar-counter">42</vscode-badge>
+  <Fragment slot="html">
+    ```html
+    <vscode-badge variant="activity-bar-counter">42</vscode-badge>
+    ```
+  </Fragment>
+</Demo>

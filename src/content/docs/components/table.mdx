@@ -1,0 +1,231 @@
+---
+title: Table
+---
+
+import Demo from "@components/Demo.astro";
+import PageSwitcher from "@components/PageSwitcher.astro";
+import Imports from "@components/examples/table/Imports.astro";
+
+import BasicExample from "@components/examples/table/BasicExample.astro";
+import ScrollableExample from "@components/examples/table/ScrollableExample.astro";
+import ResponsiveExample from "@components/examples/table/ResponsiveExample.astro";
+import ResizableColumnsExample from "@components/examples/table/ResizableColumnsExample.astro";
+import ComplexContentExample from "@components/examples/table/ComplexContentExample.astro";
+
+<Imports />
+<PageSwitcher />
+
+The unique feature of the Table component, as compared to the standard table element, is its fixed header and resizable columns.
+
+## Basic example
+
+<Demo>
+  <BasicExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-table zebra bordered-rows>
+      <vscode-table-header slot="header">
+        <vscode-table-header-cell>First name</vscode-table-header-cell>
+        <vscode-table-header-cell>Last name</vscode-table-header-cell>
+        <vscode-table-header-cell>Email</vscode-table-header-cell>
+      </vscode-table-header>
+      <vscode-table-body slot="body">
+        <vscode-table-row>
+          <vscode-table-cell>Vincenza</vscode-table-cell>
+          <vscode-table-cell>Lindgren</vscode-table-cell>
+          <vscode-table-cell>Delia21@yahoo.com</vscode-table-cell>
+        </vscode-table-row>
+        <vscode-table-row>
+          <vscode-table-cell>Clark</vscode-table-cell>
+          <vscode-table-cell>Breitenberg</vscode-table-cell>
+          <vscode-table-cell>Nat_Moore@gmail.com</vscode-table-cell>
+        </vscode-table-row>
+        <vscode-table-row>
+          <vscode-table-cell>Fiona</vscode-table-cell>
+          <vscode-table-cell>Wintheiser</vscode-table-cell>
+          <vscode-table-cell>Asa30@gmail.com</vscode-table-cell>
+        </vscode-table-row>
+      </vscode-table-body>
+    </vscode-table>
+    ```
+  </Fragment>
+</Demo>
+
+## Scrollable body
+
+If the table is assigned a fixed height and the content exceeds the table's height, the content will become scrollable.
+
+<Demo>
+  <ScrollableExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-table class="scrollable-example">
+      <vscode-table-header slot="header">
+        <vscode-table-header-cell>First name</vscode-table-header-cell>
+        <vscode-table-header-cell>Last name</vscode-table-header-cell>
+      </vscode-table-header>
+      <vscode-table-body slot="body">
+        <vscode-table-row>
+          <vscode-table-cell>Vincenza</vscode-table-cell>
+          <vscode-table-cell>Lindgren</vscode-table-cell>
+        </vscode-table-row>
+        ...
+      </vscode-table-body>
+    </vscode-table>
+    ```
+  </Fragment>
+</Demo>
+
+## Responsive layout
+
+The table switch to compact layout mode when its narrower than the set breakpoint.
+
+<Demo>
+  <ResponsiveExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-table
+      class="responsive-example"
+      bordered-columns
+      zebra
+      responsive
+      breakpoint="400"
+    >
+      <vscode-table-header slot="header">
+        <vscode-table-header-cell>First name</vscode-table-header-cell>
+        <vscode-table-header-cell>Last name</vscode-table-header-cell>
+      </vscode-table-header>
+      <vscode-table-body slot="body">
+        <vscode-table-row>
+          <vscode-table-cell>Vincenza</vscode-table-cell>
+          <vscode-table-cell>Lindgren</vscode-table-cell>
+        </vscode-table-row>
+        ...
+      </vscode-table-body>
+    </vscode-table>
+    ```
+  </Fragment>
+</Demo>
+
+## Resizable columns
+
+<Demo>
+  <ResizableColumnsExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-table class="resizable-example" zebra bordered-columns resizable>
+      <vscode-table-header slot="header">
+        <vscode-table-header-cell>First name</vscode-table-header-cell>
+        <vscode-table-header-cell>Last name</vscode-table-header-cell>
+      </vscode-table-header>
+      <vscode-table-body slot="body">
+        <vscode-table-row>
+          <vscode-table-cell>Vincenza</vscode-table-cell>
+          <vscode-table-cell>Lindgren</vscode-table-cell>
+        </vscode-table-row>
+        ...
+      </vscode-table-body>
+    </vscode-table>
+    ```
+  </Fragment>
+</Demo>
+
+## Delayed resizing
+
+<Demo>
+  <ResizableColumnsExample delayed />
+  <Fragment slot="html">
+    ```html
+    <vscode-table class="resizable-example" zebra bordered-columns resizable delayed-resizing>
+      <vscode-table-header slot="header">
+        <vscode-table-header-cell>First name</vscode-table-header-cell>
+        <vscode-table-header-cell>Last name</vscode-table-header-cell>
+      </vscode-table-header>
+      <vscode-table-body slot="body">
+        <vscode-table-row>
+          <vscode-table-cell>Vincenza</vscode-table-cell>
+          <vscode-table-cell>Lindgren</vscode-table-cell>
+        </vscode-table-row>
+        ...
+      </vscode-table-body>
+    </vscode-table>
+    ```
+  </Fragment>
+</Demo>
+
+## Complex content
+
+It is also suitable for displaying large amounts of data and complex content.
+
+<Demo>
+  <ComplexContentExample delayed />
+  <Fragment slot="html">
+    ```html
+    <vscode-table
+      class="complex-table-example"
+      columns='["52px", "80px", "80px"]'
+      bordered-columns
+      zebra
+      min-column-width="5"
+    >
+      <vscode-table-header slot="header">
+        <vscode-table-header-cell
+          >Profile <picture></picture>
+        </vscode-table-header-cell>
+        <vscode-table-header-cell>First name</vscode-table-header-cell>
+        <vscode-table-header-cell>Last name</vscode-table-header-cell>
+        <vscode-table-header-cell>Email</vscode-table-header-cell>
+        <vscode-table-header-cell>Introduction</vscode-table-header-cell>
+      </vscode-table-header>
+      <vscode-table-body slot="body">
+        <vscode-table-row>
+          <vscode-table-cell>
+            <div
+              style="align-items:center;background-color:#2c7500;color:#fff;display:flex;justify-content:center;height:32px;width:32px;"
+            >
+              CD
+            </div>
+          </vscode-table-cell>
+          <vscode-table-cell>Carmelo</vscode-table-cell>
+          <vscode-table-cell>Dooley</vscode-table-cell>
+          <vscode-table-cell>Colby55@yahoo.com</vscode-table-cell>
+          <vscode-table-cell
+            >Cum et aut assumenda. Temporibus voluptas facilis sed et accusamus est
+            nisi harum minus. Dolor modi quos soluta laborum repellendus
+            exercitationem voluptas cum. Dolorem explicabo eveniet incidunt dolorum
+            atque ut.</vscode-table-cell
+          >
+        </vscode-table-row>
+        ...
+      </vscode-table-body>
+    </vscode-table>
+    ```
+  </Fragment>
+  <Fragment slot="css">
+    ```css
+    .complex-table-example {
+      height: 500px;
+      width: 100%;
+    }
+
+    .complex-table-example:not(:defined) {
+      background-color: #f6f8fa;
+      display: block;
+      height: 500px;
+      width: 100%;
+    }
+
+    .complex-table-example:not(:defined) vscode-table-header,
+    .complex-table-example:not(:defined) vscode-table-body {
+      display: none;
+    }
+
+    .complex-table-example vscode-table-cell {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      vertical-align: top;
+      white-space: normal;
+    }
+    ```
+  </Fragment>
+</Demo>

@@ -1,0 +1,77 @@
+---
+title: Single Select
+---
+
+import FormControlInfo from "@components/form-control-info.md";
+
+import Demo from "@components/Demo.astro";
+import PageSwitcher from "@components/PageSwitcher.astro";
+import Imports from "@components/examples/single-select/Imports.astro";
+
+import BasicExample from "@components/examples/single-select/BasicExample.astro";
+import ComboboxExample from "@components/examples/single-select/ComboboxExample.astro";
+
+<Imports />
+<PageSwitcher />
+<FormControlInfo />
+
+## Basic example
+
+<Demo>
+  <BasicExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-single-select id="select-example">
+      <vscode-option description="Consectetur adipiscing elit">Lorem</vscode-option>
+      <vscode-option selected description="Donec elit odio">Ipsum</vscode-option>
+      <vscode-option description="Aliquam ac vulputate eros">Dolor</vscode-option>
+    </vscode-single-select>
+    ```
+  </Fragment>
+  <Fragment slot="js">
+    ```javascript
+    const select = document.querySelector('#select-example');
+
+    select.addEventListener('change', (event) => {
+      console.log(select.value);
+    });
+    ```
+  </Fragment>
+</Demo>
+
+## Combobox mode
+
+<Demo>
+  <ComboboxExample />
+  <Fragment slot="html">
+    ```html
+    <p>
+      <label for="search-method">Search method:</label>
+      <select name="search-method-selector" id="search-method-selector">
+        <option value="contains">contains</option>
+        <option value="fuzzy">fuzzy</option>
+        <option value="startsWith">startsWith</option>
+        <option value="startsWithPerTerm">startsWithPerTerm</option>
+      </select>
+    </p>
+    
+    <vscode-single-select id="combobox-example" combobox>
+      <vscode-option>Afghanistan</vscode-option>
+      <vscode-option>Albania</vscode-option>
+      ...
+    </vscode-single-select>
+    ```
+  </Fragment>
+  <Fragment slot="js">
+    ```javascript
+    const cb = document.querySelector("#combobox-example");
+    const sl = document.querySelector("#search-method-selector");
+
+    sl.addEventListener("change", () => {
+      cb.filter = sl.options[sl.selectedIndex].value;
+    });
+
+    cb.filter = sl.options[sl.selectedIndex].value;
+    ```
+  </Fragment>
+</Demo>

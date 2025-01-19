@@ -1,0 +1,11 @@
+---
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+---
+
+<StarlightPage
+  frontmatter={{ title: "My custom page" }}
+  headings={[{ depth: 2, slug: "lorem", text: "Lorem" }]}
+>
+  <p>This is a custom page with a custom component:</p>
+  <h2>Lorem</h2>
+</StarlightPage>

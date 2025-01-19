@@ -1,0 +1,97 @@
+---
+/**
+ * This component displays the content of the custom elements manifest provided
+ * with the VSCode Elements npm package. The component documentation itself is
+ * defined through JSDoc comments in the library's source code.
+ */
+import * as fs from "node:fs/promises";
+import type { MarkdownHeading } from "astro";
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+import { marked } from "marked";
+import { getCustomElementDeclaration } from "./helpers";
+import Properties from "./Properties.astro";
+import Methods from "./Methods.astro";
+import Events from "./Events.astro";
+import Slots from "./Slots.astro";
+import CssProperties from "./CssProperties.astro";
+import CssParts from "./CssParts.astro";
+import PageSwitcher from "@components/PageSwitcher.astro";
+
+export type Props = {
+  /** Custom Elements Manifest path */
+  cemPath: string;
+  tagName: string;
+  title: string;
+};
+
+const { cemPath, tagName, title } = Astro.props;
+const fc = await fs.readFile(cemPath, "utf-8");
+const manifest = JSON.parse(fc);
+const declaration = getCustomElementDeclaration(tagName, manifest);
+const hasProperties = declaration?.fields.length ?? 0 > 0;
+const hasMethods = declaration?.methods.length ?? 0 > 0;
+const hasEvents = declaration?.events.length ?? 0 > 0;
+const hasSlots = declaration?.slots.length ?? 0 > 0;
+const hasCssProperties = declaration?.cssProps.length ?? 0 > 0;
+const hasCssParts = declaration?.cssParts.length ?? 0 > 0;
+const headings: MarkdownHeading[] = [];
+
+if (hasProperties) {
+  headings.push({ depth: 2, slug: "Properties", text: "Properties" });
+}
+
+if (hasMethods) {
+  headings.push({ depth: 2, slug: "Methods", text: "Methods" });
+}
+
+if (hasEvents) {
+  headings.push({ depth: 2, slug: "Events", text: "Events" });
+}
+
+if (hasSlots) {
+  headings.push({ depth: 2, slug: "Slots", text: "Slots" });
+}
+
+if (hasCssProperties) {
+  headings.push({
+    depth: 2,
+    slug: "CSS_Custom_Properties",
+    text: "CSS Custom Properties",
+  });
+}
+
+if (hasCssParts) {
+  headings.push({ depth: 2, slug: "CSS_Parts", text: "CSS Parts" });
+}
+---
+
+<StarlightPage
+  frontmatter={{
+    title: title,
+    editUrl:
+      "https://github.com/vscode-elements/vscode-elements.github.io/edit/main/src/components/ApiPage/ApiPage.astro",
+  }}
+  headings={headings}
+>
+  <PageSwitcher />
+  <p>Tag name: <code>&lt;{tagName}&gt;</code></p>
+  {
+    declaration?.description ? (
+      <Fragment set:html={marked(declaration.description)} />
+    ) : null
+  }
+  {
+    declaration ? (
+      <>
+        {hasProperties ? <Properties items={declaration.fields} /> : null}
+        {hasMethods ? <Methods items={declaration.methods} /> : null}
+        {hasEvents ? <Events items={declaration.events} /> : null}
+        {hasSlots ? <Slots items={declaration.slots} /> : null}
+        {hasCssProperties ? (
+          <CssProperties items={declaration.cssProps} />
+        ) : null}
+        {hasCssParts ? <CssParts items={declaration.cssParts} /> : null}
+      </>
+    ) : null
+  }
+</StarlightPage>

@@ -1,195 +1,43 @@
 ---
-import { uniqueId } from "../scripts/helpers";
+import { Tabs, TabItem } from "@astrojs/starlight/components";
 
-const uid = uniqueId("Demo_");
 const { html, css, js } = Astro.slots;
-const sourceVisible = html || css || js;
 ---
 
 <script>
-  import '@vscode-elements/webview-playground/dist/index.js';
+  import "@vscode-elements/webview-playground/dist/index.js";
 </script>
 
-<div class="Demo" id={uid}>
-  <vscode-demo><slot /></vscode-demo>
-  {
-    sourceVisible ? (
-      <div class="source">
-        <ul class="tabs">
-          {html && (
-            <li class="active" id={`${uid}_html_tab`}>
-              <button
-                data-demo-tab-button
-                data-uid={uid}
-                data-target="html"
-                type="button"
-              >
-                HTML
-              </button>
-            </li>
-          )}
-          {css && (
-            <li id={`${uid}_css_tab`}>
-              <button
-                data-demo-tab-button
-                data-uid={uid}
-                data-target="css"
-                type="button"
-              >
-                CSS
-              </button>
-            </li>
-          )}
-          {js && (
-            <li id={`${uid}_js_tab`}>
-              <button
-                data-demo-tab-button
-                data-uid={uid}
-                data-target="js"
-                type="button"
-              >
-                JavaScript
-              </button>
-            </li>
-          )}
-        </ul>
-        <div class="tab-content active" id={`${uid}_html`}>
-          <slot name="html" />
-        </div>
-        <div class="tab-content" id={`${uid}_css`}>
-          <slot name="css" />
-        </div>
-        <div class="tab-content" id={`${uid}_js`}>
-          <slot name="js" />
-        </div>
-      </div>
-    ) : null
-  }
+<div>
+  <div class="not-content">
+    <vscode-demo><slot /></vscode-demo>
+  </div>
 </div>
+{
+  html || css || js ? (
+    <Tabs>
+      {html ? (
+        <TabItem label="HTML">
+          <slot name="html" />
+        </TabItem>
+      ) : null}
+      {css ? (
+        <TabItem label="CSS">
+          <slot name="css" />
+        </TabItem>
+      ) : null}
+      {js ? (
+        <TabItem label="JavaScript">
+          <slot name="js" />
+        </TabItem>
+      ) : null}
+    </Tabs>
+  ) : null
+}
+
 <style>
-  .Demo {
-    background-color: #fff;
-    box-sizing: border-box;
-    border: 1px solid #eee;
-    margin: 15px 0;
-  }
-
   vscode-demo {
+    border: 1px solid var(--sl-color-gray-6);
     box-shadow: none;
-    margin: 0;
-  }
-
-  .tab-content {
-    display: none;
-    position: relative;
-  }
-
-  .tab-content.active {
-    display: block;
-  }
-
-  .Demo :global(pre) {
-    border: 0;
-    border-radius: 0;
-    font-size: 16px;
-    margin: 0;
-    padding: 10px 0;
-  }
-
-  .Demo :global(pre code) {
-    counter-reset: step;
-    counter-increment: step 0;
-    display: block;
-  }
-
-  .Demo :global(pre code .line:before) {
-    background-color: #fafafa;
-    border-right: 1px solid #ccc;
-    color: #888;
-    content: counter(step);
-    counter-increment: step;
-    display: inline-block;
-    left: 0;
-    margin-right: 10px;
-    padding-right: 10px;
-    position: absolute;
-    text-align: right;
-    width: 40px;
-  }
-
-  .Demo :global(.line) {
-    padding-left: 60px;
-  }
-
-  .tabs {
-    background-color: #eee;
-    border-top: 1px solid rgba(36, 41, 46, 0.05);
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 5px 0 0 20px;
-  }
-
-  .tabs button {
-    background-color: transparent;
-    border: 1px solid transparent;
-    cursor: pointer;
-    padding: 10px 15px;
-  }
-
-  .tabs .active {
-    background-color: #fafafa;
   }
 </style>
-<script>
-  function hideAllTabs(uid: string) {
-    const cmp = document.getElementById(uid);
-    const tabs = cmp?.querySelectorAll<HTMLLIElement>(".tabs > li") ?? [];
-    const tabContents =
-      cmp?.querySelectorAll<HTMLDivElement>(".tab-content") ?? [];
-
-    tabs.forEach((tb) => {
-      tb.classList.toggle("active", false);
-    });
-
-    tabContents.forEach((tp) => {
-      tp.classList.toggle("active", false);
-    });
-  }
-
-  function showTab(uid: string, lang: "html" | "js" | "css" = "html") {
-    const tab = document.getElementById(`${uid}_${lang}_tab`) as HTMLLIElement;
-    const tabContent = document.getElementById(
-      `${uid}_${lang}`
-    ) as HTMLDivElement;
-
-    hideAllTabs(uid);
-    tab.classList.toggle("active", true);
-    tabContent.classList.toggle("active", true);
-  }
-
-  const buttons = document.querySelectorAll<HTMLButtonElement>(
-    "[data-demo-tab-button]"
-  );
-  const demoDetails =
-    document.querySelectorAll<HTMLDetailsElement>(".Demo__details");
-
-  buttons.forEach((bt) => {
-    bt.addEventListener("click", () => {
-      const uid = bt.dataset.uid ?? "";
-      const target = bt.dataset.target ?? "html";
-
-      showTab(uid, target as "html" | "css" | "js");
-    });
-  });
-
-  demoDetails.forEach((dt) => {
-    const uid = dt.dataset.uid ?? "";
-
-    dt.addEventListener("toggle", () => {
-      if (dt.open) {
-        showTab(uid, "html");
-      }
-    });
-  });
-</script>

@@ -1,7 +1,12 @@
 <vscode-tree id="list-example"></vscode-tree>
 <script>
+  import type {
+    VscodeTree,
+    VscTreeSelectEvent,
+  } from "@vscode-elements/elements/dist/vscode-tree/vscode-tree.js";
+
   document.addEventListener("DOMContentLoaded", () => {
-    const tree = document.getElementById("list-example");
+    const tree = document.getElementById("list-example") as VscodeTree;
 
     const data = [
       {
@@ -43,7 +48,7 @@
 
     tree.data = data;
 
-    tree.addEventListener("vsc-select", (event) => {
+    tree.addEventListener("vsc-tree-select", (event: VscTreeSelectEvent) => {
       console.log(event.detail);
     });
   });
