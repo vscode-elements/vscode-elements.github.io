@@ -5,9 +5,9 @@ title: Button
 import Demo from "@components/Demo.astro";
 import PageSwitcher from "@components/PageSwitcher.astro";
 import FormControlInfo from "@components/form-control-info.md";
+import IconsInfo from "@components/icons-info.md";
 
 import Imports from "@components/examples/button/Imports.astro";
-import BasicExample from '@components/examples/button/BasicExample.astro';
 import CustomizedStyles from '@components/examples/button/CustomizedStyles.astro';
 
 <Imports />
@@ -17,29 +17,45 @@ import CustomizedStyles from '@components/examples/button/CustomizedStyles.astro
 ## Basic example
 
 <Demo>
-  <BasicExample />
+  <vscode-button>Button</vscode-button>
   <Fragment slot="html">
     ```html
-    <vscode-button id="button-1">Button</vscode-button>
-    <vscode-button id="button-2" secondary>Secondary button</vscode-button>
-    <vscode-button id="button-3" disabled>Disabled button</vscode-button>
-    <vscode-button id="button-4" icon="account" icon-after="chevron-right">Icons</vscode-button>
+    <vscode-button>Button</vscode-button>
     ```
   </Fragment>
-  <Fragment slot="js">
-    ```javascript
-    document.getElementById('button-1').addEventListener('click', (ev) => {
-      console.log(ev);
-    });
-    document.getElementById('button-2').addEventListener('click', (ev) => {
-      console.log(ev);
-    });
-    document.getElementById('button-3').addEventListener('click', (ev) => {
-      console.log(ev);
-    });
-    document.getElementById('button-4').addEventListener('click', (ev) => {
-      console.log(ev);
-    });
+</Demo>
+
+## Secondary button
+
+<Demo>
+  <vscode-button secondary>Secondary button</vscode-button>
+  <Fragment slot="html">
+    ```html "secondary"
+    <vscode-button secondary>Secondary button</vscode-button>
+    ```
+  </Fragment>
+</Demo>
+
+## Disabled button
+
+<Demo>
+  <vscode-button disabled>Disabled button</vscode-button>
+  <Fragment slot="html">
+    ```html "disabled"
+    <vscode-button disabled>Disabled button</vscode-button>
+    ```
+  </Fragment>
+</Demo>
+
+## Icons
+
+<IconsInfo />
+
+<Demo>
+  <vscode-button icon="account" icon-after="chevron-right">Icons</vscode-button>
+  <Fragment slot="html">
+    ```html 'icon="account"' 'icon-after="chevron-right"'
+    <vscode-button icon="account" icon-after="chevron-right">Icons</vscode-button>
     ```
   </Fragment>
 </Demo>
