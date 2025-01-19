@@ -10,6 +10,8 @@ import BasicExample from "@components/examples/collapsible/BasicExample.astro";
 import ActionsExample from "@components/examples/collapsible/ActionsExample.astro";
 import DecorationsExample from "@components/examples/collapsible/DecorationsExample.astro";
 import ScrollableExample from "@components/examples/collapsible/ScrollableExample.astro";
+import ToggleExample from "@components/examples/collapsible/ToggleExample.astro";
+import CssBodyPartExample from "@components/examples/collapsible/CssBodyPartExample.astro";
 
 <Imports />
 <PageSwitcher />
@@ -33,6 +35,30 @@ import ScrollableExample from "@components/examples/collapsible/ScrollableExampl
     vscode-collapsible p {
       margin: 10px;
     }
+    ```
+  </Fragment>
+</Demo>
+
+## Toggle event
+
+A custom event is dispatched when the visibility of content changes.
+
+<Demo>
+  <ToggleExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-collapsible title="Dispatch toggle event" id="toggle-event-example">
+      <p>Test content</p>
+    </vscode-collapsible>
+    ```
+  </Fragment>
+  <Fragment slot="js">
+    ```javascript
+    const el = document.querySelector("#toggle-event-example");
+
+    el.addEventListener("vsc-collapsible-toggle", (ev) => {
+      console.log(ev);
+    });
     ```
   </Fragment>
 </Demo>
@@ -133,6 +159,43 @@ Elements in the `decorations` slot are always visible, in contrast to the `actio
     ```css
     .collapsible p {
       margin: 10px;
+    }
+    ```
+  </Fragment>
+</Demo>
+
+## Overflown content
+
+The overflown content of the Collapsible component is hidden by default. Sometimes, this behavior 
+can be problematic. In such cases, it is useful that the Collapsible body is customizable.
+
+<Demo>
+  <CssBodyPartExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-collapsible title="Customized CSS part example" class="css-part-example" open>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <vscode-single-select>
+        <vscode-option>Lorem</vscode-option>
+        <vscode-option>Ipsum</vscode-option>
+        <vscode-option>Dolor</vscode-option>
+        <vscode-option>Sit</vscode-option>
+        <vscode-option>Et</vscode-option>
+        <vscode-option>Amur</vscode-option>
+        <vscode-option>Sadispcing</vscode-option>
+      </vscode-single-select>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </vscode-collapsible>
+    ```
+  </Fragment>
+  <Fragment slot="css">
+    ```css
+    .css-part-example::part(body) {
+      overflow: visible;
+    }
+
+    .css-part-example p:last-child {
+      margin-bottom: 0;
     }
     ```
   </Fragment>
