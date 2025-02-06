@@ -1,0 +1,42 @@
+<vscode-split-layout class="split-layout" initial-handle-position="75%">
+  <div slot="start">
+    <vscode-split-layout fixed-pane="start" class="example">
+      <div slot="start">Left</div>
+      <div slot="end">Right</div>
+    </vscode-split-layout>
+  </div>
+  <div slot="end">
+    <div style="align-items: center; display: flex; margin-left: 20px;">
+      <vscode-icon name="arrow-left"></vscode-icon> Resize it
+    </div>
+  </div>
+</vscode-split-layout>
+
+<style>
+  .split-layout {
+    border: 0;
+    height: 250px;
+    width: 100%;
+  }
+
+  .split-layout > [slot="start"] {
+    padding-right: 20px;
+  }
+
+  .split-layout vscode-split-layout {
+    height: 100%;
+  }
+
+  .example {
+    height: 250px;
+    width: 100%;
+  }
+
+  .example [slot="start"],
+  .example [slot="end"] {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+</style>
