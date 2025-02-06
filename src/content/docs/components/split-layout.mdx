@@ -9,35 +9,37 @@ import Imports from "@components/examples/split-layout/Imports.astro";
 import BasicExample from "@components/examples/split-layout/BasicExample.astro";
 import HorizontalExample from "@components/examples/split-layout/HorizontalExample.astro";
 import NestedExample from "@components/examples/split-layout/NestedExample.astro";
+import FixedPaneExample from "@components/examples/split-layout/FixedPaneExample.astro";
 
 <Imports />
 <PageSwitcher />
 
-## Basic example
+## Split vertically
 
 <Demo>
   <BasicExample />
   <Fragment slot="html">
     ```html
-    <div slot="start" class="split-layout-content">
-      Praesent ultrices mauris lectus, eu molestie...
-    </div>
-    <div slot="end" class="split-layout-content">
-      Praesent ultrices mauris lectus, eu molestie...
-    </div>
+    <vscode-split-layout>
+      <div slot="start">Left</div>
+      <div slot="end">Right</div>
+    </vscode-split-layout>
     ```
   </Fragment>
   <Fragment slot="css">
     ```css
-    .split-layout-example {
-      border: 1px solid var(--vscode-editorWidget-border);
-      height: 200px;
-      width: 500px;
-    }
+      vscode-split-layout {
+        height: 200px;
+        width: 500px;
+      }
 
-    .split-layout-content {
-      overflow-y: auto;
-    }
+      [slot="start"],
+      [slot="end"] {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+      }
     ```
 
   </Fragment>
@@ -48,22 +50,26 @@ import NestedExample from "@components/examples/split-layout/NestedExample.astro
 <Demo>
   <HorizontalExample />
   <Fragment slot="html">
-    ```html
-    <vscode-split-layout class="split-layout-example" split="vertical">
-      <div slot="start" class="split-layout-content start">
-        Praesent ultrices mauris lectus...
-      </div>
-      <div slot="end" class="split-layout-content">
-        Praesent ultrices mauris lectus...
-      </div>
+    ```html 'split="horizontal"'
+    <vscode-split-layout split="horizontal">
+      <div slot="start">Top</div>
+      <div slot="end">Bottom</div>
     </vscode-split-layout>
     ```
   </Fragment>
   <Fragment slot="css">
     ```css
-    vscode-scrollable {
+    vscode-split-layout {
       height: 500px;
-      width: 200px;
+      width: 250px;
+    }
+
+    [slot="start"],
+    [slot="end"] {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
     }
     ```
   </Fragment>
@@ -75,16 +81,16 @@ import NestedExample from "@components/examples/split-layout/NestedExample.astro
   <NestedExample />
   <Fragment slot="html">
     ```html
-    <vscode-split-layout class="split-layout-example">
+    <vscode-split-layout>
       <div slot="start">
-        Praesent ultrices mauris lectus...
+        Left
       </div>
       <vscode-split-layout split="horizontal" slot="end">
         <div slot="start">
-          Praesent ultrices mauris lectus...
+          Right Top
         </div>
         <div slot="end">
-          Praesent ultrices mauris lectus...
+          Right Bottom
         </div>
       </vscode-split-layout>
     </vscode-split-layout>
@@ -92,9 +98,52 @@ import NestedExample from "@components/examples/split-layout/NestedExample.astro
   </Fragment>
   <Fragment slot="css">
     ```css
-    .split-layout-example {
+    vscode-split-layout {
       height: 500px;
       width: 500px;
+    }
+
+    vscode-split-layout > vscode-split-layout {
+      height: 100%;
+      width: 100%;
+    }
+
+    [slot="start"],
+    [slot="end"] {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+    }
+    ```
+  </Fragment>
+</Demo>
+
+## Fixed pane
+
+<Demo>
+  <FixedPaneExample />
+  <Fragment slot="html">
+    ```html 'fixed-pane="start"'
+    <vscode-split-layout fixed-pane="start">
+      <div slot="start">Left</div>
+      <div slot="end">Right</div>
+    </vscode-split-layout>
+    ```
+  </Fragment>
+  <Fragment slot="css">
+    ```css
+    vscode-split-layout {
+      height: 250px;
+      width: 100%;
+    }
+
+    vscode-split-layout [slot="start"],
+    vscode-split-layout [slot="end"] {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
     }
     ```
   </Fragment>
