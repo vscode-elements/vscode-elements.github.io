@@ -2,6 +2,7 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import { pluginLineNumbers } from "@expressive-code/plugin-line-numbers";
+import starlightImageZoom from "starlight-image-zoom";
 
 const analytics = `
 (function(window, document, dataLayerName, id) {
@@ -32,8 +33,8 @@ export default defineConfig({
           tag: "meta",
           attrs: {
             name: "google-site-verification",
-            content: "xQEXVaL5aIe6GfMlfVDFzRqf0f4_XgL4son-Lk9RPQM"
-          }
+            content: "xQEXVaL5aIe6GfMlfVDFzRqf0f4_XgL4son-Lk9RPQM",
+          },
         },
         {
           tag: "script",
@@ -160,6 +161,7 @@ export default defineConfig({
         "./src/styles/restore-defaults.css",
         "./src/styles/custom.css",
       ],
+      plugins: [starlightImageZoom()],
     }),
   ],
 });

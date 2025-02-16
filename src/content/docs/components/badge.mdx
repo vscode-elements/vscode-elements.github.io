@@ -2,14 +2,30 @@
 title: Badge
 ---
 
+import { Image } from "astro:assets";
 import Demo from "@components/Demo.astro";
 import PageSwitcher from "@components/PageSwitcher.astro";
 import Imports from "@components/examples/badge/Imports.astro";
+import badgeTypes from "@assets/badge-types.png";
 
 <Imports />
 <PageSwitcher />
 
-## Basic example
+## Explanation of badge styles
+
+The following badge styles have been implemented based on the VSCode UI:
+
+1. Default style
+2. Activity bar counter
+3. Counter
+4. Tab bar counter
+
+<Image
+  src={badgeTypes}
+  alt="Visual explanation of various badge styles"
+/>
+
+## Default style
 
 <Demo>
   <vscode-badge>308 Settings Found</vscode-badge>
@@ -38,6 +54,17 @@ import Imports from "@components/examples/badge/Imports.astro";
   <Fragment slot="html">
     ```html
     <vscode-badge variant="activity-bar-counter">42</vscode-badge>
+    ```
+  </Fragment>
+</Demo>
+
+## Tab bar counter
+
+<Demo>
+  <vscode-badge variant="activity-bar-counter">42</vscode-badge>
+  <Fragment slot="html">
+    ```html
+    <vscode-badge variant="tab-bar-counter">42</vscode-badge>
     ```
   </Fragment>
 </Demo>
