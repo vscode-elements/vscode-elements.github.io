@@ -1,0 +1,15 @@
+<vscode-toolbar-button
+  icon="account"
+  label="Account"
+  toggleable
+  id="toggle-example"></vscode-toolbar-button>
+
+<script>
+  import type { VscodeToolbarButton } from "@vscode-elements/elements";
+
+  const el = document.querySelector<VscodeToolbarButton>("#toggle-example");
+
+  el?.addEventListener("change", () => {
+    console.log("Checked:", el.checked);
+  });
+</script>
