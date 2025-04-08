@@ -1,0 +1,40 @@
+---
+title: Toolbar Button
+---
+
+import Demo from "@components/Demo.astro";
+import PageSwitcher from "@components/PageSwitcher.astro";
+import ExperimentalComponent from "@components/experimental-component.md";
+import IconsInfo from "@components/icons-info.md";
+
+import Imports from "@components/examples/toolbar-container/Imports.astro";
+
+<Imports />
+<PageSwitcher />
+<ExperimentalComponent />
+<IconsInfo />
+
+## Basic example
+
+Toolbar Container is a simple container to arrange the toolar buttons.
+
+<Demo>
+  <vscode-toolbar-container>
+    <vscode-toolbar-button icon="files" label="Files"></vscode-toolbar-button>
+    <vscode-toolbar-button icon="search" label="Search"></vscode-toolbar-button>
+    <vscode-toolbar-button icon="source-control" label="Source Control"></vscode-toolbar-button>
+    <vscode-toolbar-button icon="debug-alt" label="Debug"></vscode-toolbar-button>
+    <vscode-toolbar-button icon="extensions" label="Extensions"></vscode-toolbar-button>
+  </vscode-toolbar-container>
+  <Fragment slot="html">
+    ```html
+    <vscode-toolbar-container>
+      <vscode-toolbar-button icon="files" label="Files"></vscode-toolbar-button>
+      <vscode-toolbar-button icon="search" label="Search"></vscode-toolbar-button>
+      <vscode-toolbar-button icon="source-control" label="Source Control"></vscode-toolbar-button>
+      <vscode-toolbar-button icon="debug-alt" label="Debug"></vscode-toolbar-button>
+      <vscode-toolbar-button icon="extensions" label="Extensions"></vscode-toolbar-button>
+    </vscode-toolbar-container>
+    ```
+  </Fragment>
+</Demo>
