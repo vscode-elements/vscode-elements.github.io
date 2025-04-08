@@ -1,0 +1,79 @@
+---
+title: Toolbar Button
+---
+
+import Demo from "@components/Demo.astro";
+import PageSwitcher from "@components/PageSwitcher.astro";
+import ExperimentalComponent from "@components/experimental-component.md";
+import IconsInfo from "@components/icons-info.md";
+
+import Imports from "@components/examples/toolbar-button/Imports.astro";
+import ToggleableExample from "@components/examples/toolbar-button/ToggleableExample.astro";
+
+<Imports />
+<PageSwitcher />
+<ExperimentalComponent />
+<IconsInfo />
+
+## Basic example
+
+In icon-only mode, a label for screen readers can be defined using the `label` attribute.
+
+<Demo>
+  <vscode-toolbar-button icon="account" label="Account"></vscode-toolbar-button>
+  <Fragment slot="html">
+    ```html 'label="Account"'
+    <vscode-toolbar-button
+      icon="account"
+      label="Account"
+    ></vscode-toolbar-button>
+    ```
+  </Fragment>
+</Demo>
+
+## With caption
+
+<Demo>
+  <vscode-toolbar-button icon="account">Account</vscode-toolbar-button>
+  <Fragment slot="html">
+    ```html
+    <vscode-toolbar-button icon="account">Account</vscode-toolbar-button>
+    ```
+  </Fragment>
+</Demo>
+
+## Text-only
+
+<Demo>
+  <vscode-toolbar-button>Account</vscode-toolbar-button>
+  <Fragment slot="html">
+    ```html
+    <vscode-toolbar-button>Account</vscode-toolbar-button>
+    ```
+  </Fragment>
+</Demo>
+
+## Toggleable
+
+<Demo>
+  <ToggleableExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-toolbar-button
+      icon="account"
+      label="Account"
+      toggleable
+      id="toggle-example"
+    ></vscode-toolbar-button>
+    ```
+  </Fragment>
+  <Fragment slot="js">
+    ```javascript
+      const el = document.querySelector("#toggle-example");
+
+      el.addEventListener("change", () => {
+        console.log("Checked:", el.checked);
+      });
+    ```
+  </Fragment>
+</Demo>
