@@ -78,6 +78,7 @@ export default defineConfig({
           items: [
             { label: "Badge", slug: "components/badge" },
             { label: "Button", slug: "components/button" },
+            { label: "ButtonGroup", slug: "components/button-group" },
             { label: "Checkbox", link: "components/checkbox" },
             { label: "CheckboxGroup", link: "components/checkbox-group" },
             { label: "Collapsible", link: "components/collapsible" },
@@ -122,6 +123,7 @@ export default defineConfig({
           items: [
             { label: "Badge", link: "components/badge/api" },
             { label: "Button", link: "components/button/api" },
+            { label: "ButtonGroup", link: "components/button-group/api" },
             { label: "Checkbox", link: "components/checkbox/api" },
             { label: "CheckboxGroup", link: "components/checkbox-group/api" },
             { label: "Collapsible", link: "components/collapsible/api" },

@@ -1,0 +1,28 @@
+---
+title: ButtonGroup
+---
+
+import Demo from "@components/Demo.astro";
+import PageSwitcher from "@components/PageSwitcher.astro";
+
+import Imports from "@components/examples/button-group/Imports.astro";
+
+<Imports />
+<PageSwitcher />
+
+## Split button
+
+<Demo>
+  <vscode-button-group>
+    <vscode-button>Split Button</vscode-button>
+    <vscode-button icon="chevron-down" title="More actions..."></vscode-button>
+  </vscode-button-group>
+  <Fragment slot="html">
+    ```html
+    <vscode-button-group>
+      <vscode-button>Split Button</vscode-button>
+      <vscode-button icon="chevron-down" title="More actions..."></vscode-button>
+    </vscode-button-group>
+    ```
+  </Fragment>
+</Demo>
