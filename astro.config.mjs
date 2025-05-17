@@ -21,9 +21,13 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "VSCode Elements",
-      social: {
-        github: "https://github.com/vscode-elements/elements",
-      },
+      social: [
+        {
+          icon: "github",
+          label: "GitHub",
+          href: "https://github.com/vscode-elements/elements",
+        },
+      ],
       favicon: "/favicon.ico",
       logo: {
         src: "/src/assets/logo.svg",
@@ -155,7 +159,10 @@ export default defineConfig({
             { label: "Textarea", link: "components/textarea/api" },
             { label: "Textfield", link: "components/textfield/api" },
             { label: "ToolbarButton", link: "components/toolbar-button/api" },
-            { label: "ToolbarContainer", link: "components/toolbar-container/api" },
+            {
+              label: "ToolbarContainer",
+              link: "components/toolbar-container/api",
+            },
             { label: "Tree", link: "components/tree/api" },
           ],
           collapsed: true,
