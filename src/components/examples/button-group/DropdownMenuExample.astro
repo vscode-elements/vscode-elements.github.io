@@ -1,0 +1,59 @@
+<div class="button-with-menu">
+  <vscode-button-group>
+    <vscode-button>Send</vscode-button>
+    <vscode-button
+      icon="chevron-down"
+      title="More actions..."
+      id="toggle-menu-button"></vscode-button>
+  </vscode-button-group>
+  <vscode-context-menu id="dropdown-menu" class="dropdown-menu"
+  ></vscode-context-menu>
+</div>
+
+<style>
+  .button-with-menu {
+    display: inline-block;
+    position: relative;
+  }
+
+  .dropdown-menu {
+    left: 100%;
+    margin-left: -26px;
+    position: absolute;
+    width: auto;
+    z-index: 10;
+  }
+</style>
+
+<script>
+  import type {
+    VscodeButton,
+    VscodeContextMenu,
+  } from "@vscode-elements/elements";
+
+  const menu = document.querySelector<VscodeContextMenu>("#dropdown-menu")!;
+  const button = document.querySelector<VscodeButton>("#toggle-menu-button")!;
+
+  menu.data = [
+    {
+      label: "Schedule for later",
+      value: "schedule",
+    },
+    {
+      label: "Delete",
+      value: "delete",
+    },
+    {
+      label: "Save draft",
+      value: "save",
+    },
+  ];
+
+  button.addEventListener("click", () => {
+    menu.show = !menu.show;
+  });
+
+  menu.addEventListener("vsc-select", (event) => {
+    console.log(event);
+  });
+</script>

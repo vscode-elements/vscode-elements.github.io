@@ -9,6 +9,7 @@ import IconsInfo from "@components/icons-info.md";
 
 import Imports from "@components/examples/button/Imports.astro";
 import CustomizedStyles from '@components/examples/button/CustomizedStyles.astro';
+import CustomIcon from '@components/examples/button/CustomIcon.astro';
 
 <Imports />
 <PageSwitcher />
@@ -47,7 +48,7 @@ import CustomizedStyles from '@components/examples/button/CustomizedStyles.astro
   </Fragment>
 </Demo>
 
-## Icons
+## Button with icons
 
 <IconsInfo />
 
@@ -58,6 +59,23 @@ import CustomizedStyles from '@components/examples/button/CustomizedStyles.astro
     <vscode-button icon="account" icon-after="chevron-right">Icons</vscode-button>
     ```
   </Fragment>
+</Demo>
+
+## Icon button
+
+<Demo>
+  <vscode-button icon="settings-gear" title="Settings"></vscode-button>
+  <Fragment slot="html">
+    ```html 'icon="account"' 'icon-after="chevron-right"'
+    <vscode-button icon="settings-gear" title="Settings"></vscode-button>
+    ```
+  </Fragment>
+</Demo>
+
+## Custom icons
+
+<Demo>
+  <CustomIcon />
 </Demo>
 
 ## Customized styles
