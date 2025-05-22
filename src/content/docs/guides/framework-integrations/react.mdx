@@ -2,6 +2,35 @@
 title: React
 ---
 
+## React 19 and above
+
+From React 19, web components are fully supported. If you use custom tag names, you must configure
+the TypeScript parser to recognize the custom elements. An [example TypeScript definition](https://github.com/vscode-elements/examples/blob/react-vite/react-vite/src/global.d.ts) is 
+available in the examples repository. To ensure proper functionality, keep the following rules in mind:
+
+- Props are treated as properties if they exist on the element instance; otherwise, they are assigned as attributes.
+- Unlike native HTML elements, use the `class` and `for` props instead of `className` and `htmlFor`.  
+- Custom events are prefixed with `on` without further modification. For example, the `vsc-split-layout-change` event becomes `onvsc-split-layout-change`.
+
+### Example
+
+```typescript
+import "@vscode-elements/elements/dist/vscode-split-layout";
+
+export default function MyComponent() {
+  return (
+    <div>
+      <vscode-split-layout
+        initialHandlePosition="50%"
+        onvsc-split-layout-change={(event) => {
+          console.log(event);
+        }}
+      ></vscode-split-layout>
+    </div>
+  );
+}
+```
+
 ## React 18 and older
 
 In React 18 and earlier, custom elements were not fully supported. Properties and custom events
@@ -30,37 +59,6 @@ export default function MyComponent() {
           console.log(event);
         }}
       ></VscodeSplitLayout>
-    </div>
-  );
-}
-```
-
-For more examples, please visit the [project repository](https://github.com/vscode-elements/react-elements/tree/main/packages/demo).
-
-## Recent React version
-
-From React 19, web components are fully supported. If you use custom tag names, you must configure
-the TypeScript parser to recognize the custom elements. An [example TypeScript definition](https://github.com/vscode-elements/examples/blob/react-vite/react-vite/src/global.d.ts) is 
-available in the examples repository. To ensure proper functionality, keep the following rules in mind:
-
-- Props are treated as properties if they exist on the element instance; otherwise, they are assigned as attributes.
-- Unlike native HTML elements, use the `class` and `for` props instead of `className` and `htmlFor`.  
-- Custom events are prefixed with `on` without further modification. For example, the `vsc-split-layout-change` event becomes `onvsc-split-layout-change`.
-
-### Example
-
-```typescript
-import "@vscode-elements/elements/dist/vscode-split-layout";
-
-export default function MyComponent() {
-  return (
-    <div>
-      <vscode-split-layout
-        initialHandlePosition="50%"
-        onvsc-split-layout-change={(event) => {
-          console.log(event);
-        }}
-      ></vscode-split-layout>
     </div>
   );
 }
@@ -99,3 +97,5 @@ function App() {
 
 export default App;
 ```
+
+For more examples, please visit the [project repository](https://github.com/vscode-elements/react-elements/tree/main/packages/demo).
