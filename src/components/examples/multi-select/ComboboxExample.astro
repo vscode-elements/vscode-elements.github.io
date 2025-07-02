@@ -207,7 +207,7 @@
 </vscode-multi-select>
 
 <script>
-  import type { SearchMethod } from "@vscode-elements/elements/dist/includes/vscode-select/types";
+  import type { FilterMethod } from "@vscode-elements/elements/dist/includes/vscode-select/types";
   import type { VscodeMultiSelect } from "@vscode-elements/elements/dist/vscode-multi-select";
 
   const cb = document.querySelector<VscodeMultiSelect>("#combobox-example");
@@ -216,10 +216,10 @@
   );
 
   sl?.addEventListener("change", () => {
-    cb!.filter = sl?.options[sl.selectedIndex].value as SearchMethod;
+    cb!.filter = sl?.options[sl.selectedIndex].value as FilterMethod;
   });
 
-  cb!.filter = sl?.options[sl.selectedIndex].value as SearchMethod;
+  cb!.filter = sl?.options[sl.selectedIndex].value as FilterMethod;
 </script>
 
 <style>
