@@ -1,0 +1,51 @@
+---
+import { uniqueId } from "./uniqueid";
+import Field from "./Field.astro";
+
+export type Props = {
+  name: string;
+  defaultValue: number;
+};
+
+const cid = uniqueId("NumberField-");
+
+const { name = "", defaultValue = 0 } = Astro.props;
+---
+
+<Field cid={cid} name={name} fieldType="NumberField">
+  <input type="number" id={cid} name={name} value={defaultValue} />
+</Field>
+
+<script>
+  function inputChange(ev: Event) {
+    const field = (ev.target as HTMLInputElement).closest<HTMLDivElement>(
+      '[data-astro-component="NumberField"]'
+    )!;
+
+    updateFieldTarget(field);
+  }
+
+  function updateFieldTarget(field: HTMLDivElement) {
+    const root = field.closest<HTMLFieldSetElement>(
+      '[data-astro-component="Controls"]'
+    );
+    const input = field.querySelector("input")!;
+
+    if (root) {
+      const target = root.dataset.target!;
+      const targetEl = document.querySelector(target);
+
+      if (targetEl) {
+        targetEl[input.name] = input.value;
+      }
+    }
+  }
+
+  document
+    .querySelectorAll<HTMLDivElement>('[data-astro-component="NumberField"]')
+    .forEach((el) => {
+      const cb = el.querySelector("input");
+      cb?.addEventListener("input", inputChange);
+      updateFieldTarget(el);
+    });
+</script>

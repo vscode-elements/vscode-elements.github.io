@@ -1,0 +1,36 @@
+---
+export type Props = {
+  target: string;
+}
+
+const {target} = Astro.props;
+---
+
+<fieldset data-target={target} data-astro-component="Controls" class="controls">
+  <legend>Controls</legend>
+  <slot></slot>
+</fieldset>
+
+<style>
+  .controls {
+    margin-top: 45px;
+    padding: 0;
+    position: relative;
+  }
+
+  legend {
+    font-weight: bold;
+    position: absolute;
+    top: -25px;
+  }
+</style>
+
+<style is:global>
+  .vscode-light [data-astro-component="Controls"] {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .vscode-dark [data-astro-component="Controls"] {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+</style>

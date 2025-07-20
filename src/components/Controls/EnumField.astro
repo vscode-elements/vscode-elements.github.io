@@ -1,0 +1,60 @@
+---
+import { uniqueId } from "./uniqueid";
+import Field from "./Field.astro";
+
+export type Props = {
+  name: string;
+  defaultValue: string;
+  options: string[];
+};
+
+const cid = uniqueId("EnumField-");
+
+const { name = "", defaultValue = false, options = [] } = Astro.props;
+---
+
+<Field cid={cid} name={name} fieldType="EnumField">
+  <select id={cid} name={name}>
+    {
+      options.map((o) => (
+        <option value={o} selected={o === defaultValue}>
+          {o}
+        </option>
+      ))
+    }
+  </select>
+</Field>
+
+<script>
+  function selectChange(ev: Event) {
+    const field = (ev.target as HTMLOptionElement).closest<HTMLDivElement>(
+      '[data-astro-component="EnumField"]'
+    )!;
+
+    updateFieldTarget(field);
+  }
+
+  function updateFieldTarget(field: HTMLDivElement) {
+    const root = field.closest<HTMLFieldSetElement>(
+      '[data-astro-component="Controls"]'
+    );
+    const select = field.querySelector("select")!;
+
+    if (root) {
+      const target = root.dataset.target!;
+      const targetEl = document.querySelector(target);
+
+      if (targetEl) {
+        targetEl[select.name] = select.value;
+      }
+    }
+  }
+
+  document
+    .querySelectorAll<HTMLDivElement>('[data-astro-component="EnumField"]')
+    .forEach((el) => {
+      const select = el.querySelector("select");
+      select?.addEventListener("change", selectChange);
+      updateFieldTarget(el);
+    });
+</script>

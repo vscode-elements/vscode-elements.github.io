@@ -1,0 +1,51 @@
+---
+import { uniqueId } from "./uniqueid";
+import Field from "./Field.astro";
+
+export type Props = {
+  name: string;
+  defaultValue: boolean;
+};
+
+const cid = uniqueId("BooleanField-");
+
+const { name = "", defaultValue = false } = Astro.props;
+---
+
+<Field cid={cid} name={name} fieldType="BooleanField">
+  <input type="checkbox" id={cid} name={name} checked={defaultValue} />
+</Field>
+
+<script>
+  function checkboxChange(ev: Event) {
+    const field = (ev.target as HTMLInputElement).closest<HTMLDivElement>(
+      '[data-astro-component="BooleanField"]'
+    )!;
+
+    updateFieldTarget(field);
+  }
+
+  function updateFieldTarget(field: HTMLDivElement) {
+    const root = field.closest<HTMLFieldSetElement>(
+      '[data-astro-component="Controls"]'
+    );
+    const cb = field.querySelector("input")!;
+
+    if (root) {
+      const target = root.dataset.target!;
+      const targetEl = document.querySelector(target);
+
+      if (targetEl) {
+        targetEl[cb.name] = cb.checked;
+      }
+    }
+  }
+
+  document
+    .querySelectorAll<HTMLDivElement>('[data-astro-component="BooleanField"]')
+    .forEach((el) => {
+      const cb = el.querySelector("input");
+      cb?.addEventListener("change", checkboxChange);
+      updateFieldTarget(el);
+    });
+</script>

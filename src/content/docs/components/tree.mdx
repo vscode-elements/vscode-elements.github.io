@@ -6,6 +6,10 @@ import IconsInfo from "@components/icons-info.md";
 import Demo from "@components/Demo.astro";
 import PageSwitcher from "@components/PageSwitcher.astro";
 import Imports from "@components/examples/tree/Imports.astro";
+import Controls from "@components/Controls/Controls.astro";
+import BooleanField from "@components/Controls/BooleanField.astro";
+import EnumField from "@components/Controls/EnumField.astro";
+import NumberField from "@components/Controls/NumberField.astro";
 
 import BasicExample from "@components/examples/tree/BasicExample.astro";
 import IconsExample from "@components/examples/tree/IconsExample.astro";
@@ -22,6 +26,21 @@ import DecorationsExample from "@components/examples/tree/DecorationsExample.ast
 
 <Demo>
   <BasicExample />
+  <Controls target="#tree-basic-example">
+    <EnumField
+      name="expandMode"
+      options={["singleClick", "doubleClick"]}
+      defaultValue="singleClick"
+    />
+    <BooleanField name="hideArrows" defaultValue={false} />
+    <NumberField name="indent" defaultValue={8} />
+    <EnumField
+      name="indentGuides"
+      options={["onHover", "always", "none"]}
+      defaultValue="onHover"
+    />
+    <BooleanField name="multiSelect" defaultValue={false} />
+  </Controls>
   <Fragment slot="html">
     ```html
     <vscode-tree>
@@ -89,14 +108,18 @@ The visibility of each icon depends on the state of the corresponding tree item.
 <Demo>
   <IconsExample />
   <Fragment slot="html">
-    ```html 'slot="icon-branch"'  'slot="icon-branch-opened"' 'slot="icon-leaf"'
+    ```html 'slot="icon-branch"' 'slot="icon-branch-opened"' 'slot="icon-leaf"'
     <vscode-tree>
       <vscode-tree-item>
         <vscode-icon name="folder" slot="icon-branch"></vscode-icon>
-        <vscode-icon name="folder-opened" slot="icon-branch-opened"></vscode-icon>
+        <vscode-icon
+          name="folder-opened"
+          slot="icon-branch-opened"
+        ></vscode-icon>
         vscode-tree
         <vscode-tree-item>
-          <vscode-icon name="file" slot="icon-leaf"></vscode-icon>helpers.test.ts
+          <vscode-icon name="file" slot="icon-leaf"></vscode-icon>
+          helpers.test.ts
         </vscode-tree-item>
         <vscode-tree-item>
           <vscode-icon name="file" slot="icon-leaf"></vscode-icon>helpers.ts
@@ -105,13 +128,16 @@ The visibility of each icon depends on the state of the corresponding tree item.
           <vscode-icon name="file" slot="icon-leaf"></vscode-icon>index.ts
         </vscode-tree-item>
         <vscode-tree-item>
-          <vscode-icon name="file" slot="icon-leaf"></vscode-icon>tree-context.ts
+          <vscode-icon name="file" slot="icon-leaf"></vscode-icon>
+          tree-context.ts
         </vscode-tree-item>
         <vscode-tree-item>
-          <vscode-icon name="file" slot="icon-leaf"></vscode-icon>vscode-tree.styles.ts
+          <vscode-icon name="file" slot="icon-leaf"></vscode-icon>
+          vscode-tree.styles.ts
         </vscode-tree-item>
         <vscode-tree-item>
-          <vscode-icon name="file" slot="icon-leaf"></vscode-icon>vscode-tree.test.ts
+          <vscode-icon name="file" slot="icon-leaf"></vscode-icon>
+          vscode-tree.test.ts
         </vscode-tree-item>
         <vscode-tree-item>
           <vscode-icon name="file" slot="icon-leaf"></vscode-icon>vscode-tree.ts
@@ -126,7 +152,7 @@ The visibility of each icon depends on the state of the corresponding tree item.
 
 Another example with `<img>` tags.
 
-:::caution
+:::note
 
 Icons from installed file icon themes are **not accessible** inside a webview, as their URLs are not available.
 

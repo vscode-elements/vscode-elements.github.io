@@ -1,55 +1,22 @@
-<vscode-tree id="list-example"></vscode-tree>
-<script>
-  import type {
-    VscodeTree,
-    VscTreeSelectEvent,
-  } from "@vscode-elements/elements/dist/vscode-tree/vscode-tree.js";
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const tree = document.getElementById("list-example") as VscodeTree;
-
-    const data = [
-      {
-        icons: {
-          leaf: "git-commit",
-        },
-        label: "bump distro",
-        value: "986e1248f6d8c1aa2a7f57a3fadbb00f94248c2b",
-      },
-      {
-        icons: {
-          leaf: "git-commit",
-        },
-        label: "Update milestone",
-        value: "4ae26a156300729ed3f9d23377e5d2aff9dcd982",
-      },
-      {
-        icons: {
-          leaf: "git-commit",
-        },
-        label: "env - tweak shell resolve experience on startup",
-        value: "52098eaeb028e123b3f8af1d4a3d64df6db528be",
-      },
-      {
-        icons: {
-          leaf: "git-commit",
-        },
-        label: "Merge pull request #107126 from Timmmm/atomic_tabs",
-        value: "fb80c0e44af034df58e329e0f946a9a722ab297c",
-      },
-      {
-        icons: {
-          leaf: "git-commit",
-        },
-        label: "Simplify changes from #108193",
-        value: "88856f1a1c8f90bcc12171d1af920d74bb59b625",
-      },
-    ];
-
-    tree.data = data;
-
-    tree.addEventListener("vsc-tree-select", (event: VscTreeSelectEvent) => {
-      console.log(event.detail);
-    });
-  });
-</script>
+<vscode-tree>
+  <vscode-tree-item>
+    <vscode-icon name="git-commit" slot="icon-leaf"></vscode-icon>
+    bump distro
+  </vscode-tree-item>
+  <vscode-tree-item>
+    <vscode-icon name="git-commit" slot="icon-leaf"></vscode-icon>
+    Update milestone
+  </vscode-tree-item>
+  <vscode-tree-item>
+    <vscode-icon name="git-commit" slot="icon-leaf"></vscode-icon>
+    env – tweak shell resolve experience on startup
+  </vscode-tree-item>
+  <vscode-tree-item>
+    <vscode-icon name="git-commit" slot="icon-leaf"></vscode-icon>
+    Merge pull request #107126 from Timmmm/atomic_tabs
+  </vscode-tree-item>
+  <vscode-tree-item>
+    <vscode-icon name="git-commit" slot="icon-leaf"></vscode-icon>
+    Simplify changes from #108193
+  </vscode-tree-item>
+</vscode-tree>
