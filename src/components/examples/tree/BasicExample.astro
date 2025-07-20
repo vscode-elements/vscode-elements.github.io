@@ -1,61 +1,44 @@
-<vscode-tree id="tree-basic-example"></vscode-tree>
-<script>
-  import type { VscodeTree } from "@vscode-elements/elements/dist/vscode-tree";
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const tree = document.querySelector("#tree-basic-example") as VscodeTree;
-    const icons = {
-      branch: "folder",
-      leaf: "file",
-      open: "folder-opened",
-    };
-    const data = [
-      {
-        icons,
-        label: "node_modules",
-        value: "black hole",
-        subItems: [
-          {
-            icons,
-            label: ".bin",
-            subItems: [
-              { icons, label: "_mocha_" },
-              { icons, label: "_mocha.cmd_" },
-              { icons, label: "_mocha.ps1_" },
-              { icons, label: "acorn" },
-              { icons, label: "acorn.cmd" },
-              { icons, label: "acorn.ps1" },
-            ],
-          },
-          {
-            icons,
-            label: "@11ty",
-            open: true,
-            subItems: [
-              { icons, label: "lorem.js" },
-              { icons, label: "ipsum.js" },
-              { icons, label: "dolor.js" },
-            ],
-          },
-          { icons, label: ".DS_Store" },
-        ],
-      },
-      {
-        icons,
-        label: "scripts",
-        subItems: [
-          { icons, label: "build.js" },
-          { icons, label: "start.js" },
-        ],
-      },
-      { icons, label: ".editorconfig", selected: true },
-      { icons, label: "2021-01-18T22_10_20_535Z-debug.log" },
-    ];
-
-    tree.data = data;
-
-    tree.addEventListener("vsc-tree-select", (event) => {
-      console.log(event.detail);
-    });
-  });
-</script>
+<vscode-tree>
+  <vscode-tree-item>
+    Fruits
+    <vscode-tree-item>
+      Citrus Fruits
+      <vscode-tree-item>Orange</vscode-tree-item>
+      <vscode-tree-item>Lemon</vscode-tree-item>
+      <vscode-tree-item>Grapefruit</vscode-tree-item>
+    </vscode-tree-item>
+    <vscode-tree-item>
+      Berries
+      <vscode-tree-item>Strawberry</vscode-tree-item>
+      <vscode-tree-item>Blueberry</vscode-tree-item>
+      <vscode-tree-item>Raspberry</vscode-tree-item>
+    </vscode-tree-item>
+    <vscode-tree-item>
+      Tropical Fruits
+      <vscode-tree-item>Mango</vscode-tree-item>
+      <vscode-tree-item>Pineapple</vscode-tree-item>
+      <vscode-tree-item>Papaya</vscode-tree-item>
+    </vscode-tree-item>
+  </vscode-tree-item>
+  <vscode-tree-item>
+    Vegetables
+    <vscode-tree-item>
+      Leafy Greens
+      <vscode-tree-item>Spinach</vscode-tree-item>
+      <vscode-tree-item>Lettuce</vscode-tree-item>
+      <vscode-tree-item>Kale</vscode-tree-item>
+    </vscode-tree-item>
+    <vscode-tree-item>
+      Root Vegetables
+      <vscode-tree-item>Carrot</vscode-tree-item>
+      <vscode-tree-item>Beetroot</vscode-tree-item>
+      <vscode-tree-item>Radish</vscode-tree-item>
+    </vscode-tree-item>
+    <vscode-tree-item>
+      Nightshades
+      <vscode-tree-item>Tomato</vscode-tree-item>
+      <vscode-tree-item>Eggplant</vscode-tree-item>
+      <vscode-tree-item>Bell Pepper</vscode-tree-item>
+    </vscode-tree-item>
+  </vscode-tree-item>
+</vscode-tree>

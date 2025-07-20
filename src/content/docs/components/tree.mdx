@@ -8,7 +8,8 @@ import PageSwitcher from "@components/PageSwitcher.astro";
 import Imports from "@components/examples/tree/Imports.astro";
 
 import BasicExample from "@components/examples/tree/BasicExample.astro";
-import CustomIconsExample from "@components/examples/tree/CustomIconsExample.astro";
+import IconsExample from "@components/examples/tree/IconsExample.astro";
+import MaterialIconsExample from "@components/examples/tree/MaterialIconsExample.astro";
 import ListExample from "@components/examples/tree/ListExample.astro";
 import ActionsExample from "@components/examples/tree/ActionsExample.astro";
 import DecorationsExample from "@components/examples/tree/DecorationsExample.astro";
@@ -23,124 +24,171 @@ import DecorationsExample from "@components/examples/tree/DecorationsExample.ast
   <BasicExample />
   <Fragment slot="html">
     ```html
-    <vscode-tree id="tree-basic-example"></vscode-tree>
-    ```
-  </Fragment>
-  <Fragment slot="js">
-    ```javascript
-    const tree = document.querySelector('#tree-basic-example');
-    const icons = {
-      branch: 'folder',
-      leaf: 'file',
-      open: 'folder-opened',
-    };
-    const data = [
-      {
-        icons,
-        label: 'node_modules',
-        value: 'black hole',
-        subItems: [
-          {
-            icons,
-            label: '.bin',
-            subItems: [
-              { icons, label: '_mocha_' },
-              { icons, label: '_mocha.cmd_' },
-              { icons, label: '_mocha.ps1_' },
-              { icons, label: 'acorn' },
-              { icons, label: 'acorn.cmd' },
-              { icons, label: 'acorn.ps1' },
-            ],
-          },
-          {
-            icons,
-            label: '@11ty',
-            open: true,
-            subItems: [
-              { icons, label: 'lorem.js' },
-              { icons, label: 'ipsum.js' },
-              { icons, label: 'dolor.js' },
-            ],
-          },
-          { icons, label: '.DS_Store' },
-        ],
-      },
-      {
-        icons,
-        label: 'scripts',
-        subItems: [
-          { icons, label: 'build.js' },
-          { icons, label: 'start.js' },
-        ],
-      },
-      { icons, label: '.editorconfig', selected: true },
-      { icons, label: '2021-01-18T22_10_20_535Z-debug.log' },
-    ];
-
-    tree.data = data;
-
-    tree.addEventListener('vsc-tree-select', (event) => {
-      console.log(event.detail);
-    });
+    <vscode-tree>
+      <vscode-tree-item>
+        Fruits
+        <vscode-tree-item>
+          Citrus Fruits
+          <vscode-tree-item>Orange</vscode-tree-item>
+          <vscode-tree-item>Lemon</vscode-tree-item>
+          <vscode-tree-item>Grapefruit</vscode-tree-item>
+        </vscode-tree-item>
+        <vscode-tree-item>
+          Berries
+          <vscode-tree-item>Strawberry</vscode-tree-item>
+          <vscode-tree-item>Blueberry</vscode-tree-item>
+          <vscode-tree-item>Raspberry</vscode-tree-item>
+        </vscode-tree-item>
+        <vscode-tree-item>
+          Tropical Fruits
+          <vscode-tree-item>Mango</vscode-tree-item>
+          <vscode-tree-item>Pineapple</vscode-tree-item>
+          <vscode-tree-item>Papaya</vscode-tree-item>
+        </vscode-tree-item>
+      </vscode-tree-item>
+      <vscode-tree-item>
+        Vegetables
+        <vscode-tree-item>
+          Leafy Greens
+          <vscode-tree-item>Spinach</vscode-tree-item>
+          <vscode-tree-item>Lettuce</vscode-tree-item>
+          <vscode-tree-item>Kale</vscode-tree-item>
+        </vscode-tree-item>
+        <vscode-tree-item>
+          Root Vegetables
+          <vscode-tree-item>Carrot</vscode-tree-item>
+          <vscode-tree-item>Beetroot</vscode-tree-item>
+          <vscode-tree-item>Radish</vscode-tree-item>
+        </vscode-tree-item>
+        <vscode-tree-item>
+          Nightshades
+          <vscode-tree-item>Tomato</vscode-tree-item>
+          <vscode-tree-item>Eggplant</vscode-tree-item>
+          <vscode-tree-item>Bell Pepper</vscode-tree-item>
+        </vscode-tree-item>
+      </vscode-tree-item>
+    </vscode-tree>
     ```
   </Fragment>
 </Demo>
 
-## Custom icons
+## Icons
+
+Icons can be added using named slots. Any valid HTML content can be used as an icon.
+
+- **Icon area:** The display area for icons is limited to 16×16 pixels. Content that exceeds this size will be clipped.
+- **Available slots:**
+  - `icon-branch` — shown when a branch item is collapsed.
+  - `icon-branch-opened` — shown when a branch item is expanded.
+  - `icon-leaf` — shown for leaf items
+
+The visibility of each icon depends on the state of the corresponding tree item.
+
+### Codicons example
 
 <Demo>
-  <CustomIconsExample />
+  <IconsExample />
   <Fragment slot="html">
-    ```html
-    <vscode-tree id="custom-icons-example" indent-guides arrows></vscode-tree>
+    ```html 'slot="icon-branch"'  'slot="icon-branch-opened"' 'slot="icon-leaf"'
+    <vscode-tree>
+      <vscode-tree-item>
+        <vscode-icon name="folder" slot="icon-branch"></vscode-icon>
+        <vscode-icon name="folder-opened" slot="icon-branch-opened"></vscode-icon>
+        vscode-tree
+        <vscode-tree-item>
+          <vscode-icon name="file" slot="icon-leaf"></vscode-icon>helpers.test.ts
+        </vscode-tree-item>
+        <vscode-tree-item>
+          <vscode-icon name="file" slot="icon-leaf"></vscode-icon>helpers.ts
+        </vscode-tree-item>
+        <vscode-tree-item>
+          <vscode-icon name="file" slot="icon-leaf"></vscode-icon>index.ts
+        </vscode-tree-item>
+        <vscode-tree-item>
+          <vscode-icon name="file" slot="icon-leaf"></vscode-icon>tree-context.ts
+        </vscode-tree-item>
+        <vscode-tree-item>
+          <vscode-icon name="file" slot="icon-leaf"></vscode-icon>vscode-tree.styles.ts
+        </vscode-tree-item>
+        <vscode-tree-item>
+          <vscode-icon name="file" slot="icon-leaf"></vscode-icon>vscode-tree.test.ts
+        </vscode-tree-item>
+        <vscode-tree-item>
+          <vscode-icon name="file" slot="icon-leaf"></vscode-icon>vscode-tree.ts
+        </vscode-tree-item>
+      </vscode-tree-item>
+    </vscode-tree>
     ```
   </Fragment>
-  <Fragment slot="js">
-    ```javascript
-    const tree = document.getElementById("custom-icons-example");
+</Demo>
 
-    const iconUrls = {
-      branch: `/dev-assets/icons/folder.svg`,
-      open: `/dev-assets/icons/folder.expanded.svg`,
-      leaf: `/dev-assets/icons/typescript.svg`,
-    };
+### Custom icons example
 
-    const data = [
-      {
-        label: "vscode-tree",
-        iconUrls,
-        subItems: [
-          {
-            iconUrls,
-            label: "index.ts",
-          },
-          {
-            iconUrls,
-            label: "vscode-tree.styles.ts",
-          },
-          {
-            iconUrls: {
-              ...iconUrls,
-              leaf: `/dev-assets/icons/typescript-test.svg`,
-            },
-            label: "vscode-tree.test.ts",
-          },
-          {
-            iconUrls,
-            label: "vscode-tree.ts",
-          },
-        ],
-      },
-    ];
+Another example with `<img>` tags.
 
-    tree.data = data;
+:::caution
+
+Icons from installed file icon themes are **not accessible** inside a webview, as their URLs are not available.
+
+:::
+
+<Demo>
+  <MaterialIconsExample />
+  <Fragment slot="html">
+    ```html 'slot="icon-branch"'  'slot="icon-branch-opened"' 'slot="icon-leaf"'
+    <vscode-tree>
+      <vscode-tree-item open>
+        <img src="/material-icons/folder.svg" slot="icon-branch" />
+        <img src="/material-icons/folder-open.svg" slot="icon-branch-opened" />
+        vscode-tree
+        <vscode-tree-item>
+          <img src="/material-icons/test-ts.svg" slot="icon-leaf" />
+          helpers.test.ts
+        </vscode-tree-item>
+        <vscode-tree-item>
+          <img src="/material-icons/typescript.svg" slot="icon-leaf" />
+          helpers.ts
+        </vscode-tree-item>
+        <vscode-tree-item>
+          <img src="/material-icons/typescript.svg" slot="icon-leaf" />
+          index.ts
+        </vscode-tree-item>
+        <vscode-tree-item>
+          <img src="/material-icons/typescript.svg" slot="icon-leaf" />
+          tree-context.ts
+        </vscode-tree-item>
+        <vscode-tree-item>
+          <img src="/material-icons/typescript.svg" slot="icon-leaf" />
+          vscode-tree.styles.ts
+        </vscode-tree-item>
+        <vscode-tree-item>
+          <img src="/material-icons/test-ts.svg" slot="icon-leaf" />
+          vscode-tree.test.ts
+        </vscode-tree-item>
+        <vscode-tree-item>
+          <img src="/material-icons/typescript.svg" slot="icon-leaf" />
+          vscode-tree.ts
+        </vscode-tree-item>
+      </vscode-tree-item>
+    </vscode-tree>
+    ```
+  </Fragment>
+  <Fragment slot="css">
+    ```css
+    img[slot="icon-branch"],
+    img[slot="icon-branch-opened"],
+    img[slot="icon-leaf"] {
+      display: block;
+      height: 16px;
+      width: 16px;
+    }
     ```
   </Fragment>
 </Demo>
 
 ## Flat list
 
-The Tree component can also be used to display lists
+The Tree component can also be used to display lists.
 
 <Demo>
   <ListExample />
@@ -196,158 +244,6 @@ The Tree component can also be used to display lists
     tree.addEventListener("vsc-tree-select", (event) => {
       console.log(event.detail);
     });
-    ```
-  </Fragment>
-</Demo>
-
-## Actions
-
-Actions are clickable icons in the tree item. When an action icon is clicked, the `vsc-run-action`
-event will be dispatched. The event data contains the action name, the value of the tree item, and
-the tree item itself.
-
-<Demo>
-  <ActionsExample />
-  <Fragment slot="html">
-    ```html
-    <vscode-tree id="actions-example"></vscode-tree>
-    ```
-  </Fragment>
-  <Fragment slot="js">
-    ```javascript
-    const tree = document.getElementById("actions-example");
-
-    const icons = true;
-
-    const actions = [
-      {
-        icon: "edit",
-        actionId: "rename",
-        tooltip: "Rename",
-      },
-      {
-        icon: "trash",
-        actionId: "delete",
-        tooltip: "Delete",
-      },
-    ];
-
-    const data = [
-      {
-        label: "vscode-tree",
-        icons,
-        actions,
-        value: "C:\\workspace\\vscode-webview-elements\\src\\vscode-tree",
-        subItems: [
-          {
-            icons,
-            actions,
-            label: "index.ts",
-            value:
-              "C:\\workspace\\vscode-webview-elements\\src\\vscode-tree\\index.ts",
-          },
-          {
-            icons,
-            actions,
-            label: "vscode-tree.styles.ts",
-            value:
-              "C:\\workspace\\vscode-webview-elements\\src\\vscode-tree\\vscode-tree.styles.ts",
-          },
-          {
-            icons,
-            actions,
-            label: "vscode-tree.test.ts",
-            value:
-              "C:\\workspace\\vscode-webview-elements\\src\\vscode-tree\\vscode-tree.test.ts",
-          },
-          {
-            icons,
-            actions,
-            label: "vscode-tree.ts",
-            value:
-              "C:\\workspace\\vscode-webview-elements\\src\\vscode-tree\\vscode-tree.ts",
-          },
-        ],
-      },
-    ];
-
-    tree.data = data;
-
-    tree.addEventListener("vsc-tree-action", (ev) => {
-      console.log(ev.detail);
-    });
-    ```
-  </Fragment>
-</Demo>
-
-## Decorations
-
-Decoration is additional content on the right edge of the tree item. It can be a short text, a 
-counter, or a small, filled circle.
-
-<Demo>
-  <DecorationsExample />
-  <Fragment slot="html">
-    ```html
-    <vscode-tree id="decorations-example"></vscode-tree>
-    ```
-  </Fragment>
-  <Fragment slot="js">
-    ```javascript
-    const tree = document.getElementById('decorations-example');
-
-    const icons = true;
-
-    const data = [
-      {
-        label: 'vscode-tree',
-        icons,
-        decorations: [{
-          appearance: 'counter-badge',
-          content: '9',
-        }],
-        subItems: [
-          {
-            icons,
-            label: 'index.ts',
-            decorations: [
-              {
-                content: 'M',
-              }
-            ]
-          },
-          {
-            icons,
-            label: 'vscode-tree.styles.ts',
-            decorations: [
-              {
-                appearance: 'filled-circle',
-              }
-            ]
-          },
-          {
-            icons,
-            label: 'vscode-tree.test.ts',
-            decorations: [
-              {
-                content: '-22',
-                color: '#f00',
-              },
-              {
-                content: '+11',
-                color: '#0f0',
-              }
-            ]
-          },
-          {
-            icons,
-            label: 'vscode-tree.ts',
-          },
-        ],
-      },
-    ];
-
-    tree.data = data;
     ```
   </Fragment>
 </Demo>
