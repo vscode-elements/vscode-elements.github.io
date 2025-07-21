@@ -16,6 +16,13 @@ const { name = "", defaultValue = 0 } = Astro.props;
   <input type="number" id={cid} name={name} value={defaultValue} />
 </Field>
 
+<style>
+  input {
+    border: 1px solid var(--sl-color-gray-5);
+    padding: 1px 6px;
+  }
+</style>
+
 <script>
   function inputChange(ev: Event) {
     const field = (ev.target as HTMLInputElement).closest<HTMLDivElement>(

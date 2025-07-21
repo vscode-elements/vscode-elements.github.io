@@ -25,6 +25,14 @@ const { name = "", defaultValue = false, options = [] } = Astro.props;
   </select>
 </Field>
 
+<style>
+  select {
+    border: 1px solid var(--sl-color-gray-5);
+    font-family: var(--sl-font);
+    font-size: var(--sl-text-sm);
+  }
+</style>
+
 <script>
   function selectChange(ev: Event) {
     const field = (ev.target as HTMLOptionElement).closest<HTMLDivElement>(

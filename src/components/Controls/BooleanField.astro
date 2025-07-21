@@ -16,6 +16,12 @@ const { name = "", defaultValue = false } = Astro.props;
   <input type="checkbox" id={cid} name={name} checked={defaultValue} />
 </Field>
 
+<style>
+  input {
+    border: 1px solid var(--sl-color-gray-5);
+  }
+</style>
+
 <script>
   function checkboxChange(ev: Event) {
     const field = (ev.target as HTMLInputElement).closest<HTMLDivElement>(

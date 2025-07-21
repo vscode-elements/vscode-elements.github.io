@@ -1,18 +1,18 @@
 ---
 export type Props = {
   target: string;
-}
+};
 
-const {target} = Astro.props;
+const { target } = Astro.props;
 ---
 
 <fieldset data-target={target} data-astro-component="Controls" class="controls">
   <legend>Controls</legend>
-  <slot></slot>
+  <slot />
 </fieldset>
 
 <style>
-  .controls {
+  /* .controls {
     margin-top: 45px;
     padding: 0;
     position: relative;
@@ -22,6 +22,17 @@ const {target} = Astro.props;
     font-weight: bold;
     position: absolute;
     top: -25px;
+  } */
+
+  .controls {
+    border: 0;
+    font-size: var(--sl-text-sm);
+    margin: 40px 0;
+    padding: 10px 20px;
+  }
+
+  legend {
+    font-weight: bold;
   }
 </style>
 

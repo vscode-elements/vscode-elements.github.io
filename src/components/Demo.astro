@@ -11,6 +11,7 @@ const { html, css, js } = Astro.slots;
 <div>
   <div class="not-content">
     <vscode-demo><slot /></vscode-demo>
+    <slot name="after-demo"></slot>
   </div>
 </div>
 {
