@@ -8,10 +8,17 @@ export type Props = {
 const { cid, fieldType, name } = Astro.props;
 ---
 
-<div data-cid={cid} data-astro-component={fieldType} class="Field">
-  <label for={cid}>{name}</label>
-  <slot />
-</div>
+<tr>
+  <td>
+    <div data-cid={cid} data-astro-component={fieldType} class="Field">
+      <label for={cid}>{name}</label>
+      <slot />
+    </div>
+  </td>
+  <td>
+    Name
+  </td>
+</tr>
 
 <style>
   .Field {

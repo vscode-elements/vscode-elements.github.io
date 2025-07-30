@@ -8,7 +8,15 @@ const { target } = Astro.props;
 
 <fieldset data-target={target} data-astro-component="Controls" class="controls">
   <legend>Controls</legend>
-  <slot />
+  <table>
+    <thead>
+      <th>Property</th>
+      <th>Attribute</th>
+    </thead>
+    <tbody>
+      <slot />
+    </tbody>
+  </table>
 </fieldset>
 
 <style>

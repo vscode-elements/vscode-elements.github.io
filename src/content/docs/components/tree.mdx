@@ -27,21 +27,6 @@ Tree component with the default settings.
 
 <Demo>
   <BasicExample />
-  <Controls target="#tree-basic-example" slot="after-demo">
-    <EnumField
-      name="expandMode"
-      options={["singleClick", "doubleClick"]}
-      defaultValue="singleClick"
-    />
-    <BooleanField name="hideArrows" defaultValue={false} />
-    <NumberField name="indent" defaultValue={8} />
-    <EnumField
-      name="indentGuides"
-      options={["onHover", "always", "none"]}
-      defaultValue="onHover"
-    />
-    <BooleanField name="multiSelect" defaultValue={false} />
-  </Controls>
   <Fragment slot="html">
     ```html
     <vscode-tree>

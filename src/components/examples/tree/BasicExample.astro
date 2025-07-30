@@ -1,3 +1,10 @@
+---
+import BooleanField from "@components/Controls/BooleanField.astro";
+import Controls from "@components/Controls/Controls.astro";
+import EnumField from "@components/Controls/EnumField.astro";
+import NumberField from "@components/Controls/NumberField.astro";
+---
+
 <vscode-tree id="tree-basic-example">
   <vscode-tree-item>
     Fruits
@@ -42,3 +49,19 @@
     </vscode-tree-item>
   </vscode-tree-item>
 </vscode-tree>
+
+<Controls target="#tree-basic-example" slot="after-demo">
+  <EnumField
+    name="expandMode"
+    options={["singleClick", "doubleClick"]}
+    defaultValue="singleClick"
+  />
+  <BooleanField name="hideArrows" defaultValue={false} />
+  <NumberField name="indent" defaultValue={8} />
+  <EnumField
+    name="indentGuides"
+    options={["onHover", "always", "none"]}
+    defaultValue="onHover"
+  />
+  <BooleanField name="multiSelect" defaultValue={false} />
+</Controls>
