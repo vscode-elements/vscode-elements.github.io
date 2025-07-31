@@ -8,23 +8,20 @@ const { target } = Astro.props;
 
 <fieldset data-target={target} data-astro-component="Controls" class="controls">
   <legend>Controls</legend>
-  <table>
-    <thead>
-      <th>Property</th>
-      <th>Attribute</th>
-    </thead>
-    <tbody>
-      <slot />
-    </tbody>
-  </table>
+  <slot />
 </fieldset>
 
 <style>
   .controls {
     border: 0;
+    border-radius: 5px;
     font-size: var(--sl-text-sm);
     margin: 40px 0;
     padding: 10px 20px;
+  }
+
+  .controls:last-child {
+    margin-bottom: 0;
   }
 
   legend {
