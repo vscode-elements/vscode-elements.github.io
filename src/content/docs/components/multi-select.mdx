@@ -10,6 +10,7 @@ import Imports from "@components/examples/multi-select/Imports.astro";
 
 import BasicExample from "@components/examples/multi-select/BasicExample.astro";
 import ComboboxExample from "@components/examples/multi-select/ComboboxExample.astro";
+import CreatableExample from "@components/examples/multi-select/CreatableExample.astro";
 
 <Imports />
 <PageSwitcher />
@@ -79,6 +80,26 @@ import ComboboxExample from "@components/examples/multi-select/ComboboxExample.a
     });
 
     cb.filter = sl.options[sl.selectedIndex].value;
+    ```
+  </Fragment>
+</Demo>
+
+## Creatable
+
+If `creatable` is enabled in combobox mode, the user can add new options to the component. If the
+search field is not empty, an additional option will appear at the bottom of the list, allowing the
+user to extend the existing options.
+
+<Demo>
+  <CreatableExample />
+  <Fragment slot="html">
+    ```html "combobox" "creatable"
+    <vscode-multi-select combobox creatable>
+      <vscode-option>Afghanistan</vscode-option>
+      <vscode-option>Albania</vscode-option>
+      <vscode-option>Algeria</vscode-option>
+      ...
+    </vscode-multi-select>
     ```
   </Fragment>
 </Demo>
