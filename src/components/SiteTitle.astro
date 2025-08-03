@@ -1,0 +1,83 @@
+---
+import { logos } from "virtual:starlight/user-images";
+import config from "virtual:starlight/user-config";
+import VersionInfo from "./VersionInfo.astro";
+const { siteTitle, siteTitleHref } = Astro.locals.starlightRoute;
+---
+
+<a href={siteTitleHref} class="site-title sl-flex">
+  {
+    config.logo && logos.dark && (
+      <>
+        <img
+          class:list={{
+            "light:sl-hidden print:hidden": !("src" in config.logo),
+          }}
+          alt={config.logo.alt}
+          src={logos.dark.src}
+          width={logos.dark.width}
+          height={logos.dark.height}
+        />
+        {/* Show light alternate if a user configure both light and dark logos. */}
+        {!("src" in config.logo) && (
+          <img
+            class="dark:sl-hidden print:block"
+            alt={config.logo.alt}
+            src={logos.light?.src}
+            width={logos.light?.width}
+            height={logos.light?.height}
+          />
+        )}
+      </>
+    )
+  }
+  <span class:list={{ "sr-only": config.logo?.replacesTitle }} translate="no">
+    {siteTitle}
+  </span>
+</a>
+<select id="version-selector">
+  <option value="https://vscode-elements.github.io/docs-archive/v1">v1.x</option
+  >
+  <option selected value="https://vscode-elements.github.io"
+    >v<VersionInfo /></option
+  >
+</select>
+
+<style>
+  @layer starlight.core {
+    .site-title {
+      align-items: center;
+      gap: var(--sl-nav-gap);
+      font-size: var(--sl-text-h4);
+      font-weight: 600;
+      color: var(--sl-color-text-accent);
+      text-decoration: none;
+      white-space: nowrap;
+      min-width: 0;
+    }
+    span {
+      overflow: hidden;
+    }
+    img {
+      height: calc(var(--sl-nav-height) - 2 * var(--sl-nav-pad-y));
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      object-position: 0 50%;
+    }
+    select {
+      background-color: transparent;
+      border: 0;
+      margin-left: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+</style>
+
+<script>
+  const sl = document.querySelector<HTMLSelectElement>("#version-selector");
+  sl?.addEventListener("input", () => {
+    window.location.href = sl.value;
+  });
+</script>

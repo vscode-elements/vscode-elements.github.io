@@ -21,6 +21,9 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "VSCode Elements",
+      components: {
+        SiteTitle: "./src/components/SiteTitle.astro",
+      },
       social: [
         {
           icon: "github",
