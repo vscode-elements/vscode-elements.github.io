@@ -50,6 +50,13 @@ import NumberField from "@components/Controls/NumberField.astro";
   </vscode-tree-item>
 </vscode-tree>
 
+<script>
+  const tree = document.querySelector("#tree-basic-example")!;
+  tree.addEventListener("vsc-tree-select", (event) => {
+    console.log(event);
+  });
+</script>
+
 <Controls target="#tree-basic-example" slot="after-demo">
   <EnumField
     name="expandMode"
