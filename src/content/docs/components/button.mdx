@@ -8,8 +8,7 @@ import FormControlInfo from "@components/form-control-info.md";
 import IconsInfo from "@components/icons-info.md";
 
 import Imports from "@components/examples/button/Imports.astro";
-import CustomizedStyles from '@components/examples/button/CustomizedStyles.astro';
-import CustomIcon from '@components/examples/button/CustomIcon.astro';
+import CustomIcon from "@components/examples/button/CustomIcon.astro";
 
 <Imports />
 <PageSwitcher />
@@ -53,20 +52,28 @@ import CustomIcon from '@components/examples/button/CustomIcon.astro';
 <IconsInfo />
 
 <Demo>
-  <vscode-button icon="account" icon-after="chevron-right">Icons</vscode-button>
+  <vscode-button icon="account" icon-after="chevron-right">
+    Icons
+  </vscode-button>
   <Fragment slot="html">
     ```html 'icon="account"' 'icon-after="chevron-right"'
-    <vscode-button icon="account" icon-after="chevron-right">Icons</vscode-button>
+    <vscode-button icon="account" icon-after="chevron-right">
+      Icons
+    </vscode-button>
     ```
   </Fragment>
 </Demo>
 
 ## Icon button
 
+If the button only displays a built-in icon, it will automatically have a square shape.
+
+Provide a `title` or `aria-label` attribute for accessibility.
+
 <Demo>
   <vscode-button icon="settings-gear" title="Settings"></vscode-button>
   <Fragment slot="html">
-    ```html 'icon="account"' 'icon-after="chevron-right"'
+    ```html 'icon="settings-gear"'
     <vscode-button icon="settings-gear" title="Settings"></vscode-button>
     ```
   </Fragment>
@@ -74,33 +81,18 @@ import CustomIcon from '@components/examples/button/CustomIcon.astro';
 
 ## Custom icons
 
+Any HTML or SVG markup can be used as an icon. You can use the `iconOnly` property
+to make it square.
+
+Provide a `title` or `aria-label` attribute for accessibility.
+
 <Demo>
   <CustomIcon />
-</Demo>
-
-## Customized styles
-
-Styles can be tweaked.
-
-<Demo>
-  <CustomizedStyles />
   <Fragment slot="html">
     ```html
-    <vscode-button class="settings-button-example">Add item</vscode-button>
-    <vscode-button class="scm-button-example" icon="check">Commit</vscode-button>
-    ```
-  </Fragment>
-  <Fragment slot="css">
-    ```css
-    .settings-button-example {
-      line-height: 18px;
-      padding: 2px 14px;
-    }
-
-    .scm-button-example {
-      line-height: 26px;
-      width: 179px;
-    }
+    <vscode-button icon-only secondary title="HTML5">
+      <img src="/icons/html.svg" width="16" height="16" alt="HTML 5 icon" />
+    </vscode-button>
     ```
   </Fragment>
 </Demo>
