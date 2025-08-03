@@ -15,8 +15,7 @@ import BasicExample from "@components/examples/tree/BasicExample.astro";
 import IconsExample from "@components/examples/tree/IconsExample.astro";
 import MaterialIconsExample from "@components/examples/tree/MaterialIconsExample.astro";
 import ListExample from "@components/examples/tree/ListExample.astro";
-import ActionsExample from "@components/examples/tree/ActionsExample.astro";
-import DecorationsExample from "@components/examples/tree/DecorationsExample.astro";
+import RichContentExample from "@components/examples/tree/RichContentExample.astro";
 
 <Imports />
 <PageSwitcher />
@@ -89,7 +88,7 @@ Icons can be added using named slots. Any valid HTML content can be used as an i
 
 The visibility of each icon depends on the state of the corresponding tree item.
 
-### Codicons example
+### Codicons
 
 <IconsInfo />
 
@@ -136,7 +135,7 @@ The visibility of each icon depends on the state of the corresponding tree item.
   </Fragment>
 </Demo>
 
-### Custom icons example
+### Custom icons
 
 Another example with `<img>` tags.
 
@@ -200,7 +199,7 @@ Icons from installed file icon themes are **not accessible** inside a webview, a
   </Fragment>
 </Demo>
 
-## Flat tree example
+## Flat tree
 
 The Tree component can also be used to display lists.
 
@@ -230,6 +229,192 @@ The Tree component can also be used to display lists.
         Simplify changes from #108193
       </vscode-tree-item>
     </vscode-tree>
+    ```
+  </Fragment>
+</Demo>
+
+## Rich content
+
+You can place any HTML content inside a `<vscode-tree-item>` component.
+
+<Demo>
+  <RichContentExample />
+  <Fragment slot="html">
+    ```html
+    <vscode-tree>
+      <vscode-tree-item open>
+        <div class="file">
+          <vscode-icon name="file"></vscode-icon>
+          <div class="filename">tsconfig.json</div>
+          <vscode-badge variant="counter">2</vscode-badge>
+        </div>
+        <vscode-tree-item>
+          <div class="message">
+            <div class="actions">
+              <vscode-icon name="error"></vscode-icon>
+            </div>
+            <div class="message-details">
+              <div class="message-line">
+                <span class="message-raw"
+                  >Cannot find type definition file for 'mocha'.</span
+                >
+                <div class="message-error-code">ts</div>
+                <div class="message-location">[Ln 1, Col 1]</div>
+                <div class="action-bar">
+                  <vscode-toolbar-button
+                    icon="chevron-down"
+                    class="toggle-button open"></vscode-toolbar-button>
+                </div>
+              </div>
+              <div class="toggleable open">
+                <div class="message-line">
+                  <span class="message-raw"
+                    >&nbsp;&nbsp;The file is in the program because:</span
+                  >
+                </div>
+                <div class="message-line">
+                  <span class="message-raw"
+                    >&nbsp;&nbsp;&nbsp;&nbsp;Entry point of type library 'mocha'
+                    specified in compilerOptions</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </vscode-tree-item>
+        <vscode-tree-item>
+          <div class="message">
+            <div class="actions">
+              <vscode-icon name="error"></vscode-icon>
+            </div>
+            <div class="message-details">
+              <div class="message-line">
+                <span class="message-raw"
+                  >Cannot find type definition file for 'user-agent-data-types'.</span
+                >
+                <div class="message-error-code">ts</div>
+                <div class="message-location">[Ln 1, Col 1]</div>
+                <div class="action-bar">
+                  <vscode-toolbar-button
+                    icon="chevron-down"
+                    class="toggle-button open"></vscode-toolbar-button>
+                </div>
+              </div>
+              <div class="toggleable open">
+                <div class="message-line">
+                  <span class="message-raw"
+                    >&nbsp;&nbsp;The file is in the program because:</span
+                  >
+                </div>
+                <div class="message-line">
+                  <span class="message-raw"
+                    >&nbsp;&nbsp;&nbsp;&nbsp;Entry point of type library
+                    'user-agent-data-types' specified in compilerOptions</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </vscode-tree-item>
+      </vscode-tree-item>
+    </vscode-tree>
+    ```
+  </Fragment>
+  <Fragment slot="css">
+    ```css
+    .file {
+      align-items: center;
+      display: flex;
+    }
+
+    .file vscode-icon {
+      margin-right: 6px;
+    }
+
+    .filename {
+      display: block;
+    }
+
+    vscode-badge[variant="counter"] {
+      display: block;
+      margin-left: 10px;
+    }
+
+    .message {
+      display: flex;
+    }
+
+    .actions {
+      align-items: center;
+      display: flex;
+      height: 22px;
+      margin: 0 6px;
+    }
+
+    .actions vscode-icon {
+      color: var(--vscode-problemsErrorIcon-foreground);
+    }
+
+    .message-details {
+      overflow: hidden;
+    }
+
+    .toggleable {
+      display: none;
+    }
+
+    .toggleable.open {
+      display: block;
+    }
+
+    .message-line {
+      display: flex;
+      white-space: nowrap;
+    }
+
+    .message-raw {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .message-error-code {
+      margin-left: 6px;
+      opacity: 0.7;
+    }
+
+    .message-location {
+      margin-left: 6px;
+      opacity: 0.7;
+    }
+
+    .action-bar {
+      margin-left: 6px;
+    }
+
+    .action-bar vscode-toolbar-button {
+      display: block;
+    }
+
+    .action-bar vscode-toolbar-button.open {
+      transform: rotate(180deg);
+    }
+    ```
+  </Fragment>
+  <Fragment slot="js">
+    ```javascript
+    const toggleButtons = document.querySelectorAll(".toggle-button");
+
+    toggleButtons.forEach((bt) => {
+      bt.addEventListener("click", () => {
+        const message = bt.closest(".message");
+        const toggleableSection = message.querySelector(".toggleable");
+
+        bt.classList.toggle("open");
+        toggleableSection.classList.toggle("open");
+      });
+    });
     ```
   </Fragment>
 </Demo>
