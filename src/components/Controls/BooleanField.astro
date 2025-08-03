@@ -42,6 +42,7 @@ const { name = "", defaultValue = false } = Astro.props;
       const targetEl = document.querySelector(target);
 
       if (targetEl) {
+        // @ts-ignore
         targetEl[cb.name] = cb.checked;
       }
     }

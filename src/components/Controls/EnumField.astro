@@ -58,6 +58,7 @@ const { name = "", defaultValue = false, options = [] } = Astro.props;
       const targetEl = document.querySelector(target);
 
       if (targetEl) {
+        // @ts-ignore
         targetEl[select.name] = select.value;
       }
     }
