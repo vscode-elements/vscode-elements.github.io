@@ -18,8 +18,14 @@ const { name = "", defaultValue = 0 } = Astro.props;
 
 <style>
   input {
-    border: 1px solid var(--sl-color-gray-5);
-    padding: 1px 6px;
+    background-color: var(--vscode-settings-textInputBackground);
+    border: 1px solid var(--vscode-settings-textInputBorder);
+    color: var(--vscode-foreground);
+    font-family: var(--vscode-font-family);
+    font-size: var(--vscode-font-size);
+    font-weight: var(--vscode-font-weight);
+    line-height: 18px;
+    padding: 3px 4px;
   }
 </style>
 

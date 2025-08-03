@@ -21,7 +21,11 @@ const { cid, fieldType, name } = Astro.props;
   }
 
   label {
+    color: var(--vscode-foreground);
     display: block;
+    font-family: var(--vscode-font-family, sans-serif);
+    font-size: var(--vscode-font-size, 13px);
+    font-weight: var(--vscode-font-weight, normal);
     padding-right: 10px;
     text-align: right;
     user-select: none;

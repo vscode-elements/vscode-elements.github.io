@@ -27,9 +27,14 @@ const { name = "", defaultValue = false, options = [] } = Astro.props;
 
 <style>
   select {
-    border: 1px solid var(--sl-color-gray-5);
-    font-family: var(--sl-font);
-    font-size: var(--sl-text-sm);
+    background-color: var(--vscode-settings-dropdownBackground);
+    border: 1px solid var(--vscode-settings-dropdownBorder);
+    color: var(--vscode-foreground);
+    font-family: var(--vscode-font-family);
+    font-size: var(--vscode-font-size);
+    font-weight: var(--vscode-font-weight);
+    line-height: 18px;
+    padding: 3px 4px;
   }
 </style>
 
