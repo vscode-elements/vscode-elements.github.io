@@ -11,7 +11,6 @@ import ActionsExample from "@components/examples/collapsible/ActionsExample.astr
 import DecorationsExample from "@components/examples/collapsible/DecorationsExample.astro";
 import ScrollableExample from "@components/examples/collapsible/ScrollableExample.astro";
 import ToggleExample from "@components/examples/collapsible/ToggleExample.astro";
-import CssBodyPartExample from "@components/examples/collapsible/CssBodyPartExample.astro";
 
 <Imports />
 <PageSwitcher />
@@ -22,10 +21,10 @@ import CssBodyPartExample from "@components/examples/collapsible/CssBodyPartExam
   <BasicExample />
   <Fragment slot="html">
     ```html
-    <vscode-collapsible title="Basic example" open>
+    <vscode-collapsible heading="Basic example" open>
       <p>Open by default</p>
     </vscode-collapsible>
-    <vscode-collapsible title="Basic example">
+    <vscode-collapsible heading="Basic example">
       <p>Suspendisse potenti. Maecenas eu egestas metus. Nulla eget placerat mi, et efficitur augue.</p>
     </vscode-collapsible>
     ```
@@ -41,13 +40,13 @@ import CssBodyPartExample from "@components/examples/collapsible/CssBodyPartExam
 
 ## Toggle event
 
-A custom event is dispatched when the visibility of content changes.
+A custom event is dispatched when the visibility of content changes. Check the console log for the triggered events.
 
 <Demo>
   <ToggleExample />
   <Fragment slot="html">
     ```html
-    <vscode-collapsible title="Dispatch toggle event" id="toggle-event-example">
+    <vscode-collapsible heading="Dispatch toggle event" id="toggle-event-example">
       <p>Test content</p>
     </vscode-collapsible>
     ```
@@ -60,6 +59,7 @@ A custom event is dispatched when the visibility of content changes.
       console.log(ev);
     });
     ```
+
   </Fragment>
 </Demo>
 
@@ -72,7 +72,7 @@ visible exclusively when the component is in the opened state.
   <ActionsExample />
   <Fragment slot="html">
     ```html {2-15}
-    <vscode-collapsible title="Actions example" class="collapsible" open>
+    <vscode-collapsible heading="Actions example" class="collapsible" open>
       <vscode-icon
         name="file-add"
         action-icon
@@ -146,7 +146,7 @@ Elements in the `decorations` slot are always visible, in contrast to the `actio
   <DecorationsExample />
   <Fragment slot="html">
     ```html {2}
-    <vscode-collapsible title="Decorations example" class="collapsible">
+    <vscode-collapsible heading="Decorations example" class="collapsible">
       <vscode-badge variant="counter" slot="decorations">99</vscode-badge>
       <p>
         Suspendisse potenti. Maecenas eu egestas metus. Nulla eget placerat mi, et
@@ -164,43 +164,6 @@ Elements in the `decorations` slot are always visible, in contrast to the `actio
   </Fragment>
 </Demo>
 
-## Overflown content
-
-The overflown content of the Collapsible component is hidden by default. Sometimes, this behavior 
-can be problematic. In such cases, it is useful that the Collapsible body is customizable.
-
-<Demo>
-  <CssBodyPartExample />
-  <Fragment slot="html">
-    ```html
-    <vscode-collapsible title="Customized CSS part example" class="css-part-example" open>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      <vscode-single-select>
-        <vscode-option>Lorem</vscode-option>
-        <vscode-option>Ipsum</vscode-option>
-        <vscode-option>Dolor</vscode-option>
-        <vscode-option>Sit</vscode-option>
-        <vscode-option>Et</vscode-option>
-        <vscode-option>Amur</vscode-option>
-        <vscode-option>Sadispcing</vscode-option>
-      </vscode-single-select>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </vscode-collapsible>
-    ```
-  </Fragment>
-  <Fragment slot="css">
-    ```css
-    .css-part-example::part(body) {
-      overflow: visible;
-    }
-
-    .css-part-example p:last-child {
-      margin-bottom: 0;
-    }
-    ```
-  </Fragment>
-</Demo>
-
 ## Displaying large amounts of data
 
 Long content can be managed by the [Scrollable](/components/scrollable) component.
@@ -210,7 +173,7 @@ Long content can be managed by the [Scrollable](/components/scrollable) componen
   <Fragment slot="html">
     ```html
     <vscode-collapsible
-      title="Timeline"
+      heading="Timeline"
       description="vscode-collapsible.ts"
       class="collapsible complex-example"
       open
@@ -222,7 +185,17 @@ Long content can be managed by the [Scrollable](/components/scrollable) componen
       <vscode-icon name="filter" action-icon slot="actions" id="filter-icon"
       ></vscode-icon>
       <vscode-scrollable>
-        <vscode-tree id="tree-example"></vscode-tree>
+        <vscode-tree>
+          <vscode-tree-item>
+            <vscode-icon name="circle-outline" slot="icon-leaf"></vscode-icon>
+            File saved
+          </vscode-tree-item>
+          <vscode-tree-item>
+            <vscode-icon name="circle-outline" slot="icon-leaf"></vscode-icon>
+            File saved
+          </vscode-tree-item>
+          ...
+        </vscode-tree>
       </vscode-scrollable>
     </vscode-collapsible>
     ```
@@ -236,39 +209,18 @@ Long content can be managed by the [Scrollable](/components/scrollable) componen
   </Fragment>
   <Fragment slot="js">
     ```javascript
-    const icons = {
-      leaf: "circle-outline",
-    };
-    const tree = document.getElementById("tree-example");
     document.getElementById("pin-icon").addEventListener("click", (ev) => {
+      // Prevent collapsing of the component:
       ev.stopPropagation();
     });
     document.getElementById("refresh-icon").addEventListener("click", (ev) => {
+      // Prevent collapsing of the component:
       ev.stopPropagation();
     });
     document.getElementById("filter-icon").addEventListener("click", (ev) => {
+      // Prevent collapsing of the component:
       ev.stopPropagation();
     });
-
-    tree.data = [
-      { icons, label: "File Saved" },
-      { icons, label: "File Saved" },
-      { icons, label: "File Saved" },
-      { icons, label: "File Saved" },
-      { icons, label: "File Saved" },
-      { icons, label: "File Saved" },
-      { icons, label: "File Saved" },
-      { icons, label: "File Saved" },
-      { icons, label: "File Saved" },
-      { icons, label: "File Saved" },
-      { icons, label: "File Saved" },
-      { icons, label: "File Saved" },
-      { icons, label: "File Saved" },
-      { icons, label: "File Saved" },
-      { icons, label: "File Saved" },
-      { icons, label: "File Saved" },
-    ];
     ```
-
   </Fragment>
 </Demo>
