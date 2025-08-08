@@ -1,9 +1,5 @@
----
-
----
-
 <vscode-collapsible
-  title="Timeline"
+  heading="Timeline"
   description="vscode-collapsible.ts"
   class="collapsible complex-example"
   open
@@ -15,7 +11,72 @@
   <vscode-icon name="filter" action-icon slot="actions" id="filter-icon"
   ></vscode-icon>
   <vscode-scrollable>
-    <vscode-tree id="tree-example"></vscode-tree>
+    <vscode-tree>
+      <vscode-tree-item>
+        <vscode-icon name="circle-outline" slot="icon-leaf"></vscode-icon>
+        File saved
+      </vscode-tree-item>
+      <vscode-tree-item>
+        <vscode-icon name="circle-outline" slot="icon-leaf"></vscode-icon>
+        File saved
+      </vscode-tree-item>
+      <vscode-tree-item>
+        <vscode-icon name="circle-outline" slot="icon-leaf"></vscode-icon>
+        File saved
+      </vscode-tree-item>
+      <vscode-tree-item>
+        <vscode-icon name="circle-outline" slot="icon-leaf"></vscode-icon>
+        File saved
+      </vscode-tree-item>
+      <vscode-tree-item>
+        <vscode-icon name="circle-outline" slot="icon-leaf"></vscode-icon>
+        File saved
+      </vscode-tree-item>
+      <vscode-tree-item>
+        <vscode-icon name="circle-outline" slot="icon-leaf"></vscode-icon>
+        File saved
+      </vscode-tree-item>
+      <vscode-tree-item>
+        <vscode-icon name="circle-outline" slot="icon-leaf"></vscode-icon>
+        File saved
+      </vscode-tree-item>
+      <vscode-tree-item>
+        <vscode-icon name="circle-outline" slot="icon-leaf"></vscode-icon>
+        File saved
+      </vscode-tree-item>
+      <vscode-tree-item>
+        <vscode-icon name="circle-outline" slot="icon-leaf"></vscode-icon>
+        File saved
+      </vscode-tree-item>
+      <vscode-tree-item>
+        <vscode-icon name="circle-outline" slot="icon-leaf"></vscode-icon>
+        File saved
+      </vscode-tree-item>
+      <vscode-tree-item>
+        <vscode-icon name="circle-outline" slot="icon-leaf"></vscode-icon>
+        File saved
+      </vscode-tree-item>
+      <vscode-tree-item>
+        <vscode-icon name="circle-outline" slot="icon-leaf"></vscode-icon>
+        File saved
+      </vscode-tree-item>
+      <vscode-tree-item>
+        <vscode-icon name="circle-outline" slot="icon-leaf"></vscode-icon>
+        File saved
+      </vscode-tree-item>
+      <vscode-tree-item>
+        <vscode-icon name="circle-outline" slot="icon-leaf"></vscode-icon>
+        File saved
+      </vscode-tree-item>
+      <vscode-tree-item>
+        <vscode-icon name="circle-outline" slot="icon-leaf"></vscode-icon>
+        File saved
+      </vscode-tree-item>
+      <vscode-tree-item>
+        <vscode-icon name="circle-outline" slot="icon-leaf"></vscode-icon>
+        File saved
+      </vscode-tree-item>
+    </vscode-tree>
   </vscode-scrollable>
 </vscode-collapsible>
 
@@ -26,12 +87,6 @@
 </style>
 
 <script>
-  import type { VscodeTree } from "@vscode-elements/elements/dist/vscode-tree";
-
-  const icons = {
-    leaf: "circle-outline",
-  };
-  const tree = document.getElementById("tree-example") as VscodeTree;
   document.getElementById("pin-icon")!.addEventListener("click", (ev) => {
     ev.stopPropagation();
   });
@@ -41,23 +96,4 @@
   document.getElementById("filter-icon")!.addEventListener("click", (ev) => {
     ev.stopPropagation();
   });
-
-  // tree.data = [
-  //   { icons, label: "File Saved" },
-  //   { icons, label: "File Saved" },
-  //   { icons, label: "File Saved" },
-  //   { icons, label: "File Saved" },
-  //   { icons, label: "File Saved" },
-  //   { icons, label: "File Saved" },
-  //   { icons, label: "File Saved" },
-  //   { icons, label: "File Saved" },
-  //   { icons, label: "File Saved" },
-  //   { icons, label: "File Saved" },
-  //   { icons, label: "File Saved" },
-  //   { icons, label: "File Saved" },
-  //   { icons, label: "File Saved" },
-  //   { icons, label: "File Saved" },
-  //   { icons, label: "File Saved" },
-  //   { icons, label: "File Saved" },
-  // ];
 </script>
