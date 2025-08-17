@@ -37,6 +37,7 @@ export function getStaticPaths() {
     { params: { component: "textarea" } },
     { params: { component: "textfield" } },
     { params: { component: "toolbar-button" } },
+    { params: { component: "tree-item" } },
     { params: { component: "tree" } },
   ];
 }
@@ -44,11 +45,11 @@ export function getStaticPaths() {
 const camelize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 const kebabToPascal = (kebab: string) => {
-  const parts = kebab.split('-');
+  const parts = kebab.split("-");
 
   return parts.reduce(
     (prevVal, currentVal) => prevVal + camelize(currentVal),
-    ''
+    ""
   );
 };
 
