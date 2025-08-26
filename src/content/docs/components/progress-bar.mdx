@@ -1,0 +1,47 @@
+---
+title: Progress Bar
+---
+
+import Demo from "@components/Demo.astro";
+import PageSwitcher from "@components/PageSwitcher.astro";
+import Imports from "@components/examples/progress-bar/Imports.astro";
+
+<Imports />
+<PageSwitcher />
+
+## Basic example
+
+<Demo>
+  <vscode-progress-bar></vscode-progress-bar>
+  <Fragment slot="html">
+    ```html
+    <vscode-progress-bar></vscode-progress-bar>
+    ```
+  </Fragment>
+</Demo>
+
+## Long running threshold
+
+Switches to a gentler animation after a while in indeterminate mode, consuming fewer resources.
+
+<Demo>
+  <vscode-progress-bar long-running-threshold="1000"></vscode-progress-bar>
+  <Fragment slot="html">
+    ```html 'long-running-threshold="1000"'
+    <vscode-progress-bar long-running-threshold="1000"></vscode-progress-bar>
+    ```
+  </Fragment>
+</Demo>
+
+## Determinate mode
+
+Set a specific value. The `max` value is optional, its default value is 100.
+
+<Demo>
+  <vscode-progress-bar max="100" value="70"></vscode-progress-bar>
+  <Fragment slot="html">
+    ```html 'value="70"'
+    <vscode-progress-bar max="100" value="70"></vscode-progress-bar>
+    ```
+  </Fragment>
+</Demo>
