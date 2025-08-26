@@ -16,7 +16,7 @@ const { siteTitle, siteTitleHref } = Astro.locals.starlightRoute;
     {siteTitle}
   </span>
 </a>
-<select id="version-selector">
+<select id="version-selector" aria-label="Select version">
   <option value="https://vscode-elements.github.io/docs-archive/v1">v1.x</option
   >
   <option selected value="https://vscode-elements.github.io"
@@ -39,7 +39,8 @@ const { siteTitle, siteTitleHref } = Astro.locals.starlightRoute;
     span {
       overflow: hidden;
     }
-    img, svg {
+    img,
+    svg {
       height: calc(var(--sl-nav-height) - 2 * var(--sl-nav-pad-y));
       width: auto;
       max-width: 100%;
