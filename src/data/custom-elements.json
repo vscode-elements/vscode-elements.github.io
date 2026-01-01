@@ -25,6 +25,18 @@
               },
               "description": "VSCode Elements version",
               "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ]
             }
           ],
           "superclass": {
@@ -111,6 +123,18 @@
         {
           "kind": "function",
           "name": "getDefaultEditorFontStack"
+        },
+        {
+          "kind": "function",
+          "name": "logMessage",
+          "parameters": [
+            {
+              "name": "msg",
+              "type": {
+                "text": "string"
+              }
+            }
+          ]
         }
       ],
       "exports": [
@@ -144,6 +168,165 @@
           "declaration": {
             "name": "getDefaultEditorFontStack",
             "module": "src/includes/helpers.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "logMessage",
+          "declaration": {
+            "name": "logMessage",
+            "module": "src/includes/helpers.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/includes/sizes.ts",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "px",
+          "return": {
+            "type": {
+              "text": "Px"
+            }
+          },
+          "parameters": [
+            {
+              "name": "value",
+              "type": {
+                "text": "number"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "percent",
+          "return": {
+            "type": {
+              "text": "Percent"
+            }
+          },
+          "parameters": [
+            {
+              "name": "value",
+              "type": {
+                "text": "number"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "toPercent",
+          "return": {
+            "type": {
+              "text": "Percent"
+            }
+          },
+          "parameters": [
+            {
+              "name": "px",
+              "type": {
+                "text": "Px"
+              }
+            },
+            {
+              "name": "container",
+              "type": {
+                "text": "Px"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "toPx",
+          "return": {
+            "type": {
+              "text": "Px"
+            }
+          },
+          "parameters": [
+            {
+              "name": "p",
+              "type": {
+                "text": "Percent"
+              }
+            },
+            {
+              "name": "container",
+              "type": {
+                "text": "Px"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "function",
+          "name": "parseSizeAttributeToPercent",
+          "return": {
+            "type": {
+              "text": "Percent | null"
+            }
+          },
+          "parameters": [
+            {
+              "name": "raw",
+              "type": {
+                "text": "string | number"
+              }
+            },
+            {
+              "name": "base",
+              "type": {
+                "text": "number"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "px",
+          "declaration": {
+            "name": "px",
+            "module": "src/includes/sizes.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "percent",
+          "declaration": {
+            "name": "percent",
+            "module": "src/includes/sizes.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "toPercent",
+          "declaration": {
+            "name": "toPercent",
+            "module": "src/includes/sizes.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "toPx",
+          "declaration": {
+            "name": "toPx",
+            "module": "src/includes/sizes.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "parseSizeAttributeToPercent",
+          "declaration": {
+            "name": "parseSizeAttributeToPercent",
+            "module": "src/includes/sizes.ts"
           }
         }
       ]
@@ -606,131 +789,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/vscode-badge/vscode-badge.styles.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "styles",
-          "type": {
-            "text": "CSSResultGroup"
-          },
-          "default": "[ defaultStyles, css` :host { display: inline-block; } .root { background-color: var(--vscode-badge-background, #616161); border: 1px solid var(--vscode-contrastBorder, transparent); border-radius: 2px; box-sizing: border-box; color: var(--vscode-badge-foreground, #f8f8f8); display: block; font-family: var(--vscode-font-family, ${defaultFontStack}); font-size: 11px; font-weight: 400; line-height: 14px; min-width: 18px; padding: 2px 3px; text-align: center; white-space: nowrap; } :host([variant='counter']) .root { border-radius: 11px; line-height: 11px; min-height: 18px; min-width: 18px; padding: 3px 6px; } :host([variant='activity-bar-counter']) .root { background-color: var(--vscode-activityBarBadge-background, #0078d4); border-radius: 20px; color: var(--vscode-activityBarBadge-foreground, #ffffff); font-size: 9px; font-weight: 600; line-height: 16px; padding: 0 4px; } :host([variant='tab-header-counter']) .root { background-color: var(--vscode-activityBarBadge-background, #0078d4); border-radius: 10px; color: var(--vscode-activityBarBadge-foreground, #ffffff); line-height: 10px; min-height: 16px; min-width: 16px; padding: 3px 5px; } `, ]"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "styles",
-            "module": "src/vscode-badge/vscode-badge.styles.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-badge/vscode-badge.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "Show counts or status information. Badges can also be used within [Textfield](https://vscode-elements.github.io/components/textfield) and [TabHeader](https://vscode-elements.github.io/components/tabs) components.",
-          "name": "VscodeBadge",
-          "cssProperties": [
-            {
-              "description": "A sans-serif font type depends on the host OS.",
-              "name": "--vscode-font-family",
-              "default": "sans-serif"
-            },
-            {
-              "name": "--vscode-contrastBorder",
-              "default": "transparent"
-            },
-            {
-              "description": "default and counter variant background color",
-              "name": "--vscode-badge-background",
-              "default": "#616161"
-            },
-            {
-              "description": "default and counter variant foreground color",
-              "name": "--vscode-badge-foreground",
-              "default": "#f8f8f8"
-            },
-            {
-              "description": "activity bar variant background color",
-              "name": "--vscode-activityBarBadge-background",
-              "default": "#0078d4"
-            },
-            {
-              "description": "activity bar variant foreground color",
-              "name": "--vscode-activityBarBadge-foreground",
-              "default": "#ffffff"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "| 'default'\n    | 'counter'\n    | 'activity-bar-counter'\n    | 'tab-header-counter'"
-              },
-              "default": "'default'",
-              "attribute": "variant",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "version",
-              "type": {
-                "text": "string"
-              },
-              "description": "VSCode Elements version",
-              "readonly": true,
-              "inheritedFrom": {
-                "name": "VscElement",
-                "module": "src/includes/VscElement.ts"
-              }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "variant",
-              "type": {
-                "text": "| 'default'\n    | 'counter'\n    | 'activity-bar-counter'\n    | 'tab-header-counter'"
-              },
-              "default": "'default'",
-              "fieldName": "variant"
-            }
-          ],
-          "superclass": {
-            "name": "VscElement",
-            "module": "/src/includes/VscElement.js"
-          },
-          "tagName": "vscode-badge",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "VscodeBadge",
-          "declaration": {
-            "name": "VscodeBadge",
-            "module": "src/vscode-badge/vscode-badge.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "vscode-badge",
-          "declaration": {
-            "name": "VscodeBadge",
-            "module": "src/vscode-badge/vscode-badge.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/vscode-button/vscode-button.styles.ts",
       "declarations": [
         {
@@ -1087,6 +1145,22 @@
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
               }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -1246,7 +1320,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/vscode-button-group/vscode-button-group.styles.ts",
+      "path": "src/vscode-badge/vscode-badge.styles.ts",
       "declarations": [
         {
           "kind": "variable",
@@ -1254,7 +1328,7 @@
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[ defaultStyles, css` :host { display: inline-block; } .root { align-items: stretch; display: flex; width: 100%; } ::slotted(vscode-button:not(:first-child)) { --vsc-border-left-width: 0; --vsc-border-left-radius: 0; --vsc-border-left-width: 0; } ::slotted(vscode-button:not(:last-child)) { --vsc-divider-display: block; --vsc-base-additional-right-padding: 1px; --vsc-base-after-content: ''; --vsc-border-right-width: 0; --vsc-border-right-radius: 0; --vsc-border-right-width: 0; } ::slotted(vscode-button:focus) { z-index: 1; } ::slotted(vscode-button:not(:empty)) { width: 100%; } `, ]"
+          "default": "[ defaultStyles, css` :host { display: inline-block; } .root { background-color: var(--vscode-badge-background, #616161); border: 1px solid var(--vscode-contrastBorder, transparent); border-radius: 2px; box-sizing: border-box; color: var(--vscode-badge-foreground, #f8f8f8); display: block; font-family: var(--vscode-font-family, ${defaultFontStack}); font-size: 11px; font-weight: 400; line-height: 14px; min-width: 18px; padding: 2px 3px; text-align: center; white-space: nowrap; } :host([variant='counter']) .root { border-radius: 11px; line-height: 11px; min-height: 18px; min-width: 18px; padding: 3px 6px; } :host([variant='activity-bar-counter']) .root { background-color: var(--vscode-activityBarBadge-background, #0078d4); border-radius: 20px; color: var(--vscode-activityBarBadge-foreground, #ffffff); font-size: 9px; font-weight: 600; line-height: 16px; padding: 0 4px; } :host([variant='tab-header-counter']) .root { background-color: var(--vscode-activityBarBadge-background, #0078d4); border-radius: 10px; color: var(--vscode-activityBarBadge-foreground, #ffffff); line-height: 10px; min-height: 16px; min-width: 16px; padding: 3px 5px; } `, ]"
         }
       ],
       "exports": [
@@ -1263,67 +1337,61 @@
           "name": "default",
           "declaration": {
             "name": "styles",
-            "module": "src/vscode-button-group/vscode-button-group.styles.ts"
+            "module": "src/vscode-badge/vscode-badge.styles.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/vscode-button-group/vscode-button-group.ts",
+      "path": "src/vscode-badge/vscode-badge.ts",
       "declarations": [
         {
           "kind": "class",
-          "description": "Shows a split button, including several components in a single button. Commonly used to show a button with a dropdown to the right.",
-          "name": "VscodeButtonGroup",
+          "description": "Show counts or status information. Badges can also be used within [Textfield](https://vscode-elements.github.io/components/textfield) and [TabHeader](https://vscode-elements.github.io/components/tabs) components.",
+          "name": "VscodeBadge",
           "cssProperties": [
-            {
-              "name": "--vscode-button-background",
-              "default": "#0078d4"
-            },
-            {
-              "name": "--vscode-button-foreground",
-              "default": "#ffffff"
-            },
-            {
-              "name": "--vscode-button-border",
-              "default": "var(--vscode-button-background, rgba(255, 255, 255, 0.07))"
-            },
-            {
-              "name": "--vscode-button-hoverBackground",
-              "default": "#026ec1"
-            },
             {
               "description": "A sans-serif font type depends on the host OS.",
               "name": "--vscode-font-family",
               "default": "sans-serif"
             },
             {
-              "name": "--vscode-font-size",
-              "default": "13px"
+              "name": "--vscode-contrastBorder",
+              "default": "transparent"
             },
             {
-              "name": "--vscode-font-weight",
-              "default": "normal"
+              "description": "default and counter variant background color",
+              "name": "--vscode-badge-background",
+              "default": "#616161"
             },
             {
-              "name": "--vscode-button-secondaryForeground",
-              "default": "#cccccc"
+              "description": "default and counter variant foreground color",
+              "name": "--vscode-badge-foreground",
+              "default": "#f8f8f8"
             },
             {
-              "name": "--vscode-button-secondaryBackground",
-              "default": "#313131"
-            },
-            {
-              "name": "--vscode-button-secondaryHoverBackground",
-              "default": "#3c3c3c"
-            },
-            {
-              "name": "--vscode-focusBorder",
+              "description": "activity bar variant background color",
+              "name": "--vscode-activityBarBadge-background",
               "default": "#0078d4"
+            },
+            {
+              "description": "activity bar variant foreground color",
+              "name": "--vscode-activityBarBadge-foreground",
+              "default": "#ffffff"
             }
           ],
           "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "| 'default'\n    | 'counter'\n    | 'activity-bar-counter'\n    | 'tab-header-counter'"
+              },
+              "default": "'default'",
+              "attribute": "variant",
+              "reflects": true
+            },
             {
               "kind": "field",
               "name": "version",
@@ -1336,31 +1404,57 @@
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
               }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant",
+              "type": {
+                "text": "| 'default'\n    | 'counter'\n    | 'activity-bar-counter'\n    | 'tab-header-counter'"
+              },
+              "default": "'default'",
+              "fieldName": "variant"
             }
           ],
           "superclass": {
             "name": "VscElement",
             "module": "/src/includes/VscElement.js"
           },
-          "tagName": "vscode-button-group",
+          "tagName": "vscode-badge",
           "customElement": true
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "VscodeButtonGroup",
+          "name": "VscodeBadge",
           "declaration": {
-            "name": "VscodeButtonGroup",
-            "module": "src/vscode-button-group/vscode-button-group.ts"
+            "name": "VscodeBadge",
+            "module": "src/vscode-badge/vscode-badge.ts"
           }
         },
         {
           "kind": "custom-element-definition",
-          "name": "vscode-button-group",
+          "name": "vscode-badge",
           "declaration": {
-            "name": "VscodeButtonGroup",
-            "module": "src/vscode-button-group/vscode-button-group.ts"
+            "name": "VscodeBadge",
+            "module": "src/vscode-badge/vscode-badge.ts"
           }
         }
       ]
@@ -1773,6 +1867,22 @@
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
               }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "events": [
@@ -1932,6 +2042,143 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/vscode-button-group/vscode-button-group.styles.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "styles",
+          "type": {
+            "text": "CSSResultGroup"
+          },
+          "default": "[ defaultStyles, css` :host { display: inline-block; } .root { align-items: stretch; display: flex; width: 100%; } ::slotted(vscode-button:not(:first-child)) { --vsc-border-left-width: 0; --vsc-border-left-radius: 0; --vsc-border-left-width: 0; } ::slotted(vscode-button:not(:last-child)) { --vsc-divider-display: block; --vsc-base-additional-right-padding: 1px; --vsc-base-after-content: ''; --vsc-border-right-width: 0; --vsc-border-right-radius: 0; --vsc-border-right-width: 0; } ::slotted(vscode-button:focus) { z-index: 1; } ::slotted(vscode-button:not(:empty)) { width: 100%; } `, ]"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "styles",
+            "module": "src/vscode-button-group/vscode-button-group.styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-button-group/vscode-button-group.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Shows a split button, including several components in a single button. Commonly used to show a button with a dropdown to the right.",
+          "name": "VscodeButtonGroup",
+          "cssProperties": [
+            {
+              "name": "--vscode-button-background",
+              "default": "#0078d4"
+            },
+            {
+              "name": "--vscode-button-foreground",
+              "default": "#ffffff"
+            },
+            {
+              "name": "--vscode-button-border",
+              "default": "var(--vscode-button-background, rgba(255, 255, 255, 0.07))"
+            },
+            {
+              "name": "--vscode-button-hoverBackground",
+              "default": "#026ec1"
+            },
+            {
+              "description": "A sans-serif font type depends on the host OS.",
+              "name": "--vscode-font-family",
+              "default": "sans-serif"
+            },
+            {
+              "name": "--vscode-font-size",
+              "default": "13px"
+            },
+            {
+              "name": "--vscode-font-weight",
+              "default": "normal"
+            },
+            {
+              "name": "--vscode-button-secondaryForeground",
+              "default": "#cccccc"
+            },
+            {
+              "name": "--vscode-button-secondaryBackground",
+              "default": "#313131"
+            },
+            {
+              "name": "--vscode-button-secondaryHoverBackground",
+              "default": "#3c3c3c"
+            },
+            {
+              "name": "--vscode-focusBorder",
+              "default": "#0078d4"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "version",
+              "type": {
+                "text": "string"
+              },
+              "description": "VSCode Elements version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            }
+          ],
+          "superclass": {
+            "name": "VscElement",
+            "module": "/src/includes/VscElement.js"
+          },
+          "tagName": "vscode-button-group",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "VscodeButtonGroup",
+          "declaration": {
+            "name": "VscodeButtonGroup",
+            "module": "src/vscode-button-group/vscode-button-group.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "vscode-button-group",
+          "declaration": {
+            "name": "VscodeButtonGroup",
+            "module": "src/vscode-button-group/vscode-button-group.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/vscode-checkbox-group/vscode-checkbox-group.styles.ts",
       "declarations": [
         {
@@ -1981,6 +2228,22 @@
               },
               "description": "VSCode Elements version",
               "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
               "inheritedFrom": {
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
@@ -2205,6 +2468,22 @@
               },
               "description": "VSCode Elements version",
               "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
               "inheritedFrom": {
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
@@ -2535,6 +2814,22 @@
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
               }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "events": [
@@ -2725,6 +3020,22 @@
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
               }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -2853,6 +3164,22 @@
               },
               "description": "VSCode Elements version",
               "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
               "inheritedFrom": {
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
@@ -3050,6 +3377,22 @@
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
               }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -3163,6 +3506,22 @@
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
               }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -3254,6 +3613,22 @@
               },
               "description": "VSCode Elements version",
               "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
               "inheritedFrom": {
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
@@ -3446,6 +3821,22 @@
               },
               "description": "VSCode Elements version",
               "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
               "inheritedFrom": {
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
@@ -3659,6 +4050,22 @@
               },
               "description": "VSCode Elements version",
               "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
               "inheritedFrom": {
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
@@ -4993,6 +5400,22 @@
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
               }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -5288,6 +5711,22 @@
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
               }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -5489,6 +5928,22 @@
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
               }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -5632,6 +6087,22 @@
               },
               "description": "VSCode Elements version",
               "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
               "inheritedFrom": {
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
@@ -6099,6 +6570,22 @@
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
               }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "events": [
@@ -6384,6 +6871,22 @@
               },
               "description": "VSCode Elements version",
               "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
               "inheritedFrom": {
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
@@ -6866,6 +7369,22 @@
               },
               "description": "VSCode Elements version",
               "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
               "inheritedFrom": {
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
@@ -8183,6 +8702,22 @@
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
               }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -8905,6 +9440,22 @@
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
               }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -9115,6 +9666,22 @@
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
               }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -9239,6 +9806,22 @@
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
               }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -9289,27 +9872,285 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/vscode-table/helpers.ts",
+      "path": "src/vscode-table/ColumnResizeController.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "ColumnResizeController",
+          "members": [
+            {
+              "kind": "field",
+              "name": "_host",
+              "type": {
+                "text": "VscodeTable"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_hostWidth",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_hostX",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_activeSplitter",
+              "type": {
+                "text": "SplitterElement | null"
+              },
+              "privacy": "private",
+              "default": "null"
+            },
+            {
+              "kind": "field",
+              "name": "_columnMinWidths",
+              "privacy": "private",
+              "default": "new Map<number, Percent>()"
+            },
+            {
+              "kind": "field",
+              "name": "_columnWidths",
+              "type": {
+                "text": "Percent[]"
+              },
+              "privacy": "private",
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "_dragState",
+              "type": {
+                "text": "{\n    splitterIndex: number;\n    pointerId: number;\n    prevX: Px;\n    dragOffset: Px;\n  } | null"
+              },
+              "privacy": "private",
+              "default": "null"
+            },
+            {
+              "kind": "field",
+              "name": "_cachedSplitterPositions",
+              "type": {
+                "text": "Percent[] | null"
+              },
+              "privacy": "private",
+              "default": "null"
+            },
+            {
+              "kind": "method",
+              "name": "hostConnected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              }
+            },
+            {
+              "kind": "field",
+              "name": "isDragging",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "splitterPositions",
+              "type": {
+                "text": "Percent[]"
+              },
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "getActiveSplitterCalculatedPosition"
+            },
+            {
+              "kind": "field",
+              "name": "columnWidths",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "columnMinWidths",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "saveHostDimensions"
+            },
+            {
+              "kind": "method",
+              "name": "setActiveSplitter",
+              "parameters": [
+                {
+                  "name": "splitter",
+                  "type": {
+                    "text": "HTMLElement"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "getActiveSplitter"
+            },
+            {
+              "kind": "method",
+              "name": "setColumnMinWidthAt",
+              "parameters": [
+                {
+                  "name": "colIndex",
+                  "type": {
+                    "text": "number"
+                  }
+                },
+                {
+                  "name": "value",
+                  "type": {
+                    "text": "Percent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "setColumWidths",
+              "parameters": [
+                {
+                  "name": "widths",
+                  "type": {
+                    "text": "Percent[]"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "shouldDrag",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "PointerEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "startDrag",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "PointerEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "drag",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "PointerEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "stopDrag",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "PointerEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_toPercent",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "px",
+                  "type": {
+                    "text": "Px"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_toPx",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "percent",
+                  "type": {
+                    "text": "Percent"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ColumnResizeController",
+          "declaration": {
+            "name": "ColumnResizeController",
+            "module": "src/vscode-table/ColumnResizeController.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-table/calculations.ts",
       "declarations": [
         {
           "kind": "function",
-          "name": "rawValueToPercentage",
+          "name": "calculateColumnWidths",
           "return": {
             "type": {
-              "text": "number | null"
+              "text": "Percent[]"
             }
           },
           "parameters": [
             {
-              "name": "raw",
+              "name": "widths",
               "type": {
-                "text": "string | number"
+                "text": "Percent[]"
               }
             },
             {
-              "name": "base",
+              "name": "splitterIndex",
               "type": {
                 "text": "number"
+              }
+            },
+            {
+              "name": "delta",
+              "type": {
+                "text": "Percent"
+              }
+            },
+            {
+              "name": "minWidths",
+              "type": {
+                "text": "Map<number, Percent>"
               }
             }
           ]
@@ -9318,10 +10159,10 @@
       "exports": [
         {
           "kind": "js",
-          "name": "rawValueToPercentage",
+          "name": "calculateColumnWidths",
           "declaration": {
-            "name": "rawValueToPercentage",
-            "module": "src/vscode-table/helpers.ts"
+            "name": "calculateColumnWidths",
+            "module": "src/vscode-table/calculations.ts"
           }
         }
       ]
@@ -9332,14 +10173,46 @@
       "declarations": [
         {
           "kind": "variable",
+          "name": "SPLITTER_HIT_WIDTH",
+          "type": {
+            "text": "number"
+          },
+          "default": "5"
+        },
+        {
+          "kind": "variable",
+          "name": "SPLITTER_VISIBLE_WIDTH",
+          "type": {
+            "text": "number"
+          },
+          "default": "1"
+        },
+        {
+          "kind": "variable",
           "name": "styles",
           "type": {
             "text": "CSSResultGroup"
           },
-          "default": "[ baseStyles, css` :host { display: block; --vsc-row-even-background: transparent; --vsc-row-odd-background: transparent; --vsc-row-border-bottom-width: 0; --vsc-row-border-top-width: 0; --vsc-row-display: table-row; } :host([bordered]), :host([bordered-rows]) { --vsc-row-border-bottom-width: 1px; } :host([compact]) { --vsc-row-display: block; } :host([bordered][compact]), :host([bordered-rows][compact]) { --vsc-row-border-bottom-width: 0; --vsc-row-border-top-width: 1px; } :host([zebra]) { --vsc-row-even-background: var( --vscode-keybindingTable-rowsBackground, rgba(204, 204, 204, 0.04) ); } :host([zebra-odd]) { --vsc-row-odd-background: var( --vscode-keybindingTable-rowsBackground, rgba(204, 204, 204, 0.04) ); } ::slotted(vscode-table-row) { width: 100%; } .wrapper { height: 100%; max-width: 100%; overflow: hidden; position: relative; width: 100%; } .wrapper.select-disabled { user-select: none; } .wrapper.resize-cursor { cursor: ew-resize; } .wrapper.compact-view .header-slot-wrapper { height: 0; overflow: hidden; } .scrollable { height: 100%; } .scrollable:before { background-color: transparent; content: ''; display: block; height: 1px; position: absolute; width: 100%; } .wrapper:not(.compact-view) .scrollable:not([scrolled]):before { background-color: var( --vscode-editorGroup-border, rgba(255, 255, 255, 0.09) ); } .sash { visibility: hidden; } :host([bordered-columns]) .sash, :host([bordered]) .sash { visibility: visible; } :host([resizable]) .wrapper:hover .sash { visibility: visible; } .sash { height: 100%; position: absolute; top: 0; width: 1px; } .wrapper.compact-view .sash { display: none; } .sash.resizable { cursor: ew-resize; } .sash-visible { background-color: var( --vscode-editorGroup-border, rgba(255, 255, 255, 0.09) ); height: 100%; position: absolute; top: 30px; width: 1px; } .sash.hover .sash-visible { background-color: var(--vscode-sash-hoverBorder, #0078d4); transition: background-color 50ms linear 300ms; } .sash .sash-clickable { background-color: transparent; height: 100%; left: -2px; position: absolute; width: 5px; } `, ]"
+          "default": "[ baseStyles, css` :host { display: block; --vsc-row-even-background: transparent; --vsc-row-odd-background: transparent; --vsc-row-border-bottom-width: 0; --vsc-row-border-top-width: 0; --vsc-row-display: table-row; } :host([bordered]), :host([bordered-rows]) { --vsc-row-border-bottom-width: 1px; } :host([compact]) { --vsc-row-display: block; } :host([bordered][compact]), :host([bordered-rows][compact]) { --vsc-row-border-bottom-width: 0; --vsc-row-border-top-width: 1px; } :host([zebra]) { --vsc-row-even-background: var( --vscode-keybindingTable-rowsBackground, rgba(204, 204, 204, 0.04) ); } :host([zebra-odd]) { --vsc-row-odd-background: var( --vscode-keybindingTable-rowsBackground, rgba(204, 204, 204, 0.04) ); } ::slotted(vscode-table-row) { width: 100%; } .wrapper { height: 100%; max-width: 100%; overflow: hidden; position: relative; width: 100%; } .wrapper.select-disabled { user-select: none; } .wrapper.resize-cursor { cursor: ew-resize; } .wrapper.compact-view .header-slot-wrapper { height: 0; overflow: hidden; } .scrollable { height: 100%; } .scrollable:before { background-color: transparent; content: ''; display: block; height: 1px; position: absolute; width: 100%; } .wrapper:not(.compact-view) .scrollable:not([scrolled]):before { background-color: var( --vscode-editorGroup-border, rgba(255, 255, 255, 0.09) ); } .sash { visibility: hidden; } :host([bordered-columns]) .sash, :host([bordered]) .sash { visibility: visible; } :host([resizable]) .wrapper:hover .sash { visibility: visible; } .sash { height: 100%; position: absolute; top: 0; width: 1px; } .wrapper.compact-view .sash { display: none; } .sash.resizable { cursor: ew-resize; } .sash-visible { background-color: var( --vscode-editorGroup-border, rgba(255, 255, 255, 0.09) ); height: calc(100% - 30px); position: absolute; top: 30px; width: ${SPLITTER_VISIBLE_WIDTH}px; } .sash.hover .sash-visible { background-color: var(--vscode-sash-hoverBorder, #0078d4); transition: background-color 50ms linear 300ms; } .sash .sash-clickable { height: 100%; left: ${0 - (SPLITTER_HIT_WIDTH - SPLITTER_VISIBLE_WIDTH) / 2}px; position: absolute; width: ${SPLITTER_HIT_WIDTH}px; } `, ]"
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "SPLITTER_HIT_WIDTH",
+          "declaration": {
+            "name": "SPLITTER_HIT_WIDTH",
+            "module": "src/vscode-table/vscode-table.styles.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "SPLITTER_VISIBLE_WIDTH",
+          "declaration": {
+            "name": "SPLITTER_VISIBLE_WIDTH",
+            "module": "src/vscode-table/vscode-table.styles.ts"
+          }
+        },
         {
           "kind": "js",
           "name": "default",
@@ -9488,14 +10361,6 @@
             },
             {
               "kind": "field",
-              "name": "_bodySlot",
-              "type": {
-                "text": "HTMLSlotElement"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
               "name": "_headerElement",
               "type": {
                 "text": "HTMLDivElement"
@@ -9615,24 +10480,6 @@
             },
             {
               "kind": "field",
-              "name": "_activeSashCursorOffset",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "field",
-              "name": "_componentX",
-              "type": {
-                "text": "number"
-              },
-              "privacy": "private",
-              "default": "0"
-            },
-            {
-              "kind": "field",
               "name": "_componentH",
               "type": {
                 "text": "number"
@@ -9671,22 +10518,6 @@
             },
             {
               "kind": "field",
-              "name": "_cellsToResize",
-              "type": {
-                "text": "VscodeTableCell[]"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
-              "name": "_headerCellsToResize",
-              "type": {
-                "text": "VscodeTableHeaderCell[]"
-              },
-              "privacy": "private"
-            },
-            {
-              "kind": "field",
               "name": "_prevHeaderHeight",
               "type": {
                 "text": "number"
@@ -9704,30 +10535,10 @@
               "default": "0"
             },
             {
-              "kind": "method",
-              "name": "_px2Percent",
+              "kind": "field",
+              "name": "_columnResizeController",
               "privacy": "private",
-              "parameters": [
-                {
-                  "name": "px",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "_percent2Px",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "percent",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
+              "default": "new ColumnResizeController(this)"
             },
             {
               "kind": "method",
@@ -9783,7 +10594,7 @@
             },
             {
               "kind": "method",
-              "name": "_calcColWidthPercentages",
+              "name": "_calculateInitialColumnWidths",
               "privacy": "private",
               "return": {
                 "type": {
@@ -9857,6 +10668,19 @@
             },
             {
               "kind": "method",
+              "name": "_stopDrag",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "PointerEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
               "name": "_onDefaultSlotChange",
               "privacy": "private"
             },
@@ -9898,42 +10722,6 @@
             },
             {
               "kind": "method",
-              "name": "_onSashMouseDown",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "event",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "_updateActiveSashPosition",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "mouseX",
-                  "type": {
-                    "text": "number"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "_getSashPositions",
-              "privacy": "private",
-              "return": {
-                "type": {
-                  "text": "{\n    sashPos: number;\n    prevSashPos: number;\n    nextSashPos: number;\n  }"
-                }
-              }
-            },
-            {
-              "kind": "method",
               "name": "_resizeColumns",
               "privacy": "private",
               "parameters": [
@@ -9944,13 +10732,36 @@
               ]
             },
             {
+              "kind": "method",
+              "name": "_handleSplitterPointerDown",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "PointerEvent"
+                  }
+                }
+              ]
+            },
+            {
               "kind": "field",
-              "name": "_onResizingMouseMove",
+              "name": "_handleSplitterPointerMove",
               "privacy": "private"
             },
             {
               "kind": "field",
-              "name": "_onResizingMouseUp",
+              "name": "_handleSplitterPointerUp",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_handleSplitterPointerCancel",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "_handleMinColumnWidthChange",
               "privacy": "private"
             },
             {
@@ -9961,6 +10772,22 @@
               },
               "description": "VSCode Elements version",
               "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
               "inheritedFrom": {
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
@@ -10135,6 +10962,22 @@
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
               }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "superclass": {
@@ -10248,6 +11091,22 @@
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
               }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -10293,6 +11152,129 @@
           "declaration": {
             "name": "VscodeTableCell",
             "module": "src/vscode-table-cell/vscode-table-cell.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-table-header-cell/vscode-table-header-cell.styles.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "styles",
+          "type": {
+            "text": "CSSResultGroup"
+          },
+          "default": "[ defaultStyles, css` :host { box-sizing: border-box; color: var(--vscode-foreground, #cccccc); display: table-cell; font-family: var(--vscode-font-family, sans-serif); font-size: var(--vscode-font-size, 13px); font-weight: bold; line-height: 20px; overflow: hidden; padding-bottom: 5px; padding-left: 10px; padding-right: 0; padding-top: 5px; text-overflow: ellipsis; white-space: nowrap; } .wrapper { box-sizing: inherit; overflow: inherit; text-overflow: inherit; white-space: inherit; width: 100%; } `, ]"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "styles",
+            "module": "src/vscode-table-header-cell/vscode-table-header-cell.styles.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/vscode-table-header-cell/vscode-table-header-cell.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "VscodeTableHeaderCell",
+          "cssProperties": [
+            {
+              "name": "--vscode-foreground",
+              "default": "#cccccc"
+            },
+            {
+              "name": "--vscode-font-family",
+              "default": "sans-serif"
+            },
+            {
+              "name": "--vscode-font-size",
+              "default": "13px"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "minWidth",
+              "type": {
+                "text": "string"
+              },
+              "default": "'0'",
+              "attribute": "min-width"
+            },
+            {
+              "kind": "field",
+              "name": "version",
+              "type": {
+                "text": "string"
+              },
+              "description": "VSCode Elements version",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            }
+          ],
+          "attributes": [
+            {
+              "name": "min-width",
+              "type": {
+                "text": "string"
+              },
+              "default": "'0'",
+              "fieldName": "minWidth"
+            }
+          ],
+          "superclass": {
+            "name": "VscElement",
+            "module": "/src/includes/VscElement.js"
+          },
+          "tagName": "vscode-table-header-cell",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "VscodeTableHeaderCell",
+          "declaration": {
+            "name": "VscodeTableHeaderCell",
+            "module": "src/vscode-table-header-cell/vscode-table-header-cell.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "vscode-table-header-cell",
+          "declaration": {
+            "name": "VscodeTableHeaderCell",
+            "module": "src/vscode-table-header-cell/vscode-table-header-cell.ts"
           }
         }
       ]
@@ -10349,6 +11331,22 @@
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
               }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "superclass": {
@@ -10374,94 +11372,6 @@
           "declaration": {
             "name": "VscodeTableHeader",
             "module": "src/vscode-table-header/vscode-table-header.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-table-header-cell/vscode-table-header-cell.styles.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "styles",
-          "type": {
-            "text": "CSSResultGroup"
-          },
-          "default": "[ defaultStyles, css` :host { box-sizing: border-box; color: var(--vscode-foreground, #cccccc); display: table-cell; font-family: var(--vscode-font-family, sans-serif); font-size: var(--vscode-font-size, 13px); font-weight: bold; line-height: 20px; overflow: hidden; padding-bottom: 5px; padding-left: 10px; padding-right: 0; padding-top: 5px; text-overflow: ellipsis; white-space: nowrap; } .wrapper { box-sizing: inherit; overflow: inherit; text-overflow: inherit; white-space: inherit; width: 100%; } `, ]"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "styles",
-            "module": "src/vscode-table-header-cell/vscode-table-header-cell.styles.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/vscode-table-header-cell/vscode-table-header-cell.ts",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "VscodeTableHeaderCell",
-          "cssProperties": [
-            {
-              "name": "--vscode-foreground",
-              "default": "#cccccc"
-            },
-            {
-              "name": "--vscode-font-family",
-              "default": "sans-serif"
-            },
-            {
-              "name": "--vscode-font-size",
-              "default": "13px"
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "version",
-              "type": {
-                "text": "string"
-              },
-              "description": "VSCode Elements version",
-              "readonly": true,
-              "inheritedFrom": {
-                "name": "VscElement",
-                "module": "src/includes/VscElement.ts"
-              }
-            }
-          ],
-          "superclass": {
-            "name": "VscElement",
-            "module": "/src/includes/VscElement.js"
-          },
-          "tagName": "vscode-table-header-cell",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "VscodeTableHeaderCell",
-          "declaration": {
-            "name": "VscodeTableHeaderCell",
-            "module": "src/vscode-table-header-cell/vscode-table-header-cell.ts"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "vscode-table-header-cell",
-          "declaration": {
-            "name": "VscodeTableHeaderCell",
-            "module": "src/vscode-table-header-cell/vscode-table-header-cell.ts"
           }
         }
       ]
@@ -10513,6 +11423,22 @@
               },
               "description": "VSCode Elements version",
               "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
               "inheritedFrom": {
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
@@ -10757,6 +11683,22 @@
               },
               "description": "VSCode Elements version",
               "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
               "inheritedFrom": {
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
@@ -11250,6 +12192,22 @@
               },
               "description": "VSCode Elements version",
               "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
               "inheritedFrom": {
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
@@ -11871,6 +12829,22 @@
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
               }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "events": [
@@ -12180,6 +13154,22 @@
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
               }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "events": [
@@ -12292,6 +13282,22 @@
               },
               "description": "VSCode Elements version",
               "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
               "inheritedFrom": {
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
@@ -12825,6 +13831,22 @@
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
               }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -12947,8 +13969,38 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "Represents an item in a Tree component.",
           "name": "VscodeTreeItem",
+          "slots": [
+            {
+              "description": "Main content",
+              "name": ""
+            },
+            {
+              "description": "Custom icon for a closed branch item.",
+              "name": "icon-branch"
+            },
+            {
+              "description": "Custom icon for an opened branch item.",
+              "name": "icon-branch-opened"
+            },
+            {
+              "description": "Custom icon for a leaf item.",
+              "name": "icon-leaf"
+            },
+            {
+              "description": "Description of the item. Displayed with a smaller font size and a less prominent color.",
+              "name": "description"
+            },
+            {
+              "description": "Container for action buttons.",
+              "name": "actions"
+            },
+            {
+              "description": "Container for small decorative elements aligned to the right edge of the item.",
+              "name": "decoration"
+            }
+          ],
           "members": [
             {
               "kind": "field",
@@ -13437,6 +14489,22 @@
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
               }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
             }
           ],
           "attributes": [
@@ -13500,7 +14568,7 @@
             "name": "VscElement",
             "module": "/src/includes/VscElement.js"
           },
-          "tagName": "vscode-tree-item",
+          "tagName": "vscode-tree",
           "customElement": true
         }
       ],
@@ -13569,6 +14637,22 @@
               },
               "description": "VSCode Elements version",
               "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
               "inheritedFrom": {
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
@@ -15175,6 +16259,22 @@
               },
               "description": "VSCode Elements version",
               "readonly": true,
+              "inheritedFrom": {
+                "name": "VscElement",
+                "module": "src/includes/VscElement.ts"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "warn",
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
               "inheritedFrom": {
                 "name": "VscElement",
                 "module": "src/includes/VscElement.ts"
