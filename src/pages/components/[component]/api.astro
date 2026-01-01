@@ -57,7 +57,7 @@ const kebabToPascal = (kebab: string) => {
 const { component } = Astro.params;
 const tagName = "vscode-" + component;
 const title = kebabToPascal(component);
-const cemPath = "node_modules/@vscode-elements/elements/custom-elements.json";
+const cemPath = "./src/data/custom-elements.json";
 ---
 
 <ApiPage cemPath={cemPath} tagName={tagName} title={title} />
